@@ -3,7 +3,7 @@
 > Biên soạn bởi **Bùi Anh Tuấn** — SV khoa Toán – Tin học, 25TTH3, MSSV 25110181.
 > Một phần của hệ sinh thái [tuanairesearch.com](https://tuanairesearch.com)
 > (`tldc.tuanairesearch.com`). Nội dung soạn cùng AI (Claude Opus), dựa trên giáo trình
-> *Tâm lý học đại cương* của ThS. Trần Hương Thảo. **Phi lợi nhuận, cho mục đích học tập.**
+> *Tâm lý học đại cương* **Phi lợi nhuận, cho mục đích học tập.**
 
 Ứng dụng web ôn tập trắc nghiệm với **2 bộ câu hỏi tách biệt** (chọn ngay trên trang chủ,
 **không bao giờ trộn vào nhau**):

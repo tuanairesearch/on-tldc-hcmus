@@ -411,8 +411,6 @@ function renderAbout() {
         truy cập tại <a href="https://tldc.tuanairesearch.com" target="_blank" rel="noopener">tldc.tuanairesearch.com</a>.</p>
 
       <h2>Nguồn tài liệu</h2>
-      <p>Nội dung soạn dựa trên giáo trình <i>Tâm lý học đại cương</i> của
-        <b>ThS. Trần Hương Thảo</b> <span class="muted"></span>.</p>
 
       <h2>Các trang quiz theo chương</h2>
       ${unlocked ? `<p>📄 ${link('de-goc-cau-hoi-trac-nghiem.pdf', 'Đề gốc (PDF) — 278 câu trắc nghiệm')}</p>` : ''}
