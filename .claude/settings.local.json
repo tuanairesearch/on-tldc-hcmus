@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pdffonts \"cau-hoi-trac-nghiem-tam-ly-hoc-dai-cuong-vieclamvui_2.pdf\")",
+      "Bash(xxd)",
+      "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.__doc__\\)\")",
+      "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
+      "Bash(python -c \"import pdfminer; print\\('pdfminer ok'\\)\")",
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")"
+    ]
+  }
+}

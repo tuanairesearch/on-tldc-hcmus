@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Chương 5 — Xúc cảm · Tình cảm · Sai lệch hành vi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF6EF; --ink:#2B2430; --muted:#7A6E78;
+  --plum:#6E2A52; --rose:#C24E6B; --coral:#E8744F;
+  --teal:#2C7A75; --gold:#D9A441;
+  --ok:#1F8A5B; --okbg:#E7F4EC; --no:#C8432F; --nobg:#FBE9E5;
+  --card:#FFFFFF; --line:#EADfD4; --soft:#F3EAE0;
+  --shadow:0 1px 2px rgba(43,36,48,.04),0 10px 30px rgba(110,42,82,.07);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);line-height:1.55;-webkit-font-smoothing:antialiased}
+.spectrum{height:5px;width:100%;background:linear-gradient(90deg,var(--gold),var(--coral),var(--rose),var(--plum),#3C2A6E,var(--teal));position:sticky;top:0;z-index:50}
+.wrap{max-width:760px;margin:0 auto;padding:0 18px 90px}
+.screen{display:none}
+.screen.on{display:block;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* Header */
+header{padding:32px 0 6px}
+.eyebrow{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:700;margin:0 0 8px}
+h1{font-size:1.85rem;font-weight:800;margin:0 0 6px;letter-spacing:-.01em;line-height:1.2}
+h1 .b{color:var(--plum)}
+.sub{color:var(--muted);font-size:.95rem;margin:0;max-width:60ch}
+
+/* Panel / filters */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:18px;margin:20px 0}
+.panel h3{margin:0 0 10px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;color:var(--ink);font:inherit;font-size:.82rem;font-weight:600;padding:7px 13px;border-radius:999px;cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--rose)}
+.chip[aria-pressed="true"]{background:var(--plum);border-color:var(--plum);color:#fff}
+.chip.t15[aria-pressed="true"]{background:var(--teal);border-color:var(--teal)}
+.chip.t25[aria-pressed="true"]{background:var(--coral);border-color:var(--coral)}
+.chip.t35[aria-pressed="true"]{background:var(--rose);border-color:var(--rose)}
+.toggles{display:flex;flex-wrap:wrap;gap:18px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.toggle{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--ink);font-weight:600;cursor:pointer}
+.toggle input{width:17px;height:17px;accent-color:var(--plum)}
+.startrow{display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap}
+.btn{font:inherit;font-weight:700;font-size:.92rem;border-radius:11px;padding:12px 22px;cursor:pointer;border:1.5px solid var(--plum);background:var(--plum);color:#fff;transition:.15s}
+.btn:hover{filter:brightness(1.07)}
+.btn:disabled{opacity:.45;cursor:not-allowed;filter:none}
+.btn.ghost{background:#fff;color:var(--plum)}
+.btn.sm{font-size:.84rem;padding:9px 16px}
+.count{color:var(--muted);font-weight:600;font-size:.9rem}
+.count b{color:var(--plum);font-size:1.05rem}
+
+/* Quiz screen top bar */
+.qbar{position:sticky;top:5px;z-index:40;background:rgba(251,246,239,.93);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:18px 0;box-shadow:var(--shadow)}
+.qbar .line1{display:flex;align-items:center;gap:14px;margin-bottom:9px}
+.qbar .pos{font-weight:800;color:var(--plum)}
+.qbar .pos b{font-size:1.15rem}
+.qbar .live{margin-left:auto;font-size:.82rem;color:var(--muted);font-weight:700}
+.qbar .live b{color:var(--ink)}
+.qbar .exit{border:none;background:none;color:var(--muted);font:inherit;font-weight:700;font-size:.8rem;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.progress{height:9px;background:var(--soft);border-radius:99px;overflow:hidden}
+.progress > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--rose),var(--plum));transition:width .35s}
+
+/* Question card */
+.q{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--rose);border-radius:16px;box-shadow:var(--shadow);padding:22px}
+.q.secB{border-left-color:var(--teal)}
+.qhead{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:14px}
+.tag{font-size:.66rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+.tag.sec{background:var(--soft);color:var(--plum)}
+.tag.sec.secB{background:#E2F0EF;color:var(--teal)}
+.tag.tier{color:#fff}
+.tier15{background:var(--teal)} .tier25{background:var(--coral)} .tier35{background:var(--rose)}
+.qtext{font-size:1.1rem;font-weight:600;margin:0 0 18px;line-height:1.5}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;text-align:left;border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:13px 15px;font:inherit;font-size:.98rem;cursor:pointer;transition:.13s;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--plum);background:#FFFCF8}
+.opt:disabled{cursor:default}
+.opt .k{flex:none;width:28px;height:28px;border-radius:8px;background:var(--soft);color:var(--plum);font-weight:800;font-size:.85rem;display:grid;place-items:center}
+.opt.correct{border-color:var(--ok);background:var(--okbg)}
+.opt.correct .k{background:var(--ok);color:#fff}
+.opt.wrong{border-color:var(--no);background:var(--nobg)}
+.opt.wrong .k{background:var(--no);color:#fff}
+.opt.dim{opacity:.6}
+.fb{margin-top:16px;border-radius:12px;padding:14px 16px;font-size:.92rem;display:none;animation:fade .22s ease}
+.fb.show{display:block}
+.fb.good{background:var(--okbg);border:1px solid #BBE3CB}
+.fb.bad{background:var(--nobg);border:1px solid #F1CABF}
+.fb .verdict{font-weight:800;display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.fb.good .verdict{color:var(--ok)} .fb.bad .verdict{color:var(--no)}
+.fb .pg{display:inline-block;margin-top:9px;font-size:.74rem;font-weight:700;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 11px}
+
+/* Nav */
+.nav{display:flex;align-items:center;gap:12px;margin-top:18px}
+.nav .spacer{flex:1}
+.navbtn{font:inherit;font-weight:700;font-size:.92rem;border-radius:11px;padding:12px 20px;cursor:pointer;transition:.15s;border:1.5px solid var(--line);background:#fff;color:var(--plum)}
+.navbtn:hover:not(:disabled){border-color:var(--plum)}
+.navbtn.primary{background:var(--plum);border-color:var(--plum);color:#fff}
+.navbtn:disabled{opacity:.4;cursor:not-allowed}
+.hint{font-size:.82rem;color:var(--muted);font-weight:600}
+
+/* Result */
+.result{background:linear-gradient(135deg,#fff,#FFF8F1);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:26px}
+.result .grade{font-size:2.6rem;font-weight:800;color:var(--plum);line-height:1}
+.result h2{margin:6px 0 2px;font-size:1.3rem;font-weight:800}
+.result .msg{color:var(--muted);margin:.3rem 0 0;font-weight:600}
+.bd{margin-top:20px}
+.bd h4{margin:16px 0 9px;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.9rem}
+.row .nm{flex:none;width:50%;font-weight:600}
+.row .track{flex:1;height:8px;background:var(--soft);border-radius:99px;overflow:hidden}
+.row .track > i{display:block;height:100%;background:var(--plum);border-radius:99px}
+.row .pct{flex:none;width:54px;text-align:right;font-weight:700;color:var(--muted);font-size:.82rem}
+.resbtns{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:26px}
+@media(max-width:480px){.qtext{font-size:1.04rem}.row .nm{width:44%}}
+</style>
+</head>
+<body>
+<div class="spectrum"></div>
+<div class="wrap">
+
+  <!-- ===== START SCREEN ===== -->
+  <section class="screen on" id="startScreen">
+    <header>
+      <p class="eyebrow">Tâm lý học đại cương · Chương 5</p>
+      <h1>Xúc cảm – Tình cảm <span class="b">&amp; Sự sai lệch hành vi</span></h1>
+      <p class="sub">Làm từng câu một: chọn đáp án để xem ngay phản hồi và trang SGK, rồi bấm “Câu tiếp”. Lọc phần & mức độ trước khi bắt đầu.</p>
+    </header>
+    <div class="panel">
+      <h3>Lọc theo phần</h3>
+      <div class="chips" id="secChips"></div>
+      <h3 style="margin-top:16px">Lọc theo mức điểm</h3>
+      <div class="chips" id="tierChips">
+        <button class="chip t15" data-tier="0.15" aria-pressed="true">0.15đ · Nhận biết</button>
+        <button class="chip t25" data-tier="0.25" aria-pressed="true">0.25đ · Vận dụng</button>
+        <button class="chip t35" data-tier="0.35" aria-pressed="true">0.35đ · Tình huống</button>
+      </div>
+      <div class="toggles">
+        <label class="toggle"><input type="checkbox" id="shufQ" checked> Trộn thứ tự câu hỏi</label>
+        <label class="toggle"><input type="checkbox" id="shufO" checked> Trộn thứ tự đáp án</label>
+      </div>
+      <div class="startrow">
+        <button class="btn" id="startBtn">Bắt đầu luyện →</button>
+        <span class="count">Sẽ luyện <b id="preCount">0</b> câu</span>
+      </div>
+    </div>
+    <footer>Theo giáo trình Tâm lý học đại cương — ThS. Trần Hương Thảo (ĐH KHXH&amp;NV – ĐHQG TP.HCM). Trang SGK là tham chiếu gần đúng.</footer>
+  </section>
+
+  <!-- ===== QUIZ SCREEN ===== -->
+  <section class="screen" id="quizScreen">
+    <div class="qbar">
+      <div class="line1">
+        <span class="pos">Câu <b id="posNow">1</b> / <span id="posTot">0</span></span>
+        <span class="live">Đúng <b id="liveRight">0</b> · Điểm <b id="liveScore">0.00</b></span>
+      </div>
+      <div class="progress"><i id="bar"></i></div>
+      <div style="margin-top:9px"><button class="exit" id="exitBtn">⟵ Đổi bộ lọc</button></div>
+    </div>
+    <div id="qhost"></div>
+    <div class="nav">
+      <button class="navbtn" id="prevBtn">← Câu trước</button>
+      <span class="spacer"></span>
+      <span class="hint" id="navHint">Chọn một đáp án để tiếp tục</span>
+      <button class="navbtn primary" id="nextBtn" disabled>Câu tiếp →</button>
+    </div>
+  </section>
+
+  <!-- ===== RESULT SCREEN ===== -->
+  <section class="screen" id="resultScreen">
+    <header><p class="eyebrow">Kết quả</p></header>
+    <div class="result" id="result"></div>
+  </section>
+
+</div>
+
+<script>
+const QUESTIONS = [
+
+/* ===== PHẦN A — XÚC CẢM · TÌNH CẢM ===== */
+/* -- S1: Khái niệm & Phân biệt -- */
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.15",q:"Về bản chất, xúc cảm và tình cảm là gì?",o:["Sự phản ánh thuộc tính bề ngoài của sự vật qua giác quan","Sự phản ánh hiện thực khách quan, biểu thị thái độ (rung cảm) của con người đối với sự vật, hiện tượng liên quan tới nhu cầu, động cơ của cá nhân","Quá trình ghi nhớ, gìn giữ và tái hiện kinh nghiệm đã trải qua","Khả năng điều khiển hành vi nhằm đạt mục đích đã đặt ra"],c:1,f:"Xúc cảm – tình cảm là sự phản ánh hiện thực khách quan, biểu thị thái độ rung cảm của con người với sự vật, hiện tượng có liên quan đến nhu cầu, động cơ của chính cá nhân đó.",pg:"tr.109"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.25",q:"Điểm GIỐNG nhau giữa xúc cảm và tình cảm là:",o:["Đều chỉ có ở con người","Đều là thuộc tính tâm lý ổn định, bền vững","Đều phản ánh mối quan hệ giữa sự vật, hiện tượng với việc thỏa mãn nhu cầu của chủ thể","Đều gắn liền với phản xạ có điều kiện"],c:2,f:"Giống nhau: đều phản ánh hiện thực khách quan và đều phản ánh mối quan hệ giữa sự vật–hiện tượng với sự thỏa mãn nhu cầu. Các phương án còn lại là dấu hiệu KHÁC nhau.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.15",q:"Xét về tính chất tâm lý: xúc cảm là một ___, còn tình cảm là một ___.",o:["thuộc tính tâm lý / quá trình tâm lý","quá trình tâm lý / thuộc tính tâm lý","trạng thái tâm lý / quá trình tâm lý","quá trình tâm lý / trạng thái tâm lý"],c:1,f:"Xúc cảm là một quá trình tâm lý (nhất thời); tình cảm là một thuộc tính tâm lý (ổn định).",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.25",q:"Dấu hiệu nào sau đây ĐÚNG với XÚC CẢM (không phải tình cảm)?",o:["Chỉ có ở con người","Có tính ổn định, bền vững, khó mất đi","Có cả ở người và động vật, mang tính nhất thời, luôn ở trạng thái hiện thực","Thường tồn tại ở dạng tiềm tàng"],c:2,f:"Xúc cảm: có ở cả người và động vật, tính nhất thời, luôn ở trạng thái hiện thực, xuất hiện trước. Ba dấu hiệu kia thuộc về tình cảm.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.15",q:"Tình cảm thực hiện chức năng gì (so với xúc cảm)?",o:["Chức năng sinh vật","Chức năng xã hội","Chức năng nhận thức cảm tính","Chức năng điều khiển vận động"],c:1,f:"Tình cảm thực hiện chức năng xã hội (giúp con người định hướng, thích nghi với xã hội với tư cách một nhân cách); còn xúc cảm thực hiện chức năng sinh vật.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.25",q:"Về cơ sở phản xạ: xúc cảm gắn với phản xạ ___, tình cảm gắn với phản xạ ___.",o:["có điều kiện / không điều kiện","không điều kiện / có điều kiện","đều là không điều kiện","đều là có điều kiện"],c:1,f:"Xúc cảm gắn liền với phản xạ KHÔNG điều kiện; tình cảm gắn liền với phản xạ CÓ điều kiện.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.15",q:"So với tình cảm, xúc cảm xuất hiện ___ và tình cảm thường ở trạng thái ___.",o:["sau / hiện thực","trước / tiềm tàng","sau / tiềm tàng","trước / hiện thực"],c:1,f:"Xúc cảm xuất hiện trước và luôn ở trạng thái hiện thực; tình cảm xuất hiện sau và thường ở trạng thái tiềm tàng.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.25",q:"Câu “Tình cảm tồn tại ở dạng tiềm tàng và được nhận biết gián tiếp thông qua những xúc cảm cụ thể” thể hiện điều gì?",o:["Xúc cảm và tình cảm hoàn toàn đồng nhất với nhau","Tình cảm có trước, xúc cảm có sau","Khái quát hóa các xúc cảm cùng loại tạo thành tình cảm; tình cảm lại biểu hiện qua xúc cảm","Xúc cảm chỉ tồn tại ở loài vật"],c:2,f:"Tình cảm được hình thành qua khái quát hóa các xúc cảm cùng loại, biểu hiện gián tiếp qua xúc cảm. Quan hệ xúc cảm – tình cảm là quan hệ nhân quả.",pg:"tr.110, 114"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.35",q:"“Suốt cả bộ phim, An luôn yêu mến nhân vật chính; đến cảnh nhân vật ấy qua đời, An bật khóc nức nở.” Nước mắt tại cảnh phim là biểu hiện của ___; lòng yêu mến nhân vật xuyên suốt là biểu hiện của ___.",o:["tình cảm / xúc cảm","xúc cảm / tình cảm","xúc động / tâm trạng","tâm trạng / say mê"],c:1,f:"Rung động trực tiếp, nhất thời tại một tình huống cụ thể = xúc cảm. Thái độ ổn định với cả nhân vật xuyên suốt (một loạt biểu hiện) = tình cảm.",pg:"tr.109–110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.25",q:"Đối với xúc cảm, chức năng sinh vật của nó giúp con người (và động vật) điều gì?",o:["Định hướng và thích nghi với xã hội với tư cách nhân cách","Định hướng và thích nghi với môi trường bên ngoài với tư cách một cá thể","Khái quát hóa kinh nghiệm thành tri thức","Hình thành thế giới quan và niềm tin"],c:1,f:"Xúc cảm thực hiện chức năng sinh vật: giúp con người (và con vật) định hướng, thích nghi với môi trường bên ngoài với tư cách một cá thể.",pg:"tr.110"},
+{p:"A",s:"Khái niệm & Phân biệt",t:"0.35",q:"Bạn cần xếp loại: “rung động đối với từng sự vật, hiện tượng riêng lẻ, xuất hiện khi con người phản ứng trực tiếp với tình huống cụ thể”. Đó là định nghĩa của khái niệm nào?",o:["Tình cảm","Xúc cảm","Tâm trạng","Say mê"],c:1,f:"Đó là xúc cảm: rung động đối với TỪNG sự vật, hiện tượng riêng lẻ, xuất hiện khi phản ứng trực tiếp với tình huống. Tình cảm thì hướng tới “một loạt” sự vật, hiện tượng.",pg:"tr.109"},
+
+/* -- S2: Đặc điểm tình cảm -- */
+{p:"A",s:"Đặc điểm tình cảm",t:"0.15",q:"Ba yếu tố tất yếu để làm nảy sinh tình cảm là gì?",o:["Cảm giác – tri giác – tư duy","Nhận thức – rung động – phản ứng cảm xúc","Nhu cầu – động cơ – mục đích","Di truyền – môi trường – giáo dục"],c:1,f:"Yếu tố nhận thức, sự rung động và phản ứng cảm xúc là ba yếu tố tất yếu làm nảy sinh tình cảm — thể hiện tính nhận thức của tình cảm.",pg:"tr.111"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.25",q:"“Nhận thức được xem là cái lý của tình cảm, làm cho tình cảm có tính đối tượng xác định.” Câu này nói về đặc điểm nào?",o:["Tính xã hội","Tính nhận thức","Tính ổn định","Tính đối cực"],c:1,f:"Đây là tính nhận thức: nhận thức là “cái lý” của tình cảm, khiến tình cảm có đối tượng xác định.",pg:"tr.111"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.25",q:"Tình cảm nảy sinh do một LOẠI / một PHẠM TRÙ sự vật, hiện tượng chứ không do một sự vật đơn lẻ. Đó là đặc điểm:",o:["Tính khái quát","Tính chân thực","Tính nhận thức","Tính ổn định"],c:0,f:"Tính khái quát là đặc điểm đặc trưng của tình cảm: nó hướng tới một loại/phạm trù đối tượng, không phải một sự vật riêng lẻ.",pg:"tr.114"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.15",q:"Đặc điểm nào giúp phân biệt nhân cách này với nhân cách khác, do tình cảm là kết cấu tâm lý ổn định, khó hình thành và khó mất đi?",o:["Tính xã hội","Tính ổn định","Tính chân thực","Tính khái quát"],c:1,f:"Tính ổn định: tình cảm là thuộc tính tâm lý bền vững, khó hình thành và khó mất đi, là một đặc trưng của nhân cách.",pg:"tr.114"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.25",q:"Gia đình, bạn bè, nhà trường, hoàn cảnh kinh tế… là môi trường hình thành nên tình cảm. Điều này thể hiện đặc điểm:",o:["Tính nhận thức","Tính xã hội","Tính đối cực","Tính ổn định"],c:1,f:"Tính xã hội: tình cảm hình thành trong môi trường xã hội, do các đối tượng xã hội, khác với phản ứng sinh lý đơn thuần ở động vật.",pg:"tr.111"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.25",q:"Các cặp “yêu – ghét”, “vui – buồn”, “sợ hãi – can đảm” gắn với việc thỏa mãn hay không thỏa mãn nhu cầu. Đó là biểu hiện của:",o:["Tính đối cực (tính hai mặt)","Tính khái quát","Tính chân thực","Tính nhận thức"],c:0,f:"Tính đối cực (hai mặt): tình cảm phát triển theo các cặp đối lập tương ứng với nhu cầu được thỏa mãn hay bị kìm hãm.",pg:"tr.114"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.35",q:"“Dù rất buồn vì vừa chia tay, Lan vẫn cố nở nụ cười khi gặp đồng nghiệp, nhưng ánh mắt và giọng nói vẫn để lộ sự rã rời.” Hiện tượng này phản ánh đặc điểm nào của tình cảm?",o:["Tính khái quát","Tính chân thực","Tính nhận thức","Tính ổn định"],c:1,f:"Tính chân thực: tình cảm phản ánh chân thực nội tâm và thái độ ngay cả khi con người cố che giấu bằng những động tác giả, ngụy trang bên ngoài.",pg:"tr.114"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.35",q:"Một học sinh từng ghét môn Văn, nhưng sau nhiều năm được cô giáo tận tâm dìu dắt, em dần yêu thích môn này một cách bền vững, khó thay đổi. Đặc điểm nào của tình cảm thể hiện rõ nhất ở chỗ “bền vững, khó thay đổi”?",o:["Tính ổn định","Tính đối cực","Tính xã hội","Tính khái quát"],c:0,f:"Sự bền vững, khó thay đổi của thái độ chính là tính ổn định — tình cảm là kết cấu tâm lý ổn định, khó hình thành và khó mất đi.",pg:"tr.114"},
+{p:"A",s:"Đặc điểm tình cảm",t:"0.15",q:"Theo giáo trình, trong các đặc điểm của tình cảm, đặc điểm nào được nêu là “đặc trưng cho tình cảm”?",o:["Tính chân thực","Tính khái quát","Tính nhận thức","Tính đối cực"],c:1,f:"Giáo trình nêu tính khái quát là “đặc điểm đặc trưng cho tình cảm”, nhất là những tình cảm mang tính thế giới quan.",pg:"tr.114"},
+
+/* -- S3: Các mức độ đời sống tình cảm -- */
+{p:"A",s:"Các mức độ đời sống TC",t:"0.15",q:"Mức độ THẤP NHẤT của đời sống tình cảm là gì?",o:["Tâm trạng","Màu sắc xúc cảm","Xúc động","Say mê"],c:1,f:"Màu sắc xúc cảm là mức độ thấp nhất — một sắc thái của cảm xúc đi kèm theo quá trình cảm giác.",pg:"tr.113"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.15",q:"Màu sắc xúc cảm là một sắc thái của cảm xúc đi kèm theo quá trình nào?",o:["Tư duy","Tưởng tượng","Cảm giác","Trí nhớ"],c:2,f:"Màu sắc xúc cảm là sắc thái cảm xúc đi kèm theo quá trình cảm giác (ví dụ màu sắc có thể gây phấn khích, kích thích, tĩnh tâm…).",pg:"tr.113"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.25",q:"Dạng cảm xúc có cường độ rất mạnh, xảy ra trong thời gian ngắn, diễn ra theo từng “cơn”, khiến con người không làm chủ được bản thân (“cả giận mất khôn”) là:",o:["Tâm trạng","Xúc động","Say mê","Màu sắc xúc cảm"],c:1,f:"Đó là xúc động: cường độ rất mạnh nhưng ngắn, theo “cơn” (cơn giận, cơn ghen), thường kèm biến đổi cơ thể và mất khả năng làm chủ.",pg:"tr.113"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.25",q:"Trạng thái xúc cảm có cường độ trung bình hoặc yếu, tồn tại tương đối lâu, bao trùm toàn bộ hoạt động của cá nhân là:",o:["Xúc động","Tâm trạng","Say mê","Xúc cảm"],c:1,f:"Tâm trạng: cường độ trung bình/yếu, kéo dài, bao trùm và ảnh hưởng rõ rệt đến toàn bộ hành vi của cá nhân trong một thời gian dài.",pg:"tr.114"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.15",q:"Một đặc điểm của tâm trạng là người mang tâm trạng thường:",o:["Ý thức rất rõ nguyên nhân gây ra nó","Không ý thức được nguyên nhân gây ra tâm trạng ấy","Chỉ duy trì trong vài giây","Luôn làm chủ hoàn toàn hành vi"],c:1,f:"Người mang tâm trạng thường không ý thức được nguyên nhân gây ra tâm trạng đó; nguồn gốc tâm trạng có thể gần hoặc xa.",pg:"tr.114"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.25",q:"Loại tình cảm có cường độ mạnh, tồn tại lâu dài và ổn định, được phân thành tích cực hoặc tiêu cực dựa theo ý nghĩa xã hội của đối tượng, là:",o:["Xúc động","Say mê","Tâm trạng","Màu sắc xúc cảm"],c:1,f:"Say mê: cường độ mạnh, lâu dài, ổn định. Say mê tích cực (nghệ thuật, khoa học) thúc đẩy con người; say mê tiêu cực (cờ bạc, rượu chè) làm suy yếu con người.",pg:"tr.117"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.35",q:"“Trong lúc nóng giận, anh B đập vỡ điện thoại, rồi chỉ vài phút sau đã bình tĩnh lại và hối hận.” Đây là biểu hiện của:",o:["Tâm trạng","Xúc động","Say mê tiêu cực","Màu sắc xúc cảm"],c:1,f:"Cường độ rất mạnh + thời gian ngắn + theo “cơn” + mất khả năng làm chủ → xúc động, đúng kiểu “cả giận mất khôn”.",pg:"tr.113"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.35",q:"“Suốt cả tuần nay, C thấy uể oải, chán nản với hầu hết mọi việc mà không rõ lý do cụ thể.” Đây là biểu hiện của:",o:["Xúc động","Tâm trạng","Say mê","Màu sắc xúc cảm"],c:1,f:"Cường độ vừa/yếu + kéo dài nhiều ngày + bao trùm mọi hoạt động + không rõ nguyên nhân → tâm trạng.",pg:"tr.114"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.35",q:"“Một người dồn hết thời gian, tiền bạc vào cờ bạc, đến mức suy yếu cả tinh thần lẫn thể chất, không còn vươn lên trong công việc.” Đây là:",o:["Say mê tích cực","Say mê tiêu cực","Xúc động","Màu sắc xúc cảm"],c:1,f:"Say mê tiêu cực: đối tượng say mê có ý nghĩa xã hội tiêu cực (cờ bạc, rượu chè), làm con người suy yếu và cản trở sự vươn lên.",pg:"tr.117"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.15",q:"Mức độ cao nhất của tình cảm con người, thường diễn đạt bằng các từ “tính”, “lòng”, “tinh thần” (lòng yêu nước, tinh thần trách nhiệm) là:",o:["Tình cảm đạo đức","Tình cảm trí tuệ","Tình cảm có tính thế giới quan","Tình cảm thẩm mỹ"],c:2,f:"Tình cảm có tính thế giới quan là mức cao nhất, được diễn đạt bằng “tính”, “lòng”, “tinh thần”: lòng yêu nước, tinh thần trách nhiệm…",pg:"tr.116, 119"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.25",q:"Lòng yêu lao động, sự tôn trọng các giá trị lao động, ham thích thể thao… là những hình thức của loại tình cảm cấp cao nào?",o:["Tình cảm đạo đức","Tình cảm hoạt động","Tình cảm thẩm mỹ","Tình cảm trí tuệ"],c:1,f:"Đó là tình cảm hoạt động: thái độ của con người đối với một hoạt động nhất định, liên quan đến việc thỏa mãn hay không nhu cầu khi thực hiện hoạt động đó.",pg:"tr.116"},
+{p:"A",s:"Các mức độ đời sống TC",t:"0.25",q:"Trong các mức độ của đời sống tình cảm, “xúc cảm” gồm hai dạng cơ bản nào?",o:["Màu sắc xúc cảm và tâm trạng","Xúc động và tâm trạng","Say mê và xúc động","Màu sắc xúc cảm và say mê"],c:1,f:"Ở mức “xúc cảm”, giáo trình nêu hai dạng: xúc động (mạnh, ngắn) và tâm trạng (vừa/yếu, kéo dài).",pg:"tr.113–114"},
+/* -- S4: 6 quy luật tình cảm -- */
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Hiện tượng “vui lây”, “buồn lây”, và rõ rệt nhất là hiện tượng “hoảng loạn” của đám đông, là biểu hiện của quy luật nào?",o:["Quy luật thích ứng","Quy luật lây lan","Quy luật tương phản","Quy luật di chuyển"],c:1,f:"Quy luật lây lan: xúc cảm, tình cảm có thể truyền, lây từ người này sang người khác; nền tảng là tính xã hội trong tình cảm. Biểu hiện rõ rệt là “hoảng loạn”.",pg:"tr.116–117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.25",q:"Nguyên tắc giáo dục “trong tập thể và thông qua tập thể” dựa trên cơ sở của quy luật tình cảm nào?",o:["Quy luật lây lan","Quy luật pha trộn","Quy luật hình thành","Quy luật tương phản"],c:0,f:"Quy luật lây lan có ý nghĩa lớn trong hoạt động tập thể; trong giáo dục, nó là cơ sở của nguyên tắc giáo dục trong tập thể và bằng tập thể.",pg:"tr.117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Một bạn trong nhóm bỗng cười phá lên, lập tức cả nhóm cười theo dù chưa rõ chuyện gì.” Đây là quy luật:",o:["Quy luật di chuyển","Quy luật lây lan","Quy luật thích ứng","Quy luật pha trộn"],c:1,f:"Tình cảm truyền từ chủ thể này sang chủ thể khác (cười theo) → quy luật lây lan.",pg:"tr.116–117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.25",q:"Theo giáo trình, việc lây lan tình cảm từ người này sang người khác có phải là con đường CHỦ YẾU để hình thành tình cảm không?",o:["Có, đó là con đường chủ yếu","Không, đó không phải là con đường chủ yếu để hình thành tình cảm","Có, nhưng chỉ ở trẻ em","Chỉ đúng với tình cảm tiêu cực"],c:1,f:"Lưu ý dễ bẫy: lây lan KHÔNG phải con đường chủ yếu để hình thành tình cảm; con đường hình thành là tổng hợp – động hình – khái quát hóa các xúc cảm (quy luật hình thành).",pg:"tr.117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Hiện tượng một xúc cảm, tình cảm được lặp đi lặp lại nhiều lần không thay đổi thì cuối cùng bị suy yếu, lắng xuống (“chai sạn”) là quy luật:",o:["Quy luật thích ứng","Quy luật lây lan","Quy luật tương phản","Quy luật hình thành"],c:0,f:"Quy luật thích ứng: xúc cảm/tình cảm lặp lại đơn điệu sẽ suy yếu, lắng xuống — hiện tượng “chai sạn”; gây nhàm chán trong đời sống tình cảm.",pg:"tr.117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Người vốn rất sợ nói trước đám đông, nhưng vì công việc phải thuyết trình thường xuyên nên dần dần không còn cảm thấy sợ nữa.” Đây là quy luật:",o:["Quy luật lây lan","Quy luật thích ứng","Quy luật di chuyển","Quy luật pha trộn"],c:1,f:"Cảm xúc (sợ) lặp lại nhiều lần bị suy yếu dần → quy luật thích ứng. Đây chính là ví dụ trong giáo trình.",pg:"tr.117"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Ở bên nhau quá lâu mà không có gì mới, hai vợ chồng dần thấy nhàm chán, nguội lạnh.” Quy luật nào lý giải hiện tượng này?",o:["Quy luật thích ứng","Quy luật tương phản","Quy luật lây lan","Quy luật hình thành"],c:0,f:"Quy luật thích ứng gây ra sự nhàm chán trong đời sống tình cảm và trong quan hệ người–người; muốn tránh phải tạo ra xúc cảm mới.",pg:"tr.117–118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Sự tác động qua lại giữa xúc cảm, tình cảm ÂM TÍNH và DƯƠNG TÍNH thuộc cùng một loại, khiến cái này làm tăng hoặc giảm cái kia (xảy ra đồng thời hay nối tiếp), là quy luật:",o:["Quy luật pha trộn","Quy luật tương phản","Quy luật di chuyển","Quy luật thích ứng"],c:1,f:"Quy luật tương phản: tác động qua lại giữa tình cảm âm tính và dương tính CÙNG LOẠI; sự xuất hiện/suy yếu của tình cảm này làm tăng/giảm tình cảm kia.",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Sau khi chấm một loạt bài thi rất yếu, gặp một bài chỉ khá thôi mà giáo viên thấy hài lòng hơn hẳn so với khi bài khá đó nằm giữa một loạt bài khá khác.” Đây là quy luật:",o:["Quy luật tương phản","Quy luật di chuyển","Quy luật lây lan","Quy luật pha trộn"],c:0,f:"Đúng ví dụ giáo trình: tình cảm này (chán nản với bài yếu) làm nổi bật tình cảm kia (hài lòng) khi nối tiếp nhau → quy luật tương phản.",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Vừa xem xong một loạt bức ảnh xấu, đến bức ảnh chỉ trung bình bạn bỗng thấy nó đẹp hẳn lên.” Quy luật nào đang chi phối?",o:["Quy luật thích ứng","Quy luật tương phản","Quy luật pha trộn","Quy luật lây lan"],c:1,f:"Cảm xúc đối lập cùng loại xảy ra nối tiếp làm thay đổi mức độ đánh giá → quy luật tương phản.",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Hiện tượng “giận cá chém thớt”, “yêu nhau yêu cả đường đi, ghét nhau ghét cả tông chi họ hàng” là biểu hiện của quy luật:",o:["Quy luật di chuyển","Quy luật lây lan","Quy luật tương phản","Quy luật thích ứng"],c:0,f:"Quy luật di chuyển: tình cảm di chuyển từ đối tượng này sang đối tượng khác. Cần kiểm soát để tránh “vơ đũa cả nắm”, “giận cá chém thớt”.",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Bị sếp mắng ở công ty, về nhà anh A trút bực bội, gắt gỏng vô cớ với vợ con.” Đây là quy luật:",o:["Quy luật lây lan","Quy luật di chuyển","Quy luật pha trộn","Quy luật thích ứng"],c:1,f:"Tình cảm (bực bội) di chuyển từ đối tượng này (sếp) sang đối tượng khác (vợ con) → quy luật di chuyển, đúng kiểu “giận cá chém thớt”.",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Sự kết hợp màu sắc âm tính của một biểu tượng với màu sắc dương tính của nó, cho phép HAI tình cảm đối lập cùng tồn tại trong một con người (như ghen tuông, lo âu, tự hào), là quy luật:",o:["Quy luật tương phản","Quy luật pha trộn","Quy luật di chuyển","Quy luật lây lan"],c:1,f:"Quy luật pha trộn: hai xúc cảm/tình cảm đối lập cùng tồn tại, không loại trừ mà quy định lẫn nhau (ghen tuông, lo âu và tự hào…).",pg:"tr.118–119"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Khi con đi du học xa, người mẹ vừa tự hào về con, lại vừa lo lắng cho con — hai cảm xúc tồn tại đồng thời.” Đây là quy luật:",o:["Quy luật pha trộn","Quy luật tương phản","Quy luật di chuyển","Quy luật thích ứng"],c:0,f:"Hai tình cảm đối lập (tự hào – lo lắng) cùng tồn tại một lúc trong cùng một người → quy luật pha trộn.",pg:"tr.118–119"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.25",q:"Câu “cái gì càng khó khăn, gian khổ mới đạt được thì khi đạt được càng tự hào” là biểu hiện của quy luật:",o:["Quy luật pha trộn","Quy luật tương phản","Quy luật hình thành","Quy luật lây lan"],c:0,f:"Giáo trình xếp ví dụ này vào quy luật pha trộn tình cảm (gian khổ – tự hào hòa quyện).",pg:"tr.119"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.15",q:"Tình cảm được hình thành từ quá trình tổng hợp hóa, động hình hóa, khái quát hóa những xúc cảm ĐỒNG LOẠI (cùng phạm trù, cùng phạm vi đối tượng). Đó là quy luật:",o:["Quy luật hình thành tình cảm","Quy luật lây lan","Quy luật thích ứng","Quy luật di chuyển"],c:0,f:"Quy luật hình thành tình cảm: muốn hình thành tình cảm phải đi từ xúc cảm, đảm bảo sự lặp lại và động hình hóa những xúc cảm đồng loại.",pg:"tr.119"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"“Tình yêu thương, kính trọng cha mẹ của đứa con được hình thành từ vô số xúc cảm tích lũy khi thường xuyên được cha mẹ chăm sóc.” Đây là quy luật:",o:["Quy luật lây lan","Quy luật hình thành tình cảm","Quy luật pha trộn","Quy luật thích ứng"],c:1,f:"Đúng ví dụ giáo trình: khái quát hóa, động hình hóa nhiều xúc cảm đồng loại → hình thành tình cảm. Đây là quy luật hình thành tình cảm.",pg:"tr.119"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"Phân biệt nhanh: hiện tượng nào sau đây KHÔNG thuộc quy luật di chuyển?",o:["Giận cá chém thớt","Yêu nhau yêu cả đường đi, ghét nhau ghét cả tông chi họ hàng","Bị mắng ở cơ quan, về trút giận lên người thân","Chấm bài yếu rồi gặp bài khá thấy hài lòng hơn hẳn"],c:3,f:"Ba phương án đầu đều là di chuyển tình cảm sang đối tượng khác. Phương án “chấm bài” là quy luật tương phản (cảm xúc đối lập nối tiếp làm nổi bật nhau).",pg:"tr.118"},
+{p:"A",s:"6 quy luật tình cảm",t:"0.35",q:"Điểm khác biệt cốt lõi giữa quy luật TƯƠNG PHẢN và quy luật PHA TRỘN là gì?",o:["Tương phản chỉ có ở người, pha trộn có cả ở động vật","Tương phản: cảm xúc đối lập cùng loại nối tiếp/đồng thời làm CÁI NÀY NỔI BẬT CÁI KIA; pha trộn: hai cảm xúc đối lập CÙNG TỒN TẠI hòa quyện trong một con người","Tương phản làm tình cảm suy yếu, pha trộn làm tình cảm mạnh lên","Hai quy luật này hoàn toàn giống nhau"],c:1,f:"Mẹo phân biệt: tương phản = cái này làm nổi bật cái kia (so sánh, đối chiếu); pha trộn = hai cảm xúc đối lập đồng thời hòa quyện, quy định lẫn nhau (vừa… vừa…).",pg:"tr.118–119"},
+/* -- S5: Vai trò của tình cảm -- */
+{p:"A",s:"Vai trò tình cảm",t:"0.15",q:"Theo giáo trình, trong tâm lý học, tình cảm chính là mặt nào của nhân cách con người?",o:["Mặt mờ nhạt nhất","Mặt tập trung nhất, đậm nét nhất","Mặt không liên quan đến nhân cách","Mặt chỉ mang tính sinh học"],c:1,f:"Tình cảm là mặt tập trung nhất, đậm nét nhất của nhân cách con người.",pg:"tr.119"},
+{p:"A",s:"Vai trò tình cảm",t:"0.25",q:"Đối với hoạt động nhận thức, tình cảm đóng vai trò gì?",o:["Là nguồn động lực mạnh mẽ kích thích con người tìm tòi chân lý","Là yếu tố cản trở việc nhận thức","Là sản phẩm cuối cùng của tư duy","Không có vai trò gì đáng kể"],c:0,f:"Tình cảm là nguồn động lực mạnh mẽ kích thích con người tìm tòi chân lý; ngược lại, nhận thức là “cái lý” chỉ đạo tình cảm — tình và lý là hai mặt thống nhất.",pg:"tr.119"},
+{p:"A",s:"Vai trò tình cảm",t:"0.25",q:"Đối với công tác giáo dục con người, xúc cảm và tình cảm giữ vai trò:",o:["Chỉ là phương tiện giáo dục","Chỉ là mục đích giáo dục","Vừa là điều kiện, vừa là phương tiện, đồng thời là nội dung và mục đích giáo dục","Hoàn toàn không liên quan đến giáo dục"],c:2,f:"Trong giáo dục, xúc cảm – tình cảm vừa là điều kiện, vừa là phương tiện, đồng thời là nội dung và mục đích của giáo dục.",pg:"tr.119"},
+{p:"A",s:"Vai trò tình cảm",t:"0.35",q:"Câu “khi con người đói tình cảm thì toàn bộ hoạt động sống không thể phát triển bình thường” nhấn mạnh vai trò của tình cảm đối với:",o:["Đời sống con người","Việc ghi nhớ máy móc","Cấu tạo giải phẫu của não","Phản xạ không điều kiện"],c:0,f:"Đây là vai trò đối với đời sống: thiếu cảm xúc, con người không thể tồn tại bình thường; tình cảm thúc đẩy con người vượt qua khó khăn.",pg:"tr.119–120"},
+
+/* ===== PHẦN B — SỰ SAI LỆCH HÀNH VI ===== */
+/* -- S6: Hành vi & Chuẩn mực -- */
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.15",q:"Theo Tâm lý học Mác-xít, con người được xem là gì trong quan hệ với môi trường?",o:["Một cá thể thích nghi thụ động với môi trường","Một chủ thể tích cực, hành vi luôn có mục đích, cải tạo môi trường","Một sinh vật chỉ phản ứng theo bản năng","Một thực thể tách rời khỏi cộng đồng"],c:1,f:"Tâm lý học Mác-xít coi con người là chủ thể tích cực, hành vi luôn có mục đích, không chỉ tồn tại mà còn cải tạo môi trường để phát triển.",pg:"tr.121"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.15",q:"Người ta thấy có ít nhất MẤY góc độ để xem xét chuẩn mực hành vi?",o:["Hai góc độ","Ba góc độ","Bốn góc độ","Năm góc độ"],c:1,f:"Có ít nhất ba góc độ: chuẩn mực thống kê, chuẩn mực hướng dẫn/quy ước, và chuẩn mực chức năng.",pg:"tr.122"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.25",q:"“Nếu đại đa số thành viên trong cộng đồng có hành vi tương tự nhau trong một hoàn cảnh xác định thì hành vi đó được xem là chuẩn mực.” Đây là góc độ chuẩn mực:",o:["Chuẩn mực thống kê","Chuẩn mực hướng dẫn / quy ước","Chuẩn mực chức năng","Chuẩn mực pháp lý"],c:0,f:"Đó là chuẩn mực xét về mặt thống kê: dựa trên hành vi của đại đa số thành viên.",pg:"tr.122"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.25",q:"Loại chuẩn mực được cộng đồng/xã hội đặt ra trên cơ sở những yêu cầu chung đối với từng thành viên (hành vi khác hướng dẫn, quy định thì bị coi là lệch chuẩn) là:",o:["Chuẩn mực thống kê","Chuẩn mực hướng dẫn / quy ước","Chuẩn mực chức năng","Chuẩn mực sinh học"],c:1,f:"Đó là chuẩn mực hướng dẫn hay quy ước do cộng đồng/xã hội đặt ra.",pg:"tr.122"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.25",q:"Chuẩn mực CHỨC NĂNG được xác định ở mỗi cá nhân: hành vi hợp chuẩn là hành vi phù hợp với mục đích cá nhân đặt ra. Tuy nhiên, sự hợp/lệch chuẩn còn phải dựa vào điều gì?",o:["Hoàn toàn do cá nhân tự phán xét","Việc hành vi đó có được môi trường chấp nhận hay không","Số tiền cá nhân bỏ ra","Thời điểm thực hiện hành vi"],c:1,f:"Sự hợp chuẩn hay lệch chuẩn không chỉ do cá nhân phán xét mà phải xem hành vi có được môi trường chấp nhận hay không.",pg:"tr.122–123"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.15",q:"Bất kỳ chuẩn mực xã hội nào cũng có ba thuộc tính. Đó là:",o:["Tính ích lợi, tính bắt buộc, và sự thực hiện trên thực tế trong hành vi con người","Tính di truyền, tính bẩm sinh, tính ổn định","Tính chủ quan, tính khách quan, tính tuyệt đối","Tính pháp lý, tính kinh tế, tính chính trị"],c:0,f:"Ba thuộc tính của chuẩn mực xã hội: tính ích lợi, tính bắt buộc, và sự thực hiện trên thực tế trong hành vi của con người.",pg:"tr.123"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.25",q:"Trong ba thuộc tính của chuẩn mực xã hội, thuộc tính nào được xem là ĐIỂM GỐC?",o:["Tính bắt buộc","Tính ích lợi","Sự thực hiện trên thực tế","Cả ba ngang nhau"],c:1,f:"Tính ích lợi là điểm gốc trong ba thuộc tính của chuẩn mực xã hội.",pg:"tr.123"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.15",q:"Về mặt tâm lý, có mấy mức độ sai lệch hành vi của con người?",o:["Hai mức độ","Ba mức độ","Bốn mức độ","Năm mức độ"],c:0,f:"Có hai mức độ: (1) sai lệch ở mức độ thấp, chỉ ở một số hành vi; (2) sai lệch ở mức độ cao, ở hầu hết các hành vi cá nhân.",pg:"tr.123"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.35",q:"“Một người có hành vi bất thường ở hầu hết mọi mặt: từ sinh hoạt, lao động sản xuất đến vui chơi giải trí.” Đây thuộc mức độ sai lệch hành vi:",o:["Mức độ thấp, chỉ ở một số hành vi","Mức độ cao, ở hầu hết các hành vi","Không phải sai lệch","Sai lệch tạm thời, không đáng kể"],c:1,f:"Sai lệch ở hầu hết các hành vi (từ sinh hoạt đến lao động, vui chơi) chính là mức độ cao.",pg:"tr.123"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.35",q:"“Cả lớp đều đứng dậy chào khi giảng viên bước vào, riêng một bạn vẫn ngồi yên.” Xét theo góc độ chuẩn mực thống kê, hành vi của bạn đó là:",o:["Hợp chuẩn","Lệch chuẩn","Không xác định được","Chuẩn mực chức năng"],c:1,f:"Đại đa số có hành vi tương tự (đứng chào); hành vi khác đi (ngồi yên) bị coi là lệch chuẩn theo góc độ thống kê.",pg:"tr.122"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.25",q:"Xét hành vi ở góc độ sinh học (thích nghi), chuẩn mực để đánh giá hành vi chính là gì?",o:["Mức thu nhập của cá nhân","Mức thích nghi của cơ thể với môi trường","Trình độ học vấn","Số lượng mối quan hệ xã hội"],c:1,f:"Chuẩn mực để đánh giá hành vi (góc độ thích nghi) là mức thích nghi của cơ thể với môi trường: phù hợp, đảm bảo tồn tại = hợp chuẩn; không thích nghi được = lệch chuẩn.",pg:"tr.121"},
+{p:"B",s:"Hành vi & Chuẩn mực",t:"0.35",q:"Phân biệt: điểm khác nhau cơ bản giữa “chuẩn mực thống kê” và “chuẩn mực hướng dẫn/quy ước” là gì?",o:["Thống kê dựa trên hành vi thực tế của đại đa số; hướng dẫn/quy ước do cộng đồng, xã hội chủ động đặt ra trên cơ sở yêu cầu chung","Cả hai đều do nhà nước ban hành","Thống kê chỉ áp dụng cho trẻ em","Hướng dẫn/quy ước dựa trên số liệu thống kê"],c:0,f:"Chuẩn mực thống kê = quy nạp từ hành vi của đại đa số; chuẩn mực hướng dẫn/quy ước = do cộng đồng/xã hội đặt ra theo yêu cầu chung.",pg:"tr.122"},
+
+/* -- S7: Phân loại sai lệch & Điều chỉnh -- */
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.15",q:"Căn cứ vào mức độ nhận thức và chấp nhận các chuẩn mực đạo đức, sai lệch hành vi được chia thành mấy loại?",o:["Hai loại: sai lệch thụ động và sai lệch chủ động","Ba loại","Bốn loại","Một loại duy nhất"],c:0,f:"Căn cứ mức độ nhận thức và chấp nhận chuẩn mực đạo đức, có hai loại: sai lệch thụ động và sai lệch chủ động.",pg:"tr.123"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.25",q:"Đặc trưng cơ bản của loại sai lệch hành vi THỤ ĐỘNG là gì?",o:["Người sai lệch cố ý làm khác dù biết rõ chuẩn mực","Người sai lệch KHÔNG biết hành vi của mình là sai lệch (do chưa nắm vững hoặc hiểu sai chuẩn mực)","Người sai lệch luôn bị xử phạt hành chính","Người sai lệch hành động vì lợi ích tập thể"],c:1,f:"Sai lệch thụ động: cá nhân không nhận thức đầy đủ hoặc hiểu sai chuẩn mực, nên KHÔNG biết hành vi của mình là sai lệch.",pg:"tr.123"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.25",q:"Sai lệch hành vi CHỦ ĐỘNG được hiểu là:",o:["Cá nhân vô tình làm sai vì thiếu hiểu biết","Cá nhân cố ý làm khác so với người khác dù đã nhận thức được yêu cầu của chuẩn mực đạo đức xã hội","Cá nhân làm sai do mắc bệnh lý hoàn toàn","Cá nhân làm theo số đông"],c:1,f:"Sai lệch chủ động: cá nhân cố ý làm khác dù NHẬN THỨC ĐƯỢC yêu cầu của chuẩn mực — khác hẳn thụ động (không biết mình sai).",pg:"tr.124"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.35",q:"“Một du học sinh mới sang nước ngoài, vô tình vi phạm một phong tục địa phương vì hoàn toàn chưa biết đến quy tắc đó.” Đây là sai lệch hành vi:",o:["Chủ động","Thụ động","Cố ý","Có dự mưu"],c:1,f:"Vi phạm do chưa nắm/chưa biết chuẩn mực, không hề biết mình sai → sai lệch thụ động.",pg:"tr.123"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.35",q:"“Biết rõ vượt đèn đỏ là vi phạm luật, nhưng vì muốn đi cho nhanh nên người này vẫn cố tình vượt.” Đây là sai lệch hành vi:",o:["Thụ động","Chủ động","Do hiểu sai chuẩn mực","Do bệnh lý"],c:1,f:"Nhận thức rõ chuẩn mực nhưng vẫn cố ý làm khác → sai lệch chủ động.",pg:"tr.124"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.25",q:"Cách khắc phục phù hợp với loại sai lệch hành vi THỤ ĐỘNG là gì?",o:["Xử phạt hành chính ngay lập tức","Cung cấp kiến thức về chuẩn mực đạo đức; nếu chưa chấp nhận thì thuyết phục từ từ để họ hiểu đúng","Cách ly khỏi cộng đồng","Bỏ qua, không cần can thiệp"],c:1,f:"Với sai lệch thụ động, cách khắc phục đơn giản: cung cấp kiến thức về chuẩn mực; nếu họ chưa chấp nhận thì thuyết phục từ từ để hiểu đúng và có hành vi phù hợp.",pg:"tr.123"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.25",q:"Đối với loại sai lệch hành vi CHỦ ĐỘNG, biện pháp được nhấn mạnh là:",o:["Giáo dục thường xuyên của cộng đồng và củng cố các chuẩn mực để điều tiết hành vi","Chỉ cần cung cấp kiến thức một lần","Để cá nhân tự điều chỉnh, không tác động","Lập tức trừng phạt hành chính nặng"],c:0,f:"Với sai lệch chủ động cần sự giáo dục thường xuyên của cộng đồng và củng cố chuẩn mực để thực hiện tốt chức năng điều tiết hành vi.",pg:"tr.124"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.15",q:"Phương châm của xã hội trong việc xử lý sai lệch chuẩn mực là gì?",o:["Sửa chữa sau khi đã có sai lệch là chính","Ngăn ngừa sự sai lệch chuẩn mực hơn là sửa chữa sau khi đã sai lệch; giáo dục là biện pháp ngăn ngừa tốt nhất","Trừng phạt nặng để răn đe là biện pháp đầu tiên","Bỏ mặc cho cá nhân tự xử lý"],c:1,f:"Phương châm: ngăn ngừa hơn là sửa chữa; giáo dục là biện pháp ngăn ngừa tốt nhất.",pg:"tr.124"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.25",q:"Theo giáo trình, biện pháp được xem là CUỐI CÙNG để điều chỉnh hành vi sai lệch đạo đức là:",o:["Cung cấp kiến thức về chuẩn mực","Thuyết phục, giáo dục","“Trừng phạt” bằng biện pháp hành chính của cộng đồng","Hướng dẫn hành vi cho thành viên mới"],c:2,f:"Giáo dục, thuyết phục vẫn là chính; “trừng phạt” bằng biện pháp hành chính của cộng đồng là biện pháp cuối cùng.",pg:"tr.124–125"},
+{p:"B",s:"Phân loại sai lệch & Điều chỉnh",t:"0.35",q:"Hai bạn cùng đi học muộn: bạn X không hề biết quy định giờ vào lớp của trường mới, bạn Y biết rõ quy định nhưng cố tình ngủ nướng. Cách phân loại đúng là:",o:["Cả hai đều sai lệch chủ động","X thụ động – Y chủ động","X chủ động – Y thụ động","Cả hai đều sai lệch thụ động"],c:1,f:"X không biết quy định (không biết mình sai) → thụ động; Y biết rõ vẫn cố tình → chủ động. Tiêu chí then chốt là “có nhận thức được chuẩn mực hay không”.",pg:"tr.123–124"},
+];
+QUESTIONS.forEach((q,i)=>q.id=i);
+
+const TIERS={"0.15":{w:0.15,lab:"Nhận biết",cls:"tier15"},"0.25":{w:0.25,lab:"Vận dụng",cls:"tier25"},"0.35":{w:0.35,lab:"Tình huống",cls:"tier35"}};
+const $=id=>document.getElementById(id);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+
+const orderedSections=(()=>{const s=[];QUESTIONS.forEach(q=>{if(!s.includes(q.s))s.push(q.s);});return s;})();
+const activeSecs=new Set(orderedSections);
+const activeTiers=new Set(["0.15","0.25","0.35"]);
+
+let order=[];          // array of question objects in play order
+let idx=0;
+let answered={};       // id -> {pick, ok}
+let displayOrder={};   // id -> [orig idx]
+let shufO=true, shufQ=true;
+
+/* ---------- Start screen: chips ---------- */
+function buildSecChips(){
+  const box=$("secChips");box.innerHTML="";
+  orderedSections.forEach(s=>{
+    const b=el("button","chip",s);b.setAttribute("aria-pressed","true");
+    b.onclick=()=>{toggleChip(b);readFilters();updatePre();};
+    box.appendChild(b);
+  });
+}
+function toggleChip(b){const on=b.getAttribute("aria-pressed")==="true";b.setAttribute("aria-pressed",String(!on));}
+$("tierChips").querySelectorAll(".chip").forEach(b=>{b.onclick=()=>{toggleChip(b);readFilters();updatePre();};});
+function readFilters(){
+  activeSecs.clear();
+  $("secChips").querySelectorAll(".chip").forEach(b=>{if(b.getAttribute("aria-pressed")==="true")activeSecs.add(b.textContent);});
+  if(activeSecs.size===0)orderedSections.forEach(s=>activeSecs.add(s));
+  activeTiers.clear();
+  $("tierChips").querySelectorAll(".chip").forEach(b=>{if(b.getAttribute("aria-pressed")==="true")activeTiers.add(b.dataset.tier);});
+  if(activeTiers.size===0)["0.15","0.25","0.35"].forEach(t=>activeTiers.add(t));
+}
+function filtered(){return QUESTIONS.filter(q=>activeSecs.has(q.s)&&activeTiers.has(q.t));}
+function updatePre(){const n=filtered().length;$("preCount").textContent=n;$("startBtn").disabled=n===0;}
+
+/* ---------- Build a run ---------- */
+function buildOrder(list){
+  order=shufQ?shuffle(list):list.slice();
+  // keep textbook order when not shuffling
+  if(!shufQ)order.sort((a,b)=>a.id-b.id);
+  idx=0;
+}
+function ensureOpt(q){
+  if(!displayOrder[q.id]){
+    const ix=q.o.map((_,i)=>i);
+    displayOrder[q.id]=shufO?shuffle(ix):ix;
+  }
+  return displayOrder[q.id];
+}
+
+/* ---------- Screens ---------- */
+function show(name){
+  ["startScreen","quizScreen","resultScreen"].forEach(s=>$(s).classList.toggle("on",s===name));
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* ---------- Render current question ---------- */
+function renderCurrent(){
+  const q=order[idx];const t=TIERS[q.t];const secB=q.p==="B";
+  const host=$("qhost");host.innerHTML="";
+  const c=el("div","q"+(secB?" secB":""));
+  const head=el("div","qhead");
+  head.appendChild(el("span","tag sec"+(secB?" secB":""),q.s));
+  head.appendChild(el("span","tag tier "+t.cls,q.t+"đ · "+t.lab));
+  c.appendChild(head);
+  c.appendChild(el("p","qtext",q.q));
+  const opts=el("div","opts");
+  const letters=["A","B","C","D","E","F"];
+  ensureOpt(q).forEach((orig,di)=>{
+    const b=el("button","opt");
+    b.appendChild(el("span","k",letters[di]));
+    b.appendChild(el("span",null,q.o[orig]));
+    b.dataset.orig=orig;
+    b.onclick=()=>pick(q,b);
+    opts.appendChild(b);
+  });
+  c.appendChild(opts);
+  const fb=el("div","fb");fb.id="fbCur";c.appendChild(fb);
+  host.appendChild(c);
+  if(answered[q.id])paint(q);
+  updateBar();updateNav();
+}
+function paint(q){
+  const a=answered[q.id];
+  $("qhost").querySelectorAll(".opt").forEach(b=>{
+    const orig=+b.dataset.orig;b.disabled=true;
+    if(orig===q.c)b.classList.add("correct");
+    else if(orig===a.pick)b.classList.add("wrong");
+    else b.classList.add("dim");
+  });
+  const fb=$("fbCur");
+  fb.className="fb show "+(a.ok?"good":"bad");
+  fb.innerHTML=(a.ok?'<div class="verdict">✓ Chính xác</div>'
+                    :'<div class="verdict">✗ Chưa đúng — đáp án đúng được tô xanh</div>')
+    +'<div>'+q.f+'</div><span class="pg">SGK '+q.pg+'</span>';
+}
+function pick(q,btn){
+  if(answered[q.id])return;
+  const orig=+btn.dataset.orig;
+  answered[q.id]={pick:orig,ok:orig===q.c};
+  paint(q);updateBar();updateNav();
+}
+
+/* ---------- Bars & nav ---------- */
+function updateBar(){
+  $("posNow").textContent=idx+1;
+  $("posTot").textContent=order.length;
+  let right=0,score=0;
+  order.forEach(q=>{const a=answered[q.id];if(a&&a.ok){right++;score+=TIERS[q.t].w;}});
+  $("liveRight").textContent=right;
+  $("liveScore").textContent=score.toFixed(2);
+  const doneCount=order.filter(q=>answered[q.id]).length;
+  $("bar").style.width=(doneCount/order.length*100)+"%";
+}
+function updateNav(){
+  const cur=order[idx];const isAns=!!answered[cur.id];const last=idx===order.length-1;
+  $("prevBtn").disabled=idx===0;
+  const nb=$("nextBtn");
+  nb.disabled=!isAns;
+  nb.textContent=last?"Xem kết quả ✦":"Câu tiếp →";
+  $("navHint").textContent=isAns?(last?"Đã xong câu cuối":"Tốt — qua câu tiếp"):"Chọn một đáp án để tiếp tục";
+}
+$("prevBtn").onclick=()=>{if(idx>0){idx--;renderCurrent();}};
+$("nextBtn").onclick=()=>{
+  if(!answered[order[idx].id])return;
+  if(idx<order.length-1){idx++;renderCurrent();}
+  else showResult();
+};
+
+/* ---------- Result ---------- */
+function showResult(){
+  let right=0,score=0,maxScore=0;
+  order.forEach(q=>{maxScore+=TIERS[q.t].w;const a=answered[q.id];if(a&&a.ok){right++;score+=TIERS[q.t].w;}});
+  const pct=maxScore?Math.round(score/maxScore*100):0;
+  const msg=pct>=85?"Xuất sắc — sẵn sàng thi!":pct>=70?"Khá vững — rà lại vài câu sai.":pct>=50?"Tạm ổn — nên luyện thêm câu sai.":"Cần ôn lại kỹ phần này.";
+  const secAgg={};orderedSections.forEach(s=>secAgg[s]={r:0,n:0});
+  order.forEach(q=>{secAgg[q.s].n++;if(answered[q.id]&&answered[q.id].ok)secAgg[q.s].r++;});
+  let secRows="";orderedSections.forEach(s=>{const a=secAgg[s];if(!a.n)return;const p=Math.round(a.r/a.n*100);secRows+='<div class="row"><span class="nm">'+s+'</span><span class="track"><i style="width:'+p+'%"></i></span><span class="pct">'+a.r+'/'+a.n+'</span></div>';});
+  const tAgg={"0.15":{r:0,n:0},"0.25":{r:0,n:0},"0.35":{r:0,n:0}};
+  order.forEach(q=>{tAgg[q.t].n++;if(answered[q.id]&&answered[q.id].ok)tAgg[q.t].r++;});
+  let tierRows="";["0.15","0.25","0.35"].forEach(t=>{const a=tAgg[t];if(!a.n)return;const p=Math.round(a.r/a.n*100);tierRows+='<div class="row"><span class="nm">'+t+'đ · '+TIERS[t].lab+'</span><span class="track"><i style="width:'+p+'%"></i></span><span class="pct">'+a.r+'/'+a.n+'</span></div>';});
+  const wrongIds=order.filter(q=>answered[q.id]&&!answered[q.id].ok).map(q=>q.id);
+  $("result").innerHTML=
+    '<div class="grade">'+score.toFixed(2)+' / '+maxScore.toFixed(2)+'</div>'
+    +'<h2>'+right+'/'+order.length+' câu đúng · '+pct+'%</h2>'
+    +'<p class="msg">'+msg+'</p>'
+    +'<div class="bd"><h4>Theo phần nội dung</h4>'+secRows
+    +'<h4>Theo mức độ câu hỏi</h4>'+tierRows+'</div>'
+    +'<div class="resbtns">'
+    +(wrongIds.length?'<button class="btn sm" id="redoBtn">Làm lại '+wrongIds.length+' câu sai</button>':'')
+    +'<button class="btn sm ghost" id="reviewBtn">Xem lại từ đầu</button>'
+    +'<button class="btn sm ghost" id="backBtn">Đổi bộ lọc</button>'
+    +'</div>';
+  if(wrongIds.length)$("redoBtn").onclick=()=>{
+    wrongIds.forEach(id=>{delete answered[id];delete displayOrder[id];});
+    order=QUESTIONS.filter(q=>wrongIds.includes(q.id));idx=0;show("quizScreen");renderCurrent();
+  };
+  $("reviewBtn").onclick=()=>{idx=0;show("quizScreen");renderCurrent();};
+  $("backBtn").onclick=()=>resetToStart();
+  show("resultScreen");
+}
+
+/* ---------- Start / exit ---------- */
+function startRun(){
+  readFilters();
+  shufQ=$("shufQ").checked;shufO=$("shufO").checked;
+  answered={};displayOrder={};
+  buildOrder(filtered());
+  show("quizScreen");renderCurrent();
+}
+function resetToStart(){
+  answered={};displayOrder={};order=[];idx=0;
+  show("startScreen");updatePre();
+}
+$("startBtn").onclick=startRun;
+$("exitBtn").onclick=resetToStart;
+$("shufQ").onchange=e=>shufQ=e.target.checked;
+$("shufO").onchange=e=>shufO=e.target.checked;
+
+buildSecChips();
+readFilters();
+updatePre();
+</script>
+</body>
+</html>

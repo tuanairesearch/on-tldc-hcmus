@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ôn tập Chương 5 — Nhân cách & Ý chí</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#eef0ea; --surface:#ffffff; --surface-2:#f7f8f4;
+  --ink:#202a2c; --muted:#67726e; --line:#e0e3da;
+  --brand:#2e6b5e; --brand-d:#234f46; --gold:#b08227;
+  --t15:#2f8f5b; --t15bg:#e9f5ee;
+  --t25:#c1851b; --t25bg:#fbf2dd;
+  --t35:#c2492f; --t35bg:#fbe9e3;
+  --ok:#2f8f5b; --okbg:#e7f4ec; --bad:#c2492f; --badbg:#fbe8e2;
+  --shadow:0 1px 2px rgba(20,30,28,.06),0 8px 24px rgba(20,30,28,.07);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:
+    radial-gradient(1200px 500px at 80% -10%, #e3eadf 0%, transparent 60%),
+    var(--bg);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro",-apple-system,"Segoe UI",Roboto,system-ui,sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 80px}
+h1,h2,h3{font-family:"Lora",Georgia,serif;line-height:1.2;margin:0}
+.eyebrow{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);font-weight:600}
+.lede{color:var(--muted);margin:.4rem 0 0}
+
+/* card */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
+.pad{padding:20px}
+
+/* header band */
+.head{margin-bottom:18px}
+.head h1{font-size:1.7rem;margin:.25rem 0 0}
+.badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pill{font-size:.78rem;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--surface-2);color:var(--muted)}
+
+/* menu controls */
+.group{margin-top:18px}
+.group h3{font-size:1.02rem;margin-bottom:2px}
+.group p.hint{color:var(--muted);font-size:.84rem;margin:.1rem 0 10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{cursor:pointer;user-select:none;font-size:.86rem;padding:8px 12px;border-radius:11px;border:1px solid var(--line);background:var(--surface);color:var(--ink);transition:.12s}
+.chip:hover{border-color:#c7ccc1}
+.chip[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+.chip.t15[aria-pressed="true"]{background:var(--t15);border-color:var(--t15)}
+.chip.t25[aria-pressed="true"]{background:var(--t25);border-color:var(--t25)}
+.chip.t35[aria-pressed="true"]{background:var(--t35);border-color:var(--t35)}
+.toggle{display:flex;align-items:center;gap:10px;font-size:.9rem;cursor:pointer;padding:6px 0}
+.toggle input{width:38px;height:22px;appearance:none;background:var(--line);border-radius:999px;position:relative;cursor:pointer;transition:.15s;flex:none}
+.toggle input:checked{background:var(--brand)}
+.toggle input::after{content:"";position:absolute;top:2px;left:2px;width:18px;height:18px;background:#fff;border-radius:50%;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+.toggle input:checked::after{left:18px}
+
+button.primary{
+  appearance:none;border:0;cursor:pointer;font-family:inherit;font-weight:600;font-size:1rem;
+  background:var(--brand);color:#fff;padding:13px 20px;border-radius:12px;transition:.12s;
+}
+button.primary:hover{background:var(--brand-d)}
+button.primary:disabled{opacity:.5;cursor:not-allowed}
+button.ghost{appearance:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:.92rem;background:var(--surface);color:var(--brand);border:1px solid var(--line);padding:11px 16px;border-radius:11px}
+button.ghost:hover{border-color:var(--brand)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+
+/* progress */
+.topbar{position:sticky;top:0;z-index:5;background:linear-gradient(var(--bg) 70%,transparent);padding:10px 0 12px;margin:-4px 0 12px}
+.meta{display:flex;justify-content:space-between;align-items:baseline;font-size:.85rem;color:var(--muted);margin-bottom:8px}
+.meta b{color:var(--ink)}
+.bar{height:8px;border-radius:999px;background:#dfe3da;overflow:hidden}
+.bar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),#3d8a78);transition:width .3s}
+
+/* question */
+.qtop{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.tag{font-size:.72rem;padding:3px 9px;border-radius:999px;font-weight:600}
+.tag.sec{background:var(--surface-2);color:var(--muted);border:1px solid var(--line)}
+.tag.t15{background:var(--t15bg);color:var(--t15)}
+.tag.t25{background:var(--t25bg);color:var(--t25)}
+.tag.t35{background:var(--t35bg);color:var(--t35)}
+.qtext{font-size:1.12rem;font-weight:500;margin:2px 0 16px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{
+  text-align:left;cursor:pointer;font-family:inherit;font-size:.98rem;color:var(--ink);
+  background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:13px 14px;
+  display:flex;gap:11px;align-items:flex-start;transition:.12s;width:100%;
+}
+.opt:hover:not(:disabled){border-color:var(--brand);background:var(--surface-2)}
+.opt .key{flex:none;width:24px;height:24px;border-radius:7px;background:var(--surface-2);border:1px solid var(--line);
+  display:grid;place-items:center;font-size:.8rem;font-weight:700;color:var(--muted)}
+.opt:disabled{cursor:default}
+.opt.correct{border-color:var(--ok);background:var(--okbg)}
+.opt.correct .key{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt.wrong .key{background:var(--bad);color:#fff;border-color:var(--bad)}
+.opt .mark{margin-left:auto;font-weight:700;font-size:.95rem}
+.opt.correct .mark{color:var(--ok)}
+.opt.wrong .mark{color:var(--bad)}
+
+.fb{margin-top:14px;border-radius:12px;padding:13px 15px;font-size:.92rem;border:1px solid var(--line);background:var(--surface-2);animation:fade .25s ease}
+.fb .h{font-weight:700;font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:4px}
+.fb.good{background:var(--okbg);border-color:#bfe2cd}
+.fb.good .h{color:var(--ok)}
+.fb.miss{background:var(--badbg);border-color:#eccabe}
+.fb.miss .h{color:var(--bad)}
+.fb .pg{display:inline-block;margin-top:6px;font-size:.78rem;color:var(--muted)}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+.navrow{display:flex;justify-content:flex-end;margin-top:18px}
+
+/* results */
+.score-hero{text-align:center;padding:26px 20px}
+.score-num{font-family:"Lora",serif;font-size:3rem;font-weight:600;color:var(--brand);line-height:1}
+.score-sub{color:var(--muted);margin-top:6px}
+.kpis{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.kpi{background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:96px}
+.kpi b{display:block;font-size:1.3rem}
+.kpi span{font-size:.76rem;color:var(--muted)}
+.break h3{font-size:1.05rem;margin:22px 0 10px}
+.row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.9rem}
+.row:last-child{border-bottom:0}
+.row .nm{flex:1}
+.row .mini{height:7px;width:120px;border-radius:999px;background:#e2e6dd;overflow:hidden;flex:none}
+.row .mini > i{display:block;height:100%;background:var(--brand)}
+.row .frac{font-variant-numeric:tabular-nums;color:var(--muted);min-width:52px;text-align:right}
+.review .item{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-top:10px;background:var(--surface)}
+.review .q{font-weight:500;margin-bottom:6px}
+.review .a{font-size:.88rem;margin:2px 0}
+.review .a .lbl{color:var(--muted)}
+.review .yours{color:var(--bad)}
+.review .right{color:var(--ok)}
+.review small{color:var(--muted)}
+
+.hidden{display:none!important}
+footer{text-align:center;color:var(--muted);font-size:.78rem;margin-top:28px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== MENU ===== -->
+  <section id="menu">
+    <div class="head">
+      <div class="eyebrow">Tâm lý học đại cương · Chương 5</div>
+      <h1>Nhân cách &amp; Ý chí</h1>
+      <p class="lede">Bộ 100 câu trắc nghiệm 3 mức độ, bám sát giáo trình. Chọn phạm vi rồi bắt đầu.</p>
+      <div class="badge-row">
+        <span class="pill">100 câu</span>
+        <span class="pill" style="color:var(--t15)">● 0.15đ Nhận biết</span>
+        <span class="pill" style="color:var(--t25)">● 0.25đ Vận dụng</span>
+        <span class="pill" style="color:var(--t35)">● 0.35đ Tình huống</span>
+      </div>
+    </div>
+
+    <div class="card pad">
+      <div class="group">
+        <h3>Phần nội dung</h3>
+        <p class="hint">Bấm để chọn/bỏ. Mặc định: tất cả.</p>
+        <div class="chips" id="secChips"></div>
+      </div>
+
+      <div class="group">
+        <h3>Mức độ</h3>
+        <p class="hint">Lọc theo độ khó nếu muốn luyện riêng.</p>
+        <div class="chips" id="tierChips"></div>
+      </div>
+
+      <div class="group" style="margin-top:20px">
+        <label class="toggle"><input type="checkbox" id="shufQ" checked> Trộn thứ tự câu hỏi</label>
+        <label class="toggle"><input type="checkbox" id="shufO" checked> Trộn vị trí đáp án</label>
+      </div>
+
+      <div class="actions">
+        <button class="primary" id="startBtn">Bắt đầu luyện →</button>
+        <span id="poolInfo" class="pill" style="align-self:center"></span>
+      </div>
+    </div>
+    <footer>Số trang tham chiếu là gần đúng (file scan/chú thích viết tay có thể lệch nhẹ).</footer>
+  </section>
+
+  <!-- ===== QUIZ ===== -->
+  <section id="quiz" class="hidden">
+    <div class="topbar">
+      <div class="meta">
+        <span>Câu <b id="curIdx">1</b> / <span id="curTotal">100</span></span>
+        <span>Đúng <b id="curCorrect">0</b> · Điểm <b id="curScore">0.00</b></span>
+      </div>
+      <div class="bar"><i id="barFill"></i></div>
+    </div>
+
+    <div class="card pad">
+      <div class="qtop">
+        <span class="tag sec" id="qSec"></span>
+        <span class="tag" id="qTier"></span>
+      </div>
+      <div class="qtext" id="qText"></div>
+      <div class="opts" id="opts"></div>
+      <div id="fb"></div>
+      <div class="navrow">
+        <button class="primary hidden" id="nextBtn">Câu tiếp →</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="ghost" id="quitBtn">↩ Về menu</button>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS ===== -->
+  <section id="result" class="hidden">
+    <div class="card">
+      <div class="score-hero">
+        <div class="eyebrow">Kết quả</div>
+        <div class="score-num" id="rScore">0.00</div>
+        <div class="score-sub" id="rScoreSub"></div>
+        <div class="kpis">
+          <div class="kpi"><b id="rCorrect">0</b><span>câu đúng</span></div>
+          <div class="kpi"><b id="rPct">0%</b><span>tỉ lệ đúng</span></div>
+          <div class="kpi"><b id="rTotal">0</b><span>tổng câu</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card pad break" style="margin-top:16px">
+      <h3>Theo phần</h3>
+      <div id="bySec"></div>
+      <h3>Theo mức độ</h3>
+      <div id="byTier"></div>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="redoWrongBtn">Làm lại câu sai (<span id="wrongCount">0</span>)</button>
+      <button class="ghost" id="againBtn">Làm lại từ đầu</button>
+      <button class="ghost" id="menuBtn">Về menu</button>
+    </div>
+
+    <div class="card pad review" style="margin-top:16px" id="reviewWrap">
+      <h3 style="margin-top:0">Xem lại câu sai</h3>
+      <div id="reviewList"></div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+const SECTIONS = {
+  'nc-kn':{name:'Khái niệm & mức độ NC',grp:'Nhân cách'},
+  'nc-dd':{name:'4 đặc điểm cơ bản',grp:'Nhân cách'},
+  'nc-ct':{name:'Cấu trúc tâm lý',grp:'Nhân cách'},
+  'nc-ht':{name:'Hình thành & phát triển',grp:'Nhân cách'},
+  'yc-kn':{name:'Ý chí: khái niệm & đặc điểm',grp:'Ý chí'},
+  'yc-pc':{name:'Phẩm chất ý chí',grp:'Ý chí'},
+  'yc-hd':{name:'Hành động ý chí',grp:'Ý chí'},
+  'yc-td':{name:'Hành động tự động hóa',grp:'Ý chí'}
+};
+const TIERS = {15:{v:0.15,name:'Nhận biết'},25:{v:0.25,name:'Vận dụng'},35:{v:0.35,name:'Tình huống'}};
+
+const QUESTIONS = [
+{s:'nc-kn',t:15,q:'Thuật ngữ chỉ một con người cụ thể, là đơn vị người nhỏ nhất và là thành viên của xã hội?',o:['Con người','Cá nhân','Cá tính','Nhân cách'],c:1,f:'"Cá nhân" = một con người cụ thể, cá thể người nhỏ nhất, thành viên xã hội.',p:'tr.88'},
+{s:'nc-kn',t:15,q:'"Hệ thống các đặc điểm tâm lý ổn định của một cá nhân, quy định hành vi xã hội và giá trị xã hội của cá nhân đó" là định nghĩa của?',o:['Cá tính','Khí chất','Nhân cách','Tính cách'],c:2,f:'Đây là định nghĩa nhân cách được nhiều nhà nghiên cứu VN chấp nhận.',p:'tr.89'},
+{s:'nc-kn',t:25,q:'Đặc điểm "riêng biệt, không lặp lại về tâm lý và sinh lý" tạo nên sự độc đáo của mỗi người thuộc về —',o:['Cá tính','Cá nhân','Nhân cách','Chủ thể'],c:0,f:'Cá tính nhấn mạnh nét riêng biệt, không lặp lại.',p:'tr.88'},
+{s:'nc-kn',t:15,q:'Khái niệm chỉ cá nhân đang thực hiện hoạt động có mục đích, có ý thức nhằm nhận thức và cải tạo thế giới?',o:['Cá nhân','Cá tính','Chủ thể','Con người'],c:2,f:'"Chủ thể" nhấn mạnh vai trò làm chủ trong quan hệ với khách thể.',p:'tr.88'},
+{s:'nc-kn',t:25,q:'Định nghĩa "con người là thực thể sinh vật – xã hội – văn hóa" nhấn mạnh điều gì?',o:['Con người chỉ chịu chi phối của quy luật sinh học','Hai mặt tự nhiên và xã hội hòa quyện, tương tác','Con người là cá thể riêng biệt không lặp lại','Con người là chủ thể của mọi hoạt động'],c:1,f:'Con người vừa mang đặc điểm sinh học, vừa mang dấu ấn văn hóa – xã hội.',p:'tr.88'},
+{s:'nc-kn',t:35,q:'"Lan là một thành viên của lớp, có mã số sinh viên riêng để phân biệt với các bạn." Từ "Lan" ở đây dùng đúng nhất với tư cách là —',o:['Nhân cách','Cá nhân','Cá tính','Chủ thể'],c:1,f:'Nhấn mạnh "một con người cụ thể, thành viên xã hội, phân biệt với người khác" → cá nhân.',p:'tr.88'},
+{s:'nc-kn',t:35,q:'"Cách cười rất riêng, không ai bắt chước được của ông A" thể hiện rõ nhất khái niệm nào?',o:['Nhân cách','Chủ thể','Cá tính','Cá nhân'],c:2,f:'Nét riêng biệt, không lặp lại → cá tính.',p:'tr.88'},
+{s:'nc-kn',t:25,q:'Nhân cách KHÔNG có sẵn khi sinh ra mà được hình thành qua —',o:['Di truyền và bẩm sinh','Quá trình hoạt động và giao tiếp suốt cuộc đời','Sự trưởng thành, chín muồi của gen','Các phản xạ không điều kiện'],c:1,f:'Nhân cách hình thành, phát triển qua hoạt động và giao tiếp.',p:'tr.89'},
+{s:'nc-kn',t:15,q:'Nhân cách biểu hiện ở mấy mức độ?',o:['2','3','4','5'],c:1,f:'Ba mức độ: nội cá nhân, liên cá nhân, siêu cá nhân.',p:'tr.89'},
+{s:'nc-kn',t:25,q:'Mức độ thể hiện tính cá thể, tính độc đáo trong không gian tồn tại riêng của cá nhân là —',o:['Nội cá nhân','Liên cá nhân','Siêu cá nhân','Ngoại cá nhân'],c:0,f:'Mức độ bên trong cá nhân = nội cá nhân.',p:'tr.89'},
+{s:'nc-kn',t:25,q:'Mức độ nhân cách tồn tại trong giao tiếp giữa cá nhân này với cá nhân khác là —',o:['Nội cá nhân','Liên cá nhân','Siêu cá nhân','Tự cá nhân'],c:1,f:'Liên cá nhân = trong các mối quan hệ liên cá nhân.',p:'tr.90'},
+{s:'nc-kn',t:35,q:'Một nhà khoa học để lại nhiều phát minh tạo dấu ấn, ảnh hưởng rộng cho xã hội. Điều này thể hiện mức độ nào của nhân cách?',o:['Nội cá nhân','Liên cá nhân','Siêu cá nhân','Cá thể'],c:2,f:'Siêu cá nhân biểu hiện qua hoạt động & sản phẩm, để lại dấu ấn xã hội.',p:'tr.90'},
+{s:'nc-kn',t:25,q:'Tính quảng giao, tính hợp tác, tính giữ lời hứa được thể hiện trong quan hệ thuộc cấp độ —',o:['Nội cá nhân','Liên cá nhân','Siêu cá nhân','Bẩm sinh'],c:1,f:'Các nét thể hiện trong quan hệ với người khác → liên cá nhân.',p:'tr.91'},
+
+{s:'nc-dd',t:15,q:'Nhân cách có mấy đặc điểm cơ bản?',o:['3','4','5','6'],c:1,f:'Bốn: ổn định, thống nhất, giao lưu, tích cực.',p:'tr.90'},
+{s:'nc-dd',t:15,q:'Đặc điểm giúp ta dự đoán được kiểu hành vi của một người để tác động phù hợp là —',o:['Tính thống nhất','Tính ổn định','Tính giao lưu','Tính tích cực'],c:1,f:'Tính ổn định giúp phân biệt và dự đoán hành vi.',p:'tr.90'},
+{s:'nc-dd',t:25,q:'"Nhân cách không bất biến mà có tính linh hoạt (khả biến)" — ý này thuộc đặc điểm nào?',o:['Tính tích cực','Tính giao lưu','Tính ổn định','Tính thống nhất'],c:2,f:'Trong tính ổn định, nhân cách vẫn có thể biến đổi (khả biến).',p:'tr.90'},
+{s:'nc-dd',t:25,q:'Thay đổi một đặc điểm sẽ kéo theo sự thay đổi cả hệ thống — thể hiện đặc điểm nào?',o:['Tính ổn định','Tính thống nhất','Tính giao lưu','Tính tích cực'],c:1,f:'Các thuộc tính tạo thành một hệ thống → tính thống nhất.',p:'tr.91'},
+{s:'nc-dd',t:25,q:'Đặc điểm nào cho thấy nhân cách hình thành và bộc lộ qua tiếp xúc, quan hệ xã hội?',o:['Tính ổn định','Tính tích cực','Tính giao lưu','Tính thống nhất'],c:2,f:'Tính giao lưu — qua giao lưu cá nhân gia nhập quan hệ xã hội.',p:'tr.91'},
+{s:'nc-dd',t:25,q:'Nhân cách là chủ thể chủ động nhận thức, cải tạo thế giới và bản thân — thể hiện —',o:['Tính tích cực','Tính ổn định','Tính giao lưu','Tính thống nhất'],c:0,f:'Tính tích cực thể hiện qua việc thể hiện bản thân, cải tạo thế giới & bản thân.',p:'tr.92'},
+{s:'nc-dd',t:35,q:'"Dù trải qua nhiều biến cố, tính cách điềm đạm của bác B vẫn gần như không đổi suốt 20 năm." Đặc điểm nào nổi bật?',o:['Tính giao lưu','Tính ổn định','Tính tích cực','Tính thống nhất'],c:1,f:'Bền vững, khó thay đổi theo thời gian → tính ổn định.',p:'tr.90'},
+{s:'nc-dd',t:35,q:'"Khi rèn được tính kỷ luật, anh C cũng dần đổi cả cách sắp xếp công việc, giao tiếp, thái độ sống." Phản ánh đặc điểm nào?',o:['Tính ổn định','Tính thống nhất','Tính giao lưu','Tính tích cực'],c:1,f:'Đổi một nét kéo theo cả hệ thống → tính thống nhất.',p:'tr.91'},
+{s:'nc-dd',t:35,q:'"Nhờ tham gia câu lạc bộ, My học được cách hợp tác và dần được bạn bè thừa nhận, đánh giá cao." Đặc điểm nào?',o:['Tính ổn định','Tính tích cực','Tính giao lưu','Tính thống nhất'],c:2,f:'Qua giao lưu được người khác đánh giá, thừa nhận.',p:'tr.91'},
+{s:'nc-dd',t:25,q:'Chiều hướng biến đổi "phân ly" nhân cách (bệnh lý) điển hình là —',o:['Trầm cảm','Đa nhân cách','Tự kỷ','Rối loạn lo âu'],c:1,f:'Đa nhân cách là dạng phân ly nhân cách điển hình.',p:'tr.90'},
+{s:'nc-dd',t:15,q:'Ba chiều hướng biến đổi của nét nhân cách: phong phú/hoàn thiện, suy thoái/lệch chuẩn và —',o:['Bất biến','Phân ly','Di truyền','Tự động hóa'],c:1,f:'Chiều thứ ba là "phân ly" nhân cách.',p:'tr.90'},
+{s:'nc-dd',t:35,q:'Câu nào SAI về tính ổn định của nhân cách?',o:['Giúp dự đoán hành vi','Nét nhân cách khó hình thành, khó mất','Nhân cách là bất biến, không thể thay đổi','Vẫn có tính linh hoạt (khả biến)'],c:2,f:'Nhân cách ổn định nhưng KHÔNG bất biến → đáp án này sai.',p:'tr.90'},
+
+{s:'nc-ct',t:15,q:'Hệ thống thúc đẩy, quy định tính lựa chọn của thái độ và tính tích cực của con người là —',o:['Năng lực','Khí chất','Xu hướng','Tính cách'],c:2,f:'Xu hướng = hệ thống thúc đẩy quy định tính lựa chọn.',p:'tr.93'},
+{s:'nc-ct',t:25,q:'Thành phần nào là "nền tảng tạo ra xu hướng"?',o:['Hứng thú','Nhu cầu','Lý tưởng','Niềm tin'],c:1,f:'Nhu cầu là nền tảng tạo ra xu hướng.',p:'tr.93'},
+{s:'nc-ct',t:25,q:'"Phẩm chất của thế giới quan, kết tinh của nhận thức – tình cảm – ý chí, trở thành chân lý bền vững" là —',o:['Lý tưởng','Hứng thú','Niềm tin','Nhu cầu'],c:2,f:'Đây là định nghĩa niềm tin.',p:'tr.94'},
+{s:'nc-ct',t:15,q:'Thành phần nào KHÔNG thuộc xu hướng nhân cách?',o:['Nhu cầu','Hứng thú','Khí chất','Lý tưởng'],c:2,f:'Khí chất thuộc phong cách hành vi, không thuộc xu hướng.',p:'tr.93'},
+{s:'nc-ct',t:35,q:'"Hoa luôn cảm thấy thôi thúc, thiếu thốn khi chưa được đọc sách mỗi tối" — biểu hiện rõ nhất của —',o:['Lý tưởng','Nhu cầu','Niềm tin','Năng lực'],c:1,f:'Trạng thái thiếu hụt, thôi thúc cần thỏa mãn → nhu cầu.',p:'tr.93'},
+{s:'nc-ct',t:25,q:'Bức tranh tổng thể về thế giới, từ đó quyết định hành vi, thái độ con người là —',o:['Lý tưởng','Thế giới quan','Hứng thú','Nhu cầu'],c:1,f:'Thế giới quan cho con người bức tranh tổng thể về thế giới.',p:'tr.94'},
+{s:'nc-ct',t:15,q:'"Tập hợp những phẩm chất tâm lý cá nhân phù hợp yêu cầu một hoạt động và đảm bảo hoạt động đó có hiệu quả" là —',o:['Năng lực','Khí chất','Xu hướng','Cái tôi'],c:0,f:'Đây là định nghĩa năng lực.',p:'tr.95'},
+{s:'nc-ct',t:25,q:'Năng lực phân tích, trí nhớ, suy luận, tri giác không gian thuộc loại —',o:['Năng lực chuyên môn','Năng lực chung','Năng lực riêng','Tư chất'],c:1,f:'Những năng lực cần cho nhiều hoạt động → năng lực chung.',p:'tr.95'},
+{s:'nc-ct',t:25,q:'Năng lực Toán học, Âm nhạc, Hội họa thuộc loại —',o:['Năng lực chung','Năng lực chuyên môn/riêng','Năng lực phổ thông','Khí chất'],c:1,f:'Phù hợp một lĩnh vực chuyên biệt → năng lực chuyên môn/riêng.',p:'tr.95'},
+{s:'nc-ct',t:25,q:'"Năng lực vừa là tiền đề vừa là kết quả của hoạt động" nghĩa là —',o:['Năng lực có sẵn hoàn toàn từ khi sinh ra','Năng lực vừa giúp hoạt động vừa được phát triển qua hoạt động','Năng lực không liên quan đến hoạt động','Năng lực chỉ là kết quả của di truyền'],c:1,f:'Năng lực là tiền đề và đồng thời được hình thành qua hoạt động.',p:'tr.95'},
+{s:'nc-ct',t:35,q:'"Khang có khả năng phối hợp tay – mắt, ghi nhớ và phân tích tốt — nền tảng giúp em học tốt nhiều môn." Đây là —',o:['Năng lực chuyên môn','Năng lực chung','Khí chất','Tính cách'],c:1,f:'Cần cho nhiều hoạt động khác nhau → năng lực chung.',p:'tr.95'},
+{s:'nc-ct',t:15,q:'Phong cách hành vi của nhân cách do hai yếu tố nào quy định?',o:['Xu hướng & năng lực','Tính cách & khí chất','Nhu cầu & lý tưởng','Đức & tài'],c:1,f:'Phong cách hành vi do tính cách & khí chất quy định.',p:'tr.96'},
+{s:'nc-ct',t:25,q:'Tính cách gồm hai mặt thống nhất là —',o:['Hệ thống thái độ & hệ thống hành vi, cử chỉ','Cường độ & tốc độ','Đức & tài','Nhu cầu & năng lực'],c:0,f:'Tính cách = hệ thống thái độ + hệ thống hành vi, cách nói năng.',p:'tr.96'},
+{s:'nc-ct',t:25,q:'Con đường hình thành tính cách theo trình tự nào?',o:['Tính cách → hành vi → thói quen → nhân cách','Hành vi → thói quen → tính cách → "số phận" → nhân cách','Thói quen → hành vi → nhân cách → tính cách','Nhân cách → tính cách → hành vi → thói quen'],c:1,f:'Hành vi → thói quen → tính cách → "số phận" → nhân cách.',p:'tr.99'},
+{s:'nc-ct',t:35,q:'"Thái độ tôn trọng người khác, yêu lao động, có trách nhiệm với xã hội của anh D" thuộc mặt nào của tính cách?',o:['Hệ thống hành vi, cử chỉ','Hệ thống thái độ','Khí chất','Năng lực'],c:1,f:'Thái độ với xã hội, người khác, lao động → hệ thống thái độ.',p:'tr.96'},
+{s:'nc-ct',t:25,q:'Ở người bình thường, tính cách —',o:['Chỉ toàn nét tích cực','Chỉ toàn nét tiêu cực','Có cả nét tích cực lẫn tiêu cực','Không thể thay đổi'],c:2,f:'Người bình thường luôn có cả nét tích cực lẫn tiêu cực.',p:'tr.99'},
+{s:'nc-ct',t:15,q:'"Tập hợp đặc điểm tâm lý cá nhân quy định cường độ, tốc độ, nhịp độ của hành vi, hoạt động" là —',o:['Tính cách','Khí chất','Năng lực','Xu hướng'],c:1,f:'Đây là định nghĩa khí chất (tính khí).',p:'tr.96'},
+{s:'nc-ct',t:15,q:'Có mấy loại khí chất cơ bản?',o:['3','4','5','6'],c:1,f:'Bốn: hăng hái, nóng nảy, bình thản, ưu tư.',p:'tr.96'},
+{s:'nc-ct',t:35,q:'"Tú nhanh nhẹn, hoạt bát, dễ làm quen, nhưng tình cảm dễ thay đổi, hay hời hợt." Khí chất —',o:['Nóng nảy','Hăng hái','Bình thản','Ưu tư'],c:1,f:'Linh hoạt, quan hệ rộng nhưng dễ đổi, thiếu sâu → hăng hái.',p:'tr.96'},
+{s:'nc-ct',t:35,q:'"Vũ mạnh mẽ, nhiệt tình, táo bạo nhưng hấp tấp, vội vàng, dễ nổi nóng." Khí chất —',o:['Hăng hái','Nóng nảy','Bình thản','Ưu tư'],c:1,f:'Mạnh mẽ, táo bạo + hấp tấp, dễ cọc → nóng nảy.',p:'tr.97'},
+{s:'nc-ct',t:35,q:'"Hà kiên trì, làm việc nguyên tắc, sâu sắc, nhưng chậm, ít sáng kiến, khó thích nghi cái mới." Khí chất —',o:['Hăng hái','Nóng nảy','Bình thản','Ưu tư'],c:2,f:'Ổn định, nguyên tắc + chậm, bảo thủ → bình thản.',p:'tr.97'},
+{s:'nc-ct',t:35,q:'"Linh nhẹ nhàng, có trách nhiệm, quan hệ tốt nhưng rụt rè, tự ti, ngại giao tiếp, dễ tổn thương." Khí chất —',o:['Hăng hái','Bình thản','Ưu tư','Nóng nảy'],c:2,f:'Nhạy cảm, rụt rè, dễ tổn thương → ưu tư.',p:'tr.97'},
+{s:'nc-ct',t:25,q:'Kiểu thần kinh "mạnh – không cân bằng (hưng phấn > ức chế)" ứng với khí chất —',o:['Hăng hái','Nóng nảy','Bình thản','Ưu tư'],c:1,f:'Nóng nảy = mạnh, không cân bằng.',p:'tr.96'},
+{s:'nc-ct',t:25,q:'Kiểu thần kinh "yếu" ứng với khí chất —',o:['Hăng hái','Nóng nảy','Bình thản','Ưu tư'],c:3,f:'Ưu tư ứng với kiểu thần kinh yếu.',p:'tr.97'},
+{s:'nc-ct',t:35,q:'Nhận định nào ĐÚNG về khí chất?',o:['Khí chất hăng hái là tốt nhất','Khí chất ưu tư là xấu, nên tránh','Không có khí chất nào hoàn toàn tốt hay xấu','Người nóng nảy không làm được việc gì'],c:2,f:'Mỗi khí chất đều có ưu & nhược; không loại nào hoàn toàn tốt/xấu.',p:'tr.96'},
+{s:'nc-ct',t:25,q:'Khí chất chủ yếu quy định mặt nào của hành vi?',o:['Nội dung đạo đức','Cường độ, tốc độ, nhịp độ (mặt "động lực")','Hệ thống thái độ xã hội','Năng lực chuyên môn'],c:1,f:'Khí chất quy định sắc thái về cường độ, tốc độ, nhịp độ.',p:'tr.96'},
+{s:'nc-ct',t:15,q:'Hệ thống điều khiển của nhân cách còn được gọi là —',o:['"Cái tôi"','Xu hướng','Khí chất','Lý tưởng'],c:0,f:'Hệ thống điều khiển = "Cái tôi", cấu tạo tự ý thức.',p:'tr.97'},
+{s:'nc-ct',t:25,q:'"Cái tôi" thực hiện chức năng chủ yếu nào?',o:['Quy định tốc độ phản ứng','Tự ý thức, tự điều chỉnh, tự kiểm tra','Tạo nhu cầu sinh lý','Di truyền đặc điểm sinh học'],c:1,f:'"Cái tôi" tự ý thức, tự điều chỉnh, tự kiểm tra hành vi.',p:'tr.97'},
+{s:'nc-ct',t:15,q:'Cấu trúc hai mặt của nhân cách theo quan niệm phổ biến ở VN là —',o:['Tính cách – khí chất','Đức – Tài (phẩm chất – năng lực)','Xu hướng – năng lực','Nhu cầu – lý tưởng'],c:1,f:'Cấu trúc "Đức – Tài" = phẩm chất – năng lực.',p:'tr.98'},
+{s:'nc-ct',t:25,q:'Thế giới quan, niềm tin, lý tưởng, lập trường, thái độ chính trị thuộc —',o:['Năng lực (Tài)','Phẩm chất xã hội (Đức)','Khí chất','Năng lực hành động'],c:1,f:'Đây là phẩm chất xã hội (đạo đức – chính trị) thuộc mặt Đức.',p:'tr.98'},
+{s:'nc-ct',t:25,q:'"Khả năng thiết lập và duy trì quan hệ với người khác" thuộc —',o:['Năng lực giao tiếp (Tài)','Phẩm chất ý chí','Cung cách ứng xử','Phẩm chất xã hội'],c:0,f:'Năng lực giao tiếp thuộc mặt Tài.',p:'tr.98'},
+
+{s:'nc-ht',t:15,q:'Yếu tố giữ vai trò "tiền đề" của sự hình thành nhân cách là —',o:['Giáo dục','Bẩm sinh – di truyền','Hoạt động','Môi trường'],c:1,f:'Bẩm sinh – di truyền là tiền đề vật chất.',p:'tr.100'},
+{s:'nc-ht',t:15,q:'Yếu tố giữ vai trò "chủ đạo" trong hình thành, phát triển nhân cách là —',o:['Di truyền','Môi trường','Giáo dục','Hoạt động'],c:2,f:'Giáo dục giữ vai trò chủ đạo.',p:'tr.100'},
+{s:'nc-ht',t:25,q:'Yếu tố giữ vai trò "quyết định trực tiếp" sự hình thành, phát triển nhân cách là —',o:['Di truyền','Hoạt động & giao tiếp','Giáo dục','Môi trường vĩ mô'],c:1,f:'Hoạt động & giao tiếp quyết định trực tiếp.',p:'tr.100'},
+{s:'nc-ht',t:15,q:'Môi trường (vĩ mô, vi mô) giữ vai trò —',o:['Tiền đề','Điều kiện','Chủ đạo','Quyết định trực tiếp'],c:1,f:'Môi trường là điều kiện xã hội cần thiết.',p:'tr.100'},
+{s:'nc-ht',t:35,q:'Nhận định nào SAI?',o:['Di truyền là tiền đề vật chất','Di truyền quyết định toàn bộ nhân cách','Môi trường là điều kiện cần thiết','Giáo dục giữ vai trò chủ đạo'],c:1,f:'Di truyền KHÔNG quyết định, chỉ là tiền đề → đáp án này sai.',p:'tr.100'},
+{s:'nc-ht',t:35,q:'"Dù sinh ra trong gia đình nhạc sĩ (di truyền tốt), nếu không học tập, rèn luyện thì E vẫn không thành tài." Câu này khẳng định vai trò quyết định của —',o:['Di truyền','Hoạt động','Môi trường','Bẩm sinh'],c:1,f:'Di truyền chỉ là tiền đề; hoạt động (rèn luyện) mới quyết định trực tiếp.',p:'tr.100'},
+{s:'nc-ht',t:25,q:'Ở tuổi trưởng thành, yếu tố nào giữ vị trí chủ đạo trong việc hoàn thiện nhân cách?',o:['Giáo dục nhà trường','Tự giáo dục','Di truyền','Môi trường vĩ mô'],c:1,f:'Tự giáo dục giữ vị trí chủ đạo ở người trưởng thành.',p:'tr.103'},
+{s:'nc-ht',t:25,q:'Câu "nhân vô thập toàn" nhấn mạnh nhân cách hoàn thiện nhiều hay ít tùy thuộc vào —',o:['Di truyền','Tự giáo dục','Khí chất','Môi trường vĩ mô'],c:1,f:'Tùy yếu tố tự giáo dục trên cơ sở tự nhận thức, tự đánh giá.',p:'tr.103'},
+{s:'nc-ht',t:15,q:'Con đường chủ yếu để hình thành, phát triển nhân cách KHÔNG bao gồm —',o:['Dạy học','Giáo dục','Tự giáo dục','Di truyền'],c:3,f:'Chủ yếu qua dạy học, giáo dục, tự giáo dục; di truyền là tiền đề, không phải "con đường".',p:'tr.103'},
+{s:'nc-ht',t:35,q:'Với trẻ trước tuổi đi học (mẫu giáo), con đường giáo dục nào ảnh hưởng quyết định đến xu hướng, tính cách?',o:['Nhà trường','Tập thể bạn bè','Gia đình','Tự giáo dục'],c:2,f:'Giáo dục gia đình ảnh hưởng quyết định ở lứa tuổi này.',p:'tr.101'},
+{s:'nc-ht',t:25,q:'Bẩm sinh – di truyền KHÔNG mang sẵn —',o:['Đặc điểm giải phẫu sinh lý','Sắc thái nhân cách','Tư chất','Cơ sở vật chất của tâm lý'],c:1,f:'Di truyền không mang sẵn sắc thái nhân cách.',p:'tr.100'},
+{s:'nc-ht',t:35,q:'Lứa tuổi thiếu niên có nhu cầu giao tiếp mạnh, muốn được bạn bè thừa nhận → nhà trường nên tận dụng công cụ giáo dục đặc biệt nào?',o:['Hình phạt','Tập thể học sinh','Di truyền','Môi trường vĩ mô'],c:1,f:'Tận dụng tập thể học sinh như công cụ giáo dục đặc biệt.',p:'tr.102'},
+
+{s:'yc-kn',t:15,q:'"Mặt năng động của ý thức, khả năng tâm lý cho phép con người vượt qua khó khăn, trở ngại để thực hiện hành động có mục đích" là —',o:['Tình cảm','Ý chí','Nhận thức','Khí chất'],c:1,f:'Đây là định nghĩa ý chí.',p:'tr.104'},
+{s:'yc-kn',t:25,q:'Ý chí có đặc điểm nào sau đây?',o:['Tồn tại độc lập, tách rời hành động','Mang tính xã hội – lịch sử, gắn với hành động cụ thể','Bẩm sinh, không thay đổi','Chỉ là phản xạ không điều kiện'],c:1,f:'Ý chí mang tính xã hội – lịch sử, không tách rời hành động.',p:'tr.104'},
+{s:'yc-kn',t:35,q:'Tấm gương thầy Nguyễn Ngọc Ký tập viết bằng chân, vượt khó để thành giáo viên giỏi minh họa cho —',o:['Năng lực bẩm sinh','Khí chất','Ý chí','Tình cảm'],c:2,f:'Nỗ lực vượt khó để đạt mục đích = ý chí.',p:'tr.104'},
+{s:'yc-kn',t:25,q:'"Nhận thức càng sâu thì quyết tâm càng cao; tình cảm càng mãnh liệt thì ý chí càng kiên cường" cho thấy ý chí —',o:['Tách rời nhận thức và xúc cảm','Không liên quan đến tình cảm','Gắn bó với nhận thức và xúc cảm','Chỉ phụ thuộc di truyền'],c:2,f:'Ý chí không tách rời nhận thức và xúc cảm.',p:'tr.104'},
+{s:'yc-kn',t:15,q:'Ý chí của con người nảy sinh và hình thành chủ yếu trong —',o:['Giấc ngủ','Lao động và các hoạt động','Di truyền','Phản xạ'],c:1,f:'Ý chí nảy sinh trong quá trình lao động và hoạt động.',p:'tr.104'},
+
+{s:'yc-pc',t:15,q:'Phẩm chất ý chí thể hiện qua việc biết đặt và theo đuổi mục đích, gạt bỏ mục đích thứ yếu là —',o:['Tính độc lập','Tính mục đích','Tính quyết đoán','Tính tự chủ'],c:1,f:'Đây là tính mục đích của ý chí.',p:'tr.105'},
+{s:'yc-pc',t:25,q:'Khả năng đưa ra quyết định kịp thời, dứt khoát trên cơ sở tính toán, cân nhắc là —',o:['Tính kiên trì','Tính quyết đoán','Tính độc lập','Tính tự chủ'],c:1,f:'Đây là tính quyết đoán.',p:'tr.105'},
+{s:'yc-pc',t:25,q:'Phẩm chất giúp con người tự quyết theo niềm tin của mình, không bị tác động bên ngoài chi phối là —',o:['Tính độc lập','Tính mục đích','Tính quyết đoán','Tính kiên trì'],c:0,f:'Đây là tính độc lập của ý chí.',p:'tr.105'},
+{s:'yc-pc',t:25,q:'"Cường độ của ý chí, giữ quyết định bền vững, có cơ sở đúng đắn để vượt khó khăn lâu dài" là —',o:['Tính tự chủ','Tính kiên cường/kiên trì','Tính quyết đoán','Tính mục đích'],c:1,f:'Đây là tính kiên cường (kiên trì).',p:'tr.105'},
+{s:'yc-pc',t:15,q:'Phẩm chất giúp con người làm chủ bản thân, kiểm soát cảm xúc, hành vi là —',o:['Tính mục đích','Tính tự chủ','Tính độc lập','Tính quyết đoán'],c:1,f:'Đây là tính tự chủ (tự kiềm chế).',p:'tr.105'},
+{s:'yc-pc',t:35,q:'"Trước lời rủ rê bỏ học của bạn bè, Nam vẫn giữ vững quyết định theo đuổi việc học theo niềm tin của mình." Phẩm chất —',o:['Tính quyết đoán','Tính độc lập','Tính kiên trì','Tính tự chủ'],c:1,f:'Không bị tác động bên ngoài chi phối, theo niềm tin bản thân → tính độc lập.',p:'tr.105'},
+{s:'yc-pc',t:35,q:'"Dù thất bại nhiều lần suốt 3 năm, chị Hân vẫn không bỏ cuộc, kiên trì đến khi đạt mục tiêu." Phẩm chất —',o:['Tính quyết đoán','Tính mục đích','Tính kiên cường','Tính độc lập'],c:2,f:'Bền bỉ vượt khó lâu dài → tính kiên cường/kiên trì.',p:'tr.105'},
+{s:'yc-pc',t:35,q:'"Đang rất tức giận nhưng anh K kịp kiềm chế, không to tiếng với khách hàng." Phẩm chất —',o:['Tính mục đích','Tính tự chủ','Tính độc lập','Tính quyết đoán'],c:1,f:'Kiểm soát cảm xúc, làm chủ bản thân → tính tự chủ.',p:'tr.105'},
+{s:'yc-pc',t:35,q:'"Trong tình huống khẩn cấp, đội trưởng nhanh chóng đưa ra quyết định dứt khoát, không chần chừ." Phẩm chất —',o:['Tính kiên trì','Tính quyết đoán','Tính độc lập','Tính tự chủ'],c:1,f:'Quyết định kịp thời, dứt khoát → tính quyết đoán.',p:'tr.105'},
+{s:'yc-pc',t:25,q:'Tính độc lập của ý chí KHÁC với —',o:['Sự kiên trì','Bướng bỉnh, bảo thủ','Tính tự chủ','Tính mục đích'],c:1,f:'Độc lập (theo niềm tin có cơ sở) khác bướng bỉnh (cố chấp vô lý).',p:'tr.105'},
+
+{s:'yc-hd',t:15,q:'"Hành động có chủ tâm, được điều khiển tự giác, hướng tới mục đích đặt trước" là —',o:['Hành động bản năng','Hành động ý chí','Hành động tự động hóa','Phản xạ không điều kiện'],c:1,f:'Đây là định nghĩa hành động ý chí.',p:'tr.106'},
+{s:'yc-hd',t:15,q:'Hành động ý chí gồm mấy giai đoạn?',o:['2','3','4','5'],c:2,f:'Bốn: Chuẩn bị – Quyết định – Thực hiện – Đánh giá.',p:'tr.106'},
+{s:'yc-hd',t:25,q:'Trình tự đúng các giai đoạn của hành động ý chí?',o:['Thực hiện → Chuẩn bị → Quyết định → Đánh giá','Chuẩn bị → Quyết định → Thực hiện → Đánh giá','Quyết định → Chuẩn bị → Đánh giá → Thực hiện','Đánh giá → Chuẩn bị → Quyết định → Thực hiện'],c:1,f:'Đúng thứ tự: Chuẩn bị → Quyết định → Thực hiện → Đánh giá.',p:'tr.106'},
+{s:'yc-hd',t:25,q:'Xác định mục đích, lập kế hoạch, phương pháp và hình thành ý định hành động thuộc giai đoạn —',o:['Quyết định','Chuẩn bị','Thực hiện','Đánh giá'],c:1,f:'Đây là nội dung của giai đoạn chuẩn bị.',p:'tr.106'},
+{s:'yc-hd',t:35,q:'"Sau khi hoàn thành đồ án, Mai đối chiếu kết quả với mục tiêu ban đầu để rút kinh nghiệm." Giai đoạn —',o:['Chuẩn bị','Quyết định','Thực hiện','Đánh giá'],c:3,f:'Đối chiếu kết quả với mục đích → giai đoạn đánh giá.',p:'tr.106'},
+{s:'yc-hd',t:25,q:'"Hành động ý chí bên ngoài" và "hành động ý chí bên trong" thuộc giai đoạn —',o:['Chuẩn bị','Quyết định','Thực hiện','Đánh giá'],c:2,f:'Giai đoạn thực hiện gồm hành động ý chí bên ngoài & bên trong.',p:'tr.106'},
+
+{s:'yc-td',t:15,q:'"Hành động vốn có ý thức, do lặp lại/luyện tập nhiều lần mà về sau không cần ý thức kiểm soát trực tiếp vẫn có kết quả" là —',o:['Hành động ý chí','Hành động tự động hóa','Phản xạ không điều kiện','Bản năng'],c:1,f:'Đây là định nghĩa hành động tự động hóa.',p:'tr.106'},
+{s:'yc-td',t:15,q:'Hành động tự động hóa gồm hai loại là —',o:['Kỹ xảo & thói quen','Phản xạ & bản năng','Tính cách & khí chất','Nhu cầu & lý tưởng'],c:0,f:'Hai loại: kỹ xảo và thói quen.',p:'tr.107'},
+{s:'yc-td',t:25,q:'"Hành động tự động hóa một cách có ý thức, tức tự động hóa nhờ luyện tập" là —',o:['Thói quen','Kỹ xảo','Phản xạ','Bản năng'],c:1,f:'Đây là định nghĩa kỹ xảo.',p:'tr.107'},
+{s:'yc-td',t:25,q:'Đặc điểm nào KHÔNG phải của kỹ xảo?',o:['Không cần ý thức kiểm soát thường xuyên','Động tác khái quát, không thừa','Kết quả cao, ít tốn năng lượng','Luôn gắn chặt với nhu cầu, nếp sống'],c:3,f:'"Gắn nhu cầu, nếp sống" là đặc điểm của thói quen, không phải kỹ xảo.',p:'tr.107'},
+{s:'yc-td',t:15,q:'Có mấy quy luật hình thành kỹ xảo?',o:['2','3','4','5'],c:2,f:'Bốn: tiến bộ không đồng đều, "đỉnh" PP, tác động qua lại cũ – mới, dập tắt.',p:'tr.107'},
+{s:'yc-td',t:35,q:'"Mới tập xe đạp tiến bộ rất nhanh trong vài ngày, sau đó chậm dần phải nhiều tháng mới thuần thục." Quy luật —',o:['"Đỉnh" của phương pháp','Tiến bộ không đồng đều','Dập tắt kỹ xảo','Giao thoa'],c:1,f:'Tiến bộ nhanh – chậm không đều → quy luật tiến bộ không đồng đều.',p:'tr.107'},
+{s:'yc-td',t:35,q:'"Học tiếng Anh qua đĩa CD đã bão hòa, muốn giỏi hơn phải chuyển sang giao tiếp trực tiếp." Quy luật —',o:['Tiến bộ không đồng đều','"Đỉnh" của phương pháp','Dập tắt kỹ xảo','Tác động tích cực'],c:1,f:'Mỗi PP có giới hạn ("đỉnh"); muốn cao hơn phải đổi PP.',p:'tr.108'},
+{s:'yc-td',t:35,q:'"Người giỏi bóng bàn khi mới chuyển sang quần vợt bị kỹ xảo cũ cản trở." Đây là —',o:['Ảnh hưởng tích cực','Quy luật "đỉnh"','Giao thoa kỹ xảo (ảnh hưởng tiêu cực)','Dập tắt kỹ xảo'],c:2,f:'Kỹ xảo cũ cản trở kỹ xảo mới = "giao thoa" (tiêu cực).',p:'tr.108'},
+{s:'yc-td',t:35,q:'"Biết đi xe đạp rồi nên tập xe máy nhanh hơn." Đây là —',o:['Giao thoa','Ảnh hưởng tích cực của kỹ xảo cũ','Quy luật "đỉnh"','Dập tắt'],c:1,f:'Kỹ xảo cũ hỗ trợ hình thành kỹ xảo mới → ảnh hưởng tích cực.',p:'tr.108'},
+{s:'yc-td',t:35,q:'"Ngoại ngữ học xong không dùng, không củng cố lâu ngày nên quên gần hết." Quy luật —',o:['Tiến bộ không đồng đều','"Đỉnh"','Giao thoa','Dập tắt kỹ xảo'],c:3,f:'Không luyện tập, củng cố → kỹ xảo yếu dần, mất hẳn = dập tắt.',p:'tr.108'},
+{s:'yc-td',t:25,q:'Điểm khác biệt cơ bản giữa kỹ xảo và thói quen là —',o:['Kỹ xảo gắn nhu cầu, thói quen gắn thao tác','Kỹ xảo được đánh giá về thao tác; thói quen được đánh giá về đạo đức','Cả hai đều không cần luyện tập','Thói quen luôn có hại'],c:1,f:'Kỹ xảo: đúng/sai về thao tác. Thói quen: tốt/xấu về đạo đức.',p:'tr.107'}
+];
+
+/* ---------- state ---------- */
+let selSec = new Set(Object.keys(SECTIONS));
+let selTier = new Set([15,25,35]);
+let session = null;
+let lastWrong = [];
+
+const $ = id => document.getElementById(id);
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+/* ---------- menu rendering ---------- */
+function renderChips(){
+  const sc = $('secChips'); sc.innerHTML='';
+  const groups={};
+  Object.entries(SECTIONS).forEach(([k,v])=>{(groups[v.grp]=groups[v.grp]||[]).push(k);});
+  Object.entries(groups).forEach(([grp,keys])=>{
+    const lab=document.createElement('div');
+    lab.style.cssText='width:100%;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:6px 0 2px';
+    lab.textContent=grp; sc.appendChild(lab);
+    keys.forEach(k=>{
+      const n = QUESTIONS.filter(q=>q.s===k).length;
+      const b=document.createElement('button');
+      b.className='chip'; b.setAttribute('aria-pressed', selSec.has(k));
+      b.textContent=SECTIONS[k].name+' ('+n+')';
+      b.onclick=()=>{ selSec.has(k)?selSec.delete(k):selSec.add(k); b.setAttribute('aria-pressed',selSec.has(k)); updatePool(); };
+      sc.appendChild(b);
+    });
+  });
+  const tc=$('tierChips'); tc.innerHTML='';
+  [15,25,35].forEach(t=>{
+    const n=QUESTIONS.filter(q=>q.t===t).length;
+    const b=document.createElement('button');
+    b.className='chip t'+t; b.setAttribute('aria-pressed', selTier.has(t));
+    b.textContent=TIERS[t].name+' · '+TIERS[t].v.toFixed(2)+'đ ('+n+')';
+    b.onclick=()=>{ selTier.has(t)?selTier.delete(t):selTier.add(t); b.setAttribute('aria-pressed',selTier.has(t)); updatePool(); };
+    tc.appendChild(b);
+  });
+}
+function pool(){ return QUESTIONS.filter(q=>selSec.has(q.s)&&selTier.has(q.t)); }
+function updatePool(){
+  const n=pool().length;
+  $('poolInfo').textContent=n+' câu được chọn';
+  $('startBtn').disabled = n===0;
+}
+
+/* ---------- build & run session ---------- */
+function buildSession(list){
+  const shufQ=$('shufQ').checked, shufO=$('shufO').checked;
+  let items = list.map(q=>{
+    let order=[0,1,2,3];
+    if(shufO) shuffle(order);
+    const opts=order.map(i=>q.o[i]);
+    const correct=order.indexOf(q.c);
+    return {s:q.s,t:q.t,q:q.q,opts,correct,f:q.f,p:q.p,chosen:null};
+  });
+  if(shufQ) shuffle(items);
+  session={items,idx:0};
+}
+function start(){ buildSession(pool()); show('quiz'); renderQ(); }
+
+function show(id){ ['menu','quiz','result'].forEach(s=>$(s).classList.toggle('hidden', s!==id)); window.scrollTo(0,0); }
+
+function stats(){
+  let correct=0,score=0,answered=0;
+  session.items.forEach(it=>{ if(it.chosen!==null){answered++; if(it.chosen===it.correct){correct++;score+=TIERS[it.t].v;}} });
+  return {correct,score,answered};
+}
+function renderQ(){
+  const it=session.items[session.idx];
+  $('curIdx').textContent=session.idx+1;
+  $('curTotal').textContent=session.items.length;
+  const st=stats();
+  $('curCorrect').textContent=st.correct;
+  $('curScore').textContent=st.score.toFixed(2);
+  $('barFill').style.width=((session.idx)/session.items.length*100)+'%';
+
+  $('qSec').textContent=SECTIONS[it.s].name;
+  const tt=$('qTier'); tt.className='tag t'+it.t;
+  tt.textContent=TIERS[it.t].name+' · '+TIERS[it.t].v.toFixed(2)+'đ';
+  $('qText').textContent=it.q;
+
+  const ow=$('opts'); ow.innerHTML='';
+  const keys=['A','B','C','D'];
+  it.opts.forEach((txt,i)=>{
+    const b=document.createElement('button');
+    b.className='opt'; b.innerHTML='<span class="key">'+keys[i]+'</span><span>'+txt+'</span>';
+    b.onclick=()=>choose(i);
+    ow.appendChild(b);
+  });
+  $('fb').innerHTML='';
+  $('nextBtn').classList.add('hidden');
+}
+function choose(i){
+  const it=session.items[session.idx];
+  if(it.chosen!==null) return;
+  it.chosen=i;
+  const btns=$('opts').querySelectorAll('.opt');
+  btns.forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===it.correct){ b.classList.add('correct'); b.insertAdjacentHTML('beforeend','<span class="mark">✓</span>'); }
+    if(bi===i && i!==it.correct){ b.classList.add('wrong'); b.insertAdjacentHTML('beforeend','<span class="mark">✕</span>'); }
+  });
+  const ok=i===it.correct;
+  $('fb').innerHTML='<div class="fb '+(ok?'good':'miss')+'">'
+    +'<div class="h">'+(ok?'Chính xác':'Phản hồi')+'</div>'
+    +'<div>'+it.f+'</div>'
+    +'<span class="pg">📖 '+it.p+'</span></div>';
+  // update running tally immediately
+  const st=stats();
+  $('curCorrect').textContent=st.correct;
+  $('curScore').textContent=st.score.toFixed(2);
+  $('nextBtn').classList.remove('hidden');
+  $('nextBtn').textContent = session.idx===session.items.length-1 ? 'Xem kết quả →' : 'Câu tiếp →';
+  $('nextBtn').focus();
+}
+function next(){
+  if(session.idx<session.items.length-1){ session.idx++; renderQ(); }
+  else renderResult();
+}
+
+/* ---------- results ---------- */
+function renderResult(){
+  const items=session.items;
+  let correct=0,score=0,maxScore=0;
+  const bySec={}, byTier={15:[0,0],25:[0,0],35:[0,0]};
+  lastWrong=[];
+  items.forEach(it=>{
+    maxScore+=TIERS[it.t].v;
+    const ok=it.chosen===it.correct;
+    bySec[it.s]=bySec[it.s]||[0,0]; bySec[it.s][1]++;
+    byTier[it.t][1]++;
+    if(ok){correct++;score+=TIERS[it.t].v;bySec[it.s][0]++;byTier[it.t][0]++;}
+    else lastWrong.push(it);
+  });
+  $('rScore').textContent=score.toFixed(2);
+  $('rScoreSub').textContent='trên tối đa '+maxScore.toFixed(2)+'đ';
+  $('rCorrect').textContent=correct;
+  $('rTotal').textContent=items.length;
+  $('rPct').textContent=Math.round(correct/items.length*100)+'%';
+
+  const bs=$('bySec'); bs.innerHTML='';
+  Object.keys(SECTIONS).forEach(k=>{ if(bySec[k]) bs.appendChild(rowEl(SECTIONS[k].name,bySec[k][0],bySec[k][1])); });
+  const bt=$('byTier'); bt.innerHTML='';
+  [15,25,35].forEach(t=>{ if(byTier[t][1]) bt.appendChild(rowEl(TIERS[t].name+' ('+TIERS[t].v.toFixed(2)+'đ)',byTier[t][0],byTier[t][1])); });
+
+  $('wrongCount').textContent=lastWrong.length;
+  $('redoWrongBtn').disabled=lastWrong.length===0;
+  const rl=$('reviewList'); rl.innerHTML='';
+  $('reviewWrap').classList.toggle('hidden', lastWrong.length===0);
+  lastWrong.forEach(it=>{
+    const yours = it.chosen===null ? '(bỏ trống)' : it.opts[it.chosen];
+    const el=document.createElement('div'); el.className='item';
+    el.innerHTML='<div class="q">'+it.q+'</div>'
+      +'<div class="a"><span class="lbl">Bạn chọn: </span><span class="yours">'+yours+'</span></div>'
+      +'<div class="a"><span class="lbl">Đáp án đúng: </span><span class="right">'+it.opts[it.correct]+'</span></div>'
+      +'<div class="a"><small>'+it.f+' · '+it.p+'</small></div>';
+    rl.appendChild(el);
+  });
+  show('result');
+}
+function rowEl(name,got,tot){
+  const pct = tot? Math.round(got/tot*100):0;
+  const d=document.createElement('div'); d.className='row';
+  d.innerHTML='<span class="nm">'+name+'</span>'
+    +'<span class="mini"><i style="width:'+pct+'%;background:'+(pct>=70?'var(--ok)':pct>=40?'var(--t25)':'var(--bad)')+'"></i></span>'
+    +'<span class="frac">'+got+'/'+tot+'</span>';
+  return d;
+}
+function redoWrong(){
+  const src=lastWrong.map(it=>({s:it.s,t:it.t,q:it.q,o:it.opts.slice(),c:it.correct,f:it.f,p:it.p}));
+  buildSession(src); show('quiz'); renderQ();
+}
+
+/* ---------- wire up ---------- */
+renderChips(); updatePool();
+$('startBtn').onclick=start;
+$('nextBtn').onclick=next;
+$('quitBtn').onclick=()=>show('menu');
+$('againBtn').onclick=()=>{ buildSession(session.items.map(it=>({s:it.s,t:it.t,q:it.q,o:it.opts.slice(),c:it.correct,f:it.f,p:it.p}))); show('quiz'); renderQ(); };
+$('menuBtn').onclick=()=>show('menu');
+$('redoWrongBtn').onclick=redoWrong;
+document.addEventListener('keydown',e=>{
+  if($('quiz').classList.contains('hidden')) return;
+  const it=session.items[session.idx];
+  if(it.chosen===null && ['1','2','3','4','a','b','c','d','A','B','C','D'].includes(e.key)){
+    const map={'1':0,'2':1,'3':2,'4':3,'a':0,'b':1,'c':2,'d':3,'A':0,'B':1,'C':2,'D':3};
+    choose(map[e.key]);
+  } else if(it.chosen!==null && (e.key==='Enter'||e.key===' ')){ e.preventDefault(); next(); }
+});
+</script>
+</body>
+</html>

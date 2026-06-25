@@ -1,0 +1,152 @@
+<div style="padding: 0.5rem 0;">
+<h2 class="sr-only">Bài trắc nghiệm ôn tập Chương 1 Tâm lý đại cương gồm 40 câu</h2>
+
+<div id="quiz-root" style="font-family: var(--font-sans); color: var(--color-text-primary);">
+
+  <div id="top-bar" style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+    <div style="flex:1; height:8px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); overflow:hidden;">
+      <div id="prog" style="height:100%; width:0%; background:var(--color-text-info); transition:width .25s;"></div>
+    </div>
+    <span id="counter" style="font-size:13px; color:var(--color-text-secondary); min-width:48px; text-align:right;">1 / 40</span>
+    <span id="score" style="font-size:13px; font-weight:500; color:var(--color-text-success); min-width:60px; text-align:right;">Đúng: 0</span>
+  </div>
+
+  <div id="sec-badge" style="display:inline-block; font-size:12px; padding:3px 10px; border-radius:var(--border-radius-md); background:var(--color-background-info); color:var(--color-text-info); margin-bottom:12px;"></div>
+
+  <div id="q-text" style="font-size:16px; line-height:1.6; font-weight:500; margin-bottom:16px;"></div>
+
+  <div id="opts" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+  <div id="explain" style="display:none; margin-top:14px; padding:12px 14px; border-radius:var(--border-radius-md); background:var(--color-background-secondary); font-size:14px; line-height:1.6;"></div>
+
+  <div style="display:flex; justify-content:space-between; align-items:center; margin-top:18px;">
+    <button id="prev-btn" style="opacity:.5;">← Câu trước</button>
+    <button id="next-btn">Câu sau →</button>
+  </div>
+
+  <div id="result" style="display:none; text-align:center; padding:1rem 0;">
+    <div style="font-size:22px; font-weight:500; margin-bottom:8px;">Hoàn thành!</div>
+    <div id="final-score" style="font-size:34px; font-weight:500; color:var(--color-text-info); margin-bottom:6px;"></div>
+    <div id="final-msg" style="font-size:14px; color:var(--color-text-secondary); margin-bottom:18px;"></div>
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button id="retry-btn"><i class="ti ti-refresh" aria-hidden="true"></i> Làm lại</button>
+      <button id="review-btn">Xem câu sai</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+const QS = [
+ {s:"Khoa học & lược sử", q:"Từ \"tâm lý học\" (psychology) trong tiếng Hy Lạp được ghép từ hai thành tố nào?", o:["Psyche + logic","Psyche + logos","Psycho + logia","Psy + science"], c:1, e:"psyche (tâm hồn) + logos (khoa học). TLH trước đây được coi là nghiên cứu về linh hồn."},
+ {s:"Khoa học & lược sử", q:"Tâm lý học chính thức trở thành một khoa học độc lập vào năm nào?", o:["1789","1832","1879","1920"], c:2, e:"Năm 1879 — mốc TLH tách thành khoa học độc lập."},
+ {s:"Khoa học & lược sử", q:"Ai là người sáng lập phòng thí nghiệm tâm lý đầu tiên, đánh dấu TLH trở thành khoa học độc lập?", o:["R. Descartes","Wilhelm Wundt","Aristote","Heraclite"], c:1, e:"Wilhelm Wundt lập phòng thí nghiệm tâm lý đầu tiên năm 1879."},
+ {s:"Khoa học & lược sử", q:"Phòng thí nghiệm tâm lý đầu tiên được thành lập tại trường đại học nào?", o:["Đại học Cambridge (Anh)","Đại học Leipzig (Đức)","Đại học Paris (Pháp)","Đại học Vienna (Áo)"], c:1, e:"Tại Đại học Leipzig, Đức. (Wundt – 1879 – Leipzig là bộ ba hay hỏi.)"},
+ {s:"Khoa học & lược sử", q:"Lịch sử phát triển của tâm lý học trải qua mấy giai đoạn?", o:["2","3","4","5"], c:1, e:"3 giai đoạn: thời cổ đại; từ TK XIX trở về trước; trở thành KH độc lập năm 1879."},
+ {s:"Khoa học & lược sử", q:"Luận điểm \"Mọi sự vật đều là 'lửa' biến dạng\" gắn với nhà triết học cổ đại nào?", o:["Democrite","Heraclite","Socrate","Platon"], c:1, e:"Heraclite (530–470 TCN): con người có thể tìm ra quy luật của tâm hồn qua cái toàn thể."},
+ {s:"Khoa học & lược sử", q:"Quan điểm \"tâm hồn cũng là vật thể, do các 'nguyên tử lửa' tạo ra\" là của ai?", o:["Heraclite","Democrite","Aristote","Platon"], c:1, e:"Democrite (460–370 TCN) — quan điểm duy vật về tâm hồn."},
+ {s:"Khoa học & lược sử", q:"Quan điểm nhị nguyên luận (tâm lý – vật lý song song) gắn với tên tuổi nào?", o:["W. Wundt","R. Descartes","Socrate","Aristote"], c:1, e:"Descartes (1596–1650) với chủ nghĩa nhị nguyên (dualism)."},
+ {s:"Khoa học & lược sử", q:"Vì sao tâm lý học được gọi là \"khoa học trung tâm\"?", o:["Vì nó ra đời sớm nhất trong các ngành KH","Vì khám phá của nó ảnh hưởng đến nhiều ngành: KH xã hội, KH thần kinh, y học","Vì nó là môn bắt buộc ở mọi trường","Vì nó chỉ nghiên cứu não bộ"], c:1, e:"Những khám phá của TLH có ảnh hưởng đến nhiều bộ môn khác nên gọi là \"khoa học trung tâm\"."},
+ {s:"Khoa học & lược sử", q:"Bước nào KHÔNG thuộc phương pháp khoa học mà nhà tâm lý học sử dụng?", o:["Đặt câu hỏi","Đặt giả thuyết","Kiểm chứng giả thuyết bằng thực nghiệm","Khẳng định kết quả mà không cần kiểm chứng"], c:3, e:"Phương pháp KH bắt buộc phải kiểm chứng giả thuyết bằng thực nghiệm rồi mới báo cáo kết quả."},
+
+ {s:"Đối tượng, bản chất, chức năng", q:"Đối tượng nghiên cứu của tâm lý học là gì?", o:["Não bộ con người","Các hiện tượng tâm lý (hoạt động tâm lý)","Hành vi của động vật","Cấu tạo cơ thể người"], c:1, e:"TLH nghiên cứu các hiện tượng tâm lý — sự hình thành, vận hành, phát triển và quy luật của chúng."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Theo chủ nghĩa duy vật biện chứng, tâm lý người là gì?", o:["Do Thượng đế ban cho","Sự phản ánh hiện thực khách quan vào não người thông qua chủ thể","Do não tiết ra như gan tiết ra mật","Hoàn toàn do di truyền quyết định"], c:1, e:"Đây là kết luận cốt lõi: tâm lý = phản ánh HTKQ vào não qua chủ thể, mang bản chất xã hội – lịch sử."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Quan niệm \"tâm lý do Thượng đế, do trời sinh ra và nhập vào thể xác\" thuộc trường phái nào?", o:["Duy vật tầm thường","Duy tâm khách quan","Duy vật biện chứng","Nhị nguyên luận"], c:1, e:"Duy tâm khách quan: tâm lý không phụ thuộc vào thế giới khách quan."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Quan niệm \"tư tưởng do não tiết ra giống như gan tiết ra mật\" thuộc trường phái nào?", o:["Duy tâm khách quan","Duy vật tầm thường","Duy vật biện chứng","Duy tâm chủ quan"], c:1, e:"Duy vật tầm thường: đồng nhất cái sinh lý với cái tâm lý, phủ nhận vai trò chủ thể."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Tâm lý người mang bản chất gì (theo duy vật biện chứng)?", o:["Bản chất sinh học thuần túy","Bản chất xã hội – lịch sử","Bản chất thần bí","Bản chất di truyền"], c:1, e:"Tâm lý người có bản chất xã hội – lịch sử."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Điều nào KHÔNG phải biểu hiện của \"tính chủ thể\" trong tâm lý người?", o:["Cùng một hiện thực tác động vào nhiều người cho hình ảnh tâm lý khác nhau","Cùng một hiện thực tác động vào một người ở các thời điểm khác nhau cho sắc thái khác nhau","Mọi người phản ánh hiện thực khách quan giống hệt nhau","Mỗi người đưa kinh nghiệm, nhu cầu riêng vào hình ảnh tâm lý"], c:2, e:"Tính chủ thể nghĩa là mỗi người phản ánh khác nhau — không thể giống hệt nhau."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Cùng thấy cửa hàng giảm giá 70%: người hào hứng mua ngay, người thờ ơ. Điều này minh họa đặc điểm nào của tâm lý?", o:["Tính sinh động","Tính chủ thể","Chức năng định hướng","Bản chất xã hội"], c:1, e:"Cùng một hiện thực nhưng mỗi chủ thể có thái độ, hành vi khác nhau — đó là tính chủ thể."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Tâm lý học có mấy nhiệm vụ cơ bản (cụ thể)?", o:["2","3","4","5"], c:1, e:"3 nhiệm vụ: nghiên cứu bản chất; phát hiện quy luật nảy sinh – phát triển; tìm cơ chế diễn biến – thể hiện."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Chức năng giúp con người xác lập động cơ, mục đích hoạt động là chức năng nào?", o:["Định hướng","Động lực","Điều khiển","Kiểm tra, điều chỉnh"], c:0, e:"Chức năng định hướng: xác lập động cơ, mục đích hoạt động."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Chức năng \"thôi thúc, lôi cuốn con người hoạt động, khắc phục khó khăn vươn tới mục đích\" là?", o:["Định hướng","Động lực","Điều khiển","Kiểm tra, điều chỉnh"], c:1, e:"Chức năng động lực."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Chức năng tự đánh giá kết quả hoạt động so với yêu cầu, ý định đặt ra để điều chỉnh là?", o:["Định hướng","Động lực","Điều khiển","Kiểm tra, điều chỉnh"], c:3, e:"Chức năng kiểm tra, điều chỉnh."},
+ {s:"Đối tượng, bản chất, chức năng", q:"Tâm lý có bao nhiêu chức năng cơ bản?", o:["2","3","4","5"], c:2, e:"4 chức năng: định hướng → động lực → điều khiển → kiểm tra, điều chỉnh."},
+
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Căn cứ vào thời gian tồn tại, hiện tượng tâm lý được chia thành mấy loại?", o:["2","3","4","5"], c:1, e:"3 loại: quá trình tâm lý, trạng thái tâm lý, thuộc tính tâm lý."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Hiện tượng tâm lý có mở đầu và kết thúc rõ ràng, thời gian tồn tại tương đối ngắn là?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Ý thức"], c:0, e:"Quá trình tâm lý: diễn biến rõ ràng, mở đầu – kết thúc rõ, tồn tại ngắn."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Hiện tượng tâm lý ổn định, bền vững, khó hình thành và khó mất đi, tạo nên nét riêng của nhân cách là?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Cảm xúc"], c:2, e:"Thuộc tính tâm lý: ổn định, bền vững, tạo nét riêng của nhân cách."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Hiện tượng tâm lý diễn ra tương đối dài, mở đầu – kết thúc không rõ ràng, đóng vai trò làm \"nền\" cho hiện tượng tâm lý khác là?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Năng lực"], c:1, e:"Trạng thái tâm lý: làm nền, phải đi kèm hiện tượng tâm lý khác."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Cảm giác, tri giác, tư duy, tưởng tượng thuộc loại hiện tượng tâm lý nào?", o:["Quá trình tâm lý (quá trình nhận thức)","Trạng thái tâm lý","Thuộc tính tâm lý","Không phải hiện tượng tâm lý"], c:0, e:"Đều thuộc quá trình nhận thức — một nhánh của quá trình tâm lý."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"\"Chú ý nghe giảng\" được xếp vào loại hiện tượng tâm lý nào?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Cảm xúc"], c:1, e:"Chú ý là trạng thái tâm lý — đi kèm và làm nền cho quá trình nhận thức."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Bốn nhóm thuộc tính tâm lý cá nhân là gì?", o:["Cảm giác, tri giác, tư duy, tưởng tượng","Xu hướng, tính cách, khí chất, năng lực","Vui, buồn, giận, sợ","Định hướng, động lực, điều khiển, kiểm tra"], c:1, e:"Bốn thuộc tính: xu hướng, tính cách, khí chất, năng lực."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Vui mừng, tức giận, dễ chịu, thờ ơ, nhiệt tình thuộc nhóm nào trong quá trình tâm lý?", o:["Quá trình nhận thức","Quá trình cảm xúc","Quá trình hành động ý chí","Thuộc tính tâm lý"], c:1, e:"Đây là các quá trình cảm xúc."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Căn cứ vào sự tham gia của ý thức, hiện tượng tâm lý được chia thành?", o:["Sống động và tiềm tàng","Có ý thức và chưa (không) có ý thức","Quá trình và trạng thái","Bên trong và bên ngoài"], c:1, e:"Theo sự tham gia của ý thức: có ý thức / chưa có ý thức."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Hiện tượng tâm lý mà chủ thể nhận biết đang diễn ra, có thể bày tỏ thái độ và điều chỉnh được là?", o:["Hiện tượng tâm lý chưa có ý thức","Hiện tượng tâm lý có ý thức","Thuộc tính tâm lý","Quá trình tâm lý"], c:1, e:"Hiện tượng tâm lý có ý thức: chủ thể nhận biết, bày tỏ thái độ và điều chỉnh được."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Ngoài cách phân loại theo thời gian tồn tại và sự tham gia của ý thức, hiện tượng tâm lý còn được phân thành?", o:["Tích cực và tiêu cực","Sống động và tiềm tàng","Bẩm sinh và học được","Cá nhân và xã hội"], c:1, e:"Còn có cách phân loại: hiện tượng tâm lý sống động và tiềm tàng."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"\"Quá trình hành động ý chí\" được xếp vào loại nào?", o:["Một trong các quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Không thuộc hiện tượng tâm lý"], c:0, e:"Quá trình tâm lý gồm: nhận thức, cảm xúc và hành động ý chí."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Đặc điểm \"có tính diễn biến rõ ràng và xuất hiện sớm trong đời sống cá thể\" là của loại nào?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Khí chất"], c:0, e:"Đây là đặc điểm của quá trình tâm lý."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Tình huống: Minh hồi hộp, lo lắng suốt cả buổi trước khi thi, không rõ cảm giác đó bắt đầu từ lúc nào. Hiện tượng này là?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Năng lực"], c:1, e:"Kéo dài, mở đầu không rõ, bao trùm hoạt động → trạng thái tâm lý (tâm trạng lo lắng)."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Tình huống: Hoa nổi tiếng là người kiên trì, có nghị lực, luôn trung thực. Đây là mô tả về?", o:["Một quá trình tâm lý","Một trạng thái tâm lý","Một thuộc tính tâm lý (tính cách)","Một cảm xúc nhất thời"], c:2, e:"Những nét bền vững, ổn định tạo nên nhân cách → thuộc tính tâm lý (tính cách)."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Tình huống: Vừa nghe tin trúng học bổng, An reo lên vui sướng trong giây lát. \"Vui sướng\" lúc đó là?", o:["Quá trình cảm xúc (thuộc quá trình tâm lý)","Trạng thái tâm lý","Thuộc tính tâm lý","Năng lực"], c:0, e:"Cảm xúc xuất hiện tức thời, ngắn, mở đầu–kết thúc rõ → quá trình cảm xúc. (Khác với tâm trạng vui kéo dài = trạng thái.)"},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Tình huống: Bình có khả năng tính nhẩm rất nhanh và chính xác. \"Khả năng tính nhẩm\" của Bình là?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý (năng lực)","Quá trình nhận thức"], c:2, e:"Năng lực là một trong bốn thuộc tính tâm lý cá nhân."},
+ {s:"⭐ Phân loại hiện tượng tâm lý", q:"Tình huống: Trong lúc làm bài, Lan tập trung cao độ, gạt mọi tiếng ồn xung quanh. Trạng thái \"tập trung\" này thuộc loại nào?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Quá trình cảm xúc"], c:1, e:"Sự tập trung/chú ý làm nền cho hoạt động nhận thức → trạng thái tâm lý."}
+];
+
+let i = 0, answered = new Array(QS.length).fill(null), correct = 0;
+
+const el = id => document.getElementById(id);
+
+function render(){
+  el("result").style.display = "none";
+  el("q-text").parentElement.querySelectorAll("#sec-badge,#q-text,#opts").forEach(x=>x.style.display="");
+  document.querySelector("#quiz-root > div:nth-last-child(2)").style.display="flex";
+  const Q = QS[i];
+  el("counter").textContent = (i+1)+" / "+QS.length;
+  el("prog").style.width = ((i+1)/QS.length*100)+"%";
+  el("score").textContent = "Đúng: "+correct;
+  el("sec-badge").textContent = Q.s;
+  el("q-text").textContent = (i+1)+". "+Q.q;
+  el("prev-btn").style.opacity = i===0 ? ".4" : "1";
+  el("next-btn").textContent = i===QS.length-1 ? "Xem kết quả" : "Câu sau →";
+
+  const wrap = el("opts"); wrap.innerHTML="";
+  Q.o.forEach((opt,idx)=>{
+    const b = document.createElement("button");
+    b.textContent = String.fromCharCode(65+idx)+". "+opt;
+    b.style.cssText = "text-align:left; padding:11px 14px; font-size:14px; line-height:1.5; border-radius:var(--border-radius-md);";
+    const picked = answered[i];
+    if(picked!==null){
+      b.disabled = true;
+      if(idx===Q.c){ b.style.background="var(--color-background-success)"; b.style.borderColor="var(--color-border-success)"; b.style.color="var(--color-text-success)"; }
+      else if(idx===picked){ b.style.background="var(--color-background-danger)"; b.style.borderColor="var(--color-border-danger)"; b.style.color="var(--color-text-danger)"; }
+      else { b.style.opacity=".55"; }
+    } else {
+      b.onclick = ()=>choose(idx);
+    }
+    wrap.appendChild(b);
+  });
+
+  const ex = el("explain");
+  if(answered[i]!==null){
+    const ok = answered[i]===Q.c;
+    ex.style.display="block";
+    ex.innerHTML = "<span style='font-weight:500; color:"+(ok?"var(--color-text-success)":"var(--color-text-danger)")+"'>"+(ok?"✓ Chính xác. ":"✗ Chưa đúng. ")+"</span>"+Q.e;
+  } else { ex.style.display="none"; }
+}
+
+function choose(idx){
+  if(answered[i]!==null) return;
+  answered[i]=idx;
+  if(idx===QS[i].c) correct++;
+  render();
+}
+
+function showResult(){
+  document.querySelector("#quiz-root > div:nth-last-child(2)").style.display="none";
+  el("sec-badge").style.display="none"; el("q-text").style.display="none"; el("opts").style.display="none"; el("explain").style.display="none";
+  el("prog").style.width="100%"; el("counter").textContent=QS.length+" / "+QS.length; el("score").textContent="Đúng: "+correct;
+  const r = el("result"); r.style.display="block";
+  const pct = Math.round(correct/QS.length*100);
+  el("final-score").textContent = correct+" / "+QS.length+"  ("+pct+"%)";
+  let msg = pct>=85 ? "Xuất sắc! Bạn nắm rất chắc Chương 1." : pct>=65 ? "Khá tốt — ôn lại vài câu sai là ổn." : "Cần ôn lại kỹ phần lý thuyết, nhất là phân loại.";
+  el("final-msg").textContent = msg;
+}
+
+el("next-btn").onclick = ()=>{ if(i===QS.length-1){ showResult(); } else { i++; render(); } };
+el("prev-btn").onclick = ()=>{ if(i>0){ i--; render(); } };
+el("retry-btn").onclick = ()=>{ i=0; correct=0; answered=new Array(QS.length).fill(null); render(); };
+el("review-btn").onclick = ()=>{ const w=answered.map((a,k)=>a!==QS[k].c?k:-1).filter(k=>k>=0); if(w.length){ i=w[0]; render(); } };
+
+render();
+</script>

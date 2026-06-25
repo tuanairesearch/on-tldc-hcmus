@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chương 1 — 10 tình huống bổ sung</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --font-sans:"Be Vietnam Pro",system-ui,sans-serif;
+    --color-text-primary:#16203B; --color-text-secondary:#5C6679;
+    --color-text-info:#1F7A8C; --color-text-success:#2F8F5B; --color-text-danger:#C0453B;
+    --color-background-secondary:#F2F4F7; --color-background-info:#E6F2F4;
+    --color-background-success:#E8F5EE; --color-background-danger:#FBEBE9;
+    --color-border-success:#A9DCC0; --color-border-danger:#E6BBB5;
+    --border-radius-md:10px;
+  }
+  *{box-sizing:border-box}
+  body{font-family:var(--font-sans);background:#EEF1F4;color:var(--color-text-primary);margin:0;padding:26px 16px 60px;line-height:1.55}
+  #quiz-root{max-width:680px;margin:0 auto;background:#fff;border:1px solid #E2E6EC;border-radius:16px;padding:24px 22px;box-shadow:0 8px 28px rgba(20,30,55,.07)}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+  button{font:inherit;font-weight:600;cursor:pointer;border:1.5px solid #E2E6EC;background:#fff;color:var(--color-text-primary);border-radius:var(--border-radius-md);padding:10px 15px;transition:border-color .15s,background .15s}
+  button:hover{border-color:var(--color-text-info)}
+  h1.page-title{max-width:680px;margin:0 auto 14px;font-family:"Lora",Georgia,serif;font-weight:600;font-size:1.3rem;color:#16203B}
+</style>
+</head>
+<body>
+<h1 class="page-title">Chương 1 — 10 tình huống bổ sung</h1>
+<div style="padding: 0.5rem 0;">
+<h2 class="sr-only">Mười câu trắc nghiệm tình huống bổ sung cho Chương 1 Tâm lý đại cương</h2>
+
+<div id="q2-root" style="font-family: var(--font-sans); color: var(--color-text-primary);">
+
+  <div id="top-bar2" style="display:flex; align-items:center; gap:12px; margin-bottom:14px;">
+    <div style="flex:1; height:8px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); overflow:hidden;">
+      <div id="prog2" style="height:100%; width:0%; background:var(--color-text-info); transition:width .25s;"></div>
+    </div>
+    <span id="counter2" style="font-size:13px; color:var(--color-text-secondary); min-width:48px; text-align:right;">1 / 10</span>
+    <span id="score2" style="font-size:13px; font-weight:500; color:var(--color-text-success); min-width:60px; text-align:right;">Đúng: 0</span>
+  </div>
+
+  <div id="sec-badge2" style="display:inline-block; font-size:12px; padding:3px 10px; border-radius:var(--border-radius-md); background:var(--color-background-info); color:var(--color-text-info); margin-bottom:12px;"></div>
+
+  <div id="q-text2" style="font-size:16px; line-height:1.6; font-weight:500; margin-bottom:16px;"></div>
+
+  <div id="opts2" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+  <div id="explain2" style="display:none; margin-top:14px; padding:12px 14px; border-radius:var(--border-radius-md); background:var(--color-background-secondary); font-size:14px; line-height:1.6;"></div>
+
+  <div id="nav2" style="display:flex; justify-content:space-between; align-items:center; margin-top:18px;">
+    <button id="prev-btn2" style="opacity:.5;">← Câu trước</button>
+    <button id="next-btn2">Câu sau →</button>
+  </div>
+
+  <div id="result2" style="display:none; text-align:center; padding:1rem 0;">
+    <div style="font-size:22px; font-weight:500; margin-bottom:8px;">Hoàn thành!</div>
+    <div id="final-score2" style="font-size:34px; font-weight:500; color:var(--color-text-info); margin-bottom:6px;"></div>
+    <div id="final-msg2" style="font-size:14px; color:var(--color-text-secondary); margin-bottom:18px;"></div>
+    <div style="display:flex; gap:10px; justify-content:center;">
+      <button id="retry-btn2"><i class="ti ti-refresh" aria-hidden="true"></i> Làm lại</button>
+      <button id="review-btn2">Xem câu sai</button>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<script>
+const QS2 = [
+ {s:"⭐ Phân loại", q:"Suốt mấy tuần ôn thi căng thẳng, Tú lúc nào cũng thấy uể oải, chán nản, không rõ bắt đầu từ khi nào. Hiện tượng này thuộc loại nào?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý","Năng lực"], c:1, e:"Kéo dài, mờ điểm bắt đầu, bao trùm hoạt động → trạng thái tâm lý (tâm trạng)."},
+ {s:"⭐ Phân loại", q:"Khi nghe cô đọc một bài thơ về làng quê, Mai hình dung ra cảnh đồng lúa, con trâu trong đầu. Việc \"hình dung ra cảnh\" này là?", o:["Quá trình tâm lý (tưởng tượng)","Trạng thái tâm lý","Thuộc tính tâm lý","Quá trình cảm xúc"], c:0, e:"Tưởng tượng thuộc quá trình nhận thức — một nhánh của quá trình tâm lý."},
+ {s:"⭐ Phân loại", q:"Nam là người sôi nổi, nóng tính, dễ bùng nổ nhưng cũng nguôi giận rất nhanh. Đặc điểm bền vững này mô tả về?", o:["Quá trình cảm xúc","Trạng thái tâm lý","Thuộc tính tâm lý (khí chất)","Năng lực"], c:2, e:"Đặc điểm ổn định về kiểu phản ứng → khí chất, một trong bốn thuộc tính tâm lý."},
+ {s:"⭐ Phân loại", q:"Đang đi trên đường, Lan chợt ngửi thấy mùi bánh mì nướng thơm phức bay ra từ một tiệm bánh. Việc \"ngửi thấy mùi\" là?", o:["Quá trình tâm lý (cảm giác)","Trạng thái tâm lý","Thuộc tính tâm lý","Quá trình hành động ý chí"], c:0, e:"Cảm giác phản ánh một thuộc tính riêng lẻ (mùi) khi nó trực tiếp tác động → quá trình nhận thức."},
+ {s:"⭐ Phân loại", q:"Trong lúc giải một bài toán khó, Khoa phải nỗ lực, quyết tâm vượt qua sự nản lòng để làm tới cùng. Sự nỗ lực ý chí lúc giải bài này thuộc loại nào?", o:["Quá trình tâm lý (hành động ý chí)","Trạng thái tâm lý","Thuộc tính tâm lý","Cảm xúc"], c:0, e:"Quá trình tâm lý gồm: nhận thức, cảm xúc và hành động ý chí. Đây là hành động ý chí trong một tình huống cụ thể."},
+ {s:"⭐ Phân loại", q:"Một bạn luôn hướng tới lý tưởng sống vì cộng đồng, có hệ thống nhu cầu và hứng thú ổn định, nhất quán. Đặc điểm \"xu hướng sống\" này thuộc loại nào?", o:["Quá trình tâm lý","Trạng thái tâm lý","Thuộc tính tâm lý (xu hướng)","Quá trình cảm xúc"], c:2, e:"Xu hướng là một trong bốn thuộc tính tâm lý cá nhân (xu hướng, tính cách, khí chất, năng lực)."},
+ {s:"Chức năng tâm lý", q:"Sau khi thi xong, Hùng so sánh kết quả với mục tiêu ban đầu, thấy chưa đạt nên rút kinh nghiệm cho lần sau. Việc này thể hiện chức năng nào của tâm lý?", o:["Định hướng","Động lực","Điều khiển","Kiểm tra, điều chỉnh"], c:3, e:"Tự đánh giá kết quả so với ý định đặt ra để điều chỉnh → chức năng kiểm tra, điều chỉnh."},
+ {s:"Chức năng tâm lý", q:"Nhờ khát khao đỗ đại học, Mai có thể thức khuya dậy sớm, vượt qua mọi mệt mỏi để ôn bài. Điều thôi thúc Mai hành động thể hiện chức năng nào?", o:["Định hướng","Động lực","Điều khiển","Kiểm tra, điều chỉnh"], c:1, e:"Thôi thúc, lôi cuốn con người hoạt động, khắc phục khó khăn vươn tới mục đích → chức năng động lực."},
+ {s:"Tính chủ thể", q:"Cùng nghe một bản nhạc buồn, người thì rưng rưng nhớ kỷ niệm cũ, người lại thấy bình thường. Điều này thể hiện đặc điểm nào của tâm lý người?", o:["Tính sinh động","Tính chủ thể","Chức năng định hướng","Bản chất sinh học"], c:1, e:"Cùng một hiện thực khách quan nhưng mỗi chủ thể phản ánh với sắc thái khác nhau → tính chủ thể."},
+ {s:"Bản chất tâm lý", q:"Hai trẻ sinh đôi cùng gen, được nuôi ở hai gia đình và môi trường rất khác nhau, lớn lên có tính cách khác biệt rõ rệt. Điều này phù hợp nhất với quan điểm nào?", o:["Duy tâm khách quan (do trời sinh)","Duy vật tầm thường (não tiết ra tâm lý)","Duy vật biện chứng (phản ánh HTKQ, bản chất xã hội – lịch sử)","Tâm lý hoàn toàn do di truyền quyết định"], c:2, e:"Cùng gen nhưng môi trường – quan hệ xã hội khác nhau dẫn đến tâm lý khác nhau → đúng với quan điểm duy vật biện chứng về bản chất xã hội – lịch sử của tâm lý."}
+];
+
+let j = 0, ans2 = new Array(QS2.length).fill(null), ok2 = 0;
+const g = id => document.getElementById(id);
+
+function render2(){
+  g("result2").style.display="none";
+  g("sec-badge2").style.display=""; g("q-text2").style.display=""; g("opts2").style.display="flex"; g("nav2").style.display="flex";
+  const Q = QS2[j];
+  g("counter2").textContent=(j+1)+" / "+QS2.length;
+  g("prog2").style.width=((j+1)/QS2.length*100)+"%";
+  g("score2").textContent="Đúng: "+ok2;
+  g("sec-badge2").textContent=Q.s;
+  g("q-text2").textContent=(j+1)+". "+Q.q;
+  g("prev-btn2").style.opacity=j===0?".4":"1";
+  g("next-btn2").textContent=j===QS2.length-1?"Xem kết quả":"Câu sau →";
+
+  const wrap=g("opts2"); wrap.innerHTML="";
+  Q.o.forEach((opt,idx)=>{
+    const b=document.createElement("button");
+    b.textContent=String.fromCharCode(65+idx)+". "+opt;
+    b.style.cssText="text-align:left; padding:11px 14px; font-size:14px; line-height:1.5; border-radius:var(--border-radius-md);";
+    const picked=ans2[j];
+    if(picked!==null){
+      b.disabled=true;
+      if(idx===Q.c){ b.style.background="var(--color-background-success)"; b.style.borderColor="var(--color-border-success)"; b.style.color="var(--color-text-success)"; }
+      else if(idx===picked){ b.style.background="var(--color-background-danger)"; b.style.borderColor="var(--color-border-danger)"; b.style.color="var(--color-text-danger)"; }
+      else { b.style.opacity=".55"; }
+    } else { b.onclick=()=>pick2(idx); }
+    wrap.appendChild(b);
+  });
+
+  const ex=g("explain2");
+  if(ans2[j]!==null){
+    const good=ans2[j]===Q.c;
+    ex.style.display="block";
+    ex.innerHTML="<span style='font-weight:500; color:"+(good?"var(--color-text-success)":"var(--color-text-danger)")+"'>"+(good?"✓ Chính xác. ":"✗ Chưa đúng. ")+"</span>"+Q.e;
+  } else { ex.style.display="none"; }
+}
+
+function pick2(idx){
+  if(ans2[j]!==null) return;
+  ans2[j]=idx;
+  if(idx===QS2[j].c) ok2++;
+  render2();
+}
+
+function showResult2(){
+  g("nav2").style.display="none"; g("sec-badge2").style.display="none"; g("q-text2").style.display="none"; g("opts2").style.display="none"; g("explain2").style.display="none";
+  g("prog2").style.width="100%"; g("counter2").textContent=QS2.length+" / "+QS2.length; g("score2").textContent="Đúng: "+ok2;
+  const r=g("result2"); r.style.display="block";
+  const pct=Math.round(ok2/QS2.length*100);
+  g("final-score2").textContent=ok2+" / "+QS2.length+"  ("+pct+"%)";
+  g("final-msg2").textContent= pct>=80?"Rất tốt — bạn phân loại tình huống đã nhạy.":pct>=50?"Ổn rồi, xem lại câu sai để chắc tay hơn.":"Nên ôn lại tiêu chí phân biệt 3 loại hiện tượng tâm lý.";
+}
+
+g("next-btn2").onclick=()=>{ if(j===QS2.length-1){ showResult2(); } else { j++; render2(); } };
+g("prev-btn2").onclick=()=>{ if(j>0){ j--; render2(); } };
+g("retry-btn2").onclick=()=>{ j=0; ok2=0; ans2=new Array(QS2.length).fill(null); render2(); };
+g("review-btn2").onclick=()=>{ const w=ans2.map((a,k)=>a!==QS2[k].c?k:-1).filter(k=>k>=0); if(w.length){ j=w[0]; render2(); } };
+
+render2();
+</script>
+</body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập — Tư duy · Tưởng tượng · Trí nhớ (90 câu)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1F4; --surface:#FFFFFF; --surface-2:#F7F8FA;
+    --ink:#16203B; --muted:#5C6679; --line:#E2E6EC;
+    --accent:#1F7A8C; --accent-dk:#155E6C; --accent-soft:#E3F0F2;
+    --correct:#2F8F5B; --correct-bg:#E8F5EE; --correct-line:#A9DCC0;
+    --wrong:#C0453B; --wrong-bg:#FBEBE9; --wrong-line:#E6BBB5;
+    --d15:#3A7BD5; --d15bg:#E7EFFB;
+    --d25:#1F7A8C; --d25bg:#E0EFF1;
+    --d35:#B5852A; --d35bg:#F6EDD6;
+    --shadow:0 1px 2px rgba(20,30,55,.05),0 8px 28px rgba(20,30,55,.07);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;padding:18px 14px 64px}
+  .wrap{max-width:660px;margin:0 auto}
+  .hidden{display:none!important}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;
+    gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .brand{font-family:"Lora",serif;font-weight:600;font-size:1.08rem;letter-spacing:.2px}
+  .brand small{display:block;font-family:"Be Vietnam Pro";font-weight:500;font-size:.72rem;
+    color:var(--muted);letter-spacing:.4px;text-transform:uppercase;margin-top:2px}
+  .score-pill{font-size:.82rem;font-weight:600;color:var(--accent-dk);
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:6px 13px;box-shadow:var(--shadow);white-space:nowrap}
+  .progress-track{height:8px;background:#dfe4ea;border-radius:6px;overflow:hidden;
+    margin-bottom:18px;position:relative}
+  .progress-track i{display:block;height:100%;width:0;border-radius:6px;
+    background:linear-gradient(90deg,var(--accent),#2a93a8);transition:width .35s ease}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:24px 22px}
+  .hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:8px}
+  .hero-title{font-family:"Lora",serif;font-size:1.5rem;font-weight:600;margin:0 0 6px}
+  .hero-sub{color:var(--muted);font-size:.92rem;margin:0 0 4px}
+
+  .filter-group{margin-top:20px}
+  .filter-label{font-size:.78rem;font-weight:700;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--surface-2);color:var(--muted);
+    padding:8px 14px;border-radius:999px;font:inherit;font-size:.85rem;font-weight:600;
+    cursor:pointer;transition:.15s}
+  .chip:hover{border-color:#bcc4cf}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  .btn{width:100%;border:none;background:var(--accent);color:#fff;
+    font:inherit;font-weight:600;font-size:1rem;padding:14px;border-radius:12px;
+    cursor:pointer;margin-top:24px;transition:.15s;box-shadow:0 6px 16px rgba(31,122,140,.25)}
+  .btn:hover{background:var(--accent-dk)}
+  .btn.secondary{background:var(--surface-2);color:var(--accent-dk);
+    border:1px solid var(--line);box-shadow:none}
+  .btn.secondary:hover{background:#eef1f4}
+  .btn.secondary:disabled{color:#aab0bd;cursor:default;background:var(--surface-2)}
+  .btn-row{display:flex;gap:12px;margin-top:24px}
+  .btn-row .btn{margin-top:0}
+
+  .q-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .badge{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:7px;letter-spacing:.02em}
+  .b-sec{background:var(--accent-soft);color:var(--accent-dk)}
+  .b-d15{background:var(--d15bg);color:var(--d15)}
+  .b-d25{background:var(--d25bg);color:var(--d25)}
+  .b-d35{background:var(--d35bg);color:var(--d35)}
+  .q-count{margin-left:auto;font-size:.8rem;color:var(--muted);font-weight:600}
+  .q-text{font-size:1.06rem;font-weight:500;margin:0 0 18px;line-height:1.5}
+  .options{display:flex;flex-direction:column;gap:10px}
+  .option{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+    border:1px solid var(--line);background:var(--surface-2);border-radius:12px;
+    padding:13px 15px;font:inherit;font-size:.96rem;color:var(--ink);cursor:pointer;transition:.13s}
+  .option:hover:not(:disabled){border-color:var(--accent);background:#eef6f7}
+  .option:disabled{cursor:default}
+  .option .key{flex:none;width:26px;height:26px;border-radius:8px;background:#e6eaf0;
+    color:var(--muted);font-weight:700;font-size:.85rem;display:grid;place-items:center;margin-top:1px}
+  .option.correct{border-color:var(--correct-line);background:var(--correct-bg)}
+  .option.correct .key{background:var(--correct);color:#fff}
+  .option.wrong{border-color:var(--wrong-line);background:var(--wrong-bg)}
+  .option.wrong .key{background:var(--wrong);color:#fff}
+  .option .mark{margin-left:auto;align-self:center;font-weight:700;font-size:1.05rem}
+  .option.correct .mark{color:var(--correct)} .option.wrong .mark{color:var(--wrong)}
+
+  .explain{margin-top:16px;border-radius:12px;padding:14px 16px;font-size:.92rem;
+    display:none;border:1px solid}
+  .explain.show{display:block}
+  .explain.ok{background:var(--correct-bg);border-color:var(--correct-line);color:#1c6440}
+  .explain.no{background:var(--wrong-bg);border-color:var(--wrong-line);color:#8a2820}
+  .explain b{font-family:"Lora",serif;display:block;font-size:.74rem;letter-spacing:.04em;
+    text-transform:uppercase;margin-bottom:4px}
+
+  .nav-row{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+  .nav-btn{border:1px solid var(--line);background:var(--surface-2);color:var(--ink);
+    font:inherit;font-weight:600;font-size:.9rem;padding:11px 20px;border-radius:10px;cursor:pointer;transition:.13s}
+  .nav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent-dk)}
+  .nav-btn:disabled{color:#b3b9c4;cursor:default}
+  .nav-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .nav-btn.primary:hover{background:var(--accent-dk);color:#fff}
+
+  .result-score{font-family:"Lora",serif;font-size:3rem;font-weight:600;line-height:1;
+    color:var(--accent-dk);margin:6px 0 4px}
+  .result-score small{font-size:1.4rem;color:var(--muted)}
+  .result-msg{color:var(--muted);font-size:.95rem;margin:0 0 22px}
+  .breakdown{display:flex;flex-direction:column;gap:11px;margin-top:10px}
+  .bd-row{display:grid;grid-template-columns:130px 1fr 52px;gap:12px;align-items:center;font-size:.86rem}
+  .bd-name{font-weight:600;color:var(--muted)}
+  .bd-bar{height:9px;background:#e3e7ed;border-radius:6px;overflow:hidden}
+  .bd-bar i{display:block;height:100%;border-radius:6px;transition:width .4s}
+  .bd-num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+
+  @media(max-width:520px){
+    .card{padding:20px 16px}
+    .result-score{font-size:2.4rem}
+    .bd-row{grid-template-columns:104px 1fr 48px}
+    .q-count{width:100%;margin-left:0;order:3}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">Tư duy · Tưởng tượng · Trí nhớ<small>Tâm lý đại cương · Chương 3 (phần 2)</small></div>
+    <div class="score-pill" id="scorePill">Điểm: 0 / 0</div>
+  </div>
+  <div class="progress-track" id="progressBox"><i id="progressFill"></i></div>
+
+  <div class="card" id="startScreen">
+    <div class="hero-eyebrow">Ôn tập trắc nghiệm</div>
+    <h1 class="hero-title">Nhận thức lý tính &amp; Trí nhớ — 90 câu</h1>
+    <p class="hero-sub">Tư duy · Tưởng tượng · Trí nhớ, phân tầng theo đề thi (0.15đ · 0.25đ · 0.35đ). Bấm đáp án để chấm ngay và xem phản hồi. Lọc theo phần hoặc mức điểm.</p>
+
+    <div class="filter-group">
+      <div class="filter-label">Chọn phần</div>
+      <div class="chips" id="sectionChips">
+        <button class="chip" data-sec="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-sec="s1" aria-pressed="false">Tư duy</button>
+        <button class="chip" data-sec="s2" aria-pressed="false">Tưởng tượng</button>
+        <button class="chip" data-sec="s3" aria-pressed="false">Trí nhớ</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Mức độ</div>
+      <div class="chips" id="diffChips">
+        <button class="chip" data-diff="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-diff="0.15" aria-pressed="false">0.15đ · nhận biết</button>
+        <button class="chip" data-diff="0.25" aria-pressed="false">0.25đ · vận dụng</button>
+        <button class="chip" data-diff="0.35" aria-pressed="false">0.35đ · tình huống</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Thứ tự</div>
+      <div class="chips" id="orderChips">
+        <button class="chip" data-order="seq" aria-pressed="true">Theo thứ tự</button>
+        <button class="chip" data-order="shuffle" aria-pressed="false">Trộn ngẫu nhiên</button>
+      </div>
+    </div>
+
+    <button class="btn" id="startBtn">Bắt đầu làm bài</button>
+    <p class="hero-sub" style="margin:14px 0 0;font-size:.82rem;text-align:center" id="startCount"></p>
+  </div>
+
+  <div class="card hidden" id="quizScreen">
+    <div class="q-head" id="qHead"></div>
+    <p class="q-text" id="qText"></p>
+    <div class="options" id="qOptions"></div>
+    <div class="explain" id="qExplain"></div>
+    <div class="nav-row" id="navRow"></div>
+  </div>
+
+  <div class="card hidden" id="resultScreen">
+    <div class="hero-eyebrow">Kết quả</div>
+    <div class="result-score" id="finalScore">0 <small>/ 0</small></div>
+    <p class="result-msg" id="resultMsg"></p>
+    <div class="filter-label">Theo từng phần &amp; mức độ</div>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="btn-row">
+      <button class="btn secondary" id="reviewWrongBtn">Làm lại câu sai</button>
+      <button class="btn" id="restartBtn">Làm lại từ đầu</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const SECTIONS={s1:"Tư duy",s2:"Tưởng tượng",s3:"Trí nhớ"};
+const PT={"0.15":0.15,"0.25":0.25,"0.35":0.35};
+const KEY=["A","B","C","D"];
+
+const QUESTIONS=[
+/* ======== TƯ DUY (s1) · 0.15đ (12) ======== */
+{s:"s1",d:"0.15",q:"Tư duy là quá trình tâm lý phản ánh:",o:["Những thuộc tính riêng lẻ, bề ngoài của sự vật đang trực tiếp tác động vào giác quan","Những thuộc tính bản chất, những mối liên hệ và quan hệ có tính quy luật mà ta chưa biết","Trọn vẹn các thuộc tính bề ngoài của sự vật theo một cấu trúc nhất định","Cái chưa từng có trong kinh nghiệm bằng cách xây dựng những hình ảnh mới"],a:1,e:"A→cảm giác, C→tri giác, D→tưởng tượng. Tư duy phản ánh bản chất, quy luật mà ta CHƯA BIẾT. Tr.51."},
+{s:"s1",d:"0.15",q:"Tư duy thuộc mức độ nhận thức nào?",o:["Nhận thức cảm tính, ngang mức với tri giác","Nhận thức lý tính — mới về chất và là mức cao nhất so với cảm giác, tri giác","Giai đoạn trung gian giữa nhận thức cảm tính và lý tính","Nhận thức cảm tính, cao hơn tri giác một bậc"],a:1,e:"C mô tả trí nhớ. Tư duy là nhận thức lý tính, cao nhất. Tr.51."},
+{s:"s1",d:"0.15",q:"Tư duy chỉ nảy sinh khi nào?",o:["Khi có bất kỳ kích thích nào tác động vào giác quan","Khi gặp tình huống có vấn đề mà chủ thể nhận thức được và có nhu cầu giải quyết","Khi gặp tình huống quen thuộc đã có sẵn cách giải quyết","Khi có hình ảnh trực quan của sự vật đang được tri giác"],a:1,e:"Tính \"có vấn đề\": phải được chủ thể ý thức và có nhu cầu giải quyết. Tr.55."},
+{s:"s1",d:"0.15",q:"Đặc điểm nào KHÔNG phải của tư duy?",o:["Tính \"có vấn đề\"","Tính gián tiếp","Tính trừu tượng và khái quát","Phản ánh riêng lẻ từng thuộc tính bề ngoài đang trực tiếp tác động"],a:3,e:"Phản ánh riêng lẻ bề ngoài là đặc điểm của CẢM GIÁC. Tr.51-55."},
+{s:"s1",d:"0.15",q:"Việc \"gạt bỏ thuộc tính không bản chất, chỉ giữ lại dấu hiệu bản chất chung\" thể hiện đặc điểm nào của tư duy?",o:["Tính gián tiếp","Tính trừu tượng và khái quát","Tính \"có vấn đề\"","Quan hệ chặt chẽ với ngôn ngữ"],a:1,e:"Đó là tính trừu tượng & khái quát. Tr.53-54."},
+{s:"s1",d:"0.15",q:"Mối quan hệ giữa tư duy và ngôn ngữ là:",o:["Tách rời nhau hoàn toàn, không ảnh hưởng gì đến nhau","Thống nhất biện chứng: ngôn ngữ là hình thức, tư duy là nội dung","Ngôn ngữ quyết định, tư duy chỉ là sản phẩm phụ thuộc ngôn ngữ","Tư duy có trước và độc lập, hoàn toàn không cần đến ngôn ngữ"],a:1,e:"Không có ngôn ngữ thì không có tư duy — quan hệ nội dung – hình thức. Tr.54-55."},
+{s:"s1",d:"0.15",q:"Giai đoạn ĐẦU TIÊN của một quá trình tư duy là:",o:["Xuất hiện các liên tưởng","Xác định vấn đề, biểu đạt thành nhiệm vụ của tư duy","Sàng lọc liên tưởng, hình thành giả thuyết","Kiểm tra giả thuyết đã đề ra"],a:1,e:"Bước 1 trong 5 giai đoạn: xác định vấn đề. Tr.55."},
+{s:"s1",d:"0.15",q:"Thao tác dùng trí óc để phân chia đối tượng thành các bộ phận, thuộc tính gọi là:",o:["Tổng hợp","Phân tích","So sánh","Khái quát hóa"],a:1,e:"Phân tích — chia đối tượng thành bộ phận (ngược với tổng hợp). Tr.58."},
+{s:"s1",d:"0.15",q:"Thao tác hợp nhất nhiều đối tượng khác nhau thành một nhóm dựa trên thuộc tính chung gọi là:",o:["Phân tích","So sánh","Khái quát hóa","Trừu tượng hóa"],a:2,e:"Khái quát hóa — hợp nhất nhiều đối tượng theo thuộc tính chung (khác trừu tượng hóa). Tr.59."},
+{s:"s1",d:"0.15",q:"Loại tư duy nảy sinh sớm nhất (trẻ dưới 3 tuổi), giải quyết nhiệm vụ bằng hành động cụ thể là:",o:["Tư duy trừu tượng","Tư duy trực quan – hành động","Tư duy trực quan – hình ảnh","Tư duy từ ngữ – logic"],a:1,e:"Tư duy trực quan – hành động (trẻ < 3 tuổi). Tr.60."},
+{s:"s1",d:"0.15",q:"Loại tư duy tạo nên khái niệm, phán đoán — mức cao nhất, phức tạp nhất của con người là:",o:["Tư duy trực quan – hành động","Tư duy trực quan – hình ảnh","Tư duy hình tượng","Tư duy từ ngữ – logic"],a:3,e:"Tư duy từ ngữ – logic cho ra khái niệm, phán đoán (tư duy hình tượng cho ra hình tượng). Tr.60."},
+{s:"s1",d:"0.15",q:"Việc thực hiện các thao tác tư duy diễn ra như thế nào?",o:["Bắt buộc theo một thứ tự cố định từ đầu đến cuối","Bắt buộc phải dùng đủ tất cả các thao tác","Không nhất thiết theo thứ tự và không nhất thiết dùng hết tất cả thao tác","Chỉ được phép dùng một thao tác duy nhất cho một nhiệm vụ"],a:2,e:"Thao tác tư duy linh hoạt: không cố định thứ tự, không cần dùng hết. Tr.59-60."},
+
+/* ======== TƯ DUY (s1) · 0.25đ (10) ======== */
+{s:"s1",d:"0.25",q:"\"Dù chưa từng lên Mặt Trăng, con người vẫn hiểu biết về nó qua công cụ, tính toán.\" Đặc điểm nào của tư duy?",o:["Tính \"có vấn đề\"","Tính gián tiếp","Tính trừu tượng","Quan hệ với ngôn ngữ"],a:1,e:"Nhận thức qua công cụ trung gian, không trực tiếp = tính gián tiếp. Tr.53."},
+{s:"s1",d:"0.25",q:"\"Từ việc quan sát cam, táo, xoài… rút ra khái niệm chung 'quả'.\" Đây là thao tác:",o:["Phân tích","So sánh","Khái quát hóa","Trừu tượng hóa"],a:2,e:"Hợp nhất nhiều đối tượng thành nhóm chung = khái quát hóa (không phải trừu tượng hóa). Tr.59."},
+{s:"s1",d:"0.25",q:"Học sinh xếp nhầm \"cá voi\" vào loài cá. Nguyên nhân của sai lầm này là:",o:["Do so sánh sai giữa cá voi và các loài cá khác","Do khái quát chỉ dựa vào dấu hiệu chung giống nhau (sống dưới nước, biết bơi) mà bỏ qua dấu hiệu bản chất","Do trừu tượng hóa quá mức, gạt bỏ luôn cả dấu hiệu bản chất","Do phân tích chưa đầy đủ các bộ phận của con vật"],a:1,e:"Khái quát chỉ dựa vào dấu hiệu giống nhau (không bản chất) dễ dẫn đến sai lầm. Tr.59."},
+{s:"s1",d:"0.25",q:"Một thợ sửa xe chẩn đoán và khắc phục lỗi bằng các thao tác cụ thể trên máy. Đây là loại tư duy nào (theo hình thức biểu hiện)?",o:["Tư duy lý luận","Tư duy thực hành","Tư duy hình ảnh cụ thể","Tư duy từ ngữ – logic"],a:1,e:"Nhiệm vụ trực quan, giải quyết bằng hành động thực tế = tư duy thực hành. Tr.59-60."},
+{s:"s1",d:"0.25",q:"\"Người nghệ sĩ sáng tác cho ra một hình tượng chứ không phải một khái niệm.\" Đây là loại tư duy nào?",o:["Tư duy từ ngữ – logic","Tư duy hình tượng (một dạng tư duy trừu tượng)","Tư duy trực quan – hành động","Tư duy thực hành"],a:1,e:"Tư duy hình tượng cho ra hình tượng, phát triển ở nghệ sĩ. Tr.60."},
+{s:"s1",d:"0.25",q:"Giáo viên giảng bài, học sinh tiếp thu bằng khái niệm và tri thức lý luận. Đây là loại tư duy nào?",o:["Tư duy thực hành","Tư duy hình ảnh cụ thể","Tư duy lý luận","Tư duy trực quan – hành động"],a:2,e:"Nhiệm vụ dưới hình thức lý luận, dùng khái niệm = tư duy lý luận. Tr.61."},
+{s:"s1",d:"0.25",q:"Vai trò của thao tác so sánh trong tư duy là:",o:["Là thao tác độc lập, không liên quan đến phân tích – tổng hợp","Gắn chặt với phân tích – tổng hợp, là cơ sở của mọi hiểu biết và tư duy","Chỉ là một dạng đặc biệt của thao tác trừu tượng hóa","Chỉ thực hiện được sau khi đã hoàn tất khái quát hóa"],a:1,e:"So sánh gắn chặt phân tích – tổng hợp, là cơ sở của hiểu biết. Tr.57-58."},
+{s:"s1",d:"0.25",q:"Trẻ ~4 tuổi giải quyết nhiệm vụ chủ yếu dựa vào hình ảnh trực quan của đối tượng đang tri giác. Đây là:",o:["Tư duy trực quan – hành động","Tư duy trực quan – hình ảnh","Tư duy từ ngữ – logic","Tư duy lý luận"],a:1,e:"Dựa vào hình ảnh trực quan = tư duy trực quan – hình ảnh (~4 tuổi). Tr.60."},
+{s:"s1",d:"0.25",q:"Đâu là thứ tự ĐÚNG các giai đoạn của một quá trình tư duy?",o:["Xuất hiện liên tưởng → xác định vấn đề → giả thuyết → kiểm tra → giải quyết","Xác định vấn đề → xuất hiện liên tưởng → sàng lọc & hình thành giả thuyết → kiểm tra giả thuyết → giải quyết vấn đề","Xác định vấn đề → giả thuyết → kiểm tra → xuất hiện liên tưởng → giải quyết","Xác định vấn đề → kiểm tra giả thuyết → liên tưởng → sàng lọc → giải quyết"],a:1,e:"Đúng thứ tự 5 giai đoạn. Tr.55-56."},
+{s:"s1",d:"0.25",q:"Trong giai đoạn kiểm tra, nếu giả thuyết được xác định là SAI thì:",o:["Vẫn dùng giả thuyết đó để giải quyết vấn đề","Bác bỏ giả thuyết, xây dựng giả thuyết mới và kiểm tra lại","Chuyển ngay sang bước giải quyết vấn đề","Kết thúc quá trình tư duy vì không còn cách nào khác"],a:1,e:"Giả thuyết sai → bác bỏ, lập giả thuyết mới, kiểm tra lại. Tr.56-57."},
+
+/* ======== TƯ DUY (s1) · 0.35đ (8) ======== */
+{s:"s1",d:"0.35",q:"Một kỹ sư gặp sự cố máy: huy động kinh nghiệm, đưa ra vài cách khả dĩ, loại bỏ cách không phù hợp, chọn một cách thử nghiệm rồi kiểm tra kết quả. Trình tự này phản ánh điều gì?",o:["Các thao tác tư duy (phân tích, tổng hợp, so sánh)","Các giai đoạn của một quá trình tư duy giải quyết vấn đề","Quá trình tưởng tượng sáng tạo ra cái mới","Quá trình ghi nhớ và tái hiện có chủ định"],a:1,e:"Là 5 giai đoạn của tư duy: xác định vấn đề → liên tưởng → giả thuyết → kiểm tra → giải quyết. Tr.55-57."},
+{s:"s1",d:"0.35",q:"Vì sao nói \"tư duy không tách rời nhận thức cảm tính\" dù nó cao hơn về chất?",o:["Vì tư duy và cảm giác thực chất là một quá trình duy nhất","Vì tư duy dù trừu tượng vẫn dựa trên tài liệu do cảm giác – tri giác cung cấp và được kiểm nghiệm qua thực tiễn","Vì cảm tính là mức nhận thức cao hơn nên chi phối toàn bộ tư duy","Vì tư duy cũng chỉ phản ánh được cái bề ngoài giống như cảm tính"],a:1,e:"Tư duy dựa trên tài liệu trực quan của cảm tính và kiểm tra qua thực tiễn. Tr.56."},
+{s:"s1",d:"0.35",q:"Phân biệt \"tính trừu tượng\" và \"tính khái quát\" của tư duy:",o:["Hai khái niệm chỉ là hai tên gọi của cùng một thao tác","Trừu tượng = gạt bỏ dấu hiệu không bản chất; Khái quát = bao quát chung cho hàng loạt sự vật cùng loại","Trừu tượng = bao quát nhiều sự vật; Khái quát = gạt bỏ dấu hiệu thứ yếu","Trừu tượng chỉ dùng trong toán học, còn khái quát chỉ dùng trong văn học"],a:1,e:"C bị đảo ngược định nghĩa. Trừu tượng = lọc bỏ cái không bản chất; khái quát = mở rộng cho hàng loạt. Tr.53-54."},
+{s:"s1",d:"0.35",q:"Một học sinh học vẹt định lý nên gặp bài biến đổi thì bí; bạn kia hiểu bản chất nên giải được nhiều dạng. Sự khác biệt cho thấy vai trò của đặc điểm nào?",o:["Tính gián tiếp — vì nhận thức qua công cụ trung gian","Tính khái quát — vì hiểu bản chất giúp vận dụng cho cả những trường hợp mới","Tính \"có vấn đề\" — vì chỉ tư duy khi gặp khó khăn","Quan hệ với cảm tính — vì cần dựa vào hình ảnh trực quan"],a:1,e:"Tính khái quát giúp giải quyết hàng loạt trường hợp, kể cả mới. Tr.54-55."},
+{s:"s1",d:"0.35",q:"\"Không có tư duy thì ngôn ngữ chỉ là chuỗi âm thanh vô nghĩa; không có ngôn ngữ thì không có tư duy.\" Khẳng định này thể hiện:",o:["Ngôn ngữ và tư duy là một, không thể phân biệt","Quan hệ biện chứng: tư duy là nội dung, ngôn ngữ là hình thức — gắn bó nhưng không đồng nhất","Tư duy quyết định hoàn toàn, ngôn ngữ chỉ là cái phụ thuộc","Ngôn ngữ là cái có trước và sinh ra tư duy"],a:1,e:"Quan hệ biện chứng nội dung – hình thức, không đồng nhất. Tr.54-55."},
+{s:"s1",d:"0.35",q:"Một đứa trẻ lấy đồ trên cao: 2 tuổi kéo ghế trèo lên, 5 tuổi hình dung cách làm rồi mới làm, lớn hơn thì suy luận bằng khái niệm. Điều này minh họa:",o:["Phân loại tư duy theo hình thức biểu hiện nhiệm vụ","Phân loại tư duy theo mức độ phát triển (trực quan hành động → hình ảnh → trừu tượng)","Các giai đoạn của một quá trình tư duy","Các thao tác cơ bản của tư duy"],a:1,e:"Sự thay đổi theo lứa tuổi = mức độ phát triển của tư duy. Tr.60."},
+{s:"s1",d:"0.35",q:"Khi giải toán, ban đầu nhiều cách làm xuất hiện rộng rãi, sau đó học sinh gạt bỏ cách không phù hợp, giữ lại cách khả thi nhất. Đây là giai đoạn nào?",o:["Xác định vấn đề — tạo nhu cầu giải quyết","Sàng lọc liên tưởng, hình thành giả thuyết — xem xét nhiều hướng để chọn cách giải đúng nhất","Kiểm tra giả thuyết — khẳng định hay bác bỏ","Giải quyết vấn đề — đưa ra kết quả cuối cùng"],a:1,e:"Giai đoạn sàng lọc liên tưởng & hình thành giả thuyết. Tr.56-57."},
+{s:"s1",d:"0.35",q:"Khẳng định nào ĐÚNG nhất về quan hệ giữa các thao tác tư duy?",o:["Phải dùng đủ tất cả thao tác và theo đúng một thứ tự cố định","Quan hệ mật thiết, thống nhất theo một hướng; không nhất thiết theo thứ tự hay dùng hết tất cả","Mỗi thao tác hoạt động hoàn toàn độc lập, tách rời nhau","Chỉ cần một thao tác duy nhất là đủ cho mọi nhiệm vụ tư duy"],a:1,e:"Thao tác tư duy thống nhất, linh hoạt, không cố định thứ tự. Tr.58-60."},
+
+/* ======== TƯỞNG TƯỢNG (s2) · 0.15đ (12) ======== */
+{s:"s2",d:"0.15",q:"Tưởng tượng là quá trình tâm lý phản ánh:",o:["Những thuộc tính bản chất và mối quan hệ có tính quy luật của sự vật","Những cái chưa từng có trong kinh nghiệm bằng cách xây dựng hình ảnh mới từ những biểu tượng đã có","Trọn vẹn các thuộc tính bề ngoài của sự vật theo một cấu trúc","Những kinh nghiệm đã có của cá nhân dưới hình thức biểu tượng"],a:1,e:"A→tư duy, C→tri giác, D→trí nhớ. Tưởng tượng phản ánh cái CHƯA TỪNG CÓ. Tr.61."},
+{s:"s2",d:"0.15",q:"Sản phẩm của tưởng tượng là:",o:["Khái niệm, phán đoán, suy lý","Biểu tượng của tưởng tượng — hình ảnh mới, khái quát hơn","Biểu tượng của trí nhớ — hình ảnh đã từng được tri giác","Hình tượng trực quan của một thuộc tính riêng lẻ"],a:1,e:"Phân biệt với C: biểu tượng trí nhớ là cái đã có; biểu tượng tưởng tượng là cái mới. Tr.61."},
+{s:"s2",d:"0.15",q:"Tưởng tượng nảy sinh trước hoàn cảnh có vấn đề khi nào?",o:["Khi tính bất định thấp, đã có đủ dữ kiện","Khi tính bất định cao, không đủ điều kiện để giải quyết bằng tư duy","Khi sự vật đã quen thuộc và rõ ràng","Khi hoàn toàn không có vấn đề gì cần giải quyết"],a:1,e:"Tưởng tượng dùng khi tính bất định cao, thiếu dữ kiện cho tư duy. Tr.61-62."},
+{s:"s2",d:"0.15",q:"So với tư duy, tưởng tượng phản ánh hiện thực:",o:["Trực tiếp và cụ thể hơn tư duy","Gián tiếp, khái quát nhưng độc đáo và sáng tạo hơn tư duy","Gián tiếp, khái quát nhưng kém sáng tạo hơn tư duy","Riêng lẻ từng thuộc tính giống như cảm giác"],a:1,e:"Tưởng tượng độc đáo, sáng tạo hơn tư duy (so sánh kỹ với C). Tr.62."},
+{s:"s2",d:"0.15",q:"Căn cứ vào mức độ tham gia của ý thức, tưởng tượng được chia thành:",o:["Tưởng tượng tích cực và tưởng tượng tiêu cực","Tưởng tượng không chủ định và tưởng tượng có chủ định","Tưởng tượng tái tạo và tưởng tượng sáng tạo","Ước mơ và lý tưởng"],a:1,e:"Theo ý thức: không chủ định / có chủ định (A theo tính tích cực, C là phân nhánh của có chủ định). Tr.63."},
+{s:"s2",d:"0.15",q:"Tưởng tượng có chủ định gồm hai loại:",o:["Tưởng tượng tích cực và tưởng tượng tiêu cực","Tưởng tượng tái tạo và tưởng tượng sáng tạo","Ước mơ và mơ mộng","Chắp ghép và liên hợp"],a:1,e:"Có chủ định gồm tái tạo và sáng tạo. Tr.63."},
+{s:"s2",d:"0.15",q:"Quá trình tạo hình ảnh mới ĐỐI VỚI CÁ NHÂN dựa trên mô tả của người khác, sách vở, tài liệu gọi là:",o:["Tưởng tượng sáng tạo","Tưởng tượng tái tạo","Tưởng tượng không chủ định","Tưởng tượng tích cực"],a:1,e:"Tái tạo — dựa trên mô tả có sẵn, mới với cá nhân (sáng tạo thì mới cả với xã hội). Tr.66."},
+{s:"s2",d:"0.15",q:"Quá trình xây dựng hình ảnh mới chưa có cả trong kinh nghiệm bản thân lẫn xã hội gọi là:",o:["Tưởng tượng tái tạo","Tưởng tượng sáng tạo","Tưởng tượng không chủ định","Tưởng tượng tích cực"],a:1,e:"Sáng tạo — hình ảnh mới chưa có cả trong xã hội. Tr.66."},
+{s:"s2",d:"0.15",q:"Loại tưởng tượng nào định hướng và thúc đẩy con người hoạt động để biến tưởng tượng thành hiện thực?",o:["Tưởng tượng tiêu cực (mơ mộng)","Tưởng tượng tích cực","Tưởng tượng tái tạo","Tưởng tượng không chủ định"],a:1,e:"Tích cực thúc đẩy hành động (tiêu cực = mơ mộng không thúc đẩy). Tr.64."},
+{s:"s2",d:"0.15",q:"\"Hình ảnh mẫu mực, rực sáng mà con người muốn vươn tới, là động cơ mạnh mẽ thôi thúc hoạt động\" là:",o:["Ước mơ","Lý tưởng","Tưởng tượng tái tạo","Mơ mộng"],a:1,e:"Lý tưởng — hình mẫu, động cơ thôi thúc (ước mơ chỉ là hình ảnh tổng quát về tương lai). Tr.64."},
+{s:"s2",d:"0.15",q:"\"Loại tưởng tượng tổng quát về tương lai, biểu hiện mong muốn gắn với nhu cầu của con người\" là:",o:["Lý tưởng","Ước mơ","Tưởng tượng tái tạo","Tưởng tượng không chủ định"],a:1,e:"Ước mơ — tưởng tượng tổng quát về tương lai. Tr.64."},
+{s:"s2",d:"0.15",q:"Cách sáng tạo hình ảnh mới nào là GHÉP NỐI giản đơn các bộ phận của nhiều sự vật mà không chế biến?",o:["Liên hợp","Chắp ghép","Nhấn mạnh","Loại suy"],a:1,e:"Chắp ghép — ghép nguyên si, không chế biến (liên hợp thì có cải biến). Tr.64-65."},
+
+/* ======== TƯỞNG TƯỢNG (s2) · 0.25đ (11) ======== */
+{s:"s2",d:"0.25",q:"Hình ảnh \"nàng tiên cá (đầu người, mình cá)\" được tạo ra bằng cách sáng tạo nào?",o:["Liên hợp","Chắp ghép","Nhấn mạnh","Điển hình hóa"],a:1,e:"Ghép nguyên các bộ phận của nhiều vật, không cải biến = chắp ghép (so kỹ với liên hợp). Tr.64-65."},
+{s:"s2",d:"0.25",q:"Hình ảnh \"Phật nghìn tay nghìn mắt\" được tạo ra bằng cách sáng tạo nào?",o:["Chắp ghép","Thay đổi kích thước, số lượng","Loại suy","Liên hợp"],a:1,e:"Tăng số lượng (tay, mắt) = thay đổi kích thước, số lượng. Tr.64."},
+{s:"s2",d:"0.25",q:"\"Thủy phi cơ\" — kết hợp tàu thủy và máy bay, các bộ phận được cải biến để hòa hợp — được tạo bằng cách:",o:["Chắp ghép","Liên hợp","Nhấn mạnh","Loại suy"],a:1,e:"Ghép có cải biến các bộ phận = liên hợp (khác chắp ghép ghép nguyên). Tr.65."},
+{s:"s2",d:"0.25",q:"\"Từ bàn chân con vịt, người ta mô phỏng để chế tạo chân vịt tàu thủy.\" Đây là cách sáng tạo:",o:["Chắp ghép","Liên hợp","Loại suy (mô phỏng)","Nhấn mạnh"],a:2,e:"Mô phỏng chi tiết của một vật có thật = loại suy. Tr.65."},
+{s:"s2",d:"0.25",q:"Tranh biếm họa phóng to, cường điệu một đặc điểm của nhân vật được tạo bằng cách:",o:["Chắp ghép","Liên hợp","Nhấn mạnh","Loại suy"],a:2,e:"Cường điệu / đưa lên hàng đầu một đặc điểm = nhấn mạnh. Tr.65."},
+{s:"s2",d:"0.25",q:"\"Đang đi dạo, bỗng nhìn đám mây và tưởng tượng thấy hình mặt người.\" Đây là loại tưởng tượng:",o:["Tưởng tượng có chủ định","Tưởng tượng không chủ định","Tưởng tượng tái tạo","Tưởng tượng sáng tạo"],a:1,e:"Không có mục đích đặt trước = không chủ định. Tr.63."},
+{s:"s2",d:"0.25",q:"Đọc tiểu thuyết và hình dung ra khung cảnh, nhân vật theo lời mô tả của tác giả. Đây là:",o:["Tưởng tượng sáng tạo","Tưởng tượng tái tạo","Tưởng tượng không chủ định","Tưởng tượng tiêu cực"],a:1,e:"Tạo hình ảnh mới với cá nhân dựa trên mô tả = tái tạo (không phải sáng tạo). Tr.66."},
+{s:"s2",d:"0.25",q:"Một nhà văn xây dựng nhân vật mang những nét chung điển hình của cả một tầng lớp xã hội. Đây là cách sáng tạo:",o:["Chắp ghép","Liên hợp","Điển hình hóa","Loại suy"],a:2,e:"Khái quát nét chung tạo nhân vật điển hình = điển hình hóa. Tr.65."},
+{s:"s2",d:"0.25",q:"Mong muốn \"sau này trở thành bác sĩ giỏi để cứu người\" thuộc loại tưởng tượng nào?",o:["Tưởng tượng tiêu cực","Ước mơ","Tưởng tượng không chủ định","Tưởng tượng tái tạo"],a:1,e:"Hình ảnh tổng quát, tích cực về tương lai gắn với nhu cầu = ước mơ. Tr.64."},
+{s:"s2",d:"0.25",q:"Việc \"mơ mộng viển vông, không gắn với hành động thực hiện\" là biểu hiện của:",o:["Tưởng tượng tích cực","Tưởng tượng tiêu cực (mơ mộng)","Tưởng tượng sáng tạo","Lý tưởng"],a:1,e:"Không thúc đẩy hành động = tưởng tượng tiêu cực. Tr.64."},
+{s:"s2",d:"0.25",q:"Kỹ sư thiết kế một loại máy hoàn toàn mới chưa từng có trên thế giới. Đây là:",o:["Tưởng tượng tái tạo","Tưởng tượng sáng tạo","Tưởng tượng không chủ định","Tưởng tượng tiêu cực"],a:1,e:"Hình ảnh mới chưa có cả trong xã hội = sáng tạo (so với tái tạo dựa mô tả có sẵn). Tr.66."},
+
+/* ======== TƯỞNG TƯỢNG (s2) · 0.35đ (9) ======== */
+{s:"s2",d:"0.35",q:"\"Chắp ghép\" và \"liên hợp\" đều ghép các bộ phận của nhiều sự vật, nhưng khác nhau cốt lõi ở điểm nào?",o:["Cả hai đều ghép nguyên các bộ phận, thực chất không khác nhau","Chắp ghép ghép nguyên si không chế biến; liên hợp ghép các bộ phận đã được cải biến","Chắp ghép có cải biến các bộ phận; liên hợp thì ghép nguyên si","Chắp ghép chỉ tạo vật vô tri, liên hợp chỉ tạo sinh vật sống"],a:1,e:"C bị đảo ngược. Chắp ghép = nguyên si; liên hợp = có cải biến (thủy phi cơ). Tr.65."},
+{s:"s2",d:"0.35",q:"Một bạn nói \"thủy phi cơ và nàng tiên cá được tạo bằng cùng một cách\". Nhận định này:",o:["Đúng — cả hai đều là chắp ghép","Sai — nàng tiên cá là chắp ghép (ghép nguyên), thủy phi cơ là liên hợp (ghép có cải biến)","Đúng — cả hai đều là liên hợp","Sai — nàng tiên cá là liên hợp, còn thủy phi cơ là chắp ghép"],a:1,e:"D đúng ở chỗ \"sai\" nhưng đảo ngược lý do. Tiên cá = chắp ghép, thủy phi cơ = liên hợp. Tr.65."},
+{s:"s2",d:"0.35",q:"Vì sao nói \"giá trị của tưởng tượng là tìm được lối thoát ngay cả khi không đủ điều kiện để tư duy\"?",o:["Vì tưởng tượng thay thế hoàn toàn cho tư duy khi cần","Vì khi tính bất định quá lớn, thiếu dữ kiện cho tư duy, tưởng tượng giúp hình dung lối ra","Vì tưởng tượng phản ánh trực tiếp và chính xác sự vật","Vì tưởng tượng tạo hình ảnh mà không cần bất kỳ biểu tượng có sẵn nào"],a:1,e:"Tưởng tượng giải quyết khi tính bất định cao, thiếu dữ kiện cho tư duy. Tr.61-62."},
+{s:"s2",d:"0.35",q:"Điểm GIỐNG nhau cơ bản giữa tư duy và tưởng tượng là gì?",o:["Đều phản ánh trực tiếp từng thuộc tính riêng lẻ của sự vật","Đều là quá trình tâm lý, nảy sinh trước tình huống có vấn đề, có ngôn ngữ tham gia","Đều chỉ giải quyết vấn đề bằng con đường suy lý logic chặt chẽ","Đều phản ánh cái chưa từng có trong kinh nghiệm cá nhân"],a:1,e:"C là nét riêng của tư duy, D là nét riêng của tưởng tượng. Tr.62."},
+{s:"s2",d:"0.35",q:"Một họa sĩ vẽ lại chính xác phong cảnh theo ảnh chụp; người kia sáng tác một thế giới chưa ai từng thấy. Hai hoạt động này lần lượt thuộc loại tưởng tượng nào?",o:["Cả hai đều là tưởng tượng tái tạo","Người đầu là tưởng tượng tái tạo, người sau là tưởng tượng sáng tạo","Cả hai đều là tưởng tượng sáng tạo","Người đầu là sáng tạo, người sau là tái tạo"],a:1,e:"Theo mô tả/ảnh có sẵn = tái tạo; chưa có trong xã hội = sáng tạo. Tr.66."},
+{s:"s2",d:"0.35",q:"Khẳng định nào ĐÚNG về quan hệ giữa \"ước mơ\" và \"lý tưởng\"?",o:["Là hai tên gọi khác nhau của cùng một hiện tượng tâm lý","Đều là hình thức đặc biệt của tưởng tượng; ước mơ hướng về tương lai, lý tưởng là hình mẫu thôi thúc hành động","Ước mơ luôn mang tính tiêu cực còn lý tưởng luôn tích cực","Ước mơ thuộc về tưởng tượng, còn lý tưởng thuộc về tư duy"],a:1,e:"Cả hai đều là hình thức đặc biệt của tưởng tượng. Tr.64."},
+{s:"s2",d:"0.35",q:"Một nhà khoa học hình dung trước mô hình kết quả của thí nghiệm trước khi tiến hành. Vai trò nào của tưởng tượng được thể hiện?",o:["Tưởng tượng thay thế cho cảm giác và tri giác","Tưởng tượng định hướng hoạt động bằng cách dựng trước mô hình về kết quả cuối cùng","Tưởng tượng làm con người mất khả năng tư duy logic","Tưởng tượng chỉ là hoạt động giải trí, không có vai trò thực tiễn"],a:1,e:"Tưởng tượng định hướng hoạt động — dựng mô hình kết quả trước. Tr.62."},
+{s:"s2",d:"0.35",q:"Vì sao tưởng tượng được xem là \"cơ sở của nhiều phát minh khoa học\"?",o:["Vì nó phản ánh trực tiếp và trung thực sự vật có thật","Vì nó giúp nhà khoa học hình dung, kết nối thông tin để tạo ra cái mới khi tri thức hiện có chưa đủ","Vì nó có thể thay thế hoàn toàn cho quá trình thực nghiệm","Vì nó chỉ là sự mơ mộng tự do không bị ràng buộc"],a:1,e:"Tưởng tượng giúp vượt giai đoạn khi tri thức chưa đủ → cơ sở phát minh. Tr.65."},
+{s:"s2",d:"0.35",q:"Một học sinh nhìn vệt mực loang và \"thấy\" thành hình con vật dù không chủ ý; sau đó chủ động dùng các hình đó để vẽ một bức tranh có kế hoạch. Hai giai đoạn này lần lượt là:",o:["Tưởng tượng tái tạo → tưởng tượng sáng tạo","Tưởng tượng không chủ định → tưởng tượng có chủ định","Tưởng tượng sáng tạo → tưởng tượng tái tạo","Tưởng tượng tích cực → tưởng tượng tiêu cực"],a:1,e:"Không có mục đích trước → không chủ định; có kế hoạch → có chủ định. Tr.63."},
+
+/* ======== TRÍ NHỚ (s3) · 0.15đ (12) ======== */
+{s:"s3",d:"0.15",q:"Trí nhớ là quá trình tâm lý phản ánh:",o:["Cái chưa từng có trong kinh nghiệm bằng cách xây dựng hình ảnh mới","Những kinh nghiệm đã có dưới hình thức biểu tượng, qua ghi nhớ – gìn giữ – tái hiện","Những thuộc tính bản chất, quan hệ có tính quy luật của sự vật","Trọn vẹn các thuộc tính bề ngoài đang trực tiếp tác động vào giác quan"],a:1,e:"A→tưởng tượng, C→tư duy, D→tri giác. Trí nhớ phản ánh kinh nghiệm đã có. Tr.67."},
+{s:"s3",d:"0.15",q:"\"Hình ảnh của sự vật nảy sinh trong óc khi sự vật đó không còn trực tiếp tác động vào giác quan\" gọi là:",o:["Cảm giác","Biểu tượng","Khái niệm","Phản xạ"],a:1,e:"Biểu tượng — hình ảnh khi vật không còn tác động (cảm giác cần vật đang tác động). Tr.67."},
+{s:"s3",d:"0.15",q:"Trí nhớ được xếp vào giai đoạn nào của nhận thức?",o:["Hoàn toàn thuộc nhận thức cảm tính","Hoàn toàn thuộc nhận thức lý tính","Giai đoạn chuyển tiếp trung gian giữa nhận thức cảm tính và lý tính","Nằm ngoài quá trình nhận thức"],a:2,e:"Biểu tượng vừa trực quan vừa khái quát → trí nhớ ở giai đoạn trung gian. Tr.67-70."},
+{s:"s3",d:"0.15",q:"Quá trình trí nhớ KHÔNG gồm giai đoạn nào sau đây?",o:["Ghi nhớ","Gìn giữ","Nhận lại và nhớ lại","Khái quát hóa và trừu tượng hóa"],a:3,e:"Khái quát hóa, trừu tượng hóa là thao tác của TƯ DUY. Tr.67-73."},
+{s:"s3",d:"0.15",q:"Loại ghi nhớ không đặt mục đích trước, không cần nỗ lực ý chí gọi là:",o:["Ghi nhớ có chủ định","Ghi nhớ không chủ định","Ghi nhớ máy móc","Ghi nhớ có ý nghĩa"],a:1,e:"Không có mục đích, không cần ý chí = ghi nhớ không chủ định. Tr.68."},
+{s:"s3",d:"0.15",q:"Ghi nhớ có chủ định được tiến hành bằng hai cách:",o:["Ghi nhớ tích cực và ghi nhớ tiêu cực","Ghi nhớ máy móc và ghi nhớ có ý nghĩa","Nhận lại và nhớ lại","Hồi tưởng và hồi ức"],a:1,e:"Có chủ định gồm: máy móc / có ý nghĩa. Tr.68."},
+{s:"s3",d:"0.15",q:"Loại ghi nhớ dựa vào hiểu bản chất và quan hệ logic, bền vững, khó quên là:",o:["Ghi nhớ máy móc","Ghi nhớ có ý nghĩa","Ghi nhớ không chủ định","Nhận lại"],a:1,e:"Hiểu bản chất → ghi nhớ có ý nghĩa, bền vững (máy móc dựa liên hệ bề ngoài). Tr.71."},
+{s:"s3",d:"0.15",q:"Trong học tập, giai đoạn gìn giữ tài liệu còn được gọi là:",o:["Ghi nhớ","Ôn tập","Nhớ lại","Hồi ức"],a:1,e:"Gìn giữ trong học tập = ôn tập. Tr.72."},
+{s:"s3",d:"0.15",q:"Quá trình nhớ được đối tượng khi nó XUẤT HIỆN LẠI trước mặt một lần nữa gọi là:",o:["Nhớ lại","Nhận lại","Hồi tưởng","Hồi ức"],a:1,e:"Đối tượng xuất hiện lại = nhận lại (nhớ lại thì vật không còn). Tr.70."},
+{s:"s3",d:"0.15",q:"Khâu nào là tiêu chuẩn để đánh giá trí nhớ của con người?",o:["Ghi nhớ","Gìn giữ","Nhận lại","Nhớ lại"],a:3,e:"Nhớ lại là khâu cuối cùng, là tiêu chuẩn đánh giá (không phải nhận lại). Tr.73."},
+{s:"s3",d:"0.15",q:"Sự nhớ lại có chủ định, đòi hỏi khắc phục khó khăn, nỗ lực ý chí gọi là:",o:["Nhận lại","Hồi tưởng","Hồi ức","Ghi nhớ máy móc"],a:1,e:"Nhớ lại có chủ định, cần nỗ lực ý chí = hồi tưởng (hồi ức thì gắn không – thời gian). Tr.73."},
+{s:"s3",d:"0.15",q:"\"Không thể nhận lại hoặc nhớ lại đối tượng đã ghi nhớ vào thời điểm cần thiết\" là định nghĩa của:",o:["Gìn giữ tiêu cực","Sự quên","Hiện tượng sực nhớ","Nhận lại nhầm"],a:1,e:"Không nhận/nhớ lại được khi cần = sự quên. Tr.74."},
+
+/* ======== TRÍ NHỚ (s3) · 0.25đ (9) ======== */
+{s:"s3",d:"0.25",q:"Học thuộc số điện thoại, số tài khoản ngân hàng (không có nội dung khái quát) phù hợp nhất với loại ghi nhớ nào?",o:["Ghi nhớ có ý nghĩa","Ghi nhớ máy móc","Ghi nhớ không chủ định","Hồi tưởng"],a:1,e:"Tài liệu rời rạc, không khái quát → ghi nhớ máy móc hữu ích. Tr.71."},
+{s:"s3",d:"0.25",q:"Học sinh hiểu bản chất bài học nên dù quên vẫn suy luận nhớ lại được, tốn ít thời gian hơn học vẹt. Đây là ưu điểm của:",o:["Ghi nhớ máy móc","Ghi nhớ có ý nghĩa","Nhận lại","Gìn giữ tiêu cực"],a:1,e:"Hiểu bản chất, bền vững → ghi nhớ có ý nghĩa. Tr.71."},
+{s:"s3",d:"0.25",q:"\"Gặp lại một người quen nhưng nhận không ra vì họ thay đổi quá nhiều so với trước.\" Hiện tượng này liên quan đến:",o:["Quên hoàn toàn","Nhận lại bị sai (do hình ảnh cũ và hiện tại khác nhau nhiều)","Quên cục bộ","Nhớ lại bị sai"],a:1,e:"Đối tượng xuất hiện trước mặt nhưng nhận không đúng = nhận lại sai. Tr.70."},
+{s:"s3",d:"0.25",q:"Việc nhớ lại một kỷ niệm cũ gắn với một địa điểm và thời gian xác định gọi là:",o:["Nhận lại","Hồi ức","Hồi tưởng","Ghi nhớ không chủ định"],a:1,e:"Nhớ lại gắn với không gian – thời gian xác định = hồi ức (hồi tưởng chỉ cần nỗ lực ý chí). Tr.73."},
+{s:"s3",d:"0.25",q:"Theo quy luật quên, con người thường quên những gì TRƯỚC tiên?",o:["Cái đại thể, chính yếu","Cái tiểu tiết, vụn vặt","Cái có ý nghĩa với bản thân","Cái gắn với hứng thú, nhu cầu"],a:1,e:"Quên cái tiểu tiết, vụn vặt trước; cái đại thể, chính yếu sau. Tr.74."},
+{s:"s3",d:"0.25",q:"Tốc độ quên diễn ra như thế nào theo thời gian?",o:["Đều đặn như nhau từ đầu đến cuối","Giai đoạn đầu quên nhanh, về sau quên chậm dần","Giai đoạn đầu quên chậm, về sau quên nhanh dần","Càng để lâu càng nhớ rõ hơn"],a:1,e:"Đầu quên nhanh, sau chậm dần (so kỹ với C). Tr.74."},
+{s:"s3",d:"0.25",q:"\"Gìn giữ bằng cách nhớ lại tài liệu mà không cần tri giác lại tài liệu đó\" là:",o:["Gìn giữ tiêu cực","Gìn giữ tích cực","Nhận lại","Ghi nhớ máy móc"],a:1,e:"Nhớ lại không cần tri giác lại = gìn giữ tích cực (tiêu cực thì tri giác đi tri giác lại). Tr.72."},
+{s:"s3",d:"0.25",q:"Cách ôn tập nào dưới đây ĐÚNG để gìn giữ tốt?",o:["Ôn dồn liên tục một môn trong nhiều giờ cho đến khi thuộc","Ôn ngay sau khi học, ôn xen kẽ và rải rác, có nghỉ ngơi hợp lý","Chỉ ôn lại một lần duy nhất ngay sát giờ thi","Đọc đi đọc lại để thuộc lòng từng câu, từng chữ"],a:1,e:"Ôn ngay, xen kẽ, rải rác, có nghỉ ngơi. Tr.72."},
+{s:"s3",d:"0.25",q:"Trong thời gian dài không nhớ ra, nhưng đột nhiên vào một lúc nào đó lại nhớ ra được. Đây là:",o:["Quên hoàn toàn","Quên cục bộ","Hiện tượng sực nhớ","Hồi tưởng"],a:2,e:"Bỗng nhớ lại sau thời gian dài không nhớ = sực nhớ. Tr.74."},
+
+/* ======== TRÍ NHỚ (s3) · 0.35đ (7) ======== */
+{s:"s3",d:"0.35",q:"Vì sao \"nhớ lại\" (chứ không phải \"nhận lại\") được dùng làm tiêu chuẩn đánh giá trí nhớ?",o:["Vì nhận lại khó hơn nhớ lại nên đánh giá chính xác hơn","Vì nhớ lại tái hiện được khi đối tượng không còn trước mặt, phản ánh độ bền của trí nhớ rõ hơn nhận lại","Vì nhận lại thực ra không phải là một biểu hiện của trí nhớ","Vì nhớ lại luôn diễn ra trước, còn nhận lại diễn ra sau"],a:1,e:"Nhận lại đơn giản (có vật trước mặt); nhớ lại tái hiện khi vật vắng → tiêu chuẩn đánh giá. Tr.70-73."},
+{s:"s3",d:"0.35",q:"A học vẹt từng chữ, B hiểu bản chất và liên hệ logic. Khi đề ra dạng vận dụng khác sách, ai làm tốt hơn và vì sao?",o:["A làm tốt hơn vì nhớ chính xác từng câu chữ trong sách","B làm tốt hơn vì ghi nhớ có ý nghĩa giúp hiểu bản chất, vận dụng được cả những dạng mới","A làm tốt hơn vì ghi nhớ máy móc bền vững hơn ghi nhớ có ý nghĩa","B làm tốt hơn nhưng chỉ vì B vốn có trí nhớ bẩm sinh tốt hơn A"],a:1,e:"Ghi nhớ có ý nghĩa > máy móc khi cần vận dụng. Tr.71."},
+{s:"s3",d:"0.35",q:"Một học sinh ôn liên tục hai môn có nội dung tương tự ngay sát nhau và thấy dễ lẫn, mau quên. Lời khuyên đúng theo biện pháp chống quên là gì?",o:["Cứ ôn liên tục hai môn cho quen dần thì sẽ hết lẫn","Không nên ôn kế tiếp hai môn nội dung tương tự; nên giải lao khi đổi tài liệu và ôn ngay rồi thưa dần","Học thuộc lòng từng chữ của cả hai môn để khỏi lẫn","Ôn hai môn cùng lúc, xen kẽ từng câu một cho nhớ lâu"],a:1,e:"Không học kế tiếp hai môn tương tự; tổ chức ôn khoa học. Tr.74-75."},
+{s:"s3",d:"0.35",q:"Vì sao nói \"về nguyên tắc, quên là một hiện tượng hợp lý và hữu ích\"?",o:["Vì quên giúp xóa sạch mọi kiến thức cũ để học cái mới","Vì quên loại bỏ thông tin ít liên quan, ít dùng, không hợp hứng thú — giảm tải cho trí nhớ","Vì quên chứng tỏ quá trình ghi nhớ đã hoàn toàn thất bại","Vì quên là cơ chế giúp con người ghi nhớ máy móc tốt hơn"],a:1,e:"Quên loại bỏ cái ít liên quan, ít dùng → hợp lý, hữu ích. Tr.74."},
+{s:"s3",d:"0.35",q:"Một người quên hẳn cuốn sách đã đọc (không nhớ, cũng không nhận ra); cuốn khác thì không nhớ lại được nhưng vẫn nhận ra khi đọc lại. Hai trường hợp này là mức độ quên nào?",o:["Cả hai đều là quên hoàn toàn","Trường hợp đầu là quên hoàn toàn, trường hợp sau là quên cục bộ (không nhớ lại nhưng nhận lại được)","Cả hai đều là quên cục bộ","Trường hợp đầu là quên cục bộ, trường hợp sau là quên hoàn toàn"],a:1,e:"Quên hoàn toàn (không nhận/nhớ) vs quên cục bộ (vẫn nhận lại được). D bị đảo. Tr.74."},
+{s:"s3",d:"0.35",q:"Giáo viên gắn nội dung cần nhớ vào nhu cầu – hứng thú của học sinh, cho làm bài tập ứng dụng ngay, ôn ngay sau khi học rồi thưa dần. Cơ sở của các biện pháp này là gì?",o:["Dựa trên việc tăng cường ghi nhớ máy móc nhiều lần","Dựa trên quy luật ghi nhớ (gắn mục đích, hứng thú) và quy luật quên (ôn ngay rồi thưa dần)","Dựa trên việc rèn luyện khả năng nhận lại đối tượng","Dựa trên việc tạo ra nhiều hồi ức gắn với thời gian"],a:1,e:"Gắn hứng thú + ôn ngay rồi thưa dần (vì giai đoạn đầu quên nhanh). Tr.74-75."},
+{s:"s3",d:"0.35",q:"Một học sinh khẳng định \"ghi nhớ máy móc luôn vô ích, chỉ nên dùng ghi nhớ có ý nghĩa\". Nhận định này:",o:["Hoàn toàn đúng, ghi nhớ máy móc luôn nên tránh","Không hoàn toàn đúng — ghi nhớ máy móc vẫn cần cho tài liệu rời rạc không khái quát (số điện thoại, ngày tháng)","Hoàn toàn sai, ghi nhớ máy móc luôn tốt hơn ghi nhớ có ý nghĩa","Đúng, vì ghi nhớ máy móc không tạo ra biểu tượng nào"],a:1,e:"Có ý nghĩa là chủ yếu, nhưng máy móc vẫn hữu ích cho tài liệu rời rạc. Tr.71."}
+];
+QUESTIONS.forEach((q,i)=>q.id=i);
+
+const filters={sec:"all",diff:"all",order:"seq"};
+const state={list:[],idx:0,results:{},chosen:{},maxPts:0};
+
+const $=id=>document.getElementById(id);
+const startScreen=$("startScreen"),quizScreen=$("quizScreen"),resultScreen=$("resultScreen");
+
+function bindChips(boxId,key,attr){
+  $(boxId).querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+    $(boxId).querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+    c.setAttribute("aria-pressed","true");
+    filters[key]=c.dataset[attr];
+    updateCount();
+  }));
+}
+bindChips("sectionChips","sec","sec");
+bindChips("diffChips","diff","diff");
+bindChips("orderChips","order","order");
+
+function pool(){
+  return QUESTIONS.filter(q=>
+    (filters.sec==="all"||q.s===filters.sec)&&
+    (filters.diff==="all"||q.d===filters.diff));
+}
+function updateCount(){$("startCount").textContent=`Bộ lọc hiện tại: ${pool().length} câu`;}
+updateCount();
+
+$("startBtn").addEventListener("click",()=>{
+  let list=pool().slice();
+  if(filters.order==="shuffle") list=shuffle(list);
+  startQuiz(list);
+});
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startQuiz(list){
+  state.list=list;state.idx=0;state.results={};state.chosen={};
+  state.maxPts=list.reduce((s,q)=>s+PT[q.d],0);
+  startScreen.classList.add("hidden");resultScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+  updateScore();renderQuestion();
+}
+
+function renderQuestion(){
+  const q=state.list[state.idx];
+  const dn=q.d.replace(".","");
+  $("qHead").innerHTML=
+    `<span class="badge b-sec">${SECTIONS[q.s]}</span>`+
+    `<span class="badge b-d${dn}">${q.d}đ</span>`+
+    `<span class="q-count">Câu ${state.idx+1} / ${state.list.length}</span>`;
+  $("qText").textContent=q.q;
+
+  const answered=state.results[q.id]!==undefined;
+  const chosen=state.chosen[q.id];
+  const opts=$("qOptions");opts.innerHTML="";
+  q.o.forEach((t,i)=>{
+    const b=document.createElement("button");
+    b.className="option";b.disabled=answered;
+    let mark="";
+    if(answered){
+      if(i===q.a){b.classList.add("correct");mark='<span class="mark">✓</span>';}
+      else if(i===chosen){b.classList.add("wrong");mark='<span class="mark">✕</span>';}
+    }
+    b.innerHTML=`<span class="key">${KEY[i]}</span><span>${t}</span>${mark}`;
+    b.addEventListener("click",()=>choose(q,i));
+    opts.appendChild(b);
+  });
+
+  const ex=$("qExplain");
+  if(answered){
+    const ok=chosen===q.a;
+    ex.className="explain show "+(ok?"ok":"no");
+    ex.innerHTML=`<b>${ok?"Chính xác":"Phản hồi"}</b>${q.e}`;
+  }else{ex.className="explain";ex.innerHTML="";}
+
+  renderNav();
+  $("progressFill").style.width=(Object.keys(state.results).length/state.list.length*100)+"%";
+}
+
+function choose(q,i){
+  if(state.results[q.id]!==undefined)return;
+  state.chosen[q.id]=i;state.results[q.id]=(i===q.a);
+  updateScore();renderQuestion();
+}
+
+function renderNav(){
+  const nav=$("navRow");nav.innerHTML="";
+  const prev=document.createElement("button");
+  prev.className="nav-btn";prev.textContent="← Câu trước";
+  prev.disabled=state.idx===0;
+  prev.onclick=()=>{state.idx--;renderQuestion();};
+  nav.appendChild(prev);
+
+  const next=document.createElement("button");
+  next.className="nav-btn primary";
+  if(state.idx===state.list.length-1){next.textContent="Xem kết quả →";next.onclick=showResult;}
+  else{next.textContent="Câu tiếp →";next.onclick=()=>{state.idx++;renderQuestion();};}
+  nav.appendChild(next);
+}
+
+function updateScore(){
+  let pts=0;state.list.forEach(q=>{if(state.results[q.id]===true)pts+=PT[q.d];});
+  $("scorePill").textContent=`Điểm: ${fmt(pts)} / ${fmt(state.maxPts)}`;
+}
+function fmt(n){return (Math.round(n*100)/100).toString();}
+
+function showResult(){
+  quizScreen.classList.add("hidden");resultScreen.classList.remove("hidden");
+  const total=state.list.length;
+  const correct=state.list.filter(q=>state.results[q.id]===true).length;
+  let pts=0;state.list.forEach(q=>{if(state.results[q.id]===true)pts+=PT[q.d];});
+  $("finalScore").innerHTML=`${correct} <small>/ ${total}</small>`;
+  const pct=Math.round(correct/total*100);
+  $("resultMsg").textContent=`Đúng ${correct}/${total} câu (${pct}%) · Điểm quy đổi: ${fmt(pts)} / ${fmt(state.maxPts)}`;
+
+  const groups=[
+    ["Tư duy · 0.15đ",q=>q.s==="s1"&&q.d==="0.15"],
+    ["Tư duy · 0.25đ",q=>q.s==="s1"&&q.d==="0.25"],
+    ["Tư duy · 0.35đ",q=>q.s==="s1"&&q.d==="0.35"],
+    ["Tưởng tượng · 0.15đ",q=>q.s==="s2"&&q.d==="0.15"],
+    ["Tưởng tượng · 0.25đ",q=>q.s==="s2"&&q.d==="0.25"],
+    ["Tưởng tượng · 0.35đ",q=>q.s==="s2"&&q.d==="0.35"],
+    ["Trí nhớ · 0.15đ",q=>q.s==="s3"&&q.d==="0.15"],
+    ["Trí nhớ · 0.25đ",q=>q.s==="s3"&&q.d==="0.25"],
+    ["Trí nhớ · 0.35đ",q=>q.s==="s3"&&q.d==="0.35"],
+  ];
+  const bd=$("breakdown");bd.innerHTML="";
+  groups.forEach(([nm,fn])=>{
+    const g=state.list.filter(fn);if(!g.length)return;
+    const c=g.filter(q=>state.results[q.id]===true).length;
+    const p=Math.round(c/g.length*100);
+    const col=p>=70?"var(--correct)":p>=40?"var(--d35)":"var(--wrong)";
+    const row=document.createElement("div");row.className="bd-row";
+    row.innerHTML=`<span class="bd-name">${nm}</span>
+      <span class="bd-bar"><i style="width:${p}%;background:${col}"></i></span>
+      <span class="bd-num">${c}/${g.length}</span>`;
+    bd.appendChild(row);
+  });
+
+  const wrong=state.list.filter(q=>state.results[q.id]===false);
+  const rw=$("reviewWrongBtn");
+  rw.disabled=wrong.length===0;
+  rw.textContent=wrong.length?`Làm lại ${wrong.length} câu sai`:"Không có câu sai";
+}
+
+$("restartBtn").addEventListener("click",()=>{
+  resultScreen.classList.add("hidden");quizScreen.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+  $("progressFill").style.width="0";$("scorePill").textContent="Điểm: 0 / 0";
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("reviewWrongBtn").addEventListener("click",()=>{
+  const wrong=state.list.filter(q=>state.results[q.id]===false);
+  if(wrong.length)startQuiz(wrong);
+});
+</script>
+</body>
+</html>

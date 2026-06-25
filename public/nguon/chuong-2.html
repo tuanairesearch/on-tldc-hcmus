@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập Chương 2 — Tâm lý đại cương</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1F4;
+    --surface:#FFFFFF;
+    --surface-2:#F7F8FA;
+    --ink:#16203B;
+    --muted:#5C6679;
+    --line:#E2E6EC;
+    --accent:#1F7A8C;
+    --accent-dk:#155E6C;
+    --correct:#2F8F5B;
+    --correct-bg:#E8F5EE;
+    --correct-line:#A9DCC0;
+    --wrong:#C0453B;
+    --wrong-bg:#FBEBE9;
+    --wrong-line:#E6BBB5;
+    --d15:#3A7BD5;
+    --d25:#1F7A8C;
+    --d35:#B5852A;
+    --shadow:0 1px 2px rgba(20,30,55,.05),0 8px 28px rgba(20,30,55,.07);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Be Vietnam Pro",system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding:18px 14px 64px;
+  }
+  .wrap{max-width:660px;margin:0 auto}
+
+  /* ---------- header / progress ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:12px;margin-bottom:14px;flex-wrap:wrap;
+  }
+  .brand{font-family:"Lora",serif;font-weight:600;font-size:1.05rem;letter-spacing:.2px}
+  .brand small{display:block;font-family:"Be Vietnam Pro";font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.4px;text-transform:uppercase;margin-top:1px}
+  .score-pill{
+    font-size:.82rem;font-weight:600;color:var(--accent-dk);
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:6px 13px;box-shadow:var(--shadow);white-space:nowrap;
+  }
+  .progress-track{height:7px;background:#DDE2E9;border-radius:999px;overflow:hidden;margin-bottom:6px}
+  .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),#2BB3A3);border-radius:999px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+  .progress-meta{display:flex;justify-content:space-between;font-size:.74rem;color:var(--muted);margin-bottom:18px}
+
+  /* ---------- card ---------- */
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:22px 20px;
+  }
+
+  /* ---------- start screen ---------- */
+  .hero-eyebrow{font-size:.74rem;letter-spacing:1.6px;text-transform:uppercase;color:var(--accent);font-weight:600}
+  .hero-title{font-family:"Lora",serif;font-weight:600;font-size:1.5rem;line-height:1.25;margin:8px 0 6px}
+  .hero-sub{color:var(--muted);font-size:.92rem;margin:0 0 20px}
+  .filter-group{margin-bottom:18px}
+  .filter-label{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:9px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{
+    font-family:inherit;font-size:.85rem;font-weight:500;cursor:pointer;
+    background:var(--surface-2);border:1.5px solid var(--line);color:var(--ink);
+    border-radius:999px;padding:8px 14px;transition:.15s;
+  }
+  .chip:hover{border-color:#C4CCD6}
+  .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+  .btn{
+    font-family:inherit;font-size:1rem;font-weight:600;cursor:pointer;
+    background:var(--accent);color:#fff;border:none;border-radius:12px;
+    padding:14px 20px;width:100%;transition:.15s;box-shadow:0 6px 18px rgba(31,122,140,.28);
+  }
+  .btn:hover{background:var(--accent-dk)}
+  .btn:active{transform:translateY(1px)}
+  .btn.secondary{background:#fff;color:var(--ink);border:1.5px solid var(--line);box-shadow:none}
+  .btn.secondary:hover{border-color:#C4CCD6;background:var(--surface-2)}
+  .btn-row{display:flex;gap:10px;margin-top:8px}
+  .btn-row .btn{width:auto;flex:1}
+
+  /* ---------- question ---------- */
+  .q-head{display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .badge{font-size:.7rem;font-weight:700;letter-spacing:.3px;padding:4px 9px;border-radius:7px;color:#fff}
+  .badge.d15{background:var(--d15)}
+  .badge.d25{background:var(--d25)}
+  .badge.d35{background:var(--d35)}
+  .sec-tag{font-size:.74rem;font-weight:600;color:var(--muted);background:var(--surface-2);border:1px solid var(--line);padding:4px 9px;border-radius:7px}
+  .q-text{font-family:"Lora",serif;font-size:1.12rem;font-weight:500;line-height:1.45;margin:0 0 18px}
+  .options{display:flex;flex-direction:column;gap:10px}
+  .opt{
+    display:flex;gap:12px;align-items:flex-start;text-align:left;
+    font-family:inherit;font-size:.95rem;line-height:1.45;color:var(--ink);cursor:pointer;
+    background:var(--surface-2);border:1.5px solid var(--line);border-radius:12px;
+    padding:13px 15px;transition:border-color .15s,background .15s;width:100%;
+  }
+  .opt:hover:not(:disabled){border-color:var(--accent);background:#fff}
+  .opt:disabled{cursor:default}
+  .opt .key{
+    flex:none;width:26px;height:26px;border-radius:7px;
+    display:grid;place-items:center;font-weight:700;font-size:.82rem;
+    background:#fff;border:1.5px solid var(--line);color:var(--muted);transition:.15s;
+  }
+  .opt.correct{background:var(--correct-bg);border-color:var(--correct-line)}
+  .opt.correct .key{background:var(--correct);border-color:var(--correct);color:#fff}
+  .opt.wrong{background:var(--wrong-bg);border-color:var(--wrong-line)}
+  .opt.wrong .key{background:var(--wrong);border-color:var(--wrong);color:#fff}
+  .opt .mark{margin-left:auto;font-weight:700;font-size:.95rem;align-self:center}
+  .opt.correct .mark{color:var(--correct)}
+  .opt.wrong .mark{color:var(--wrong)}
+
+  /* ---------- explanation ---------- */
+  .explain{
+    margin-top:16px;border-radius:12px;padding:14px 16px;font-size:.9rem;line-height:1.5;
+    border:1px solid var(--line);background:var(--surface-2);
+    opacity:0;max-height:0;overflow:hidden;transition:opacity .3s,max-height .35s,margin .3s,padding .3s;
+    padding-top:0;padding-bottom:0;margin-top:0;
+  }
+  .explain.show{opacity:1;max-height:400px;padding-top:14px;padding-bottom:14px;margin-top:16px}
+  .explain .lead{font-weight:700;display:block;margin-bottom:3px}
+  .explain.ok{background:var(--correct-bg);border-color:var(--correct-line)}
+  .explain.ok .lead{color:var(--correct)}
+  .explain.no{background:var(--wrong-bg);border-color:var(--wrong-line)}
+  .explain.no .lead{color:var(--wrong)}
+
+  .nav-row{display:flex;gap:10px;margin-top:18px}
+  .nav-row .btn{flex:1}
+
+  /* ---------- results ---------- */
+  .result-score{font-family:"Lora",serif;font-size:2.6rem;font-weight:600;line-height:1;margin:6px 0 2px}
+  .result-score small{font-size:1.1rem;color:var(--muted);font-weight:500}
+  .result-msg{color:var(--muted);margin:0 0 22px}
+  .breakdown{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
+  .bd-row{display:flex;align-items:center;gap:12px}
+  .bd-name{flex:none;width:38%;font-size:.84rem;font-weight:500}
+  .bd-bar{flex:1;height:9px;background:#E4E8EE;border-radius:999px;overflow:hidden}
+  .bd-bar i{display:block;height:100%;background:var(--accent);border-radius:999px}
+  .bd-num{flex:none;font-size:.8rem;font-weight:600;color:var(--muted);width:46px;text-align:right}
+
+  .hidden{display:none!important}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+  @media (max-width:480px){
+    .hero-title{font-size:1.32rem}
+    .q-text{font-size:1.05rem}
+    .bd-name{width:42%}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">Tâm lý đại cương<small>Chương 2 · Ôn tập tương tác</small></div>
+    <div class="score-pill" id="scorePill">Điểm: 0 / 0</div>
+  </div>
+
+  <div id="progressBox" class="hidden">
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-meta"><span id="qCounter">Câu 1 / 50</span><span id="accuracy">Đúng 0%</span></div>
+  </div>
+
+  <!-- START -->
+  <div class="card" id="startScreen">
+    <div class="hero-eyebrow">Cơ sở tự nhiên & cơ sở xã hội của tâm lý người</div>
+    <h1 class="hero-title">100 câu trắc nghiệm tương tác</h1>
+    <p class="hero-sub">Chọn đáp án để được chấm ngay và xem giải thích. Bạn có thể lọc theo phần hoặc theo mức điểm độ khó.</p>
+
+    <div class="filter-group">
+      <div class="filter-label">Chọn phần</div>
+      <div class="chips" id="sectionChips"></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Mức độ</div>
+      <div class="chips" id="diffChips">
+        <button class="chip" data-diff="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-diff="0.15" aria-pressed="false">0.15đ · nhận biết</button>
+        <button class="chip" data-diff="0.25" aria-pressed="false">0.25đ · vận dụng</button>
+        <button class="chip" data-diff="0.35" aria-pressed="false">0.35đ · tình huống</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Thứ tự</div>
+      <div class="chips" id="orderChips">
+        <button class="chip" data-order="seq" aria-pressed="true">Theo thứ tự</button>
+        <button class="chip" data-order="shuffle" aria-pressed="false">Trộn ngẫu nhiên</button>
+      </div>
+    </div>
+
+    <button class="btn" id="startBtn">Bắt đầu làm bài</button>
+    <p class="hero-sub" style="margin:14px 0 0;font-size:.8rem" id="startCount"></p>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card hidden" id="quizScreen">
+    <div class="q-head" id="qHead"></div>
+    <p class="q-text" id="qText"></p>
+    <div class="options" id="qOptions"></div>
+    <div class="explain" id="qExplain"></div>
+    <div class="nav-row" id="navRow"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="card hidden" id="resultScreen">
+    <div class="hero-eyebrow">Kết quả</div>
+    <div class="result-score" id="finalScore">0 <small>/ 0</small></div>
+    <p class="result-msg" id="resultMsg"></p>
+    <div class="filter-label">Theo từng phần</div>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="btn-row">
+      <button class="btn secondary" id="reviewWrongBtn">Làm lại câu sai</button>
+      <button class="btn" id="restartBtn">Làm lại từ đầu</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const SECTIONS = {
+  s1:"Quan điểm nền tảng",
+  s2:"Di truyền & tư chất",
+  s3:"Não & định khu chức năng",
+  s4:"Phản xạ có điều kiện",
+  s5:"Quy luật thần kinh cấp cao",
+  s6:"Hệ thống tín hiệu thứ hai",
+  s7:"Cơ sở xã hội",
+  s8:"Hoạt động & phát triển tâm lý"
+};
+
+const QUESTIONS = [
+  {s:"s1",d:"0.15",q:"Theo quan điểm duy vật biện chứng, cơ sở vật chất của cả hiện tượng sinh lý lẫn hiện tượng tâm lý là:",o:["Hệ thần kinh ngoại biên","Não bộ","Tủy sống và hệ thần kinh thực vật","Toàn bộ cơ thể nói chung"],a:1,e:"Não bộ là cơ sở vật chất; hệ thần kinh ngoại biên hay tủy sống chỉ là bộ phận dẫn truyền, không phải cơ sở của hiện tượng tâm lý."},
+  {s:"s1",d:"0.25",q:"Cơ sở sinh lý của tất cả các hiện tượng tâm lý là:",o:["Phản xạ không điều kiện","Phản xạ có điều kiện","Hoạt động của hệ thống tín hiệu thứ nhất","Quá trình hưng phấn và ức chế trên vỏ não"],a:1,e:"Cơ sở sinh lí của mọi hiện tượng tâm lý là phản xạ có điều kiện — bao trùm cả hai hệ thống tín hiệu, không chỉ riêng hệ thứ nhất; hưng phấn/ức chế chỉ là quá trình thành phần."},
+  {s:"s1",d:"0.15",q:"Tâm lý người mang bản chất:",o:["Bản chất sinh vật, do cấu tạo não quy định","Bản chất xã hội – lịch sử","Bản chất phản xạ thuần túy","Vừa do di truyền vừa do bẩm sinh quy định"],a:1,e:"Tâm lý người có bản chất xã hội – lịch sử."},
+  {s:"s1",d:"0.25",q:"Cơ sở TỰ NHIÊN của tâm lý người trong chương này chủ yếu xét quan hệ giữa tâm lý với nhóm yếu tố nào?",o:["Di truyền, não bộ, phản xạ có điều kiện, hệ thống tín hiệu thứ hai","Di truyền, não bộ, quan hệ xã hội, hoạt động","Não bộ, phản xạ có điều kiện, giáo dục, giao tiếp","Di truyền, tư chất, nền văn hóa xã hội, ngôn ngữ"],a:0,e:"Cơ sở tự nhiên gồm: di truyền, não bộ, phản xạ có điều kiện, hệ thống tín hiệu thứ hai. Các phương án khác lẫn vào yếu tố thuộc cơ sở XÃ HỘI (quan hệ xã hội, giáo dục, văn hóa)."},
+  {s:"s1",d:"0.25",q:"Câu “Tâm lý người là sự phản ánh hiện thực khách quan vào não thông qua chủ thể” nhấn mạnh điều gì?",o:["Tâm lý là hình ảnh chủ quan thuần túy, không phụ thuộc hiện thực","Cùng một hiện thực, mỗi người phản ánh khác nhau tùy đặc điểm riêng của chủ thể","Mọi chủ thể phản ánh cùng một hiện thực sẽ cho kết quả như nhau","Chủ thể quyết định sự tồn tại của hiện thực khách quan"],a:1,e:"“Thông qua chủ thể” = tính chủ thể của phản ánh: cùng hiện thực nhưng mỗi người phản ánh khác nhau. Hai phương án cho rằng tâm lý không phụ thuộc hoặc tự quyết định hiện thực là biến tướng duy tâm; phương án nói mọi chủ thể cho kết quả như nhau thì ngược với tính chủ thể."},
+  {s:"s1",d:"0.15",q:"Theo quan điểm duy vật biện chứng, tâm lý người có nguồn gốc từ đâu?",o:["Từ chính bản thân bộ não, độc lập với bên ngoài","Từ hiện thực khách quan tác động vào con người","Từ kinh nghiệm di truyền của tổ tiên","Từ ý thức có sẵn trong mỗi cá nhân"],a:1,e:"Tâm lý người có nguồn gốc từ hiện thực khách quan."},
+  {s:"s1",d:"0.25",q:"Quan niệm “tâm lý do Thượng đế, do trời sinh ra và nhập vào thể xác, không phụ thuộc thế giới khách quan” thuộc về:",o:["Quan niệm duy tâm chủ quan","Quan niệm duy tâm khách quan","Chủ nghĩa duy vật tầm thường","Thuyết nhị nguyên (song song)"],a:1,e:"Cho rằng một lực lượng siêu nhiên bên ngoài (trời, Thượng đế) sinh ra tâm lý là duy tâm KHÁCH quan; nếu cho rằng tâm lý do “cái tôi” chủ quan sinh ra mới là duy tâm chủ quan."},
+  {s:"s1",d:"0.25",q:"Phát biểu nào thể hiện ĐÚNG quan điểm duy vật biện chứng về tâm lý người?",o:["Tâm lý là sự phản ánh hiện thực khách quan vào não, qua chủ thể, có bản chất xã hội – lịch sử","Tâm lý là sự phản ánh hiện thực khách quan vào não một cách thụ động như chiếc gương","Tâm lý do não sinh ra và quy định hoàn toàn, không phụ thuộc xã hội","Tâm lý là hình ảnh chủ quan nên không cần đến hiện thực khách quan"],a:0,e:"Phản ánh tâm lý là tích cực, sáng tạo (không thụ động như chiếc gương); không do não quy định hoàn toàn (đó là duy vật tầm thường) và không tách rời hiện thực (đó là duy tâm)."},
+
+  {s:"s2",d:"0.15",q:"Di truyền được hiểu là:",o:["Toàn bộ kinh nghiệm cá thể tích lũy được trong đời sống","Mối liên hệ kế thừa của cơ thể sống, tái tạo ở thế hệ sau những nét giống nhau về mặt sinh vật","Sự biến đổi của cơ thể để thích nghi với môi trường sống","Quá trình lĩnh hội kinh nghiệm xã hội – lịch sử của loài người"],a:1,e:"Di truyền = mối liên hệ kế thừa của cơ thể sống. Các phương án còn lại lần lượt là kinh nghiệm cá thể, biến dị/thích nghi và lĩnh hội văn hóa."},
+  {s:"s2",d:"0.15",q:"Khái niệm chỉ “tổ hợp đặc điểm giải phẫu và chức năng tâm – sinh lí (nhất là của giác quan, hệ thần kinh), tạo tiền đề vật chất cho phát triển năng lực” là:",o:["Năng lực","Tư chất","Khí chất","Thiên hướng"],a:1,e:"Đó là khái niệm tư chất."},
+  {s:"s2",d:"0.15",q:"Phát biểu nào ĐÚNG về tư chất?",o:["Tư chất là yếu tố bẩm sinh quyết định trực tiếp năng lực","Tư chất có tính đa năng: trên một tư chất có thể hình thành nhiều năng lực khác nhau","Mỗi tư chất chỉ phát triển thành đúng một năng lực tương ứng","Tư chất được hình thành hoàn toàn qua giáo dục và rèn luyện"],a:1,e:"Tư chất có tính đa năng và chỉ là tiền đề. Các phương án còn lại lần lượt đề cao di truyền, cho rằng tư chất đơn năng, hoặc phủ nhận yếu tố sinh học — đều sai."},
+  {s:"s2",d:"0.25",q:"Vai trò của di truyền đối với sự phát triển tâm lý được phát biểu ĐÚNG nhất là:",o:["Quyết định toàn bộ và giới hạn cuối cùng của sự phát triển tâm lý","Mang sẵn các đặc điểm tâm lý, năng lực cụ thể ngay từ khi sinh","Tạo tiền đề vật chất, quy định tâm lý hình thành nhanh/chậm, dễ/khó nhưng không quyết định nội dung tâm lý","Chỉ tạo ra cơ thể, hoàn toàn không liên quan đến sự phát triển tâm lý"],a:2,e:"Di truyền là tiền đề, không quyết định nội dung tâm lý (có phương án đề cao quá mức), cũng không phải vô can (có phương án phủ nhận hoàn toàn)."},
+  {s:"s2",d:"0.25",q:"Quan điểm “mọi đặc điểm tâm lý đều do tiền định, có sẵn trong gen, phát triển chỉ là sự chín muồi của cái có sẵn” thuộc về:",o:["Tâm lý học duy vật biện chứng","Một số nhà tâm lý học tư sản (thuyết tiền định / di truyền quyết định)","Tâm lý học hoạt động (A.N. Leonchiev)","Học thuyết phản xạ có điều kiện của Pavlov"],a:1,e:"Đây là thuyết tiền định của một số nhà tâm lý học tư sản."},
+  {s:"s2",d:"0.25",q:"Hạn chế của quan điểm Thomdike (“tự nhiên ban cho mỗi người một vốn, giáo dục cần làm bộc lộ vốn đó”) là:",o:["Phủ nhận hoàn toàn vai trò của di truyền, tư chất","Đề cao tuyệt đối môi trường và giáo dục, xem nhẹ bẩm sinh","Tuy có nói đến giáo dục nhưng vẫn cho rằng tiềm năng bẩm sinh quy định trước giới hạn phát triển","Đồng nhất tâm lý với các quá trình sinh lí của não"],a:2,e:"Thomdike vẫn thiên về tiền định: tiềm năng bẩm sinh quy định trước giới hạn phát triển. Phương án phủ nhận di truyền và phương án đề cao tuyệt đối môi trường là hai sai lầm ngược lại; phương án đồng nhất tâm lý với sinh lí là duy vật tầm thường."},
+  {s:"s2",d:"0.35",q:"Hai anh em sinh đôi cùng trứng, cùng tư chất tốt về âm nhạc. Người anh được học đàn từ nhỏ nên thành nghệ sĩ; người em không được học nên không có năng lực nổi bật. Trường hợp này minh họa rõ nhất:",o:["Di truyền (tư chất) quyết định trực tiếp và đầy đủ năng lực","Cùng tư chất nhưng khác môi trường – giáo dục – hoạt động nên năng lực khác nhau; tư chất chỉ là tiền đề","Năng lực âm nhạc là bẩm sinh, môi trường chỉ làm bộc lộ chứ không tạo ra","Tư chất không có vai trò gì, năng lực hoàn toàn do luyện tập"],a:1,e:"Tư chất là tiền đề; năng lực hình thành hay không phụ thuộc môi trường, giáo dục, hoạt động. Quan niệm “bẩm sinh, môi trường chỉ làm bộc lộ” (kiểu Thomdike) và quan niệm “phủ nhận tư chất” là hai cực sai lệch."},
+  {s:"s2",d:"0.25",q:"Sinh vật học hiện đại chứng minh điều gì về di truyền?",o:["Di truyền là yếu tố cố định, tách rời hoàn toàn với môi trường","Bản thân di truyền cũng bị biến đổi dưới tác động của môi trường và hoạt động cá thể","Di truyền chỉ quyết định đặc điểm hình thể, không liên quan hệ thần kinh","Mọi đặc điểm di truyền đều biểu hiện như nhau ở mọi môi trường"],a:1,e:"Di truyền không bất biến: nó cũng bị biến đổi dưới tác động của môi trường và hoạt động cá thể."},
+  {s:"s2",d:"0.25",q:"Theo tài liệu, ở bậc tiến hóa càng cao thì yếu tố nào càng đóng vai trò lớn cho sự thích ứng?",o:["Bản năng và phản xạ không điều kiện","Tính biến dị và kinh nghiệm cá thể","Cấu trúc gen ổn định, ít thay đổi","Các phản xạ có sẵn từ khi sinh"],a:1,e:"Bậc tiến hóa càng cao thì tính biến dị và kinh nghiệm cá thể càng quan trọng. Các phương án về bản năng/phản xạ bẩm sinh là ngược lại; phương án “gen ổn định, ít thay đổi” trái với tính biến dị."},
+  {s:"s2",d:"0.15",q:"Đặc điểm giải phẫu sinh lí của cá thể bao gồm:",o:["Chỉ gồm yếu tố do di truyền tạo nên","Gồm cả yếu tố do di truyền lẫn yếu tố riêng tự tạo trong đời sống cá thể","Chỉ gồm yếu tố hình thành qua rèn luyện sau khi sinh","Chỉ gồm các đặc điểm riêng của hệ thần kinh"],a:1,e:"Gồm cả yếu tố do di truyền và yếu tố riêng tự tạo trong đời sống cá thể."},
+  {s:"s2",d:"0.25",q:"Đối với CON NGƯỜI, yếu tố nào đóng vai trò rất lớn trong sự phát triển tâm lý?",o:["Điều kiện và kinh nghiệm xã hội","Cấu tạo và khối lượng của não bộ","Vốn gen di truyền nhận từ cha mẹ","Các bản năng sinh tồn của loài"],a:0,e:"Với con người, điều kiện và kinh nghiệm xã hội đóng vai trò rất lớn; các yếu tố sinh học (não, gen, bản năng) chỉ là tiền đề."},
+  {s:"s2",d:"0.25",q:"Vì sao nói tư chất KHÔNG hoàn toàn là bẩm sinh?",o:["Vì tư chất chỉ xuất hiện ở người trưởng thành","Vì tư chất đạt được trong một giai đoạn phát triển nhất định dưới ảnh hưởng của môi trường sống và hoạt động","Vì tư chất do giáo dục tạo ra hoàn toàn, không liên quan giải phẫu","Vì tư chất chỉ dùng cho năng lực trí tuệ"],a:1,e:"Tư chất hình thành qua một giai đoạn phát triển, chịu ảnh hưởng của môi trường và hoạt động nên không thuần bẩm sinh."},
+
+  {s:"s3",d:"0.15",q:"Quan điểm “các quá trình sinh lí và tâm lý diễn ra song song, độc lập, tâm lý chỉ là hiện tượng phụ” gắn với:",o:["Thuyết tâm lý – vật lí song song (nhị nguyên luận)","Chủ nghĩa duy vật tầm thường","Quan điểm duy tâm chủ quan","Thuyết phản xạ có điều kiện"],a:0,e:"Đó là thuyết tâm lý – vật lí song song (nhị nguyên). Duy vật tầm thường thì ngược lại: ĐỒNG NHẤT tâm lý với sinh lí."},
+  {s:"s3",d:"0.15",q:"Câu “tư tưởng do não tiết ra giống như gan tiết ra mật” là quan điểm sai lầm của:",o:["Thuyết nhị nguyên (song song)","Chủ nghĩa duy vật tầm thường (đồng nhất tâm lý với sinh lí)","Chủ nghĩa duy tâm khách quan","Tâm lý học hoạt động"],a:1,e:"Đồng nhất tâm lý với một sản phẩm của não như “gan tiết mật” = duy vật tầm thường."},
+  {s:"s3",d:"0.25",q:"Vì sao quan điểm “đồng nhất tâm lý với sinh lí” bị xem là sai lầm?",o:["Vì nó phủ nhận não là cơ sở vật chất của tâm lý","Vì nó đồng nhất cái sinh lí với cái tâm lý, phủ nhận tính chủ thể và bản chất xã hội của tâm lý","Vì nó cho rằng tâm lý hoàn toàn độc lập với não","Vì nó đề cao quá mức vai trò của môi trường xã hội"],a:1,e:"Sai vì gộp cái sinh lí làm một với cái tâm lý, bỏ qua vai trò chủ thể và bản chất xã hội. Phương án “phủ nhận não là cơ sở” và “tâm lý độc lập với não” mô tả ngược vấn đề; phương án về môi trường xã hội không liên quan."},
+  {s:"s3",d:"0.25",q:"Phát biểu nào ĐÚNG về định khu chức năng tâm lý trong não theo khoa học hiện đại?",o:["Mỗi chức năng tâm lý định khu cố định, bất biến ở đúng một vùng riêng","Mỗi hiện tượng tâm lý do một nhóm tế bào chuyên biệt duy nhất phụ trách suốt đời","Mỗi hiện tượng tâm lý có nhiều vùng tham gia theo nguyên tắc “phân công” kết hợp “liên kết”, tạo hệ thống cơ động","Vỏ não hoạt động như một khối đồng nhất, không có sự phân vùng nào"],a:2,e:"Nhiều vùng phối hợp (phân công + liên kết), hệ thống chức năng cơ động. Hai phương án về “định khu cố định” là thuyết định khu hẹp; phương án “vỏ não đồng nhất, không phân vùng” là cực ngược lại."},
+  {s:"s3",d:"0.15",q:"Theo tài liệu, ba “khối” chức năng của não tham gia thực hiện hiện tượng tâm lý gồm:",o:["Khối năng lượng – khối thông tin – khối điều khiển","Khối cảm giác – khối vận động – khối liên hợp","Khối hưng phấn – khối ức chế – khối điều hòa","Khối tiếp nhận – khối phân tích – khối phản ứng"],a:0,e:"Ba khối: năng lượng – thông tin – điều khiển."},
+  {s:"s3",d:"0.25",q:"Quan niệm thời cổ đại (“lí trí ở đầu, tình cảm ở ngực, đam mê ở bụng”) so với khoa học hiện đại là:",o:["Hoàn toàn phù hợp với khoa học hiện đại","Đã sơ khai gắn tâm lý với cơ thể nhưng sai vì gán cố định từng chức năng cho từng bộ phận","Phủ nhận tâm lý có cơ sở vật chất trong cơ thể","Là cách hiểu của thuyết phản xạ hiện đại"],a:1,e:"Sơ khai gắn tâm lý với cơ thể nhưng sai vì gán cứng từng chức năng cho từng bộ phận."},
+  {s:"s3",d:"0.15",q:"Não người (ở tuổi đầu thanh niên) chứa khoảng bao nhiêu tế bào thần kinh (neuron)?",o:["Khoảng 86 triệu","Khoảng 14 tỉ","Khoảng 86 tỉ","Khoảng 100 nghìn tỉ"],a:2,e:"Khoảng 86 tỉ neuron. (14 tỉ là con số ước tính cũ; 100 nghìn tỉ gần với số khớp thần kinh – synapse, không phải số neuron.)"},
+  {s:"s3",d:"0.25",q:"Khối não đảm bảo việc thu nhận, xử lí và gìn giữ thông tin là:",o:["Khối năng lượng (trương lực)","Khối thông tin","Khối điều khiển (chương trình hóa, kiểm tra)","Khối vận động"],a:1,e:"Đó là khối thông tin. Phương án “trương lực” gắn với khối năng lượng; phương án “chương trình hóa, kiểm tra” gắn với khối điều khiển."},
+  {s:"s3",d:"0.25",q:"Khối “năng lượng” của não đảm bảo:",o:["Chương trình hóa, điều chỉnh và kiểm tra hoạt động","Trương lực — trạng thái hoạt động của vỏ não","Thu nhận, xử lí và lưu giữ thông tin","Dẫn truyền xung động ra cơ quan vận động"],a:1,e:"Khối năng lượng đảm bảo trương lực (trạng thái hoạt động của vỏ não). Phương án “chương trình hóa, kiểm tra” là khối điều khiển; “thu nhận, lưu giữ thông tin” là khối thông tin."},
+  {s:"s3",d:"0.25",q:"Câu “các vùng não là có hạn nhưng hiện tượng tâm lý là vô hạn” được giải thích bởi:",o:["Mỗi vùng phụ trách cố định một hiện tượng tâm lý","Nhiều vùng phối hợp linh hoạt (hệ thống chức năng cơ động) tạo ra vô số hiện tượng tâm lý","Số lượng tế bào thần kinh là vô hạn","Tâm lý không cần đến hoạt động của não"],a:1,e:"Nhờ nhiều vùng phối hợp linh hoạt (hệ thống cơ động) mà số vùng hữu hạn tạo ra vô số hiện tượng tâm lý."},
+  {s:"s3",d:"0.25",q:"Quan điểm cuối thế kỷ XIX – đầu XX cho rằng trong não có “mẫu trí tưởng”, “mẫu yêu đương”, mỗi chức năng định khu cố định một vùng. Đánh giá đúng là:",o:["Đúng hoàn toàn theo khoa học hiện đại","Sai, vì mỗi hiện tượng tâm lý cần nhiều vùng tham gia, hệ thống cơ động","Là quan điểm của tâm lý học hoạt động","Phủ nhận hoàn toàn vai trò của vỏ não"],a:1,e:"Sai vì gán cứng từng chức năng cho một vùng; thực tế nhiều vùng phối hợp cơ động."},
+
+  {s:"s4",d:"0.15",q:"Người đầu tiên nêu khái niệm “phản xạ” và dùng nó để giải thích hoạt động tâm lý (mới ở mức vô thức) là:",o:["I.P. Pavlov","I.M. Setrenov","R. Descartes","W. Wundt"],a:2,e:"Descartes nêu khái niệm “phản xạ” đầu tiên. Setrenov là người sau đó mở rộng phản xạ ra mọi hiện tượng tâm lý."},
+  {s:"s4",d:"0.15",q:"Người xây dựng học thuyết phản xạ có điều kiện – cơ sở sinh lí của mọi hiện tượng tâm lý – là:",o:["I.M. Setrenov","I.P. Pavlov","R. Descartes","V.M. Bekhterev"],a:1,e:"Pavlov xây dựng học thuyết phản xạ có điều kiện."},
+  {s:"s4",d:"0.25",q:"Theo Setrenov, một phản xạ gồm 3 khâu theo trình tự nào?",o:["Dẫn vào → trung tâm → dẫn ra","Dẫn vào → dẫn ra → trung tâm","Trung tâm → dẫn vào → dẫn ra","Dẫn ra → trung tâm → dẫn vào"],a:0,e:"Trình tự đúng: dẫn vào (hướng tâm) → trung tâm → dẫn ra (li tâm)."},
+  {s:"s4",d:"0.25",q:"Trong sơ đồ phản xạ của Setrenov, khâu nào “diễn ra quá trình thần kinh trên não, tạo ra hoạt động tâm lý”?",o:["Khâu dẫn vào (hướng tâm): tiếp nhận kích thích, truyền xung động về não","Khâu trung tâm: quá trình thần kinh trên não, tạo hoạt động tâm lý","Khâu dẫn ra (li tâm): truyền xung động gây phản ứng của cơ thể","Cả ba khâu đều có vai trò ngang nhau trong việc tạo hoạt động tâm lý"],a:1,e:"Khâu trung tâm tạo ra hoạt động tâm lý. Khâu dẫn vào chỉ tiếp nhận, khâu dẫn ra chỉ gây phản ứng."},
+  {s:"s4",d:"0.25",q:"Trong thí nghiệm Pavlov (chuông – thức ăn – tiết nước bọt), SAU khi đã thành lập phản xạ có điều kiện, tiếng chuông đóng vai trò là:",o:["Kích thích không điều kiện","Kích thích có điều kiện","Phản ứng có điều kiện","Kích thích trung tính (chưa có ý nghĩa)"],a:1,e:"Trước khi thành lập, tiếng chuông là kích thích trung tính; sau khi kết hợp nhiều lần với thức ăn, nó trở thành kích thích CÓ ĐIỀU KIỆN."},
+  {s:"s4",d:"0.35",q:"Lớp quy định: nghỉ quá số buổi sẽ bị trừ điểm. Dần dần nhiều bạn dù mệt vẫn cố đi học đủ. Hiện tượng “đi học đều vì sợ trừ điểm” là:",o:["Phản xạ không điều kiện (bẩm sinh)","Phản xạ có điều kiện mới được thành lập","Một định hình động lực bẩm sinh","Một bản năng tự bảo vệ"],a:1,e:"Đây là phản xạ có điều kiện mới hình thành do quy định (kích thích) của lớp — không phải bẩm sinh."},
+  {s:"s4",d:"0.15",q:"Toàn bộ hoạt động của não là hoạt động:",o:["Bản năng","Phản xạ","Vô thức","Có sẵn từ di truyền"],a:1,e:"Toàn bộ hoạt động của não là hoạt động phản xạ."},
+  {s:"s4",d:"0.25",q:"Loại phản xạ có sẵn từ khi sinh, bền vững, chung cho cả loài là:",o:["Phản xạ có điều kiện","Phản xạ không điều kiện","Phản xạ ngôn ngữ (tín hiệu thứ hai)","Định hình động lực"],a:1,e:"Phản xạ không điều kiện: bẩm sinh, bền vững, chung cho loài. Phản xạ có điều kiện thì tự tạo và không bền vững."},
+  {s:"s4",d:"0.15",q:"M. Setrenov là:",o:["Nhà sinh lí học người Nga","Nhà tâm lí học người Mỹ","Nhà triết học người Pháp","Nhà sinh lí học người Đức"],a:0,e:"Setrenov là nhà sinh lí học người Nga."},
+  {s:"s4",d:"0.25",q:"Khâu “hưng phấn từ trung ương thần kinh theo dây li tâm gây nên phản ứng của cơ thể” là:",o:["Khâu dẫn vào (hướng tâm)","Khâu trung tâm","Khâu dẫn ra (li tâm)","Khâu liên hợp trên vỏ não"],a:2,e:"Đó là khâu dẫn ra (li tâm)."},
+
+  {s:"s5",d:"0.15",q:"Quy luật mà vỏ não hợp nhất các kích thích riêng lẻ thành một hệ thống, khiến một phản xạ xảy ra kéo theo các phản xạ khác, là:",o:["Quy luật lan tỏa và tập trung","Quy luật hoạt động theo hệ thống","Quy luật cảm ứng qua lại","Quy luật phụ thuộc cường độ kích thích"],a:1,e:"Đó là quy luật hoạt động theo hệ thống."},
+  {s:"s5",d:"0.25",q:"Quy luật hoạt động theo hệ thống của vỏ não là cơ sở sinh lí thần kinh của:",o:["Cảm giác và ngưỡng cảm giác","Xúc cảm, tình cảm và thói quen","Các phản xạ không điều kiện bẩm sinh","Sự thích ứng của các giác quan"],a:1,e:"Là cơ sở sinh lí của xúc cảm, tình cảm và thói quen."},
+  {s:"s5",d:"0.15",q:"Hai quá trình thần kinh cơ bản, đối lập, xảy ra trên vỏ não là:",o:["Hướng tâm và li tâm","Hưng phấn và ức chế","Lan tỏa và tập trung","Cảm ứng dương tính và âm tính"],a:1,e:"Hai quá trình thần kinh cơ bản là hưng phấn và ức chế. Lan tỏa/tập trung và cảm ứng dương/âm là các biểu hiện, không phải hai quá trình cơ bản."},
+  {s:"s5",d:"0.25",q:"“Hưng phấn ở điểm này gây nên ức chế ở điểm kia và ngược lại, xảy ra ĐỒNG THỜI giữa nhiều trung khu” là:",o:["Cảm ứng qua lại tiếp diễn","Cảm ứng qua lại đồng thời","Quy luật lan tỏa và tập trung","Quy luật hoạt động theo hệ thống"],a:1,e:"Nhiều trung khu, cùng một thời điểm → cảm ứng qua lại đồng thời."},
+  {s:"s5",d:"0.25",q:"“Ở một trung khu vừa có hưng phấn, sau đó chuyển sang ức chế ở chính trung khu ấy” là:",o:["Cảm ứng qua lại đồng thời","Cảm ứng qua lại tiếp diễn","Cảm ứng dương tính","Cảm ứng âm tính"],a:1,e:"Trên cùng một trung khu, nối tiếp về thời gian → cảm ứng qua lại tiếp diễn."},
+  {s:"s5",d:"0.25",q:"Các thuộc tính của CHÚ Ý có cơ sở sinh lí là quy luật nào?",o:["Quy luật hoạt động theo hệ thống","Quy luật phụ thuộc cường độ kích thích","Quy luật cảm ứng qua lại","Quy luật lan tỏa và tập trung"],a:2,e:"Chú ý có cơ sở sinh lí là quy luật cảm ứng qua lại."},
+  {s:"s5",d:"0.15",q:"Theo quy luật phụ thuộc cường độ kích thích, trong điều kiện bình thường:",o:["Phản ứng không phụ thuộc cường độ kích thích","Độ lớn của phản ứng tỉ lệ thuận với cường độ kích thích","Kích thích càng mạnh thì phản ứng càng yếu đi","Phản ứng chỉ phụ thuộc thời gian tác động, không phụ thuộc cường độ"],a:1,e:"Độ lớn phản ứng tỉ lệ thuận với cường độ kích thích."},
+  {s:"s5",d:"0.25",q:"Vì sao ở người, quy luật phụ thuộc cường độ kích thích chỉ mang tính TƯƠNG ĐỐI?",o:["Vì con người không tuân theo các quy luật thần kinh","Vì phản ứng còn phụ thuộc tính chủ thể (thái độ, kinh nghiệm, ý thức) của mỗi người","Vì vỏ não người không có quá trình ức chế","Vì con người chỉ phản ứng với tín hiệu thứ hai"],a:1,e:"Ở người, phản ứng còn phụ thuộc tính chủ thể nên quy luật chỉ tương đối."},
+  {s:"s5",d:"0.35",q:"Tập trung cao độ giải bài toán khó, một sinh viên gần như không nghe thấy tiếng ồn xung quanh. Hiện tượng “tập trung vào điểm này thì các điểm khác bị ức chế” được giải thích bằng quy luật:",o:["Quy luật hoạt động theo hệ thống","Quy luật cảm ứng qua lại (cảm ứng âm tính)","Quy luật lan tỏa và tập trung","Quy luật phụ thuộc cường độ kích thích"],a:1,e:"Một điểm hưng phấn mạnh gây ức chế các điểm khác → cảm ứng qua lại (âm tính)."},
+  {s:"s5",d:"0.25",q:"“Hưng phấn làm cho ức chế sâu hơn, hoặc ngược lại ức chế làm cho hưng phấn mạnh hơn” là:",o:["Hưng phấn làm ức chế sâu hơn, hoặc ức chế làm hưng phấn mạnh hơn (cảm ứng dương tính)","Hưng phấn gây ức chế, hoặc ức chế làm giảm hưng phấn (cảm ứng âm tính)","Hưng phấn và ức chế lan ra vùng xung quanh (lan tỏa)","Các phản xạ kế tiếp tạo thành hệ thống ổn định (định hình động lực)"],a:0,e:"Đây là cảm ứng DƯƠNG tính (làm sâu/mạnh thêm). Phân biệt với âm tính: ở âm tính, hưng phấn gây ức chế hoặc ức chế làm giảm hưng phấn."},
+  {s:"s5",d:"0.25",q:"“Hưng phấn gây nên ức chế, hoặc ức chế làm giảm hưng phấn” là:",o:["Hưng phấn làm ức chế sâu hơn, ức chế làm hưng phấn mạnh hơn (dương tính)","Hưng phấn gây nên ức chế, hoặc ức chế làm giảm hưng phấn (âm tính)","Hưng phấn ở một điểm lan ra toàn vỏ não (lan tỏa)","Một trung khu hưng phấn rồi chuyển sang ức chế theo thời gian (tiếp diễn)"],a:1,e:"Đây là cảm ứng ÂM tính (kìm hãm). Phân biệt với dương tính (làm tăng) và với tiếp diễn (nói về thời gian trên cùng một trung khu)."},
+  {s:"s5",d:"0.15",q:"Quá trình hưng phấn/ức chế “lan sang vùng xung quanh rồi tập trung vào một điểm nhất định” là quy luật:",o:["Hưng phấn/ức chế lan ra vùng xung quanh rồi tập trung vào một điểm (lan tỏa và tập trung)","Hưng phấn ở điểm này gây ức chế ở điểm khác (cảm ứng qua lại)","Các phản xạ có điều kiện kết thành hệ thống định hình (hoạt động theo hệ thống)","Độ lớn phản ứng tỉ lệ với cường độ kích thích (phụ thuộc cường độ)"],a:0,e:"Đó là quy luật lan tỏa và tập trung."},
+  {s:"s5",d:"0.25",q:"“Các phản xạ có điều kiện kế tiếp nhau theo một thứ tự nhất định, tạo nên hệ thống định hình động lực của vỏ não” thuộc quy luật:",o:["Quy luật cảm ứng qua lại","Quy luật lan tỏa và tập trung","Quy luật hoạt động theo hệ thống","Quy luật phụ thuộc cường độ kích thích"],a:2,e:"Định hình động lực là biểu hiện của quy luật hoạt động theo hệ thống."},
+  {s:"s5",d:"0.35",q:"Một người mỗi sáng thức dậy là tự động làm tuần tự: đánh răng → tập thể dục → ăn sáng, gần như không cần nghĩ. Chuỗi thói quen ổn định này có cơ sở sinh lí là quy luật:",o:["Quy luật cảm ứng qua lại","Quy luật hoạt động theo hệ thống (định hình động lực)","Quy luật lan tỏa và tập trung","Quy luật phụ thuộc cường độ kích thích"],a:1,e:"Chuỗi phản xạ kế tiếp ổn định = định hình động lực của quy luật hoạt động theo hệ thống."},
+  {s:"s5",d:"0.35",q:"Đang vui thì nhận tin buồn, nỗi buồn “lan” ra khiến nhìn việc gì cũng thấy chán. Hiện tượng cảm xúc lan rộng này gần nhất với quy luật:",o:["Quy luật lan tỏa và tập trung","Cảm ứng qua lại đồng thời","Quy luật hoạt động theo hệ thống","Quy luật phụ thuộc cường độ kích thích"],a:0,e:"Trạng thái thần kinh lan từ một điểm ra vùng xung quanh → quy luật lan tỏa và tập trung."},
+  {s:"s5",d:"0.25",q:"Mối quan hệ giữa bốn quy luật hoạt động thần kinh cấp cao là:",o:["Hoàn toàn độc lập, mỗi quy luật chi phối một giác quan riêng","Có quan hệ với nhau, cùng chi phối sự hình thành, diễn biến và biểu hiện của hoạt động tâm lý","Chỉ một quy luật hoạt động tại mỗi thời điểm","Quy luật sau phủ định và thay thế quy luật trước"],a:1,e:"Bốn quy luật quan hệ chặt chẽ, cùng chi phối hoạt động tâm lý."},
+
+  {s:"s5",d:"0.25",q:"Đang ngồi học, tiếng nhạc hay từ phòng bên cuốn bạn theo khiến việc học giảm hiệu quả: hưng phấn ở vùng “nghe nhạc” làm ức chế vùng “học bài” ngay cùng lúc. Đây là:",o:["Cảm ứng qua lại đồng thời","Cảm ứng qua lại tiếp diễn","Quy luật lan tỏa và tập trung","Quy luật phụ thuộc cường độ"],a:0,e:"Hai vùng khác nhau, cùng một thời điểm: hưng phấn vùng này → ức chế vùng kia = cảm ứng qua lại ĐỒNG THỜI."},
+  {s:"s5",d:"0.25",q:"Sau một giấc ngủ đủ (ức chế), buổi sáng cùng một trung khu chuyển sang hưng phấn nên tiếp thu bài nhanh hơn. Sự nối tiếp ức chế → hưng phấn trên cùng một trung khu theo thời gian là:",o:["Cảm ứng qua lại đồng thời","Cảm ứng qua lại tiếp diễn","Quy luật hoạt động theo hệ thống","Quy luật lan tỏa và tập trung"],a:1,e:"Trên CÙNG một trung khu, nối tiếp nhau về thời gian (ức chế rồi hưng phấn) = cảm ứng qua lại TIẾP DIỄN."},
+  {s:"s5",d:"0.35",q:"Một người đi làm theo một tuyến đường cố định suốt nhiều năm. Hôm đường bị chặn phải đi lối khác, anh thấy lúng túng, khó chịu, dễ rẽ nhầm về đường cũ. Việc “khó thay đổi nếp đã quen” này phản ánh:",o:["Tính bền vững (độ ì) của định hình động lực — quy luật hoạt động theo hệ thống","Quy luật phụ thuộc cường độ kích thích","Cảm ứng qua lại âm tính","Quy luật lan tỏa và tập trung"],a:0,e:"Hệ thống phản xạ đã định hình rất bền, khó phá vỡ → độ ì của định hình động lực (quy luật hoạt động theo hệ thống)."},
+  {s:"s5",d:"0.25",q:"Ý nghĩa của định hình động lực (hệ thống các phản xạ có điều kiện ổn định) đối với đời sống là:",o:["Làm con người mất khả năng thích nghi với cái mới","Giúp hành động diễn ra tự động, tiết kiệm năng lượng thần kinh, hình thành kỹ xảo và thói quen","Xóa bỏ mọi phản xạ có điều kiện đã có","Chỉ có ý nghĩa với động vật, không có ở người"],a:1,e:"Định hình động lực giúp hành động tự động hóa, tiết kiệm năng lượng thần kinh, tạo kỹ xảo và thói quen."},
+  {s:"s5",d:"0.25",q:"Khi quá mệt và buồn ngủ, trạng thái ức chế lan rộng khắp vỏ não khiến toàn thân uể oải, không tập trung được. Hiện tượng này minh họa quy luật:",o:["Cảm ứng qua lại","Lan tỏa và tập trung","Hoạt động theo hệ thống","Phụ thuộc cường độ kích thích"],a:1,e:"Ức chế lan từ một điểm ra khắp vỏ não → quy luật LAN TỎA và tập trung."},
+  {s:"s5",d:"0.15",q:"Đâu KHÔNG phải là một trong bốn quy luật hoạt động thần kinh cấp cao?",o:["Quy luật hoạt động theo hệ thống","Quy luật lan tỏa và tập trung","Quy luật ngưỡng cảm giác","Quy luật cảm ứng qua lại"],a:2,e:"Bốn quy luật: hoạt động theo hệ thống; lan tỏa – tập trung; cảm ứng qua lại; phụ thuộc cường độ. “Ngưỡng cảm giác” thuộc về cảm giác, không thuộc nhóm này."},
+  {s:"s5",d:"0.25",q:"Một tiếng nổ lớn gây phản ứng giật mình mạnh hơn hẳn một tiếng động nhỏ. Trong điều kiện bình thường, độ lớn phản ứng tỉ lệ thuận với cường độ kích thích. Đây là quy luật:",o:["Phụ thuộc vào cường độ kích thích","Cảm ứng qua lại","Hoạt động theo hệ thống","Lan tỏa và tập trung"],a:0,e:"Độ lớn phản ứng tỉ lệ thuận với cường độ kích thích = quy luật phụ thuộc cường độ kích thích."},
+  {s:"s5",d:"0.35",q:"Trong giờ kiểm tra yên tĩnh, một bạn tập trung cao nên gần như không nghe gì xung quanh; nhưng vừa có tiếng động rất to bất ngờ, bạn liền giật mình mất tập trung. Hai hiện tượng (tập trung làm mờ xung quanh) và (tiếng to gây giật mình) lần lượt liên quan tới:",o:["Lan tỏa và tập trung — Hoạt động theo hệ thống","Cảm ứng qua lại — Phụ thuộc cường độ kích thích","Phụ thuộc cường độ — Cảm ứng qua lại","Hoạt động theo hệ thống — Lan tỏa và tập trung"],a:1,e:"Tập trung một điểm làm ức chế các điểm khác = cảm ứng qua lại; tiếng quá to gây phản ứng mạnh = phụ thuộc cường độ kích thích."},
+  {s:"s5",d:"0.25",q:"Học sinh luyện viết mỗi ngày, lâu dần viết đẹp và nhanh mà không cần để ý từng nét. Kỹ xảo này hình thành chủ yếu nhờ quy luật:",o:["Cảm ứng qua lại","Phụ thuộc cường độ kích thích","Hoạt động theo hệ thống (định hình động lực)","Lan tỏa và tập trung"],a:2,e:"Chuỗi phản xạ lặp lại ổn định trở thành tự động → định hình động lực (quy luật hoạt động theo hệ thống)."},
+  {s:"s5",d:"0.35",q:"Khi đang tức giận dữ dội (một vùng hưng phấn rất mạnh), người ta thường khó suy nghĩ tỉnh táo, lý trí bị “lu mờ”. Cách giải thích hợp lý nhất theo sinh lí thần kinh là:",o:["Hưng phấn mạnh ở một vùng gây ức chế các vùng khác (cảm ứng qua lại – âm tính)","Do quy luật phụ thuộc cường độ kích thích","Do định hình động lực bị phá vỡ","Do yếu tố di truyền"],a:0,e:"Một điểm hưng phấn mạnh gây ức chế xung quanh (cảm ứng qua lại – âm tính), nên lý trí bị kìm hãm."},
+
+  {s:"s6",d:"0.15",q:"Hệ thống tín hiệu thứ HAI bao gồm:",o:["Các sự vật, hiện tượng và thuộc tính trực tiếp của chúng","Hình ảnh do sự vật trực tiếp tác động vào giác quan","Tín hiệu ngôn ngữ (tiếng nói, chữ viết) — “tín hiệu của tín hiệu”","Các phản xạ không điều kiện đối với kích thích"],a:2,e:"Hệ thống tín hiệu thứ hai là ngôn ngữ — “tín hiệu của tín hiệu”. Hai phương án về sự vật/hình ảnh trực tiếp chính là hệ thống tín hiệu thứ NHẤT."},
+  {s:"s6",d:"0.15",q:"Đặc điểm phân biệt quan trọng nhất của hệ thống tín hiệu thứ HAI là:",o:["Là cơ sở của tư duy cụ thể, trực quan","Chỉ có ở người, không có ở động vật","Xuất hiện trước hệ thống tín hiệu thứ nhất","Là tín hiệu trực tiếp từ sự vật, hiện tượng"],a:1,e:"Hệ thống tín hiệu thứ hai chỉ có ở người. Phương án “cơ sở của tư duy cụ thể” và “tín hiệu trực tiếp từ sự vật” là đặc điểm của hệ thứ nhất; phương án “xuất hiện trước” sai về trình tự."},
+  {s:"s6",d:"0.25",q:"Hệ thống tín hiệu thứ HAI là cơ sở của:",o:["Hoạt động cảm tính, trực quan và cảm xúc cơ thể","Các phản xạ không điều kiện","Tư duy ngôn ngữ, ý thức, tình cảm và các chức năng tâm lý cao cấp","Hoạt động bản năng chung cho người và vật"],a:2,e:"Hệ thứ hai là cơ sở của tư duy ngôn ngữ, ý thức, tình cảm, chức năng tâm lý cao cấp. Phương án “hoạt động cảm tính, trực quan, cảm xúc cơ thể” mới là cơ sở của hệ thứ nhất."},
+  {s:"s6",d:"0.25",q:"Mối quan hệ giữa hai hệ thống tín hiệu được mô tả ĐÚNG là:",o:["Hai hệ thống độc lập, không liên hệ với nhau","Hệ thứ nhất là cơ sở của hệ thứ hai; hệ thứ hai tác động trở lại và điều khiển hệ thứ nhất","Chỉ hệ thứ hai tác động một chiều lên hệ thứ nhất","Hệ thứ hai xuất hiện trước và là cơ sở của hệ thứ nhất"],a:1,e:"Quan hệ hai chiều: hệ thứ nhất là cơ sở của hệ thứ hai, hệ thứ hai tác động trở lại điều khiển hệ thứ nhất."},
+  {s:"s6",d:"0.35",q:"Khi đọc dòng chữ “quả chanh”, miệng nhiều người tiết nước bọt dù không có quả chanh nào trước mặt. Hiện tượng này cho thấy:",o:["Đây chỉ là hoạt động của hệ thống tín hiệu thứ nhất","Từ ngữ (tín hiệu thứ hai) có thể gây phản ứng như chính sự vật; hai hệ thống tín hiệu tác động qua lại","Đây là một phản xạ không điều kiện bẩm sinh","Điều này chứng tỏ ngôn ngữ không liên quan đến phản ứng sinh lí"],a:1,e:"Từ ngữ (hệ thứ hai) gây phản ứng như sự vật thật → hai hệ thống tín hiệu tác động qua lại."},
+  {s:"s6",d:"0.15",q:"Tín hiệu được định nghĩa là:",o:["Một vật hay ký tự đại diện cho vật khác, gây ra một phản ứng nào đó của cơ thể","Một kích thích luôn gây ra phản xạ không điều kiện","Một vùng chuyên biệt trên vỏ não","Một quá trình hưng phấn lan tỏa trên vỏ não"],a:0,e:"Tín hiệu = vật/ký tự đại diện cho vật khác, gây ra phản ứng của cơ thể."},
+  {s:"s6",d:"0.25",q:"Hệ thống tín hiệu thứ NHẤT là cơ sở sinh lí của:",o:["Tư duy ngôn ngữ và ý thức","Hoạt động cảm tính, trực quan, tư duy cụ thể và cảm xúc cơ thể","Tình cảm cấp cao và niềm tin","Các chức năng tâm lý chỉ có ở người"],a:1,e:"Hệ thứ nhất là cơ sở của hoạt động cảm tính, trực quan, tư duy cụ thể, cảm xúc cơ thể. Các phương án về tư duy ngôn ngữ, tình cảm cấp cao – niềm tin, chức năng cao cấp thuộc về hệ thứ hai."},
+  {s:"s6",d:"0.15",q:"Hệ thống tín hiệu nào có ở CẢ người và động vật?",o:["Hệ thống tín hiệu thứ nhất","Hệ thống tín hiệu thứ hai","Cả hai hệ thống như nhau","Không hệ thống nào (chỉ có ở người)"],a:0,e:"Hệ thống tín hiệu thứ nhất có ở cả người và động vật; hệ thứ hai chỉ có ở người."},
+  {s:"s6",d:"0.35",q:"Xếp loại hai tín hiệu: (1) tiếng còi xe máy ngoài đường; (2) dòng chữ “Nguy hiểm! Điện cao thế”. Cách xếp ĐÚNG là:",o:["(1) thứ hai — (2) thứ nhất","(1) thứ nhất — (2) thứ hai","Cả hai đều thứ nhất","Cả hai đều thứ hai"],a:1,e:"Tiếng còi (sự vật trực tiếp) = hệ thứ nhất; chữ viết (ngôn ngữ) = hệ thứ hai."},
+
+  {s:"s7",d:"0.15",q:"Luận điểm “Bản chất con người là tổng hòa các mối quan hệ xã hội” khẳng định:",o:["Bản chất con người do cấu tạo sinh học quyết định","Bản chất con người được hình thành bởi toàn bộ các quan hệ xã hội mà người đó tham gia","Con người tồn tại độc lập với các quan hệ xã hội","Bản chất con người là bất biến, có sẵn từ khi sinh"],a:1,e:"Bản chất con người do toàn bộ các quan hệ xã hội tạo nên."},
+  {s:"s7",d:"0.25",q:"Cơ chế CHỦ YẾU của sự phát triển tâm lý con người là:",o:["Cơ chế di truyền và chín muồi sinh học","Cơ chế chọn lọc tự nhiên và thích nghi","Cơ chế lĩnh hội nền văn hóa xã hội","Cơ chế hình thành phản xạ có điều kiện"],a:2,e:"Cơ chế chủ yếu là lĩnh hội nền văn hóa xã hội. Phản xạ có điều kiện là cơ sở sinh lí nhưng không phải cơ chế “chủ yếu” của phát triển tâm lý người."},
+  {s:"s7",d:"0.25",q:"Bản chất của quá trình lĩnh hội nền văn hóa xã hội là:",o:["Tái tạo những đặc điểm sinh vật của loài qua con đường di truyền","Tái tạo (chuyển) năng lực, thuộc tính của loài người thành năng lực của cá thể mỗi người","Sao chép thụ động, máy móc kinh nghiệm của người khác","Phát triển những bản năng vốn có sẵn từ khi sinh"],a:1,e:"Lĩnh hội = biến năng lực của loài thành năng lực của cá thể. Đây là quá trình tích cực, không phải sao chép thụ động."},
+  {s:"s7",d:"0.25",q:"Quy luật cơ bản chi phối sự phát triển của xã hội loài người là:",o:["Quy luật chọn lọc tự nhiên (đấu tranh sinh tồn)","Quy luật quan hệ sản xuất phù hợp với lực lượng sản xuất","Quy luật di truyền và biến dị","Quy luật cảm ứng qua lại"],a:1,e:"Xã hội loài người phát triển theo quy luật quan hệ sản xuất phù hợp lực lượng sản xuất — KHÔNG phải chọn lọc tự nhiên (đó là quy luật của tiến hóa sinh học)."},
+  {s:"s7",d:"0.35",q:"Những đứa trẻ “hoang dã” được động vật nuôi trong rừng: cơ thể bình thường nhưng không nói được, không giao tiếp được, di chuyển bằng bốn chi. Trường hợp này chứng minh:",o:["Tâm lý người do di truyền và cấu tạo não quyết định","Có não bộ người bình thường là đủ điều kiện để có tâm lý người","Tách khỏi quan hệ người – người (xã hội), tâm lý sẽ mất bản tính người","Ngôn ngữ và tư duy là bẩm sinh, sẽ tự xuất hiện khi lớn lên"],a:2,e:"Tách khỏi quan hệ xã hội thì dù não bình thường, tâm lý vẫn mất bản tính người."},
+  {s:"s7",d:"0.25",q:"Vì sao nói con người là một “tồn tại giao lưu”?",o:["Vì con người chỉ tư duy mà không cần hành động","Vì quá trình xã hội hóa cá thể diễn ra qua giao lưu ngôn ngữ – tinh thần với người khác để lĩnh hội các “biểu tượng xã hội”","Vì giao lưu là hoạt động bản năng chung cho mọi loài vật","Vì con người tồn tại nhờ trao đổi vật chất với môi trường tự nhiên"],a:1,e:"Con người xã hội hóa qua giao lưu ngôn ngữ – tinh thần để lĩnh hội các biểu tượng xã hội."},
+  {s:"s7",d:"0.15",q:"Con người tồn tại trong những môi trường nào?",o:["Chỉ môi trường tự nhiên","Chỉ môi trường xã hội","Cả môi trường tự nhiên và môi trường xã hội","Môi trường tâm lý do cá nhân tự tạo ra"],a:2,e:"Con người tồn tại trong cả môi trường tự nhiên và môi trường xã hội."},
+  {s:"s7",d:"0.15",q:"Ngoài bản chất xã hội, tâm lý người còn mang tính:",o:["Bản năng","Lịch sử","Bẩm sinh, tiền định","Bất biến qua mọi thời đại"],a:1,e:"Tâm lý người mang tính lịch sử — thay đổi cùng sự phát triển của xã hội (nên quan niệm “bất biến qua mọi thời đại” là sai)."},
+  {s:"s7",d:"0.25",q:"Con người lĩnh hội nền văn hóa xã hội, biến cái chung của loài thành cái riêng của mình chủ yếu thông qua:",o:["Con đường di truyền sinh học từ cha mẹ","Giáo dục, hoạt động và giao tiếp của chính bản thân","Sự chín muồi tự nhiên của hệ thần kinh","Quá trình chọn lọc và thích nghi sinh học"],a:1,e:"Thông qua giáo dục, hoạt động và giao tiếp của chính bản thân."},
+  {s:"s7",d:"0.35",q:"Một em bé gốc Việt được gia đình người Pháp nhận nuôi từ sơ sinh, lớn lên nói tiếng Pháp, mang lối sống và tập quán Pháp. Điều này minh họa rõ nhất:",o:["Tâm lý do nguồn gốc dân tộc (gen) quyết định","Tâm lý hình thành qua lĩnh hội nền văn hóa – môi trường xã hội nơi em sống","Ngôn ngữ và lối sống là đặc điểm di truyền theo huyết thống","Môi trường xã hội không ảnh hưởng đến lối sống, ngôn ngữ"],a:1,e:"Tâm lý hình thành qua lĩnh hội văn hóa xã hội nơi sống, không do nguồn gốc dân tộc/huyết thống."},
+  {s:"s7",d:"0.25",q:"Câu nào KHÔNG đúng về bản chất xã hội của tâm lý người?",o:["Tâm lý người có nguồn gốc từ thế giới khách quan, trong đó nguồn gốc xã hội là quyết định","Tâm lý người hình thành qua cơ chế lĩnh hội nền văn hóa xã hội","Tâm lý người được quy định hoàn toàn bởi vốn gen di truyền của cá nhân","Tâm lý người mang tính lịch sử, thay đổi cùng sự phát triển của xã hội"],a:2,e:"Câu sai là phương án cho rằng tâm lý do gen quy định hoàn toàn; ba phương án còn lại đều đúng về bản chất xã hội của tâm lý."},
+
+  {s:"s8",d:"0.15",q:"Đâu KHÔNG phải là một trong các dạng hoạt động cơ bản nêu trong tài liệu?",o:["Hoạt động học tập","Hoạt động lao động","Hoạt động nhận thức","Hoạt động vui chơi"],a:2,e:"Bốn dạng hoạt động cơ bản: vui chơi, học tập, xã hội, lao động. “Hoạt động nhận thức” là một khái niệm khác, không nằm trong nhóm này."},
+  {s:"s8",d:"0.15",q:"“Công cụ tâm lý” trong hoạt động bao gồm:",o:["Búa, cày, máy móc và các phương tiện lao động","Tiếng nói, chữ viết, kinh nghiệm và hình ảnh tâm lý","Nguyên vật liệu và sản phẩm của lao động","Nhu cầu, động cơ và mục đích của chủ thể"],a:1,e:"Công cụ tâm lý: tiếng nói, chữ viết, kinh nghiệm, hình ảnh tâm lý. Phương án búa/cày/máy móc là công cụ lao động; phương án nhu cầu/động cơ/mục đích là các thành tố của động cơ, không phải “công cụ”."},
+  {s:"s8",d:"0.25",q:"Việc hoạt động phải dùng công cụ (công cụ lao động và công cụ tâm lý) làm trung gian giữa chủ thể và đối tượng thể hiện đặc điểm nào?",o:["Tính đối tượng","Tính chủ thể","Tính mục đích","Vận hành theo nguyên tắc gián tiếp"],a:3,e:"Dùng công cụ làm trung gian = hoạt động vận hành theo nguyên tắc gián tiếp."},
+  {s:"s8",d:"0.25",q:"Đặc điểm “hoạt động bao giờ cũng nhằm tạo ra một sản phẩm để thỏa mãn nhu cầu của chủ thể; trả lời câu hỏi hoạt động để làm gì” là:",o:["Tính đối tượng","Tính mục đích","Tính chủ thể","Tính gián tiếp"],a:1,e:"Đó là tính mục đích của hoạt động."},
+  {s:"s8",d:"0.35",q:"Một sinh viên tham gia chiến dịch Mùa hè xanh: làm đường, dạy học cho trẻ vùng sâu, sinh hoạt tập thể; qua đó thấy mình là thành viên có trách nhiệm với cộng đồng, rèn được tính kỷ luật. Đây chủ yếu là dạng hoạt động nào?",o:["Hoạt động vui chơi — chủ yếu để giải trí, thư giãn","Hoạt động xã hội — hình thành tính cách, ý thức là thành viên của xã hội","Hoạt động học tập — chủ yếu để phát triển trí tuệ","Hoạt động lao động — chủ yếu để tạo ra sản phẩm vật chất"],a:1,e:"Tuy có yếu tố học và lao động, nhưng vai trò CHỦ YẾU ở đây là hoạt động xã hội — hình thành tính cách, ý thức cộng đồng."},
+  {s:"s8",d:"0.35",q:"Hai bạn cùng lớp, cùng thầy cô; một bạn chủ động phát biểu, làm bài nhóm, đặt câu hỏi; bạn kia thụ động, ít tham gia. Cuối kỳ năng lực hai bạn chênh lệch rõ. Yếu tố nào giải thích tốt nhất?",o:["Do di truyền và tư chất quyết định hoàn toàn","Do mức độ tham gia hoạt động và giao tiếp khác nhau dẫn đến khác biệt trong phản ánh tâm lý","Do cấu tạo và khối lượng não khác nhau","Do hệ thống tín hiệu thứ nhất phát triển khác nhau"],a:1,e:"Khác biệt do mức độ tham gia hoạt động và giao tiếp → khác biệt trong phản ánh tâm lý."},
+  {s:"s8",d:"0.15",q:"Theo định nghĩa, phương thức để mọi sự vật, hiện tượng tồn tại và thể hiện đặc tính của nó là:",o:["Sự cân bằng và ổn định","Vận động","Sự thích nghi với môi trường","Sự phản ánh"],a:1,e:"Mọi sự vật, hiện tượng tồn tại và thể hiện đặc tính của nó qua vận động."},
+  {s:"s8",d:"0.25",q:"Việc hoạt động luôn hướng vào một đối tượng có thật, nhằm tạo ra sản phẩm, thể hiện đặc điểm nào?",o:["Tính chủ thể","Tính đối tượng","Tính mục đích","Tính gián tiếp"],a:1,e:"Đó là tính đối tượng của hoạt động."},
+  {s:"s8",d:"0.25",q:"“Chủ thể khác nhau và cách tiến hành khác nhau sẽ tạo ra sản phẩm với chất lượng khác nhau” thể hiện đặc điểm:",o:["Tính chủ thể của hoạt động","Tính đối tượng","Tính mục đích","Vận hành theo nguyên tắc gián tiếp"],a:0,e:"Đó là tính chủ thể của hoạt động."},
+  {s:"s8",d:"0.15",q:"Dạng hoạt động chủ yếu của trẻ TRƯỚC tuổi đi học là:",o:["Hoạt động lao động","Hoạt động học tập","Hoạt động vui chơi","Hoạt động xã hội"],a:2,e:"Vui chơi là dạng hoạt động chủ yếu của trẻ trước tuổi đi học."},
+  {s:"s8",d:"0.25",q:"Qua dạng hoạt động nào con người “có tinh thần tự giác cao, biết quý trọng sản phẩm, hình thành tính kỷ luật, óc tổ chức, tác phong nhanh nhẹn”?",o:["Hoạt động vui chơi","Hoạt động học tập","Hoạt động lao động","Hoạt động giao tiếp"],a:2,e:"Hoạt động lao động rèn tính tự giác, kỷ luật, óc tổ chức..."},
+  {s:"s8",d:"0.25",q:"Vai trò của hoạt động học tập đối với học sinh là:",o:["Chủ yếu để giải trí và thư giãn","Phát triển trí tuệ đồng thời bồi dưỡng những phẩm chất đạo đức","Chủ yếu để rèn luyện thể lực và sức khỏe","Hình thành các phản xạ không điều kiện"],a:1,e:"Học tập vừa phát triển trí tuệ vừa bồi dưỡng phẩm chất đạo đức."},
+  {s:"s8",d:"0.35",q:"Một nhóm trẻ chơi trò chơi tập thể có “quy tắc”, nhờ đó hình thành tình bạn, ý thức tập thể, tính kiên trì, dũng cảm và tự kiềm chế. Đây là vai trò của dạng hoạt động nào?",o:["Hoạt động lao động","Hoạt động vui chơi","Hoạt động xã hội","Hoạt động học tập"],a:1,e:"Trò chơi có chủ đề, có quy tắc, mang tính tập thể → vai trò của hoạt động vui chơi."}
+];
+QUESTIONS.forEach((q,i)=>q.id=i);
+
+/* ===================== STATE ===================== */
+const KEYS=["A","B","C","D"];
+let state={sec:"all",diff:"all",order:"seq",list:[],idx:0,score:0,answered:0,results:{}};
+
+/* ===================== START SCREEN SETUP ===================== */
+const elSectionChips=document.getElementById("sectionChips");
+const allChip=mkChip("Tất cả các phần","all",true);
+allChip.dataset.sec="all";
+elSectionChips.appendChild(allChip);
+Object.entries(SECTIONS).forEach(([k,v])=>{
+  const c=mkChip(v,k,false);c.dataset.sec=k;elSectionChips.appendChild(c);
+});
+function mkChip(label,val,pressed){
+  const b=document.createElement("button");
+  b.className="chip";b.textContent=label;b.setAttribute("aria-pressed",pressed?"true":"false");
+  return b;
+}
+function bindSingleSelect(container,attr,onPick){
+  container.addEventListener("click",e=>{
+    const btn=e.target.closest(".chip");if(!btn)return;
+    [...container.querySelectorAll(".chip")].forEach(c=>c.setAttribute("aria-pressed","false"));
+    btn.setAttribute("aria-pressed","true");
+    onPick(btn.dataset[attr]);
+  });
+}
+bindSingleSelect(elSectionChips,"sec",v=>{state.sec=v;updateCount();});
+bindSingleSelect(document.getElementById("diffChips"),"diff",v=>{state.diff=v;updateCount();});
+bindSingleSelect(document.getElementById("orderChips"),"order",v=>{state.order=v;});
+
+function buildList(){
+  let l=QUESTIONS.filter(q=>
+    (state.sec==="all"||q.s===state.sec)&&
+    (state.diff==="all"||q.d===state.diff));
+  if(state.order==="shuffle"){
+    for(let i=l.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[l[i],l[j]]=[l[j],l[i]];}
+  }
+  return l;
+}
+function updateCount(){
+  const n=buildList().length;
+  document.getElementById("startCount").textContent=`Bộ câu hiện tại: ${n} câu hỏi.`;
+  document.getElementById("startBtn").disabled=n===0;
+}
+updateCount();
+
+/* ===================== QUIZ FLOW ===================== */
+const startScreen=document.getElementById("startScreen");
+const quizScreen=document.getElementById("quizScreen");
+const resultScreen=document.getElementById("resultScreen");
+const progressBox=document.getElementById("progressBox");
+
+document.getElementById("startBtn").addEventListener("click",()=>startQuiz(buildList()));
+
+function shuffleOptions(q){
+  const idx=q.o.map((_,k)=>k);
+  for(let k=idx.length-1;k>0;k--){const r=Math.floor(Math.random()*(k+1));[idx[k],idx[r]]=[idx[r],idx[k]];}
+  return Object.assign({},q,{o:idx.map(k=>q.o[k]),a:idx.indexOf(q.a)});
+}
+function startQuiz(list){
+  state.list=list.map(shuffleOptions);state.idx=0;state.score=0;state.answered=0;state.results={};
+  startScreen.classList.add("hidden");
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+  progressBox.classList.remove("hidden");
+  renderQuestion();
+}
+
+function renderQuestion(){
+  const q=state.list[state.idx];
+  const dClass="d"+q.d.slice(2);
+  document.getElementById("qHead").innerHTML=
+    `<span class="badge ${dClass}">${q.d}đ</span><span class="sec-tag">${SECTIONS[q.s]}</span>`;
+  document.getElementById("qText").textContent=q.q;
+
+  const optWrap=document.getElementById("qOptions");
+  optWrap.innerHTML="";
+  q.o.forEach((text,i)=>{
+    const b=document.createElement("button");
+    b.className="opt";
+    b.innerHTML=`<span class="key">${KEYS[i]}</span><span>${text}</span>`;
+    b.addEventListener("click",()=>pickAnswer(i));
+    optWrap.appendChild(b);
+  });
+
+  const ex=document.getElementById("qExplain");
+  ex.className="explain";ex.innerHTML="";
+
+  document.getElementById("navRow").innerHTML="";
+  updateProgress();
+}
+
+function pickAnswer(i){
+  const q=state.list[state.idx];
+  if(state.results[q.id]!==undefined)return; // already answered
+  const correct=q.a;
+  const isRight=i===correct;
+  state.results[q.id]=isRight;
+  state.answered++;
+  if(isRight)state.score++;
+
+  const opts=document.querySelectorAll("#qOptions .opt");
+  opts.forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===correct){b.classList.add("correct");b.querySelector('.mark')||addMark(b,"✓");}
+    if(bi===i&&!isRight){b.classList.add("wrong");addMark(b,"✗");}
+  });
+
+  const ex=document.getElementById("qExplain");
+  ex.className="explain show "+(isRight?"ok":"no");
+  ex.innerHTML=`<span class="lead">${isRight?"Chính xác":"Chưa đúng — đáp án: "+KEYS[correct]}</span>${q.e}`;
+
+  buildNav();
+  updateProgress();
+}
+function addMark(b,sym){const s=document.createElement("span");s.className="mark";s.textContent=sym;b.appendChild(s);}
+
+function buildNav(){
+  const nav=document.getElementById("navRow");
+  nav.innerHTML="";
+  const last=state.idx===state.list.length-1;
+  if(state.idx>0){
+    const prev=document.createElement("button");
+    prev.className="btn secondary";prev.textContent="← Câu trước";
+    prev.addEventListener("click",()=>{state.idx--;renderRevisit();});
+    nav.appendChild(prev);
+  }
+  const next=document.createElement("button");
+  next.className="btn";
+  next.textContent=last?"Xem kết quả":"Câu tiếp →";
+  next.addEventListener("click",()=>{
+    if(last){showResults();}
+    else{state.idx++;renderQuestion();}
+  });
+  nav.appendChild(next);
+}
+
+/* re-show a previously answered question in read-only state */
+function renderRevisit(){
+  const q=state.list[state.idx];
+  if(state.results[q.id]===undefined){renderQuestion();return;}
+  renderQuestion();
+  const opts=document.querySelectorAll("#qOptions .opt");
+  opts.forEach((b,bi)=>{
+    b.disabled=true;
+    if(bi===q.a){b.classList.add("correct");addMark(b,"✓");}
+  });
+  const ex=document.getElementById("qExplain");
+  const isRight=state.results[q.id];
+  ex.className="explain show "+(isRight?"ok":"no");
+  ex.innerHTML=`<span class="lead">${isRight?"Bạn đã trả lời đúng":"Đáp án đúng: "+KEYS[q.a]}</span>${q.e}`;
+  buildNav();
+}
+
+function updateProgress(){
+  const total=state.list.length;
+  const done=Math.min(state.idx+ (state.results[state.list[state.idx]?.id]!==undefined?1:0), total);
+  document.getElementById("progressFill").style.width=(total? (state.idx)/total*100:0)+"%";
+  document.getElementById("qCounter").textContent=`Câu ${state.idx+1} / ${total}`;
+  const acc=state.answered? Math.round(state.score/state.answered*100):0;
+  document.getElementById("accuracy").textContent=`Đúng ${acc}%`;
+  document.getElementById("scorePill").textContent=`Điểm: ${state.score} / ${state.answered}`;
+}
+
+/* ===================== RESULTS ===================== */
+function showResults(){
+  quizScreen.classList.add("hidden");
+  progressBox.classList.add("hidden");
+  resultScreen.classList.remove("hidden");
+  document.getElementById("progressFill").style.width="100%";
+
+  const total=state.list.length;
+  document.getElementById("finalScore").innerHTML=`${state.score} <small>/ ${total}</small>`;
+  const pct=total?Math.round(state.score/total*100):0;
+  let msg;
+  if(pct>=90)msg="Xuất sắc! Bạn nắm chương 2 rất chắc.";
+  else if(pct>=75)msg="Tốt! Còn vài chỗ nhỏ cần xem lại.";
+  else if(pct>=50)msg="Khá ổn — ôn kỹ những phần còn yếu bên dưới nhé.";
+  else msg="Cần ôn lại — xem kỹ giải thích các câu sai theo từng phần.";
+  document.getElementById("resultMsg").textContent=`Đạt ${pct}%. ${msg}`;
+
+  // per-section breakdown
+  const bySec={};
+  state.list.forEach(q=>{
+    if(!bySec[q.s])bySec[q.s]={c:0,t:0};
+    bySec[q.s].t++;
+    if(state.results[q.id])bySec[q.s].c++;
+  });
+  const bd=document.getElementById("breakdown");bd.innerHTML="";
+  Object.keys(SECTIONS).forEach(k=>{
+    if(!bySec[k])return;
+    const {c,t}=bySec[k];
+    const p=Math.round(c/t*100);
+    const row=document.createElement("div");
+    row.className="bd-row";
+    row.innerHTML=`<div class="bd-name">${SECTIONS[k]}</div>
+      <div class="bd-bar"><i style="width:${p}%;background:${p>=75?'var(--correct)':p>=50?'var(--accent)':'var(--wrong)'}"></i></div>
+      <div class="bd-num">${c}/${t}</div>`;
+    bd.appendChild(row);
+  });
+
+  const wrongCount=state.list.filter(q=>state.results[q.id]===false).length;
+  document.getElementById("reviewWrongBtn").disabled=wrongCount===0;
+  document.getElementById("reviewWrongBtn").textContent=wrongCount?`Làm lại ${wrongCount} câu sai`:"Không có câu sai";
+}
+
+document.getElementById("restartBtn").addEventListener("click",()=>{
+  resultScreen.classList.add("hidden");
+  progressBox.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+  document.getElementById("scorePill").textContent="Điểm: 0 / 0";
+});
+document.getElementById("reviewWrongBtn").addEventListener("click",()=>{
+  const wrong=state.list.filter(q=>state.results[q.id]===false);
+  if(wrong.length)startQuiz(wrong);
+});
+</script>
+</body>
+</html>
