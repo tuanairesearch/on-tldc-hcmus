@@ -23,7 +23,7 @@ const LS_UNLOCK = 'tldc.unlock.v1'
 
 // ⚠ MÃ BÍ MẬT để mở "đề gốc" (chỉ ẩn ở giao diện, KHÔNG phải bảo mật thật).
 //    Đổi chuỗi dưới đây thành mã của riêng bạn.
-const UNLOCK_CODE = 'btuan-goc'
+const UNLOCK_CODE = 'tuan-dep-trai'
 // nguồn bị ẩn cho người dùng thường; chỉ hiện sau khi nhập đúng mã
 const HIDDEN_SOURCES = ['tailieu']
 
