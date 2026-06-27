@@ -4802,7 +4802,2887 @@
   {
     "id": 151,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cảm giác được định nghĩa là quá trình tâm lý phản ánh:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Một cách trọn vẹn các thuộc tính của sự vật"
+      },
+      {
+        "key": "b",
+        "text": "Một cách riêng lẻ từng thuộc tính của sự vật, hiện tượng khi chúng đang trực tiếp tác động vào giác quan"
+      },
+      {
+        "key": "c",
+        "text": "Bản chất bên trong và mối quan hệ có tính quy luật"
+      },
+      {
+        "key": "d",
+        "text": "Những kinh nghiệm con người đã trải qua"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Cảm giác phản ánh RIÊNG LẺ từng thuộc tính — khác tri giác (trọn vẹn). Tr.34."
+  },
+  {
+    "id": 152,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Đặc điểm nào sau đây ĐÚNG với cảm giác?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Là quá trình tâm lý phức tạp nhất"
+      },
+      {
+        "key": "b",
+        "text": "Là quá trình tâm lý đơn giản nhất, có mở đầu – diễn biến – kết thúc rõ ràng"
+      },
+      {
+        "key": "c",
+        "text": "Phản ánh trọn vẹn các thuộc tính theo cấu trúc"
+      },
+      {
+        "key": "d",
+        "text": "Phản ánh hiện thực một cách gián tiếp"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Cảm giác là quá trình tâm lý đơn giản nhất. Tr.34."
+  },
+  {
+    "id": 153,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cảm giác phản ánh hiện thực khách quan một cách:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Gián tiếp"
+      },
+      {
+        "key": "b",
+        "text": "Khái quát"
+      },
+      {
+        "key": "c",
+        "text": "Trực tiếp"
+      },
+      {
+        "key": "d",
+        "text": "Trừu tượng"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Cảm giác chỉ xảy ra khi sự vật đang trực tiếp tác động vào giác quan. Tr.34-35."
+  },
+  {
+    "id": 154,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khi sự vật ngừng tác động vào giác quan thì:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác vẫn tiếp tục diễn ra"
+      },
+      {
+        "key": "b",
+        "text": "Quá trình cảm giác kết thúc"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác tự chuyển thành tri giác"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác chuyển thành biểu tượng trí nhớ"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Cảm giác phản ánh trực tiếp; vật mất đi thì cảm giác kết thúc. Tr.35."
+  },
+  {
+    "id": 155,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "So với cảm giác của động vật, cảm giác của con người:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Hoàn toàn giống nhau"
+      },
+      {
+        "key": "b",
+        "text": "Kém nhạy bén hơn"
+      },
+      {
+        "key": "c",
+        "text": "Khác về chất, mang bản chất xã hội – lịch sử, có sự tham gia của tư duy và ý thức"
+      },
+      {
+        "key": "d",
+        "text": "Không có điểm gì khác biệt"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Cảm giác ở người khác về chất, mang bản chất xã hội – lịch sử. Tr.35."
+  },
+  {
+    "id": 156,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cảm giác được chia thành cảm giác bên ngoài và bên trong dựa vào:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cường độ của kích thích"
+      },
+      {
+        "key": "b",
+        "text": "Vị trí nguồn kích thích nằm ở bên ngoài hay bên trong cơ thể"
+      },
+      {
+        "key": "c",
+        "text": "Thời gian tồn tại của cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Mức độ tham gia của ý thức"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Phân loại dựa vào vị trí nguồn kích thích. Tr.35."
+  },
+  {
+    "id": 157,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cảm giác nào sau đây thuộc nhóm cảm giác BÊN TRONG?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác nhìn"
+      },
+      {
+        "key": "b",
+        "text": "Cảm giác nghe"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác ngửi"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Cảm giác vận động, thăng bằng, cơ thể thuộc nhóm bên trong. Tr.35-36."
+  },
+  {
+    "id": 158,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Giới hạn mà ở đó kích thích gây ra được cảm giác gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Độ nhạy cảm"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng cảm giác"
+      },
+      {
+        "key": "c",
+        "text": "Sự thích ứng"
+      },
+      {
+        "key": "d",
+        "text": "Sự tương phản"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng cảm giác là giới hạn kích thích gây ra cảm giác. Tr.38."
+  },
+  {
+    "id": 159,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cường độ kích thích TỐI THIỂU đủ để gây ra cảm giác gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối phía trên"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng tuyệt đối phía dưới"
+      },
+      {
+        "key": "c",
+        "text": "Ngưỡng sai biệt"
+      },
+      {
+        "key": "d",
+        "text": "Vùng phản ánh tốt nhất"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng tuyệt đối phía dưới = cường độ tối thiểu gây cảm giác. Tr.38."
+  },
+  {
+    "id": 160,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Cường độ kích thích TỐI ĐA mà ở đó vẫn còn cảm giác gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối phía trên"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng tuyệt đối phía dưới"
+      },
+      {
+        "key": "c",
+        "text": "Ngưỡng sai biệt"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng cảm giác chung"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explain": "Ngưỡng tuyệt đối phía trên = cường độ tối đa mà vẫn còn cảm giác. Tr.39."
+  },
+  {
+    "id": 161,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Mức chênh lệch tối thiểu về cường độ/tính chất giữa hai kích thích đủ để phân biệt chúng gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng sai biệt"
+      },
+      {
+        "key": "c",
+        "text": "Vùng cảm giác được"
+      },
+      {
+        "key": "d",
+        "text": "Độ thích ứng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng sai biệt = mức chênh tối thiểu để phân biệt hai kích thích. Tr.39."
+  },
+  {
+    "id": 162,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Mối quan hệ giữa ngưỡng cảm giác và độ nhạy cảm là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tỷ lệ thuận"
+      },
+      {
+        "key": "b",
+        "text": "Tỷ lệ nghịch"
+      },
+      {
+        "key": "c",
+        "text": "Không liên quan"
+      },
+      {
+        "key": "d",
+        "text": "Luôn bằng nhau"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng càng thấp → độ nhạy cảm càng cao (tỷ lệ nghịch). Tr.38."
+  },
+  {
+    "id": 163,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khả năng thay đổi độ nhạy cảm cho phù hợp với sự thay đổi cường độ kích thích gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Sự thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Sự tương phản"
+      },
+      {
+        "key": "d",
+        "text": "Loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Đó là quy luật thích ứng. Tr.40."
+  },
+  {
+    "id": 164,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Theo quy luật thích ứng, khi cường độ kích thích TĂNG thì độ nhạy cảm:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Giảm"
+      },
+      {
+        "key": "b",
+        "text": "Tăng"
+      },
+      {
+        "key": "c",
+        "text": "Không đổi"
+      },
+      {
+        "key": "d",
+        "text": "Mất hẳn"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explain": "Cường độ tăng → nhạy cảm giảm; cường độ giảm → nhạy cảm tăng. Tr.40."
+  },
+  {
+    "id": 165,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Loại cảm giác nào có khả năng thích ứng KÉM nhất?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Thị giác"
+      },
+      {
+        "key": "b",
+        "text": "Thính giác"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác đau"
+      },
+      {
+        "key": "d",
+        "text": "Khứu giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Cảm giác đau thích ứng rất kém; thị giác thích ứng rất cao. Tr.40."
+  },
+  {
+    "id": 166,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Quy luật chung của tác động qua lại: kích thích YẾU lên một cơ quan phân tích sẽ làm gì với cơ quan khác?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Giảm độ nhạy cảm"
+      },
+      {
+        "key": "b",
+        "text": "Tăng độ nhạy cảm"
+      },
+      {
+        "key": "c",
+        "text": "Làm mất cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Không ảnh hưởng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Kích thích yếu → tăng nhạy cảm cơ quan khác; mạnh → giảm. Tr.41."
+  },
+  {
+    "id": 167,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Sự thay đổi cường độ/chất lượng cảm giác do một kích thích cùng loại xảy ra ĐỒNG THỜI gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản nối tiếp"
+      },
+      {
+        "key": "b",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Thích ứng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tương phản đồng thời — kích thích cùng loại xảy ra đồng thời. Tr.40-41."
+  },
+  {
+    "id": 168,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Hiện tượng một số cảm giác kết hợp vững chắc đến mức gây cảm giác này sẽ làm xuất hiện cảm giác khác gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng sai biệt"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Loạn cảm giác (vd: nghe tiếng cào bảng thấy rợn người). Tr.42."
+  },
+  {
+    "id": 169,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Đi từ chỗ sáng vào phòng tối, lúc đầu không thấy gì, sau một lúc mới thấy rõ.\" Đây là ví dụ về quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Tương phản"
+      },
+      {
+        "key": "d",
+        "text": "Tác động qua lại khác loại"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Cường độ ánh sáng giảm → độ nhạy cảm thị giác tăng dần = thích ứng. Tr.40."
+  },
+  {
+    "id": 170,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Cùng một tờ giấy xám, đặt trên nền đen trông sáng hơn, đặt trên nền trắng trông tối hơn.\" Đây là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản nối tiếp"
+      },
+      {
+        "key": "b",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "c",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "d",
+        "text": "Loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Hai kích thích cùng loại (độ sáng) tác động đồng thời → tương phản đồng thời. Tr.40-41."
+  },
+  {
+    "id": 171,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Sau khi ăn một quả chua, ăn quả cam thấy ngọt hơn bình thường.\" Đây là ví dụ về:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "b",
+        "text": "Tương phản nối tiếp"
+      },
+      {
+        "key": "c",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng sai biệt"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Kích thích cùng loại (vị) xảy ra TRƯỚC ĐÓ → tương phản nối tiếp. Tr.42."
+  },
+  {
+    "id": 172,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Công nhân luyện kim có thể chịu nhiệt độ rất cao trong nhiều giờ. Hiện tượng này thể hiện:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối"
+      },
+      {
+        "key": "b",
+        "text": "Sự thích ứng phát triển qua rèn luyện nghề nghiệp"
+      },
+      {
+        "key": "c",
+        "text": "Tương phản"
+      },
+      {
+        "key": "d",
+        "text": "Loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Thích ứng phát triển qua hoạt động và rèn luyện nghề nghiệp. Tr.40."
+  },
+  {
+    "id": 173,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Cảm giác \"đói, no, khát\" thuộc nhóm cảm giác nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác bên ngoài"
+      },
+      {
+        "key": "b",
+        "text": "Cảm giác bên trong (cảm giác cơ thể)"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác nhìn"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Nguồn kích thích từ bên trong cơ thể → cảm giác bên trong. Tr.35."
+  },
+  {
+    "id": 174,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Người mù thường có thính giác và xúc giác rất tinh nhạy. Điều này thể hiện rõ nhất quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Tác động qua lại giữa các cảm giác (bù trừ)"
+      },
+      {
+        "key": "d",
+        "text": "Tương phản đồng thời"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Mất thị giác → các cơ quan khác tăng độ nhạy cảm — tác động qua lại/bù trừ. Tr.41."
+  },
+  {
+    "id": 175,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Ngưỡng tuyệt đối phía dưới của một người càng THẤP thì:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Độ nhạy cảm càng thấp"
+      },
+      {
+        "key": "b",
+        "text": "Độ nhạy cảm càng cao"
+      },
+      {
+        "key": "c",
+        "text": "Không liên quan đến độ nhạy cảm"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác càng kém"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng dưới càng thấp → nhạy cảm càng cao (tỷ lệ nghịch). Tr.38."
+  },
+  {
+    "id": 176,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Tiếng tích tắc đồng hồ ban ngày không nghe rõ nhưng ban đêm yên tĩnh lại nghe rất rõ.\" Phù hợp nhất với quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng tuyệt đối trên"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Môi trường yên tĩnh (cường độ nền thấp) → độ nhạy cảm thính giác tăng = thích ứng. Tr.40."
+  },
+  {
+    "id": 177,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Phân biệt được hai vật 1000g và 1010g — khả năng này liên quan đến:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối phía dưới"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng tuyệt đối phía trên"
+      },
+      {
+        "key": "c",
+        "text": "Ngưỡng sai biệt"
+      },
+      {
+        "key": "d",
+        "text": "Sự thích ứng"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Phân biệt mức chênh giữa hai kích thích → ngưỡng sai biệt. Tr.39."
+  },
+  {
+    "id": 178,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Nhúng một tay vào nước nóng, một tay vào nước lạnh, rồi nhúng cả hai vào nước ấm thì cảm giác hai tay khác nhau.\" Đây là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản nối tiếp"
+      },
+      {
+        "key": "b",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "c",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "d",
+        "text": "Loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explain": "Kích thích cùng loại (nhiệt) trước đó làm thay đổi cảm giác sau → tương phản nối tiếp. Tr.42."
+  },
+  {
+    "id": 179,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Mùi nước hoa lúc đầu nồng, ở lâu thì không còn ngửi thấy rõ. Đây là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng sai biệt"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Cường độ kích thích (mùi) tác động lâu → độ nhạy cảm khứu giác giảm = thích ứng. Tr.40."
+  },
+  {
+    "id": 180,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Nghe một bản nhạc mà đồng thời \"thấy\" được màu sắc, sắc thái — hiện tượng một cảm giác làm xuất hiện cảm giác khác loại gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng cảm giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Loạn cảm giác — gây cảm giác này làm xuất hiện cảm giác khác. Tr.42."
+  },
+  {
+    "id": 181,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Cảm giác nào sau đây thuộc nhóm cảm giác BÊN NGOÀI?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác thăng bằng"
+      },
+      {
+        "key": "b",
+        "text": "Cảm giác vận động"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác ngửi (khứu giác)"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác đói"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Khứu giác có nguồn kích thích từ bên ngoài → cảm giác bên ngoài. Tr.35."
+  },
+  {
+    "id": 182,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Chuyên gia nếm rượu phân biệt được những khác biệt rất nhỏ — tức độ nhạy cảm sai biệt cao, nghĩa là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng sai biệt lớn"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng sai biệt nhỏ"
+      },
+      {
+        "key": "c",
+        "text": "Ngưỡng tuyệt đối trên cao"
+      },
+      {
+        "key": "d",
+        "text": "Thích ứng kém"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng sai biệt càng nhỏ → độ nhạy cảm sai biệt càng lớn. Tr.38."
+  },
+  {
+    "id": 183,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Vai trò \"cung cấp nguyên vật liệu cho các quá trình nhận thức cao hơn\" thuộc về:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tư duy"
+      },
+      {
+        "key": "b",
+        "text": "Tưởng tượng"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Trí nhớ"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Là hình thức nhận thức đầu tiên, cảm giác cung cấp nguyên liệu cho nhận thức cao hơn. Tr.38."
+  },
+  {
+    "id": 184,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Một thợ rèn ban đầu rất khó chịu với tiếng ồn và nhiệt độ cao của xưởng, nhưng sau vài tháng có thể làm việc thoải mái hàng giờ. Quy luật nào thể hiện rõ nhất, và yếu tố nào quyết định?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản nối tiếp; do kích thích xảy ra trước đó"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng; do hoạt động và rèn luyện nghề nghiệp làm tính thích ứng phát triển bền vững"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác; do nhiều cảm giác kết hợp"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng sai biệt; do phân biệt cường độ kích thích"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Thích ứng nghề nghiệp phát triển qua rèn luyện → bền vững. Tr.40."
+  },
+  {
+    "id": 185,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Trong phòng tối tuyệt đối, sau 40 phút độ nhạy cảm với ánh sáng tăng gần 200.000 lần. Điều này chứng minh điều gì về thích ứng?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Mọi cảm giác đều thích ứng như nhau"
+      },
+      {
+        "key": "b",
+        "text": "Thị giác là loại cảm giác có khả năng thích ứng rất cao"
+      },
+      {
+        "key": "c",
+        "text": "Thích ứng chỉ xảy ra khi cường độ kích thích tăng"
+      },
+      {
+        "key": "d",
+        "text": "Đây là hiện tượng tương phản đồng thời"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Thị giác thích ứng rất cao (khác cảm giác đau thích ứng kém). Tr.40."
+  },
+  {
+    "id": 186,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "A phân biệt được hai âm chênh 5Hz, B chỉ phân biệt khi chênh tới 15Hz. Kết luận đúng?",
+    "options": [
+      {
+        "key": "a",
+        "text": "B có độ nhạy cảm sai biệt cao hơn A"
+      },
+      {
+        "key": "b",
+        "text": "A có ngưỡng sai biệt nhỏ hơn nên độ nhạy cảm sai biệt cao hơn B"
+      },
+      {
+        "key": "c",
+        "text": "Hai người có độ nhạy cảm như nhau"
+      },
+      {
+        "key": "d",
+        "text": "Không thể kết luận vì còn phụ thuộc ngưỡng tuyệt đối"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ngưỡng sai biệt nhỏ → nhạy cảm sai biệt lớn. A nhỏ hơn nên cao hơn. Tr.38."
+  },
+  {
+    "id": 187,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Đầu bếp nếm canh nhạt thấy vừa, nhưng người vừa ăn kẹo rất ngọt thì nếm cùng món canh đó lại thấy quá nhạt. Quy luật nào giải thích?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Thích ứng"
+      },
+      {
+        "key": "b",
+        "text": "Tương phản nối tiếp — kích thích vị ngọt trước đó làm thay đổi cảm giác vị sau"
+      },
+      {
+        "key": "c",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng tuyệt đối"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Kích thích cùng loại (vị) xảy ra TRƯỚC ĐÓ → tương phản nối tiếp. Tr.42."
+  },
+  {
+    "id": 188,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Bức tranh nền xám cạnh tranh nền đen trông sáng hơn so với khi cạnh tranh nền trắng. Hiện tượng này khác ví dụ \"ăn chua rồi ăn ngọt\" ở điểm nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cả hai đều là tương phản nối tiếp"
+      },
+      {
+        "key": "b",
+        "text": "Ví dụ tranh là tương phản ĐỒNG THỜI (cùng lúc), ví dụ vị giác là tương phản NỐI TIẾP (trước đó)"
+      },
+      {
+        "key": "c",
+        "text": "Ví dụ tranh là thích ứng, ví dụ vị là tương phản"
+      },
+      {
+        "key": "d",
+        "text": "Cả hai đều là loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Đồng thời = cùng lúc; nối tiếp = trước đó — đây là điểm phân biệt then chốt. Tr.40-42."
+  },
+  {
+    "id": 189,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Người làm việc cạnh máy chạy đều: ban đầu thấy ồn, sau \"quen\" gần như không để ý; nhưng khi máy đột ngột dừng lại giật mình. Quy luật nào giải thích cả hai?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tương phản đồng thời"
+      },
+      {
+        "key": "b",
+        "text": "Thích ứng (quen tiếng ồn) kết hợp với phản ứng trước sự thay đổi cường độ kích thích"
+      },
+      {
+        "key": "c",
+        "text": "Loạn cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Ngưỡng sai biệt"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Quen tiếng ồn = thích ứng; giật mình khi máy dừng = phản ứng với thay đổi cường độ. Tr.40-41."
+  },
+  {
+    "id": 190,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Vì sao quy luật thích ứng vừa bảo vệ hệ thần kinh, vừa giúp con người phản ánh được kích thích trong phạm vi cường độ rất lớn?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Vì thích ứng làm mất hẳn cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Vì thích ứng điều chỉnh độ nhạy cảm tăng/giảm phù hợp — vừa tránh quá tải, vừa mở rộng phạm vi phản ánh"
+      },
+      {
+        "key": "c",
+        "text": "Vì thích ứng chỉ xảy ra ở thị giác"
+      },
+      {
+        "key": "d",
+        "text": "Vì thích ứng làm tăng ngưỡng sai biệt"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Thích ứng = thay đổi độ nhạy cảm phù hợp cường độ → bảo vệ + mở rộng phạm vi. Tr.40."
+  },
+  {
+    "id": 191,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Học sinh khiếm thị đọc chữ nổi Braille bằng đầu ngón tay rất nhanh, chính xác. Điều này minh họa rõ nhất vai trò nào của cảm giác?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Là quá trình tâm lý phức tạp nhất"
+      },
+      {
+        "key": "b",
+        "text": "Là con đường nhận thức đặc biệt quan trọng đối với người khuyết tật"
+      },
+      {
+        "key": "c",
+        "text": "Phản ánh trọn vẹn sự vật theo cấu trúc"
+      },
+      {
+        "key": "d",
+        "text": "Phản ánh bản chất bên trong của sự vật"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Vai trò: cảm giác đặc biệt quan trọng với người khuyết tật. Tr.38."
+  },
+  {
+    "id": 192,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Vào hiệu nước hoa, người ở lâu gần như không phân biệt được mùi, nhưng người mới bước vào vẫn ngửi rõ. Điều này chứng tỏ:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Người mới có khứu giác tốt hơn bẩm sinh"
+      },
+      {
+        "key": "b",
+        "text": "Người ở lâu đã thích ứng (giảm độ nhạy cảm), người mới chưa thích ứng nên còn nhạy"
+      },
+      {
+        "key": "c",
+        "text": "Đây là tương phản đồng thời"
+      },
+      {
+        "key": "d",
+        "text": "Đây là loạn cảm giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Thích ứng làm giảm độ nhạy cảm khứu giác ở người ở lâu. Tr.40."
+  },
+  {
+    "id": 193,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Phát biểu nào sau đây SAI khi nói về cảm giác của con người?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác mang bản chất xã hội – lịch sử"
+      },
+      {
+        "key": "b",
+        "text": "Cảm giác có sự tham gia của tư duy và ý thức"
+      },
+      {
+        "key": "c",
+        "text": "Cảm giác phản ánh trọn vẹn các thuộc tính của sự vật theo cấu trúc"
+      },
+      {
+        "key": "d",
+        "text": "Cảm giác phụ thuộc trạng thái sức khỏe, tâm trạng, kinh nghiệm"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Phản ánh TRỌN VẸN theo cấu trúc là đặc điểm của TRI GIÁC, không phải cảm giác. Tr.34-43."
+  },
+  {
+    "id": 194,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Vì sao nói \"cảm giác đảm bảo trạng thái hoạt động bình thường của vỏ não\"?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Vì cảm giác phản ánh bản chất sự vật"
+      },
+      {
+        "key": "b",
+        "text": "Vì cảm giác cung cấp dòng kích thích cần thiết giúp vỏ não duy trì trương lực, hoạt động thần kinh diễn ra bình thường"
+      },
+      {
+        "key": "c",
+        "text": "Vì cảm giác là quá trình phức tạp nhất"
+      },
+      {
+        "key": "d",
+        "text": "Vì cảm giác thay thế cho tư duy"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Vai trò: cảm giác đảm bảo trạng thái hoạt động của vỏ não. Tr.38."
+  },
+  {
+    "id": 195,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Cảm giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Nếm hai cốc nước đường 5% và 5,2% thì KHÔNG phân biệt được, nhưng cốc 6% thì phân biệt được. Khái niệm nào chỉ \"ranh giới\" bắt đầu phân biệt được?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ngưỡng tuyệt đối phía dưới"
+      },
+      {
+        "key": "b",
+        "text": "Ngưỡng tuyệt đối phía trên"
+      },
+      {
+        "key": "c",
+        "text": "Ngưỡng sai biệt"
+      },
+      {
+        "key": "d",
+        "text": "Vùng phản ánh tốt nhất"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Mức chênh tối thiểu để phân biệt hai kích thích = ngưỡng sai biệt. Tr.39."
+  },
+  {
+    "id": 196,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Tri giác được định nghĩa là quá trình tâm lý phản ánh:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Riêng lẻ từng thuộc tính của sự vật"
+      },
+      {
+        "key": "b",
+        "text": "Một cách trọn vẹn các thuộc tính của sự vật khi chúng đang trực tiếp tác động vào giác quan"
+      },
+      {
+        "key": "c",
+        "text": "Bản chất bên trong của sự vật"
+      },
+      {
+        "key": "d",
+        "text": "Cái chưa từng có trong kinh nghiệm"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác phản ánh TRỌN VẸN (khác cảm giác riêng lẻ). Tr.41."
+  },
+  {
+    "id": 197,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Điểm khác biệt cơ bản giữa tri giác và cảm giác về nội dung phản ánh là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác phản ánh bản chất bên trong"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác phản ánh trọn vẹn theo cấu trúc, cảm giác phản ánh riêng lẻ từng thuộc tính"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác phản ánh gián tiếp"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác không cần đến giác quan"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Trọn vẹn (theo cấu trúc) ↔ riêng lẻ. Tr.41-43."
+  },
+  {
+    "id": 198,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Tri giác KHÔNG phải là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Một quá trình tâm lý"
+      },
+      {
+        "key": "b",
+        "text": "Sự phản ánh trọn vẹn thuộc tính bề ngoài"
+      },
+      {
+        "key": "c",
+        "text": "Phép cộng đơn giản của các cảm giác"
+      },
+      {
+        "key": "d",
+        "text": "Một hành động tích cực của con người"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Tri giác KHÔNG phải phép cộng đơn giản các cảm giác mà là phản ánh cao hơn. Tr.41."
+  },
+  {
+    "id": 199,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Điểm GIỐNG nhau giữa cảm giác và tri giác là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Đều phản ánh trọn vẹn sự vật"
+      },
+      {
+        "key": "b",
+        "text": "Đều phản ánh thuộc tính bề ngoài và sự vật đang trực tiếp tác động vào giác quan"
+      },
+      {
+        "key": "c",
+        "text": "Đều phản ánh bản chất bên trong"
+      },
+      {
+        "key": "d",
+        "text": "Đều là hành động tích cực của con người"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Giống: quá trình tâm lý, phản ánh bề ngoài, trực tiếp. Tr.43."
+  },
+  {
+    "id": 200,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Sự phản ánh hình dạng, độ lớn, độ xa, phương hướng của sự vật gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác thời gian"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác con người"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explain": "Tri giác không gian. Tr.43-44."
+  },
+  {
+    "id": 201,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Sự phản ánh độ dài lâu, tốc độ, tính kế tục của sự vật hiện tượng gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác thời gian"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác con người"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác thời gian. Tr.44."
+  },
+  {
+    "id": 202,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Loại tri giác nào được xem là ĐẶC BIỆT vì đối tượng phản ánh là con người?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác thời gian"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác con người"
+      }
+    ],
+    "answer": [
+      "d"
+    ],
+    "explain": "Tri giác con người đặc biệt, do giá trị xã hội quy định. Tr.43."
+  },
+  {
+    "id": 203,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Hình thức tri giác CAO NHẤT, mang tính tích cực, chủ động, có mục đích rõ ràng là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Quan sát"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "d",
+        "text": "Biểu tượng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Quan sát là hình thức tri giác cao nhất. Tr.45-46."
+  },
+  {
+    "id": 204,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khả năng tri giác nhanh, chính xác những điểm quan trọng, chủ yếu, đặc sắc của sự vật gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Quan sát"
+      },
+      {
+        "key": "b",
+        "text": "Năng lực quan sát"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "d",
+        "text": "Độ nhạy cảm"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Năng lực quan sát. Tr.45-46."
+  },
+  {
+    "id": 205,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Quy luật nào nói hình ảnh trực quan luôn thuộc về một sự vật cụ thể của thế giới bên ngoài?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tính đối tượng. Tr.46."
+  },
+  {
+    "id": 206,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Quy luật nào thể hiện việc tách đối tượng ra khỏi bối cảnh để phản ánh rõ ràng?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "c",
+        "text": "Tính có ý nghĩa"
+      },
+      {
+        "key": "d",
+        "text": "Tính ổn định"
+      }
+    ],
+    "answer": [
+      "a"
+    ],
+    "explain": "Tính lựa chọn — tách đối tượng khỏi bối cảnh. Tr.46-47."
+  },
+  {
+    "id": 207,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khả năng gọi tên được sự vật và xếp nó vào một nhóm xác định khi tri giác thể hiện quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính có ý nghĩa"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Ảo giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tính có ý nghĩa — gắn với tư duy, gọi tên, xếp loại. Tr.48."
+  },
+  {
+    "id": 208,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khả năng phản ánh tương đối ổn định về sự vật khi điều kiện tri giác đã thay đổi gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Tính ổn định — điều kiện đổi vẫn phản ánh đúng. Tr.48."
+  },
+  {
+    "id": 209,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Sự phản ánh SAI LẦM về sự vật hiện tượng CÓ THẬT đang tác động vào giác quan gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Ảo giác (ảo ảnh tri giác)"
+      },
+      {
+        "key": "d",
+        "text": "Tính ổn định"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Ảo giác — phản ánh sai về vật có thật. Tr.48-49."
+  },
+  {
+    "id": 210,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Sự phụ thuộc của hình ảnh tri giác vào nội dung đời sống tâm lý của chủ thể gọi là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "c",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "d",
+        "text": "Ảo giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tổng giác — phụ thuộc chủ thể (kinh nghiệm, nhu cầu, tình cảm…). Tr.48."
+  },
+  {
+    "id": 211,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Khi tri giác không gian, cơ quan phân tích nào giữ vai trò ĐẶC BIỆT quan trọng?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Thính giác"
+      },
+      {
+        "key": "b",
+        "text": "Thị giác"
+      },
+      {
+        "key": "c",
+        "text": "Khứu giác"
+      },
+      {
+        "key": "d",
+        "text": "Vị giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác không gian — thị giác giữ vai trò đặc biệt quan trọng. Tr.44."
+  },
+  {
+    "id": 212,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Tri giác là thành phần CHÍNH của nhận thức cảm tính, đặc biệt rõ ở:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Trẻ sơ sinh"
+      },
+      {
+        "key": "b",
+        "text": "Người trưởng thành"
+      },
+      {
+        "key": "c",
+        "text": "Động vật"
+      },
+      {
+        "key": "d",
+        "text": "Người khuyết tật"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác là thành phần chính của nhận thức cảm tính, nhất là ở người trưởng thành. Tr.46."
+  },
+  {
+    "id": 213,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.15",
+    "type": "single",
+    "stem": "Ảo giác là hiện tượng:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Chỉ xảy ra ở người bệnh"
+      },
+      {
+        "key": "b",
+        "text": "Chỉ có ở tri giác không gian"
+      },
+      {
+        "key": "c",
+        "text": "Có tính quy luật, xảy ra ở mọi người bình thường và ở mọi loại tri giác"
+      },
+      {
+        "key": "d",
+        "text": "Không bao giờ xảy ra ở người bình thường"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Ảo giác có tính quy luật, ở mọi người, mọi loại tri giác. Tr.49."
+  },
+  {
+    "id": 214,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Giữa đám đông ồn ào, ta vẫn nghe rõ tiếng gọi tên mình và bỏ qua các âm thanh khác.\" Đây là quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tách đối tượng (tiếng gọi) khỏi bối cảnh (tạp âm) = tính lựa chọn. Tr.46-47."
+  },
+  {
+    "id": 215,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Một viên phấn dù nhìn gần hay xa, dưới ánh sáng mạnh hay yếu, ta vẫn tri giác nó màu trắng, hình trụ.\" Đây là quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "c",
+        "text": "Tính có ý nghĩa"
+      },
+      {
+        "key": "d",
+        "text": "Ảo giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Điều kiện thay đổi nhưng vẫn phản ánh ổn định = tính ổn định. Tr.48."
+  },
+  {
+    "id": 216,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Câu \"Yêu nên tốt, ghét nên xấu\" thể hiện rõ nhất quy luật tri giác nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "d",
+        "text": "Tính ổn định"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Tình cảm của chủ thể chi phối tri giác = tổng giác. Tr.48."
+  },
+  {
+    "id": 217,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Căn cứ vào mùi, ta xác định được vị trí cửa hàng bán thức ăn.\" Đây là loại tri giác nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác thời gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác con người"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Xác định vị trí, phương hướng = tri giác không gian. Tr.43."
+  },
+  {
+    "id": 218,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Khi hứng thú với công việc thấy thời gian trôi nhanh; khi chán nản thấy trôi chậm.\" Đây là biểu hiện của:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác thời gian (chịu ảnh hưởng của trạng thái tâm lý)"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác về không gian"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Trạng thái tâm lý ảnh hưởng tri giác thời gian. Tr.44."
+  },
+  {
+    "id": 219,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Bức tranh \"khi thì thấy hai khuôn mặt, khi thì thấy một chiếc bình\". Đây minh họa cho:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn (vai trò đối tượng – bối cảnh hoán đổi)"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "d",
+        "text": "Tính có ý nghĩa"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Đối tượng và bối cảnh giao hoán cho nhau = tính lựa chọn. Tr.47."
+  },
+  {
+    "id": 220,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Hai đoạn thẳng dài bằng nhau nhưng do thêm mũi tên ở hai đầu mà ta thấy dài ngắn khác nhau. Đây là:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Ảo giác (ảo ảnh tri giác)"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Phản ánh sai về vật có thật = ảo giác. Tr.48-49."
+  },
+  {
+    "id": 221,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Giáo viên gạch chân, tô màu các từ khóa để học sinh dễ chú ý. Việc làm nổi bật đối tượng so với nền này vận dụng quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác thời gian"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Làm đối tượng khác biệt với bối cảnh → tri giác dễ dàng hơn = tính lựa chọn. Tr.47."
+  },
+  {
+    "id": 222,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Bác sĩ X-quang nhìn phim chụp và lập tức nhận ra dấu hiệu bệnh mà người thường không thấy. Khả năng này thể hiện rõ nhất:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ảo giác"
+      },
+      {
+        "key": "b",
+        "text": "Năng lực quan sát kết hợp tổng giác (kinh nghiệm chuyên môn)"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác vận động"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác nhanh, chính xác điểm chủ yếu nhờ kinh nghiệm = năng lực quan sát/tổng giác. Tr.45-48."
+  },
+  {
+    "id": 223,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Vật chuyển động quá nhanh (viên đạn) hoặc quá chậm (kim giờ đồng hồ) thì ta khó tri giác được sự chuyển động.\" Điều này nói về:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác thời gian"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác vận động"
+      },
+      {
+        "key": "d",
+        "text": "Ảo giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Tri giác vận động phụ thuộc tốc độ chuyển động. Tr.44."
+  },
+  {
+    "id": 224,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Khi gặp người lần đầu, ta cố tạo ấn tượng tốt vì biết ấn tượng ban đầu sẽ ảnh hưởng cách người đó nhìn nhận ta về sau. Điều này vận dụng quy luật:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác"
+      },
+      {
+        "key": "d",
+        "text": "Ảo giác"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Ấn tượng/kinh nghiệm của chủ thể chi phối tri giác về sau = tổng giác. Tr.48."
+  },
+  {
+    "id": 225,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "\"Người mặc áo kẻ sọc dọc trông cao, gầy hơn so với khi mặc áo kẻ ngang.\" Đây là ví dụ điển hình của:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "b",
+        "text": "Ảo giác (ảo ảnh tri giác)"
+      },
+      {
+        "key": "c",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Phản ánh sai về kích thước thực = ảo giác. Tr.48-49."
+  },
+  {
+    "id": 226,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Sự nhận thức lẫn nhau giữa người với người trong giao tiếp trực tiếp thuộc loại tri giác nào, do yếu tố nào quy định?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tri giác không gian; do thị giác"
+      },
+      {
+        "key": "b",
+        "text": "Tri giác con người; do giá trị xã hội quy định"
+      },
+      {
+        "key": "c",
+        "text": "Tri giác thời gian; do nhịp sinh học"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác vận động; do tốc độ"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác con người do giá trị xã hội quy định. Tr.43."
+  },
+  {
+    "id": 227,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Nhìn một hình vẽ và \"thấy\" ngay đó là cái ghế, gọi được tên và biết công dụng của nó — quy luật nào đang hoạt động?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính có ý nghĩa"
+      },
+      {
+        "key": "c",
+        "text": "Tính ổn định"
+      },
+      {
+        "key": "d",
+        "text": "Tri giác vận động"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Gọi tên, hiểu công dụng = tính có ý nghĩa (gắn với tư duy). Tr.48."
+  },
+  {
+    "id": 228,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.25",
+    "type": "single",
+    "stem": "Phát biểu nào mô tả ĐÚNG nguyên nhân gây ảo ảnh tri giác?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Chỉ do não bị bệnh"
+      },
+      {
+        "key": "b",
+        "text": "Do quy luật khách quan của sự vật, do đặc điểm đối tượng – bối cảnh, do cấu tạo của não và giác quan"
+      },
+      {
+        "key": "c",
+        "text": "Chỉ do thiếu kinh nghiệm sống"
+      },
+      {
+        "key": "d",
+        "text": "Do chủ thể cố tình tri giác sai"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ba nhóm nguyên nhân của ảo giác. Tr.49."
+  },
+  {
+    "id": 229,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Trong lớp ồn ào, một học sinh vẫn nghe được lời thầy giảng và bỏ qua tiếng nói chuyện; nhưng khi bạn gọi tên mình thì lập tức quay sang. Hai hiện tượng này cùng minh họa quy luật nào, và điểm chung là gì?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định; vì hình ảnh không đổi"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn; vì cả hai đều tách đối tượng cần tri giác ra khỏi bối cảnh, vai trò đối tượng – bối cảnh có thể hoán đổi"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác; vì phụ thuộc kinh nghiệm"
+      },
+      {
+        "key": "d",
+        "text": "Tính có ý nghĩa; vì gọi được tên"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tính lựa chọn — tách đối tượng khỏi nền, đối tượng/bối cảnh hoán đổi. Tr.46-47."
+  },
+  {
+    "id": 230,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Hai người cùng xem một bức tranh trừu tượng: họa sĩ thấy bố cục, kỹ thuật, ý đồ; người chưa học mỹ thuật chỉ thấy \"những vệt màu lộn xộn\". Khác biệt này giải thích tốt nhất bằng:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định của tri giác"
+      },
+      {
+        "key": "b",
+        "text": "Ảo giác"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác — tri giác phụ thuộc vốn hiểu biết, kinh nghiệm, năng lực của chủ thể"
+      },
+      {
+        "key": "d",
+        "text": "Tính đối tượng"
+      }
+    ],
+    "answer": [
+      "c"
+    ],
+    "explain": "Cùng kích thích, kết quả khác do chủ thể khác → tổng giác. Tr.48."
+  },
+  {
+    "id": 231,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Tài xế lái xe ban đêm đôi khi \"thấy\" có vật cản phía trước nhưng thực ra không có, do ánh đèn và bóng tối. Hiện tượng này là gì, khác \"ảo giác do rối loạn tâm thần\" ở điểm nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Là tổng giác; giống hệt ảo giác bệnh lý"
+      },
+      {
+        "key": "b",
+        "text": "Là ảo ảnh tri giác — phản ánh sai về vật/điều kiện CÓ THẬT đang tác động; khác ảo giác bệnh lý (không có kích thích thật)"
+      },
+      {
+        "key": "c",
+        "text": "Là tính ổn định; do thói quen lái xe"
+      },
+      {
+        "key": "d",
+        "text": "Là tính lựa chọn; do chọn nhầm đối tượng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ảo ảnh tri giác = sai lệch về vật/điều kiện CÓ THẬT đang tác động. Tr.48-49."
+  },
+  {
+    "id": 232,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Tại sao nói tri giác là một \"hành động tích cực\" chứ không phải phản ánh thụ động?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Vì tri giác chỉ là phép cộng các cảm giác"
+      },
+      {
+        "key": "b",
+        "text": "Vì con người chủ động tách đối tượng khỏi bối cảnh, gắn ý nghĩa, huy động kinh nghiệm để phản ánh sự vật theo cấu trúc"
+      },
+      {
+        "key": "c",
+        "text": "Vì tri giác phản ánh bản chất bên trong"
+      },
+      {
+        "key": "d",
+        "text": "Vì tri giác không cần đến giác quan"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác là hành động tích cực: lựa chọn, gắn ý nghĩa, tổng giác. Tr.43-48."
+  },
+  {
+    "id": 233,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Đi du lịch, ban đầu thấy một ngày trôi rất nhanh vì mọi thứ mới lạ, hứng thú; nhưng khi nhớ lại cả chuyến đi lại thấy \"dài\". Cách tri giác thời gian này chịu ảnh hưởng của:",
+    "options": [
+      {
+        "key": "a",
+        "text": "Chỉ phụ thuộc đồng hồ sinh học"
+      },
+      {
+        "key": "b",
+        "text": "Nội dung hoạt động, trạng thái tâm lý (hứng thú/chán) và lứa tuổi"
+      },
+      {
+        "key": "c",
+        "text": "Chỉ phụ thuộc thị giác"
+      },
+      {
+        "key": "d",
+        "text": "Do ảo giác không gian"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác thời gian phụ thuộc nội dung hoạt động, trạng thái tâm lý, lứa tuổi. Tr.44."
+  },
+  {
+    "id": 234,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Để học sinh tri giác tài liệu đầy đủ, sâu sắc, giáo viên đã: (1) dùng tranh ảnh trực quan, (2) gạch chân từ khóa, (3) liên hệ kinh nghiệm sống của học sinh. Mỗi biện pháp vận dụng quy luật nào theo thứ tự?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Ổn định – lựa chọn – đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Có ý nghĩa – lựa chọn – tổng giác"
+      },
+      {
+        "key": "c",
+        "text": "Đối tượng – ổn định – ảo giác"
+      },
+      {
+        "key": "d",
+        "text": "Tổng giác – đối tượng – lựa chọn"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Trực quan→ý nghĩa; gạch chân→lựa chọn; liên hệ kinh nghiệm→tổng giác. Tr.47-48."
+  },
+  {
+    "id": 235,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Vì sao \"tính ổn định của tri giác\" có lợi cho hoạt động sống của con người?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Vì nó làm cho mọi vật trông giống nhau"
+      },
+      {
+        "key": "b",
+        "text": "Vì nhờ nó, dù điều kiện (khoảng cách, ánh sáng, góc nhìn) thay đổi, ta vẫn nhận ra đúng sự vật để định hướng và hành động phù hợp"
+      },
+      {
+        "key": "c",
+        "text": "Vì nó giúp ta tri giác sai"
+      },
+      {
+        "key": "d",
+        "text": "Vì nó thay thế cho tư duy"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tính ổn định giúp nhận đúng sự vật khi điều kiện đổi → định hướng hành vi. Tr.48."
+  },
+  {
+    "id": 236,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Một thám tử vào hiện trường, trong vài giây đã nhận ra những chi tiết bất thường mà người khác bỏ qua. Năng lực này hình thành chủ yếu nhờ đâu, thuộc khái niệm nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Bẩm sinh; thuộc tính đối tượng"
+      },
+      {
+        "key": "b",
+        "text": "Rèn luyện trong hoạt động thực tiễn; là năng lực quan sát, gắn với tổng giác (vốn kinh nghiệm)"
+      },
+      {
+        "key": "c",
+        "text": "Ảo giác; do tưởng tượng"
+      },
+      {
+        "key": "d",
+        "text": "Tính ổn định; do thói quen"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Năng lực quan sát hình thành qua rèn luyện; tổng giác dựa trên kinh nghiệm. Tr.45-48."
+  },
+  {
+    "id": 237,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "\"Tách tiếng đàn solo ra khỏi dàn nhạc để nghe rõ\" và \"vẫn nhận ra bản nhạc quen dù được chơi ở tông cao hơn\". Hai hiện tượng này lần lượt thuộc quy luật nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Cả hai đều là tính lựa chọn"
+      },
+      {
+        "key": "b",
+        "text": "Tính lựa chọn và tính ổn định"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác và ảo giác"
+      },
+      {
+        "key": "d",
+        "text": "Tính có ý nghĩa và tính đối tượng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tách khỏi nền = lựa chọn; điều kiện đổi vẫn nhận đúng = ổn định. Tr.46-48."
+  },
+  {
+    "id": 238,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "\"Tri giác con người\" khác các loại tri giác khác (không gian, thời gian, vận động) ở điểm cốt lõi nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Không có gì khác biệt"
+      },
+      {
+        "key": "b",
+        "text": "Đối tượng phản ánh là con người và mang tính xã hội; do giá trị xã hội quy định, có chức năng điều chỉnh giao tiếp"
+      },
+      {
+        "key": "c",
+        "text": "Chỉ dùng thị giác"
+      },
+      {
+        "key": "d",
+        "text": "Là loại tri giác bẩm sinh"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Tri giác con người đặc biệt vì đối tượng là con người, do giá trị xã hội quy định. Tr.43-45."
+  },
+  {
+    "id": 239,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Trên ảnh, đường ray xe lửa trông như \"hẹp dần và chụm lại ở xa\" dù thực tế luôn song song. Đây là hiện tượng gì, thuộc nhóm nguyên nhân nào?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Tính ổn định; do cấu trúc vật"
+      },
+      {
+        "key": "b",
+        "text": "Ảo ảnh tri giác; do quy luật khách quan của sự vật (phối cảnh) và đặc điểm đối tượng – bối cảnh"
+      },
+      {
+        "key": "c",
+        "text": "Tổng giác; do kinh nghiệm"
+      },
+      {
+        "key": "d",
+        "text": "Tính lựa chọn; do chọn sai đối tượng"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Ảo giác do quy luật khách quan và đặc điểm đối tượng – bối cảnh. Tr.49."
+  },
+  {
+    "id": 240,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
+    "source": "soan",
+    "section": "Tri giác",
+    "level": "0.35",
+    "type": "single",
+    "stem": "Khẳng định nào phản ánh ĐÚNG mối quan hệ giữa các quy luật của tri giác?",
+    "options": [
+      {
+        "key": "a",
+        "text": "Mỗi quy luật hoạt động hoàn toàn độc lập"
+      },
+      {
+        "key": "b",
+        "text": "Các quy luật bổ sung cho nhau, làm tri giác đa dạng, phong phú và mang tính chủ thể cao"
+      },
+      {
+        "key": "c",
+        "text": "Chỉ có một quy luật hoạt động tại một thời điểm"
+      },
+      {
+        "key": "d",
+        "text": "Các quy luật mâu thuẫn, triệt tiêu lẫn nhau"
+      }
+    ],
+    "answer": [
+      "b"
+    ],
+    "explain": "Các quy luật tri giác bổ sung nhau, tăng tính chủ thể. Tr.49."
+  },
+  {
+    "id": 241,
+    "chapter": 3,
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4832,9 +7712,9 @@
     "explain": "A→cảm giác, C→tri giác, D→tưởng tượng. Tư duy phản ánh bản chất, quy luật mà ta CHƯA BIẾT. Tr.51."
   },
   {
-    "id": 152,
+    "id": 242,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4864,9 +7744,9 @@
     "explain": "C mô tả trí nhớ. Tư duy là nhận thức lý tính, cao nhất. Tr.51."
   },
   {
-    "id": 153,
+    "id": 243,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4896,9 +7776,9 @@
     "explain": "Tính \"có vấn đề\": phải được chủ thể ý thức và có nhu cầu giải quyết. Tr.55."
   },
   {
-    "id": 154,
+    "id": 244,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4928,9 +7808,9 @@
     "explain": "Phản ánh riêng lẻ bề ngoài là đặc điểm của CẢM GIÁC. Tr.51-55."
   },
   {
-    "id": 155,
+    "id": 245,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4960,9 +7840,9 @@
     "explain": "Đó là tính trừu tượng & khái quát. Tr.53-54."
   },
   {
-    "id": 156,
+    "id": 246,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -4992,9 +7872,9 @@
     "explain": "Không có ngôn ngữ thì không có tư duy — quan hệ nội dung – hình thức. Tr.54-55."
   },
   {
-    "id": 157,
+    "id": 247,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5024,9 +7904,9 @@
     "explain": "Bước 1 trong 5 giai đoạn: xác định vấn đề. Tr.55."
   },
   {
-    "id": 158,
+    "id": 248,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5056,9 +7936,9 @@
     "explain": "Phân tích — chia đối tượng thành bộ phận (ngược với tổng hợp). Tr.58."
   },
   {
-    "id": 159,
+    "id": 249,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5088,9 +7968,9 @@
     "explain": "Khái quát hóa — hợp nhất nhiều đối tượng theo thuộc tính chung (khác trừu tượng hóa). Tr.59."
   },
   {
-    "id": 160,
+    "id": 250,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5120,9 +8000,9 @@
     "explain": "Tư duy trực quan – hành động (trẻ < 3 tuổi). Tr.60."
   },
   {
-    "id": 161,
+    "id": 251,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5152,9 +8032,9 @@
     "explain": "Tư duy từ ngữ – logic cho ra khái niệm, phán đoán (tư duy hình tượng cho ra hình tượng). Tr.60."
   },
   {
-    "id": 162,
+    "id": 252,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.15",
@@ -5184,9 +8064,9 @@
     "explain": "Thao tác tư duy linh hoạt: không cố định thứ tự, không cần dùng hết. Tr.59-60."
   },
   {
-    "id": 163,
+    "id": 253,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5216,9 +8096,9 @@
     "explain": "Nhận thức qua công cụ trung gian, không trực tiếp = tính gián tiếp. Tr.53."
   },
   {
-    "id": 164,
+    "id": 254,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5248,9 +8128,9 @@
     "explain": "Hợp nhất nhiều đối tượng thành nhóm chung = khái quát hóa (không phải trừu tượng hóa). Tr.59."
   },
   {
-    "id": 165,
+    "id": 255,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5280,9 +8160,9 @@
     "explain": "Khái quát chỉ dựa vào dấu hiệu giống nhau (không bản chất) dễ dẫn đến sai lầm. Tr.59."
   },
   {
-    "id": 166,
+    "id": 256,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5312,9 +8192,9 @@
     "explain": "Nhiệm vụ trực quan, giải quyết bằng hành động thực tế = tư duy thực hành. Tr.59-60."
   },
   {
-    "id": 167,
+    "id": 257,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5344,9 +8224,9 @@
     "explain": "Tư duy hình tượng cho ra hình tượng, phát triển ở nghệ sĩ. Tr.60."
   },
   {
-    "id": 168,
+    "id": 258,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5376,9 +8256,9 @@
     "explain": "Nhiệm vụ dưới hình thức lý luận, dùng khái niệm = tư duy lý luận. Tr.61."
   },
   {
-    "id": 169,
+    "id": 259,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5408,9 +8288,9 @@
     "explain": "So sánh gắn chặt phân tích – tổng hợp, là cơ sở của hiểu biết. Tr.57-58."
   },
   {
-    "id": 170,
+    "id": 260,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5440,9 +8320,9 @@
     "explain": "Dựa vào hình ảnh trực quan = tư duy trực quan – hình ảnh (~4 tuổi). Tr.60."
   },
   {
-    "id": 171,
+    "id": 261,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5472,9 +8352,9 @@
     "explain": "Đúng thứ tự 5 giai đoạn. Tr.55-56."
   },
   {
-    "id": 172,
+    "id": 262,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.25",
@@ -5504,9 +8384,9 @@
     "explain": "Giả thuyết sai → bác bỏ, lập giả thuyết mới, kiểm tra lại. Tr.56-57."
   },
   {
-    "id": 173,
+    "id": 263,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5536,9 +8416,9 @@
     "explain": "Là 5 giai đoạn của tư duy: xác định vấn đề → liên tưởng → giả thuyết → kiểm tra → giải quyết. Tr.55-57."
   },
   {
-    "id": 174,
+    "id": 264,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5568,9 +8448,9 @@
     "explain": "Tư duy dựa trên tài liệu trực quan của cảm tính và kiểm tra qua thực tiễn. Tr.56."
   },
   {
-    "id": 175,
+    "id": 265,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5600,9 +8480,9 @@
     "explain": "C bị đảo ngược định nghĩa. Trừu tượng = lọc bỏ cái không bản chất; khái quát = mở rộng cho hàng loạt. Tr.53-54."
   },
   {
-    "id": 176,
+    "id": 266,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5632,9 +8512,9 @@
     "explain": "Tính khái quát giúp giải quyết hàng loạt trường hợp, kể cả mới. Tr.54-55."
   },
   {
-    "id": 177,
+    "id": 267,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5664,9 +8544,9 @@
     "explain": "Quan hệ biện chứng nội dung – hình thức, không đồng nhất. Tr.54-55."
   },
   {
-    "id": 178,
+    "id": 268,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5696,9 +8576,9 @@
     "explain": "Sự thay đổi theo lứa tuổi = mức độ phát triển của tư duy. Tr.60."
   },
   {
-    "id": 179,
+    "id": 269,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5728,9 +8608,9 @@
     "explain": "Giai đoạn sàng lọc liên tưởng & hình thành giả thuyết. Tr.56-57."
   },
   {
-    "id": 180,
+    "id": 270,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tư duy",
     "level": "0.35",
@@ -5760,9 +8640,9 @@
     "explain": "Thao tác tư duy thống nhất, linh hoạt, không cố định thứ tự. Tr.58-60."
   },
   {
-    "id": 181,
+    "id": 271,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5792,9 +8672,9 @@
     "explain": "A→tư duy, C→tri giác, D→trí nhớ. Tưởng tượng phản ánh cái CHƯA TỪNG CÓ. Tr.61."
   },
   {
-    "id": 182,
+    "id": 272,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5824,9 +8704,9 @@
     "explain": "Phân biệt với C: biểu tượng trí nhớ là cái đã có; biểu tượng tưởng tượng là cái mới. Tr.61."
   },
   {
-    "id": 183,
+    "id": 273,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5856,9 +8736,9 @@
     "explain": "Tưởng tượng dùng khi tính bất định cao, thiếu dữ kiện cho tư duy. Tr.61-62."
   },
   {
-    "id": 184,
+    "id": 274,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5888,9 +8768,9 @@
     "explain": "Tưởng tượng độc đáo, sáng tạo hơn tư duy (so sánh kỹ với C). Tr.62."
   },
   {
-    "id": 185,
+    "id": 275,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5920,9 +8800,9 @@
     "explain": "Theo ý thức: không chủ định / có chủ định (A theo tính tích cực, C là phân nhánh của có chủ định). Tr.63."
   },
   {
-    "id": 186,
+    "id": 276,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5952,9 +8832,9 @@
     "explain": "Có chủ định gồm tái tạo và sáng tạo. Tr.63."
   },
   {
-    "id": 187,
+    "id": 277,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -5984,9 +8864,9 @@
     "explain": "Tái tạo — dựa trên mô tả có sẵn, mới với cá nhân (sáng tạo thì mới cả với xã hội). Tr.66."
   },
   {
-    "id": 188,
+    "id": 278,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -6016,9 +8896,9 @@
     "explain": "Sáng tạo — hình ảnh mới chưa có cả trong xã hội. Tr.66."
   },
   {
-    "id": 189,
+    "id": 279,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -6048,9 +8928,9 @@
     "explain": "Tích cực thúc đẩy hành động (tiêu cực = mơ mộng không thúc đẩy). Tr.64."
   },
   {
-    "id": 190,
+    "id": 280,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -6080,9 +8960,9 @@
     "explain": "Lý tưởng — hình mẫu, động cơ thôi thúc (ước mơ chỉ là hình ảnh tổng quát về tương lai). Tr.64."
   },
   {
-    "id": 191,
+    "id": 281,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -6112,9 +8992,9 @@
     "explain": "Ước mơ — tưởng tượng tổng quát về tương lai. Tr.64."
   },
   {
-    "id": 192,
+    "id": 282,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.15",
@@ -6144,9 +9024,9 @@
     "explain": "Chắp ghép — ghép nguyên si, không chế biến (liên hợp thì có cải biến). Tr.64-65."
   },
   {
-    "id": 193,
+    "id": 283,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6176,9 +9056,9 @@
     "explain": "Ghép nguyên các bộ phận của nhiều vật, không cải biến = chắp ghép (so kỹ với liên hợp). Tr.64-65."
   },
   {
-    "id": 194,
+    "id": 284,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6208,9 +9088,9 @@
     "explain": "Tăng số lượng (tay, mắt) = thay đổi kích thước, số lượng. Tr.64."
   },
   {
-    "id": 195,
+    "id": 285,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6240,9 +9120,9 @@
     "explain": "Ghép có cải biến các bộ phận = liên hợp (khác chắp ghép ghép nguyên). Tr.65."
   },
   {
-    "id": 196,
+    "id": 286,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6272,9 +9152,9 @@
     "explain": "Mô phỏng chi tiết của một vật có thật = loại suy. Tr.65."
   },
   {
-    "id": 197,
+    "id": 287,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6304,9 +9184,9 @@
     "explain": "Cường điệu / đưa lên hàng đầu một đặc điểm = nhấn mạnh. Tr.65."
   },
   {
-    "id": 198,
+    "id": 288,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6336,9 +9216,9 @@
     "explain": "Không có mục đích đặt trước = không chủ định. Tr.63."
   },
   {
-    "id": 199,
+    "id": 289,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6368,9 +9248,9 @@
     "explain": "Tạo hình ảnh mới với cá nhân dựa trên mô tả = tái tạo (không phải sáng tạo). Tr.66."
   },
   {
-    "id": 200,
+    "id": 290,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6400,9 +9280,9 @@
     "explain": "Khái quát nét chung tạo nhân vật điển hình = điển hình hóa. Tr.65."
   },
   {
-    "id": 201,
+    "id": 291,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6432,9 +9312,9 @@
     "explain": "Hình ảnh tổng quát, tích cực về tương lai gắn với nhu cầu = ước mơ. Tr.64."
   },
   {
-    "id": 202,
+    "id": 292,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6464,9 +9344,9 @@
     "explain": "Không thúc đẩy hành động = tưởng tượng tiêu cực. Tr.64."
   },
   {
-    "id": 203,
+    "id": 293,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.25",
@@ -6496,9 +9376,9 @@
     "explain": "Hình ảnh mới chưa có cả trong xã hội = sáng tạo (so với tái tạo dựa mô tả có sẵn). Tr.66."
   },
   {
-    "id": 204,
+    "id": 294,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6528,9 +9408,9 @@
     "explain": "C bị đảo ngược. Chắp ghép = nguyên si; liên hợp = có cải biến (thủy phi cơ). Tr.65."
   },
   {
-    "id": 205,
+    "id": 295,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6560,9 +9440,9 @@
     "explain": "D đúng ở chỗ \"sai\" nhưng đảo ngược lý do. Tiên cá = chắp ghép, thủy phi cơ = liên hợp. Tr.65."
   },
   {
-    "id": 206,
+    "id": 296,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6592,9 +9472,9 @@
     "explain": "Tưởng tượng giải quyết khi tính bất định cao, thiếu dữ kiện cho tư duy. Tr.61-62."
   },
   {
-    "id": 207,
+    "id": 297,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6624,9 +9504,9 @@
     "explain": "C là nét riêng của tư duy, D là nét riêng của tưởng tượng. Tr.62."
   },
   {
-    "id": 208,
+    "id": 298,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6656,9 +9536,9 @@
     "explain": "Theo mô tả/ảnh có sẵn = tái tạo; chưa có trong xã hội = sáng tạo. Tr.66."
   },
   {
-    "id": 209,
+    "id": 299,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6688,9 +9568,9 @@
     "explain": "Cả hai đều là hình thức đặc biệt của tưởng tượng. Tr.64."
   },
   {
-    "id": 210,
+    "id": 300,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6720,9 +9600,9 @@
     "explain": "Tưởng tượng định hướng hoạt động — dựng mô hình kết quả trước. Tr.62."
   },
   {
-    "id": 211,
+    "id": 301,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6752,9 +9632,9 @@
     "explain": "Tưởng tượng giúp vượt giai đoạn khi tri thức chưa đủ → cơ sở phát minh. Tr.65."
   },
   {
-    "id": 212,
+    "id": 302,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Tưởng tượng",
     "level": "0.35",
@@ -6784,9 +9664,9 @@
     "explain": "Không có mục đích trước → không chủ định; có kế hoạch → có chủ định. Tr.63."
   },
   {
-    "id": 213,
+    "id": 303,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6816,9 +9696,9 @@
     "explain": "A→tưởng tượng, C→tư duy, D→tri giác. Trí nhớ phản ánh kinh nghiệm đã có. Tr.67."
   },
   {
-    "id": 214,
+    "id": 304,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6848,9 +9728,9 @@
     "explain": "Biểu tượng — hình ảnh khi vật không còn tác động (cảm giác cần vật đang tác động). Tr.67."
   },
   {
-    "id": 215,
+    "id": 305,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6880,9 +9760,9 @@
     "explain": "Biểu tượng vừa trực quan vừa khái quát → trí nhớ ở giai đoạn trung gian. Tr.67-70."
   },
   {
-    "id": 216,
+    "id": 306,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6912,9 +9792,9 @@
     "explain": "Khái quát hóa, trừu tượng hóa là thao tác của TƯ DUY. Tr.67-73."
   },
   {
-    "id": 217,
+    "id": 307,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6944,9 +9824,9 @@
     "explain": "Không có mục đích, không cần ý chí = ghi nhớ không chủ định. Tr.68."
   },
   {
-    "id": 218,
+    "id": 308,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -6976,9 +9856,9 @@
     "explain": "Có chủ định gồm: máy móc / có ý nghĩa. Tr.68."
   },
   {
-    "id": 219,
+    "id": 309,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7008,9 +9888,9 @@
     "explain": "Hiểu bản chất → ghi nhớ có ý nghĩa, bền vững (máy móc dựa liên hệ bề ngoài). Tr.71."
   },
   {
-    "id": 220,
+    "id": 310,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7040,9 +9920,9 @@
     "explain": "Gìn giữ trong học tập = ôn tập. Tr.72."
   },
   {
-    "id": 221,
+    "id": 311,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7072,9 +9952,9 @@
     "explain": "Đối tượng xuất hiện lại = nhận lại (nhớ lại thì vật không còn). Tr.70."
   },
   {
-    "id": 222,
+    "id": 312,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7104,9 +9984,9 @@
     "explain": "Nhớ lại là khâu cuối cùng, là tiêu chuẩn đánh giá (không phải nhận lại). Tr.73."
   },
   {
-    "id": 223,
+    "id": 313,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7136,9 +10016,9 @@
     "explain": "Nhớ lại có chủ định, cần nỗ lực ý chí = hồi tưởng (hồi ức thì gắn không – thời gian). Tr.73."
   },
   {
-    "id": 224,
+    "id": 314,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.15",
@@ -7168,9 +10048,9 @@
     "explain": "Không nhận/nhớ lại được khi cần = sự quên. Tr.74."
   },
   {
-    "id": 225,
+    "id": 315,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7200,9 +10080,9 @@
     "explain": "Tài liệu rời rạc, không khái quát → ghi nhớ máy móc hữu ích. Tr.71."
   },
   {
-    "id": 226,
+    "id": 316,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7232,9 +10112,9 @@
     "explain": "Hiểu bản chất, bền vững → ghi nhớ có ý nghĩa. Tr.71."
   },
   {
-    "id": 227,
+    "id": 317,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7264,9 +10144,9 @@
     "explain": "Đối tượng xuất hiện trước mặt nhưng nhận không đúng = nhận lại sai. Tr.70."
   },
   {
-    "id": 228,
+    "id": 318,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7296,9 +10176,9 @@
     "explain": "Nhớ lại gắn với không gian – thời gian xác định = hồi ức (hồi tưởng chỉ cần nỗ lực ý chí). Tr.73."
   },
   {
-    "id": 229,
+    "id": 319,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7328,9 +10208,9 @@
     "explain": "Quên cái tiểu tiết, vụn vặt trước; cái đại thể, chính yếu sau. Tr.74."
   },
   {
-    "id": 230,
+    "id": 320,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7360,9 +10240,9 @@
     "explain": "Đầu quên nhanh, sau chậm dần (so kỹ với C). Tr.74."
   },
   {
-    "id": 231,
+    "id": 321,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7392,9 +10272,9 @@
     "explain": "Nhớ lại không cần tri giác lại = gìn giữ tích cực (tiêu cực thì tri giác đi tri giác lại). Tr.72."
   },
   {
-    "id": 232,
+    "id": 322,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7424,9 +10304,9 @@
     "explain": "Ôn ngay, xen kẽ, rải rác, có nghỉ ngơi. Tr.72."
   },
   {
-    "id": 233,
+    "id": 323,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.25",
@@ -7456,9 +10336,9 @@
     "explain": "Bỗng nhớ lại sau thời gian dài không nhớ = sực nhớ. Tr.74."
   },
   {
-    "id": 234,
+    "id": 324,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7488,9 +10368,9 @@
     "explain": "Nhận lại đơn giản (có vật trước mặt); nhớ lại tái hiện khi vật vắng → tiêu chuẩn đánh giá. Tr.70-73."
   },
   {
-    "id": 235,
+    "id": 325,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7520,9 +10400,9 @@
     "explain": "Ghi nhớ có ý nghĩa > máy móc khi cần vận dụng. Tr.71."
   },
   {
-    "id": 236,
+    "id": 326,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7552,9 +10432,9 @@
     "explain": "Không học kế tiếp hai môn tương tự; tổ chức ôn khoa học. Tr.74-75."
   },
   {
-    "id": 237,
+    "id": 327,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7584,9 +10464,9 @@
     "explain": "Quên loại bỏ cái ít liên quan, ít dùng → hợp lý, hữu ích. Tr.74."
   },
   {
-    "id": 238,
+    "id": 328,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7616,9 +10496,9 @@
     "explain": "Quên hoàn toàn (không nhận/nhớ) vs quên cục bộ (vẫn nhận lại được). D bị đảo. Tr.74."
   },
   {
-    "id": 239,
+    "id": 329,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7648,9 +10528,9 @@
     "explain": "Gắn hứng thú + ôn ngay rồi thưa dần (vì giai đoạn đầu quên nhanh). Tr.74-75."
   },
   {
-    "id": 240,
+    "id": 330,
     "chapter": 3,
-    "chapterTitle": "Nhận thức lý tính & Trí nhớ",
+    "chapterTitle": "Hoạt động nhận thức & Trí nhớ",
     "source": "soan",
     "section": "Trí nhớ",
     "level": "0.35",
@@ -7680,7 +10560,7 @@
     "explain": "Có ý nghĩa là chủ yếu, nhưng máy móc vẫn hữu ích cho tài liệu rời rạc. Tr.71."
   },
   {
-    "id": 241,
+    "id": 331,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7712,7 +10592,7 @@
     "explain": "Mác – Ăngghen: \"Trước hết là lao động, sau lao động, đồng thời với lao động là ngôn ngữ\"."
   },
   {
-    "id": 242,
+    "id": 332,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7744,7 +10624,7 @@
     "explain": "Động vật bậc cao báo hiệu bằng âm thanh, nhưng đó không phải là tiếng nói."
   },
   {
-    "id": 243,
+    "id": 333,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7776,7 +10656,7 @@
     "explain": "Ngôn ngữ làm cho hoạt động nhận thức có khả năng tư duy trừu tượng, tư duy khái quát."
   },
   {
-    "id": 244,
+    "id": 334,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7808,7 +10688,7 @@
     "explain": "Ngôn ngữ cùng với lao động là nhân tố quan trọng hình thành ý thức con người."
   },
   {
-    "id": 245,
+    "id": 335,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7840,7 +10720,7 @@
     "explain": "Ngôn ngữ làm hoạt động nhận thức phát triển và góp phần hình thành mối quan hệ người – người."
   },
   {
-    "id": 246,
+    "id": 336,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7872,7 +10752,7 @@
     "explain": "Giao tiếp là sự tiếp xúc tâm lý giữa người với người, qua đó trao đổi thông tin, cảm xúc, ảnh hưởng lẫn nhau."
   },
   {
-    "id": 247,
+    "id": 337,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7904,7 +10784,7 @@
     "explain": "Giao tiếp là sự tác động song phương, đa chiều – không phải một chiều."
   },
   {
-    "id": 248,
+    "id": 338,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7936,7 +10816,7 @@
     "explain": "Đây là đặc điểm giao tiếp là sự tác động giữa chủ thể với chủ thể – song phương, đa chiều."
   },
   {
-    "id": 249,
+    "id": 339,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -7968,7 +10848,7 @@
     "explain": "Tính phổ biến: mọi người đều có nhu cầu giao tiếp, giao tiếp có mặt trong hầu hết hoạt động sống."
   },
   {
-    "id": 250,
+    "id": 340,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8000,7 +10880,7 @@
     "explain": "Cả hai đều là chủ thể tương tác tích cực, chủ động – tác động song phương, đa chiều."
   },
   {
-    "id": 251,
+    "id": 341,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8032,7 +10912,7 @@
     "explain": "6 chức năng: thông tin hai chiều; tổ chức – điều khiển – phối hợp hành động; điều khiển – điều chỉnh hành vi; xúc cảm; nhận thức – đánh giá lẫn nhau; giáo dục – phát triển nhân cách."
   },
   {
-    "id": 252,
+    "id": 342,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8064,7 +10944,7 @@
     "explain": "Chức năng thông tin hai chiều thể hiện qua truyền tin và nhận tin (message – feedback)."
   },
   {
-    "id": 253,
+    "id": 343,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8096,7 +10976,7 @@
     "explain": "Chức năng tổ chức, điều khiển, phối hợp hành động giúp nhóm phối hợp đạt mục tiêu chung."
   },
   {
-    "id": 254,
+    "id": 344,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8128,7 +11008,7 @@
     "explain": "Chức năng xúc cảm – cũng là một con đường hình thành tình cảm của con người."
   },
   {
-    "id": 255,
+    "id": 345,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8160,7 +11040,7 @@
     "explain": "Chức năng thông tin hai chiều – mỗi người vừa phát vừa thu thông tin."
   },
   {
-    "id": 256,
+    "id": 346,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8192,7 +11072,7 @@
     "explain": "Chức năng điều khiển, điều chỉnh hành vi – tác động đến động cơ, mục đích, quyết định và hành động của người khác."
   },
   {
-    "id": 257,
+    "id": 347,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8224,7 +11104,7 @@
     "explain": "Chức năng giáo dục và phát triển nhân cách – đặc biệt các phẩm chất đạo đức được hình thành, phát triển."
   },
   {
-    "id": 258,
+    "id": 348,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8256,7 +11136,7 @@
     "explain": "Nhận thức tri thức tự nhiên – xã hội, tự nhận thức bản thân và nhận thức người khác = chức năng nhận thức và đánh giá lẫn nhau."
   },
   {
-    "id": 259,
+    "id": 349,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8288,7 +11168,7 @@
     "explain": "Thỏa mãn nhu cầu xúc cảm, tình cảm và hình thành tình cảm = chức năng xúc cảm."
   },
   {
-    "id": 260,
+    "id": 350,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8320,7 +11200,7 @@
     "explain": "Ngôn ngữ được chia thành ngôn ngữ nói và ngôn ngữ viết."
   },
   {
-    "id": 261,
+    "id": 351,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8352,7 +11232,7 @@
     "explain": "Ngôn ngữ không phải là một thứ tĩnh, nó phát triển và thay đổi mỗi ngày."
   },
   {
-    "id": 262,
+    "id": 352,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8384,7 +11264,7 @@
     "explain": "Yêu cầu quan trọng nhất: sự rõ ràng về phát âm, nội dung và khả năng tiếp cận ý nghĩ."
   },
   {
-    "id": 263,
+    "id": 353,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8416,7 +11296,7 @@
     "explain": "Qua giọng nói có thể nhận biết giới tính, tuổi tác, quê quán và cả trình độ học vấn."
   },
   {
-    "id": 264,
+    "id": 354,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8448,7 +11328,7 @@
     "explain": "Phát âm: âm vực chuẩn, tròn vành rõ chữ, không méo tiếng, không nhầm lẫn giữa các âm."
   },
   {
-    "id": 265,
+    "id": 355,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8480,7 +11360,7 @@
     "explain": "Tốc độ: trong khi giao tiếp, tốc độ hoàn toàn phụ thuộc vào người nghe."
   },
   {
-    "id": 266,
+    "id": 356,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8512,7 +11392,7 @@
     "explain": "Điểm nhấn: một là độ (kéo dài âm lượng), hai là cường độ (tập trung năng lượng vào một từ một cách mạnh mẽ, dứt khoát)."
   },
   {
-    "id": 267,
+    "id": 357,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8544,7 +11424,7 @@
     "explain": "Lắng nghe mới là yếu tố quyết định thành công của cuộc giao tiếp, còn quan trọng hơn cả việc nói."
   },
   {
-    "id": 268,
+    "id": 358,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8576,7 +11456,7 @@
     "explain": "Nghệ thuật giao tiếp để thành công phải xuất phát từ sự chân thành, tử tế và phẩm chất lương thiện."
   },
   {
-    "id": 269,
+    "id": 359,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8608,7 +11488,7 @@
     "explain": "Phải nắm bắt tâm lý đối phương, hiểu ngôn ngữ cơ thể để có sự tương tác phù hợp."
   },
   {
-    "id": 270,
+    "id": 360,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8640,7 +11520,7 @@
     "explain": "Quy tắc 7 – 38 – 55: ngôn ngữ 7%, giọng điệu 38%, phi ngôn từ 55%."
   },
   {
-    "id": 271,
+    "id": 361,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8672,7 +11552,7 @@
     "explain": "Giọng điệu chiếm 38%."
   },
   {
-    "id": 272,
+    "id": 362,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8704,7 +11584,7 @@
     "explain": "Phi ngôn từ chiếm 55% – là yếu tố quan trọng nhất."
   },
   {
-    "id": 273,
+    "id": 363,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8736,7 +11616,7 @@
     "explain": "Phi ngôn từ: cử chỉ, hành động của cơ thể, nét mặt, điệu bộ, khoảng cách giao tiếp (theo Charles Robert Darwin)."
   },
   {
-    "id": 274,
+    "id": 364,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8768,7 +11648,7 @@
     "explain": "6 cảm xúc: vui, buồn, ngạc nhiên, sợ hãi, tức giận, căm ghét."
   },
   {
-    "id": 275,
+    "id": 365,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8800,7 +11680,7 @@
     "explain": "6 cảm xúc cơ bản trên nét mặt: vui, buồn, ngạc nhiên, sợ hãi, tức giận, căm ghét."
   },
   {
-    "id": 276,
+    "id": 366,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8832,7 +11712,7 @@
     "explain": "Đôi mắt chuyển tải lượng thông tin lớn nhất 83% và có sức truyền cảm lớn nhất."
   },
   {
-    "id": 277,
+    "id": 367,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8864,7 +11744,7 @@
     "explain": "Thông tin qua mắt là 83%, qua tai là 11%."
   },
   {
-    "id": 278,
+    "id": 368,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8896,7 +11776,7 @@
     "explain": "Dây thần kinh từ mắt lên não nhiều gấp 25 lần dây thần kinh từ tai lên não."
   },
   {
-    "id": 279,
+    "id": 369,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8928,7 +11808,7 @@
     "explain": "Đôi mắt là \"cửa sổ tâm hồn\", là yếu tố bộc lộ rõ nhất cảm xúc của con người."
   },
   {
-    "id": 280,
+    "id": 370,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8960,7 +11840,7 @@
     "explain": "Nguyên tắc: luôn để tay trong khoảng từ trên thắt lưng và dưới cằm."
   },
   {
-    "id": 281,
+    "id": 371,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -8992,7 +11872,7 @@
     "explain": "Đứng trụ lên chân trước và dồn 80% trọng lượng cơ thể vào chân trụ."
   },
   {
-    "id": 282,
+    "id": 372,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9024,7 +11904,7 @@
     "explain": "Thân thiện: < 1m."
   },
   {
-    "id": 283,
+    "id": 373,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9056,7 +11936,7 @@
     "explain": "Riêng tư: < 1.5m."
   },
   {
-    "id": 284,
+    "id": 374,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9088,7 +11968,7 @@
     "explain": "Xã giao: < 4m."
   },
   {
-    "id": 285,
+    "id": 375,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9120,7 +12000,7 @@
     "explain": "Công cộng: > 4m."
   },
   {
-    "id": 286,
+    "id": 376,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9152,7 +12032,7 @@
     "explain": "Phi ngôn từ mang tính đa kênh (nhìn, nghe, cảm nhận, ngửi, nếm cùng lúc) – không phải một kênh duy nhất."
   },
   {
-    "id": 287,
+    "id": 377,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9184,7 +12064,7 @@
     "explain": "Khác với lời nói (kết thúc khi âm thanh kết thúc), giao tiếp cơ thể kéo dài cho tới khi đối phương còn trong tầm mắt của bạn."
   },
   {
-    "id": 288,
+    "id": 378,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9216,7 +12096,7 @@
     "explain": "6 trạng thái tâm lý chung ở mọi nền văn hóa: hạnh phúc, buồn khổ, giận dữ, sợ hãi, ghét, ngạc nhiên."
   },
   {
-    "id": 289,
+    "id": 379,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9248,7 +12128,7 @@
     "explain": "Hành vi, cử chỉ phù hợp với địa phương này nhưng ngược lại ở nơi khác."
   },
   {
-    "id": 290,
+    "id": 380,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9280,7 +12160,7 @@
     "explain": "Di chuyển theo hình tam giác, đảo sang hai góc, lùi lại / tiến lên để tạo tương tác với khán giả."
   },
   {
-    "id": 291,
+    "id": 381,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9312,7 +12192,7 @@
     "explain": "Khuôn mặt là nguồn thông tin quan trọng nhất để biểu đạt tình cảm, thái độ và tính cách."
   },
   {
-    "id": 292,
+    "id": 382,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9344,7 +12224,7 @@
     "explain": "Nụ cười được xem là trang sức trong giao tiếp, một dấu hiệu mạnh mẽ giúp truyền tải sự vui vẻ thân thiện."
   },
   {
-    "id": 293,
+    "id": 383,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9376,7 +12256,7 @@
     "explain": "Dấu hiệu không thoải mái khi bị xâm phạm không gian: đu đưa, móc chân, ngoáy tay, quấn lấy, nhìn chằm chằm..."
   },
   {
-    "id": 294,
+    "id": 384,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9408,7 +12288,7 @@
     "explain": "Phi ngôn từ có chức năng điều tiết – cơ thể là một thể thống nhất."
   },
   {
-    "id": 295,
+    "id": 385,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9440,7 +12320,7 @@
     "explain": "Tốc độ bước giống giọng nói: bước mạnh → giọng mạnh; bước nhẹ → giọng nhẹ nhàng, khoan thai."
   },
   {
-    "id": 296,
+    "id": 386,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9472,7 +12352,7 @@
     "explain": "Trang phục là ấn tượng đầu tiên khi ra mắt nhà tuyển dụng, phản ánh nghề nghiệp – địa vị và tạo niềm tin."
   },
   {
-    "id": 297,
+    "id": 387,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9504,7 +12384,7 @@
     "explain": "Người mới quen, khoảng 3m (< 4m), vừa một tầm bắt tay = khoảng cách xã giao."
   },
   {
-    "id": 298,
+    "id": 388,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9536,7 +12416,7 @@
     "explain": "Với người yêu, người thân mà khoảng cách quá xa thì tạo nên sự xa cách."
   },
   {
-    "id": 299,
+    "id": 389,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9568,7 +12448,7 @@
     "explain": "Phi ngôn từ luôn có giá trị giao tiếp cao – cử chỉ, nụ cười làm buổi thuyết trình khác hẳn so với đọc bài đều đều."
   },
   {
-    "id": 300,
+    "id": 390,
     "chapter": 4,
     "chapterTitle": "Ngôn ngữ và Giao tiếp",
     "source": "soan",
@@ -9600,7 +12480,7 @@
     "explain": "Chạm vào cổ tay áo hay đồng hồ: đang tự làm dịu đi tâm trạng lo lắng."
   },
   {
-    "id": 301,
+    "id": 391,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9632,7 +12512,7 @@
     "explain": "\"Cá nhân\" = một con người cụ thể, cá thể người nhỏ nhất, thành viên xã hội."
   },
   {
-    "id": 302,
+    "id": 392,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9664,7 +12544,7 @@
     "explain": "Đây là định nghĩa nhân cách được nhiều nhà nghiên cứu VN chấp nhận."
   },
   {
-    "id": 303,
+    "id": 393,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9696,7 +12576,7 @@
     "explain": "Cá tính nhấn mạnh nét riêng biệt, không lặp lại."
   },
   {
-    "id": 304,
+    "id": 394,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9728,7 +12608,7 @@
     "explain": "\"Chủ thể\" nhấn mạnh vai trò làm chủ trong quan hệ với khách thể."
   },
   {
-    "id": 305,
+    "id": 395,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9760,7 +12640,7 @@
     "explain": "Con người vừa mang đặc điểm sinh học, vừa mang dấu ấn văn hóa – xã hội."
   },
   {
-    "id": 306,
+    "id": 396,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9792,7 +12672,7 @@
     "explain": "Nhấn mạnh \"một con người cụ thể, thành viên xã hội, phân biệt với người khác\" → cá nhân."
   },
   {
-    "id": 307,
+    "id": 397,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9824,7 +12704,7 @@
     "explain": "Nét riêng biệt, không lặp lại → cá tính."
   },
   {
-    "id": 308,
+    "id": 398,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9856,7 +12736,7 @@
     "explain": "Nhân cách hình thành, phát triển qua hoạt động và giao tiếp."
   },
   {
-    "id": 309,
+    "id": 399,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9888,7 +12768,7 @@
     "explain": "Ba mức độ: nội cá nhân, liên cá nhân, siêu cá nhân."
   },
   {
-    "id": 310,
+    "id": 400,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9920,7 +12800,7 @@
     "explain": "Mức độ bên trong cá nhân = nội cá nhân."
   },
   {
-    "id": 311,
+    "id": 401,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9952,7 +12832,7 @@
     "explain": "Liên cá nhân = trong các mối quan hệ liên cá nhân."
   },
   {
-    "id": 312,
+    "id": 402,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -9984,7 +12864,7 @@
     "explain": "Siêu cá nhân biểu hiện qua hoạt động & sản phẩm, để lại dấu ấn xã hội."
   },
   {
-    "id": 313,
+    "id": 403,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10016,7 +12896,7 @@
     "explain": "Các nét thể hiện trong quan hệ với người khác → liên cá nhân."
   },
   {
-    "id": 314,
+    "id": 404,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10048,7 +12928,7 @@
     "explain": "Bốn: ổn định, thống nhất, giao lưu, tích cực."
   },
   {
-    "id": 315,
+    "id": 405,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10080,7 +12960,7 @@
     "explain": "Tính ổn định giúp phân biệt và dự đoán hành vi."
   },
   {
-    "id": 316,
+    "id": 406,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10112,7 +12992,7 @@
     "explain": "Trong tính ổn định, nhân cách vẫn có thể biến đổi (khả biến)."
   },
   {
-    "id": 317,
+    "id": 407,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10144,7 +13024,7 @@
     "explain": "Các thuộc tính tạo thành một hệ thống → tính thống nhất."
   },
   {
-    "id": 318,
+    "id": 408,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10176,7 +13056,7 @@
     "explain": "Tính giao lưu — qua giao lưu cá nhân gia nhập quan hệ xã hội."
   },
   {
-    "id": 319,
+    "id": 409,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10208,7 +13088,7 @@
     "explain": "Tính tích cực thể hiện qua việc thể hiện bản thân, cải tạo thế giới & bản thân."
   },
   {
-    "id": 320,
+    "id": 410,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10240,7 +13120,7 @@
     "explain": "Bền vững, khó thay đổi theo thời gian → tính ổn định."
   },
   {
-    "id": 321,
+    "id": 411,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10272,7 +13152,7 @@
     "explain": "Đổi một nét kéo theo cả hệ thống → tính thống nhất."
   },
   {
-    "id": 322,
+    "id": 412,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10304,7 +13184,7 @@
     "explain": "Qua giao lưu được người khác đánh giá, thừa nhận."
   },
   {
-    "id": 323,
+    "id": 413,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10336,7 +13216,7 @@
     "explain": "Đa nhân cách là dạng phân ly nhân cách điển hình."
   },
   {
-    "id": 324,
+    "id": 414,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10368,7 +13248,7 @@
     "explain": "Chiều thứ ba là \"phân ly\" nhân cách."
   },
   {
-    "id": 325,
+    "id": 415,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10400,7 +13280,7 @@
     "explain": "Nhân cách ổn định nhưng KHÔNG bất biến → đáp án này sai."
   },
   {
-    "id": 326,
+    "id": 416,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10432,7 +13312,7 @@
     "explain": "Xu hướng = hệ thống thúc đẩy quy định tính lựa chọn."
   },
   {
-    "id": 327,
+    "id": 417,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10464,7 +13344,7 @@
     "explain": "Nhu cầu là nền tảng tạo ra xu hướng."
   },
   {
-    "id": 328,
+    "id": 418,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10496,7 +13376,7 @@
     "explain": "Đây là định nghĩa niềm tin."
   },
   {
-    "id": 329,
+    "id": 419,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10528,7 +13408,7 @@
     "explain": "Khí chất thuộc phong cách hành vi, không thuộc xu hướng."
   },
   {
-    "id": 330,
+    "id": 420,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10560,7 +13440,7 @@
     "explain": "Trạng thái thiếu hụt, thôi thúc cần thỏa mãn → nhu cầu."
   },
   {
-    "id": 331,
+    "id": 421,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10592,7 +13472,7 @@
     "explain": "Thế giới quan cho con người bức tranh tổng thể về thế giới."
   },
   {
-    "id": 332,
+    "id": 422,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10624,7 +13504,7 @@
     "explain": "Đây là định nghĩa năng lực."
   },
   {
-    "id": 333,
+    "id": 423,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10656,7 +13536,7 @@
     "explain": "Những năng lực cần cho nhiều hoạt động → năng lực chung."
   },
   {
-    "id": 334,
+    "id": 424,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10688,7 +13568,7 @@
     "explain": "Phù hợp một lĩnh vực chuyên biệt → năng lực chuyên môn/riêng."
   },
   {
-    "id": 335,
+    "id": 425,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10720,7 +13600,7 @@
     "explain": "Năng lực là tiền đề và đồng thời được hình thành qua hoạt động."
   },
   {
-    "id": 336,
+    "id": 426,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10752,7 +13632,7 @@
     "explain": "Cần cho nhiều hoạt động khác nhau → năng lực chung."
   },
   {
-    "id": 337,
+    "id": 427,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10784,7 +13664,7 @@
     "explain": "Phong cách hành vi do tính cách & khí chất quy định."
   },
   {
-    "id": 338,
+    "id": 428,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10816,7 +13696,7 @@
     "explain": "Tính cách = hệ thống thái độ + hệ thống hành vi, cách nói năng."
   },
   {
-    "id": 339,
+    "id": 429,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10848,7 +13728,7 @@
     "explain": "Hành vi → thói quen → tính cách → \"số phận\" → nhân cách."
   },
   {
-    "id": 340,
+    "id": 430,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10880,7 +13760,7 @@
     "explain": "Thái độ với xã hội, người khác, lao động → hệ thống thái độ."
   },
   {
-    "id": 341,
+    "id": 431,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10912,7 +13792,7 @@
     "explain": "Người bình thường luôn có cả nét tích cực lẫn tiêu cực."
   },
   {
-    "id": 342,
+    "id": 432,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10944,7 +13824,7 @@
     "explain": "Đây là định nghĩa khí chất (tính khí)."
   },
   {
-    "id": 343,
+    "id": 433,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -10976,7 +13856,7 @@
     "explain": "Bốn: hăng hái, nóng nảy, bình thản, ưu tư."
   },
   {
-    "id": 344,
+    "id": 434,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11008,7 +13888,7 @@
     "explain": "Linh hoạt, quan hệ rộng nhưng dễ đổi, thiếu sâu → hăng hái."
   },
   {
-    "id": 345,
+    "id": 435,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11040,7 +13920,7 @@
     "explain": "Mạnh mẽ, táo bạo + hấp tấp, dễ cọc → nóng nảy."
   },
   {
-    "id": 346,
+    "id": 436,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11072,7 +13952,7 @@
     "explain": "Ổn định, nguyên tắc + chậm, bảo thủ → bình thản."
   },
   {
-    "id": 347,
+    "id": 437,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11104,7 +13984,7 @@
     "explain": "Nhạy cảm, rụt rè, dễ tổn thương → ưu tư."
   },
   {
-    "id": 348,
+    "id": 438,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11136,7 +14016,7 @@
     "explain": "Nóng nảy = mạnh, không cân bằng."
   },
   {
-    "id": 349,
+    "id": 439,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11168,7 +14048,7 @@
     "explain": "Ưu tư ứng với kiểu thần kinh yếu."
   },
   {
-    "id": 350,
+    "id": 440,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11200,7 +14080,7 @@
     "explain": "Mỗi khí chất đều có ưu & nhược; không loại nào hoàn toàn tốt/xấu."
   },
   {
-    "id": 351,
+    "id": 441,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11232,7 +14112,7 @@
     "explain": "Khí chất quy định sắc thái về cường độ, tốc độ, nhịp độ."
   },
   {
-    "id": 352,
+    "id": 442,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11264,7 +14144,7 @@
     "explain": "Hệ thống điều khiển = \"Cái tôi\", cấu tạo tự ý thức."
   },
   {
-    "id": 353,
+    "id": 443,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11296,7 +14176,7 @@
     "explain": "\"Cái tôi\" tự ý thức, tự điều chỉnh, tự kiểm tra hành vi."
   },
   {
-    "id": 354,
+    "id": 444,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11328,7 +14208,7 @@
     "explain": "Cấu trúc \"Đức – Tài\" = phẩm chất – năng lực."
   },
   {
-    "id": 355,
+    "id": 445,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11360,7 +14240,7 @@
     "explain": "Đây là phẩm chất xã hội (đạo đức – chính trị) thuộc mặt Đức."
   },
   {
-    "id": 356,
+    "id": 446,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11392,7 +14272,7 @@
     "explain": "Năng lực giao tiếp thuộc mặt Tài."
   },
   {
-    "id": 357,
+    "id": 447,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11424,7 +14304,7 @@
     "explain": "Bẩm sinh – di truyền là tiền đề vật chất."
   },
   {
-    "id": 358,
+    "id": 448,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11456,7 +14336,7 @@
     "explain": "Giáo dục giữ vai trò chủ đạo."
   },
   {
-    "id": 359,
+    "id": 449,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11488,7 +14368,7 @@
     "explain": "Hoạt động & giao tiếp quyết định trực tiếp."
   },
   {
-    "id": 360,
+    "id": 450,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11520,7 +14400,7 @@
     "explain": "Môi trường là điều kiện xã hội cần thiết."
   },
   {
-    "id": 361,
+    "id": 451,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11552,7 +14432,7 @@
     "explain": "Di truyền KHÔNG quyết định, chỉ là tiền đề → đáp án này sai."
   },
   {
-    "id": 362,
+    "id": 452,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11584,7 +14464,7 @@
     "explain": "Di truyền chỉ là tiền đề; hoạt động (rèn luyện) mới quyết định trực tiếp."
   },
   {
-    "id": 363,
+    "id": 453,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11616,7 +14496,7 @@
     "explain": "Tự giáo dục giữ vị trí chủ đạo ở người trưởng thành."
   },
   {
-    "id": 364,
+    "id": 454,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11648,7 +14528,7 @@
     "explain": "Tùy yếu tố tự giáo dục trên cơ sở tự nhận thức, tự đánh giá."
   },
   {
-    "id": 365,
+    "id": 455,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11680,7 +14560,7 @@
     "explain": "Chủ yếu qua dạy học, giáo dục, tự giáo dục; di truyền là tiền đề, không phải \"con đường\"."
   },
   {
-    "id": 366,
+    "id": 456,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11712,7 +14592,7 @@
     "explain": "Giáo dục gia đình ảnh hưởng quyết định ở lứa tuổi này."
   },
   {
-    "id": 367,
+    "id": 457,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11744,7 +14624,7 @@
     "explain": "Di truyền không mang sẵn sắc thái nhân cách."
   },
   {
-    "id": 368,
+    "id": 458,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11776,7 +14656,7 @@
     "explain": "Tận dụng tập thể học sinh như công cụ giáo dục đặc biệt."
   },
   {
-    "id": 369,
+    "id": 459,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11808,7 +14688,7 @@
     "explain": "Đây là định nghĩa ý chí."
   },
   {
-    "id": 370,
+    "id": 460,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11840,7 +14720,7 @@
     "explain": "Ý chí mang tính xã hội – lịch sử, không tách rời hành động."
   },
   {
-    "id": 371,
+    "id": 461,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11872,7 +14752,7 @@
     "explain": "Nỗ lực vượt khó để đạt mục đích = ý chí."
   },
   {
-    "id": 372,
+    "id": 462,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11904,7 +14784,7 @@
     "explain": "Ý chí không tách rời nhận thức và xúc cảm."
   },
   {
-    "id": 373,
+    "id": 463,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11936,7 +14816,7 @@
     "explain": "Ý chí nảy sinh trong quá trình lao động và hoạt động."
   },
   {
-    "id": 374,
+    "id": 464,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -11968,7 +14848,7 @@
     "explain": "Đây là tính mục đích của ý chí."
   },
   {
-    "id": 375,
+    "id": 465,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12000,7 +14880,7 @@
     "explain": "Đây là tính quyết đoán."
   },
   {
-    "id": 376,
+    "id": 466,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12032,7 +14912,7 @@
     "explain": "Đây là tính độc lập của ý chí."
   },
   {
-    "id": 377,
+    "id": 467,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12064,7 +14944,7 @@
     "explain": "Đây là tính kiên cường (kiên trì)."
   },
   {
-    "id": 378,
+    "id": 468,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12096,7 +14976,7 @@
     "explain": "Đây là tính tự chủ (tự kiềm chế)."
   },
   {
-    "id": 379,
+    "id": 469,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12128,7 +15008,7 @@
     "explain": "Không bị tác động bên ngoài chi phối, theo niềm tin bản thân → tính độc lập."
   },
   {
-    "id": 380,
+    "id": 470,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12160,7 +15040,7 @@
     "explain": "Bền bỉ vượt khó lâu dài → tính kiên cường/kiên trì."
   },
   {
-    "id": 381,
+    "id": 471,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12192,7 +15072,7 @@
     "explain": "Kiểm soát cảm xúc, làm chủ bản thân → tính tự chủ."
   },
   {
-    "id": 382,
+    "id": 472,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12224,7 +15104,7 @@
     "explain": "Quyết định kịp thời, dứt khoát → tính quyết đoán."
   },
   {
-    "id": 383,
+    "id": 473,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12256,7 +15136,7 @@
     "explain": "Độc lập (theo niềm tin có cơ sở) khác bướng bỉnh (cố chấp vô lý)."
   },
   {
-    "id": 384,
+    "id": 474,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12288,7 +15168,7 @@
     "explain": "Đây là định nghĩa hành động ý chí."
   },
   {
-    "id": 385,
+    "id": 475,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12320,7 +15200,7 @@
     "explain": "Bốn: Chuẩn bị – Quyết định – Thực hiện – Đánh giá."
   },
   {
-    "id": 386,
+    "id": 476,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12352,7 +15232,7 @@
     "explain": "Đúng thứ tự: Chuẩn bị → Quyết định → Thực hiện → Đánh giá."
   },
   {
-    "id": 387,
+    "id": 477,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12384,7 +15264,7 @@
     "explain": "Đây là nội dung của giai đoạn chuẩn bị."
   },
   {
-    "id": 388,
+    "id": 478,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12416,7 +15296,7 @@
     "explain": "Đối chiếu kết quả với mục đích → giai đoạn đánh giá."
   },
   {
-    "id": 389,
+    "id": 479,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12448,7 +15328,7 @@
     "explain": "Giai đoạn thực hiện gồm hành động ý chí bên ngoài & bên trong."
   },
   {
-    "id": 390,
+    "id": 480,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12480,7 +15360,7 @@
     "explain": "Đây là định nghĩa hành động tự động hóa."
   },
   {
-    "id": 391,
+    "id": 481,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12512,7 +15392,7 @@
     "explain": "Hai loại: kỹ xảo và thói quen."
   },
   {
-    "id": 392,
+    "id": 482,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12544,7 +15424,7 @@
     "explain": "Đây là định nghĩa kỹ xảo."
   },
   {
-    "id": 393,
+    "id": 483,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12576,7 +15456,7 @@
     "explain": "\"Gắn nhu cầu, nếp sống\" là đặc điểm của thói quen, không phải kỹ xảo."
   },
   {
-    "id": 394,
+    "id": 484,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12608,7 +15488,7 @@
     "explain": "Bốn: tiến bộ không đồng đều, \"đỉnh\" PP, tác động qua lại cũ – mới, dập tắt."
   },
   {
-    "id": 395,
+    "id": 485,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12640,7 +15520,7 @@
     "explain": "Tiến bộ nhanh – chậm không đều → quy luật tiến bộ không đồng đều."
   },
   {
-    "id": 396,
+    "id": 486,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12672,7 +15552,7 @@
     "explain": "Mỗi PP có giới hạn (\"đỉnh\"); muốn cao hơn phải đổi PP."
   },
   {
-    "id": 397,
+    "id": 487,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12704,7 +15584,7 @@
     "explain": "Kỹ xảo cũ cản trở kỹ xảo mới = \"giao thoa\" (tiêu cực)."
   },
   {
-    "id": 398,
+    "id": 488,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12736,7 +15616,7 @@
     "explain": "Kỹ xảo cũ hỗ trợ hình thành kỹ xảo mới → ảnh hưởng tích cực."
   },
   {
-    "id": 399,
+    "id": 489,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12768,7 +15648,7 @@
     "explain": "Không luyện tập, củng cố → kỹ xảo yếu dần, mất hẳn = dập tắt."
   },
   {
-    "id": 400,
+    "id": 490,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12800,7 +15680,7 @@
     "explain": "Kỹ xảo: đúng/sai về thao tác. Thói quen: tốt/xấu về đạo đức."
   },
   {
-    "id": 401,
+    "id": 491,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12832,7 +15712,7 @@
     "explain": "Xúc cảm – tình cảm là sự phản ánh hiện thực khách quan, biểu thị thái độ rung cảm của con người với sự vật, hiện tượng có liên quan đến nhu cầu, động cơ của chính cá nhân đó."
   },
   {
-    "id": 402,
+    "id": 492,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12864,7 +15744,7 @@
     "explain": "Giống nhau: đều phản ánh hiện thực khách quan và đều phản ánh mối quan hệ giữa sự vật–hiện tượng với sự thỏa mãn nhu cầu. Các phương án còn lại là dấu hiệu KHÁC nhau."
   },
   {
-    "id": 403,
+    "id": 493,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12896,7 +15776,7 @@
     "explain": "Xúc cảm là một quá trình tâm lý (nhất thời); tình cảm là một thuộc tính tâm lý (ổn định)."
   },
   {
-    "id": 404,
+    "id": 494,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12928,7 +15808,7 @@
     "explain": "Xúc cảm: có ở cả người và động vật, tính nhất thời, luôn ở trạng thái hiện thực, xuất hiện trước. Ba dấu hiệu kia thuộc về tình cảm."
   },
   {
-    "id": 405,
+    "id": 495,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12960,7 +15840,7 @@
     "explain": "Tình cảm thực hiện chức năng xã hội (giúp con người định hướng, thích nghi với xã hội với tư cách một nhân cách); còn xúc cảm thực hiện chức năng sinh vật."
   },
   {
-    "id": 406,
+    "id": 496,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -12992,7 +15872,7 @@
     "explain": "Xúc cảm gắn liền với phản xạ KHÔNG điều kiện; tình cảm gắn liền với phản xạ CÓ điều kiện."
   },
   {
-    "id": 407,
+    "id": 497,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13024,7 +15904,7 @@
     "explain": "Xúc cảm xuất hiện trước và luôn ở trạng thái hiện thực; tình cảm xuất hiện sau và thường ở trạng thái tiềm tàng."
   },
   {
-    "id": 408,
+    "id": 498,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13056,7 +15936,7 @@
     "explain": "Tình cảm được hình thành qua khái quát hóa các xúc cảm cùng loại, biểu hiện gián tiếp qua xúc cảm. Quan hệ xúc cảm – tình cảm là quan hệ nhân quả."
   },
   {
-    "id": 409,
+    "id": 499,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13088,7 +15968,7 @@
     "explain": "Rung động trực tiếp, nhất thời tại một tình huống cụ thể = xúc cảm. Thái độ ổn định với cả nhân vật xuyên suốt (một loạt biểu hiện) = tình cảm."
   },
   {
-    "id": 410,
+    "id": 500,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13120,7 +16000,7 @@
     "explain": "Xúc cảm thực hiện chức năng sinh vật: giúp con người (và con vật) định hướng, thích nghi với môi trường bên ngoài với tư cách một cá thể."
   },
   {
-    "id": 411,
+    "id": 501,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13152,7 +16032,7 @@
     "explain": "Đó là xúc cảm: rung động đối với TỪNG sự vật, hiện tượng riêng lẻ, xuất hiện khi phản ứng trực tiếp với tình huống. Tình cảm thì hướng tới “một loạt” sự vật, hiện tượng."
   },
   {
-    "id": 412,
+    "id": 502,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13184,7 +16064,7 @@
     "explain": "Yếu tố nhận thức, sự rung động và phản ứng cảm xúc là ba yếu tố tất yếu làm nảy sinh tình cảm — thể hiện tính nhận thức của tình cảm."
   },
   {
-    "id": 413,
+    "id": 503,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13216,7 +16096,7 @@
     "explain": "Đây là tính nhận thức: nhận thức là “cái lý” của tình cảm, khiến tình cảm có đối tượng xác định."
   },
   {
-    "id": 414,
+    "id": 504,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13248,7 +16128,7 @@
     "explain": "Tính khái quát là đặc điểm đặc trưng của tình cảm: nó hướng tới một loại/phạm trù đối tượng, không phải một sự vật riêng lẻ."
   },
   {
-    "id": 415,
+    "id": 505,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13280,7 +16160,7 @@
     "explain": "Tính ổn định: tình cảm là thuộc tính tâm lý bền vững, khó hình thành và khó mất đi, là một đặc trưng của nhân cách."
   },
   {
-    "id": 416,
+    "id": 506,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13312,7 +16192,7 @@
     "explain": "Tính xã hội: tình cảm hình thành trong môi trường xã hội, do các đối tượng xã hội, khác với phản ứng sinh lý đơn thuần ở động vật."
   },
   {
-    "id": 417,
+    "id": 507,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13344,7 +16224,7 @@
     "explain": "Tính đối cực (hai mặt): tình cảm phát triển theo các cặp đối lập tương ứng với nhu cầu được thỏa mãn hay bị kìm hãm."
   },
   {
-    "id": 418,
+    "id": 508,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13376,7 +16256,7 @@
     "explain": "Tính chân thực: tình cảm phản ánh chân thực nội tâm và thái độ ngay cả khi con người cố che giấu bằng những động tác giả, ngụy trang bên ngoài."
   },
   {
-    "id": 419,
+    "id": 509,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13408,7 +16288,7 @@
     "explain": "Sự bền vững, khó thay đổi của thái độ chính là tính ổn định — tình cảm là kết cấu tâm lý ổn định, khó hình thành và khó mất đi."
   },
   {
-    "id": 420,
+    "id": 510,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13440,7 +16320,7 @@
     "explain": "Giáo trình nêu tính khái quát là “đặc điểm đặc trưng cho tình cảm”, nhất là những tình cảm mang tính thế giới quan."
   },
   {
-    "id": 421,
+    "id": 511,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13472,7 +16352,7 @@
     "explain": "Màu sắc xúc cảm là mức độ thấp nhất — một sắc thái của cảm xúc đi kèm theo quá trình cảm giác."
   },
   {
-    "id": 422,
+    "id": 512,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13504,7 +16384,7 @@
     "explain": "Màu sắc xúc cảm là sắc thái cảm xúc đi kèm theo quá trình cảm giác (ví dụ màu sắc có thể gây phấn khích, kích thích, tĩnh tâm…)."
   },
   {
-    "id": 423,
+    "id": 513,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13536,7 +16416,7 @@
     "explain": "Đó là xúc động: cường độ rất mạnh nhưng ngắn, theo “cơn” (cơn giận, cơn ghen), thường kèm biến đổi cơ thể và mất khả năng làm chủ."
   },
   {
-    "id": 424,
+    "id": 514,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13568,7 +16448,7 @@
     "explain": "Tâm trạng: cường độ trung bình/yếu, kéo dài, bao trùm và ảnh hưởng rõ rệt đến toàn bộ hành vi của cá nhân trong một thời gian dài."
   },
   {
-    "id": 425,
+    "id": 515,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13600,7 +16480,7 @@
     "explain": "Người mang tâm trạng thường không ý thức được nguyên nhân gây ra tâm trạng đó; nguồn gốc tâm trạng có thể gần hoặc xa."
   },
   {
-    "id": 426,
+    "id": 516,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13632,7 +16512,7 @@
     "explain": "Say mê: cường độ mạnh, lâu dài, ổn định. Say mê tích cực (nghệ thuật, khoa học) thúc đẩy con người; say mê tiêu cực (cờ bạc, rượu chè) làm suy yếu con người."
   },
   {
-    "id": 427,
+    "id": 517,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13664,7 +16544,7 @@
     "explain": "Cường độ rất mạnh + thời gian ngắn + theo “cơn” + mất khả năng làm chủ → xúc động, đúng kiểu “cả giận mất khôn”."
   },
   {
-    "id": 428,
+    "id": 518,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13696,7 +16576,7 @@
     "explain": "Cường độ vừa/yếu + kéo dài nhiều ngày + bao trùm mọi hoạt động + không rõ nguyên nhân → tâm trạng."
   },
   {
-    "id": 429,
+    "id": 519,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13728,7 +16608,7 @@
     "explain": "Say mê tiêu cực: đối tượng say mê có ý nghĩa xã hội tiêu cực (cờ bạc, rượu chè), làm con người suy yếu và cản trở sự vươn lên."
   },
   {
-    "id": 430,
+    "id": 520,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13760,7 +16640,7 @@
     "explain": "Tình cảm có tính thế giới quan là mức cao nhất, được diễn đạt bằng “tính”, “lòng”, “tinh thần”: lòng yêu nước, tinh thần trách nhiệm…"
   },
   {
-    "id": 431,
+    "id": 521,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13792,7 +16672,7 @@
     "explain": "Đó là tình cảm hoạt động: thái độ của con người đối với một hoạt động nhất định, liên quan đến việc thỏa mãn hay không nhu cầu khi thực hiện hoạt động đó."
   },
   {
-    "id": 432,
+    "id": 522,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13824,7 +16704,7 @@
     "explain": "Ở mức “xúc cảm”, giáo trình nêu hai dạng: xúc động (mạnh, ngắn) và tâm trạng (vừa/yếu, kéo dài)."
   },
   {
-    "id": 433,
+    "id": 523,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13856,7 +16736,7 @@
     "explain": "Quy luật lây lan: xúc cảm, tình cảm có thể truyền, lây từ người này sang người khác; nền tảng là tính xã hội trong tình cảm. Biểu hiện rõ rệt là “hoảng loạn”."
   },
   {
-    "id": 434,
+    "id": 524,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13888,7 +16768,7 @@
     "explain": "Quy luật lây lan có ý nghĩa lớn trong hoạt động tập thể; trong giáo dục, nó là cơ sở của nguyên tắc giáo dục trong tập thể và bằng tập thể."
   },
   {
-    "id": 435,
+    "id": 525,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13920,7 +16800,7 @@
     "explain": "Tình cảm truyền từ chủ thể này sang chủ thể khác (cười theo) → quy luật lây lan."
   },
   {
-    "id": 436,
+    "id": 526,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13952,7 +16832,7 @@
     "explain": "Lưu ý dễ bẫy: lây lan KHÔNG phải con đường chủ yếu để hình thành tình cảm; con đường hình thành là tổng hợp – động hình – khái quát hóa các xúc cảm (quy luật hình thành)."
   },
   {
-    "id": 437,
+    "id": 527,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -13984,7 +16864,7 @@
     "explain": "Quy luật thích ứng: xúc cảm/tình cảm lặp lại đơn điệu sẽ suy yếu, lắng xuống — hiện tượng “chai sạn”; gây nhàm chán trong đời sống tình cảm."
   },
   {
-    "id": 438,
+    "id": 528,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14016,7 +16896,7 @@
     "explain": "Cảm xúc (sợ) lặp lại nhiều lần bị suy yếu dần → quy luật thích ứng. Đây chính là ví dụ trong giáo trình."
   },
   {
-    "id": 439,
+    "id": 529,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14048,7 +16928,7 @@
     "explain": "Quy luật thích ứng gây ra sự nhàm chán trong đời sống tình cảm và trong quan hệ người–người; muốn tránh phải tạo ra xúc cảm mới."
   },
   {
-    "id": 440,
+    "id": 530,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14080,7 +16960,7 @@
     "explain": "Quy luật tương phản: tác động qua lại giữa tình cảm âm tính và dương tính CÙNG LOẠI; sự xuất hiện/suy yếu của tình cảm này làm tăng/giảm tình cảm kia."
   },
   {
-    "id": 441,
+    "id": 531,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14112,7 +16992,7 @@
     "explain": "Đúng ví dụ giáo trình: tình cảm này (chán nản với bài yếu) làm nổi bật tình cảm kia (hài lòng) khi nối tiếp nhau → quy luật tương phản."
   },
   {
-    "id": 442,
+    "id": 532,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14144,7 +17024,7 @@
     "explain": "Cảm xúc đối lập cùng loại xảy ra nối tiếp làm thay đổi mức độ đánh giá → quy luật tương phản."
   },
   {
-    "id": 443,
+    "id": 533,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14176,7 +17056,7 @@
     "explain": "Quy luật di chuyển: tình cảm di chuyển từ đối tượng này sang đối tượng khác. Cần kiểm soát để tránh “vơ đũa cả nắm”, “giận cá chém thớt”."
   },
   {
-    "id": 444,
+    "id": 534,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14208,7 +17088,7 @@
     "explain": "Tình cảm (bực bội) di chuyển từ đối tượng này (sếp) sang đối tượng khác (vợ con) → quy luật di chuyển, đúng kiểu “giận cá chém thớt”."
   },
   {
-    "id": 445,
+    "id": 535,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14240,7 +17120,7 @@
     "explain": "Quy luật pha trộn: hai xúc cảm/tình cảm đối lập cùng tồn tại, không loại trừ mà quy định lẫn nhau (ghen tuông, lo âu và tự hào…)."
   },
   {
-    "id": 446,
+    "id": 536,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14272,7 +17152,7 @@
     "explain": "Hai tình cảm đối lập (tự hào – lo lắng) cùng tồn tại một lúc trong cùng một người → quy luật pha trộn."
   },
   {
-    "id": 447,
+    "id": 537,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14304,7 +17184,7 @@
     "explain": "Giáo trình xếp ví dụ này vào quy luật pha trộn tình cảm (gian khổ – tự hào hòa quyện)."
   },
   {
-    "id": 448,
+    "id": 538,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14336,7 +17216,7 @@
     "explain": "Quy luật hình thành tình cảm: muốn hình thành tình cảm phải đi từ xúc cảm, đảm bảo sự lặp lại và động hình hóa những xúc cảm đồng loại."
   },
   {
-    "id": 449,
+    "id": 539,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14368,7 +17248,7 @@
     "explain": "Đúng ví dụ giáo trình: khái quát hóa, động hình hóa nhiều xúc cảm đồng loại → hình thành tình cảm. Đây là quy luật hình thành tình cảm."
   },
   {
-    "id": 450,
+    "id": 540,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14400,7 +17280,7 @@
     "explain": "Ba phương án đầu đều là di chuyển tình cảm sang đối tượng khác. Phương án “chấm bài” là quy luật tương phản (cảm xúc đối lập nối tiếp làm nổi bật nhau)."
   },
   {
-    "id": 451,
+    "id": 541,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14432,7 +17312,7 @@
     "explain": "Mẹo phân biệt: tương phản = cái này làm nổi bật cái kia (so sánh, đối chiếu); pha trộn = hai cảm xúc đối lập đồng thời hòa quyện, quy định lẫn nhau (vừa… vừa…)."
   },
   {
-    "id": 452,
+    "id": 542,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14464,7 +17344,7 @@
     "explain": "Tình cảm là mặt tập trung nhất, đậm nét nhất của nhân cách con người."
   },
   {
-    "id": 453,
+    "id": 543,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14496,7 +17376,7 @@
     "explain": "Tình cảm là nguồn động lực mạnh mẽ kích thích con người tìm tòi chân lý; ngược lại, nhận thức là “cái lý” chỉ đạo tình cảm — tình và lý là hai mặt thống nhất."
   },
   {
-    "id": 454,
+    "id": 544,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14528,7 +17408,7 @@
     "explain": "Trong giáo dục, xúc cảm – tình cảm vừa là điều kiện, vừa là phương tiện, đồng thời là nội dung và mục đích của giáo dục."
   },
   {
-    "id": 455,
+    "id": 545,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14560,7 +17440,7 @@
     "explain": "Đây là vai trò đối với đời sống: thiếu cảm xúc, con người không thể tồn tại bình thường; tình cảm thúc đẩy con người vượt qua khó khăn."
   },
   {
-    "id": 456,
+    "id": 546,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14592,7 +17472,7 @@
     "explain": "Tâm lý học Mác-xít coi con người là chủ thể tích cực, hành vi luôn có mục đích, không chỉ tồn tại mà còn cải tạo môi trường để phát triển."
   },
   {
-    "id": 457,
+    "id": 547,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14624,7 +17504,7 @@
     "explain": "Có ít nhất ba góc độ: chuẩn mực thống kê, chuẩn mực hướng dẫn/quy ước, và chuẩn mực chức năng."
   },
   {
-    "id": 458,
+    "id": 548,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14656,7 +17536,7 @@
     "explain": "Đó là chuẩn mực xét về mặt thống kê: dựa trên hành vi của đại đa số thành viên."
   },
   {
-    "id": 459,
+    "id": 549,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14688,7 +17568,7 @@
     "explain": "Đó là chuẩn mực hướng dẫn hay quy ước do cộng đồng/xã hội đặt ra."
   },
   {
-    "id": 460,
+    "id": 550,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14720,7 +17600,7 @@
     "explain": "Sự hợp chuẩn hay lệch chuẩn không chỉ do cá nhân phán xét mà phải xem hành vi có được môi trường chấp nhận hay không."
   },
   {
-    "id": 461,
+    "id": 551,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14752,7 +17632,7 @@
     "explain": "Ba thuộc tính của chuẩn mực xã hội: tính ích lợi, tính bắt buộc, và sự thực hiện trên thực tế trong hành vi của con người."
   },
   {
-    "id": 462,
+    "id": 552,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14784,7 +17664,7 @@
     "explain": "Tính ích lợi là điểm gốc trong ba thuộc tính của chuẩn mực xã hội."
   },
   {
-    "id": 463,
+    "id": 553,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14816,7 +17696,7 @@
     "explain": "Có hai mức độ: (1) sai lệch ở mức độ thấp, chỉ ở một số hành vi; (2) sai lệch ở mức độ cao, ở hầu hết các hành vi cá nhân."
   },
   {
-    "id": 464,
+    "id": 554,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14848,7 +17728,7 @@
     "explain": "Sai lệch ở hầu hết các hành vi (từ sinh hoạt đến lao động, vui chơi) chính là mức độ cao."
   },
   {
-    "id": 465,
+    "id": 555,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14880,7 +17760,7 @@
     "explain": "Đại đa số có hành vi tương tự (đứng chào); hành vi khác đi (ngồi yên) bị coi là lệch chuẩn theo góc độ thống kê."
   },
   {
-    "id": 466,
+    "id": 556,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14912,7 +17792,7 @@
     "explain": "Chuẩn mực để đánh giá hành vi (góc độ thích nghi) là mức thích nghi của cơ thể với môi trường: phù hợp, đảm bảo tồn tại = hợp chuẩn; không thích nghi được = lệch chuẩn."
   },
   {
-    "id": 467,
+    "id": 557,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14944,7 +17824,7 @@
     "explain": "Chuẩn mực thống kê = quy nạp từ hành vi của đại đa số; chuẩn mực hướng dẫn/quy ước = do cộng đồng/xã hội đặt ra theo yêu cầu chung."
   },
   {
-    "id": 468,
+    "id": 558,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -14976,7 +17856,7 @@
     "explain": "Căn cứ mức độ nhận thức và chấp nhận chuẩn mực đạo đức, có hai loại: sai lệch thụ động và sai lệch chủ động."
   },
   {
-    "id": 469,
+    "id": 559,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15008,7 +17888,7 @@
     "explain": "Sai lệch thụ động: cá nhân không nhận thức đầy đủ hoặc hiểu sai chuẩn mực, nên KHÔNG biết hành vi của mình là sai lệch."
   },
   {
-    "id": 470,
+    "id": 560,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15040,7 +17920,7 @@
     "explain": "Sai lệch chủ động: cá nhân cố ý làm khác dù NHẬN THỨC ĐƯỢC yêu cầu của chuẩn mực — khác hẳn thụ động (không biết mình sai)."
   },
   {
-    "id": 471,
+    "id": 561,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15072,7 +17952,7 @@
     "explain": "Vi phạm do chưa nắm/chưa biết chuẩn mực, không hề biết mình sai → sai lệch thụ động."
   },
   {
-    "id": 472,
+    "id": 562,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15104,7 +17984,7 @@
     "explain": "Nhận thức rõ chuẩn mực nhưng vẫn cố ý làm khác → sai lệch chủ động."
   },
   {
-    "id": 473,
+    "id": 563,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15136,7 +18016,7 @@
     "explain": "Với sai lệch thụ động, cách khắc phục đơn giản: cung cấp kiến thức về chuẩn mực; nếu họ chưa chấp nhận thì thuyết phục từ từ để hiểu đúng và có hành vi phù hợp."
   },
   {
-    "id": 474,
+    "id": 564,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15168,7 +18048,7 @@
     "explain": "Với sai lệch chủ động cần sự giáo dục thường xuyên của cộng đồng và củng cố chuẩn mực để thực hiện tốt chức năng điều tiết hành vi."
   },
   {
-    "id": 475,
+    "id": 565,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15200,7 +18080,7 @@
     "explain": "Phương châm: ngăn ngừa hơn là sửa chữa; giáo dục là biện pháp ngăn ngừa tốt nhất."
   },
   {
-    "id": 476,
+    "id": 566,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",
@@ -15232,7 +18112,7 @@
     "explain": "Giáo dục, thuyết phục vẫn là chính; “trừng phạt” bằng biện pháp hành chính của cộng đồng là biện pháp cuối cùng."
   },
   {
-    "id": 477,
+    "id": 567,
     "chapter": 5,
     "chapterTitle": "Nhân cách, Ý chí, Xúc cảm – Tình cảm",
     "source": "soan",

@@ -417,7 +417,7 @@ function renderAbout() {
       <ul class="src-list">
         <li><b>Chương 1:</b> ${link('chuong-1.html', '40 câu lý thuyết')} · ${link('chuong-1-tinh-huong.html', '10 tình huống bổ sung')}</li>
         <li><b>Chương 2:</b> ${link('chuong-2.html', 'Cơ sở tự nhiên & xã hội (100 câu)')}</li>
-        <li><b>Chương 3:</b> ${link('chuong-3.html', 'Nhận thức lý tính & Trí nhớ (90 câu)')}</li>
+        <li><b>Chương 3:</b> ${link('chuong-3-cam-giac-tri-giac.html', 'Cảm giác & Tri giác (90 câu)')} · ${link('chuong-3.html', 'Nhận thức lý tính & Trí nhớ (90 câu)')}</li>
         <li><b>Chương 4:</b> ${link('chuong-4.html', 'Ngôn ngữ và Giao tiếp (60 câu)')}</li>
         <li><b>Chương 5:</b> ${link('chuong-5-nhan-cach-y-chi.html', 'Nhân cách & Ý chí (100 câu)')} · ${link('chuong-5-xuc-cam-tinh-cam.html', 'Xúc cảm – Tình cảm (77 câu)')}</li>
       </ul>

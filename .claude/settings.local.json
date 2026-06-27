@@ -6,7 +6,8 @@
       "Bash(python -c \"import fitz; print\\('PyMuPDF', fitz.__doc__\\)\")",
       "Bash(python -c \"import pdfplumber; print\\('pdfplumber ok'\\)\")",
       "Bash(python -c \"import pdfminer; print\\('pdfminer ok'\\)\")",
-      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")"
+      "Bash(python -c \"import PyPDF2; print\\('PyPDF2 ok'\\)\")",
+      "Bash(node src/data/extract_data_quizzes.mjs)"
     ]
   }
 }

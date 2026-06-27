@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------
  * Đưa NGUỒN GỐC ra public/nguon/ để mở trực tiếp trên web (link ở tab Giới thiệu):
  *   - File PDF đề gốc
- *   - 7 trang HTML quiz theo chương (Chương 1 là fragment → bọc thành trang đầy đủ)
+ *   - 8 trang HTML quiz theo chương (Chương 1 là fragment → bọc thành trang đầy đủ)
  *
  * Chạy lại khi nguồn thay đổi:  node src/data/build_public_sources.mjs
  * ------------------------------------------------------------------------- */
@@ -21,6 +21,7 @@ const HTML = [
   { rel: 'Chương 1/quiz_chuong_1_tam_ly_dai_cuong.html',           out: 'chuong-1.html',                title: 'Chương 1 — Tâm lý học là một khoa học (40 câu)' },
   { rel: 'Chương 1/quiz_tinh_huong_bo_sung_chuong_1.html',         out: 'chuong-1-tinh-huong.html',     title: 'Chương 1 — 10 tình huống bổ sung' },
   { rel: 'Chương 2/Quiz_Chuong_2_kho_hon.html',                    out: 'chuong-2.html',                title: 'Chương 2 — Cơ sở tự nhiên & xã hội (100 câu)' },
+  { rel: 'Chương 3/Chương 3 mới bổ sung phần đầu.html',            out: 'chuong-3-cam-giac-tri-giac.html', title: 'Chương 3 — Cảm giác & Tri giác (90 câu)' },
   { rel: 'Chương 3/Quiz_NhanThucLyTinh_TriNho_90cau.html',         out: 'chuong-3.html',                title: 'Chương 3 — Nhận thức lý tính & Trí nhớ (90 câu)' },
   { rel: 'Chương 4/On_tap_Chuong_4_Ngon_ngu_va_Giao_tiep.html',    out: 'chuong-4.html',                title: 'Chương 4 — Ngôn ngữ và Giao tiếp (60 câu)' },
   { rel: 'Chương 5/Quiz_Chuong5_Nhancach_Ychi.html',               out: 'chuong-5-nhan-cach-y-chi.html', title: 'Chương 5 — Nhân cách & Ý chí (100 câu)' },

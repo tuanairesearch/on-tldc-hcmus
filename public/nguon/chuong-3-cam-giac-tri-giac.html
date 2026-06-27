@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn tập — Nhận thức cảm tính (90 câu)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#EEF1F4; --surface:#FFFFFF; --surface-2:#F7F8FA;
+    --ink:#16203B; --muted:#5C6679; --line:#E2E6EC;
+    --accent:#1F7A8C; --accent-dk:#155E6C; --accent-soft:#E3F0F2;
+    --correct:#2F8F5B; --correct-bg:#E8F5EE; --correct-line:#A9DCC0;
+    --wrong:#C0453B; --wrong-bg:#FBEBE9; --wrong-line:#E6BBB5;
+    --d15:#3A7BD5; --d15bg:#E7EFFB;
+    --d25:#1F7A8C; --d25bg:#E0EFF1;
+    --d35:#B5852A; --d35bg:#F6EDD6;
+    --shadow:0 1px 2px rgba(20,30,55,.05),0 8px 28px rgba(20,30,55,.07);
+    --radius:16px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font-family:"Be Vietnam Pro",system-ui,sans-serif;line-height:1.55;
+    -webkit-font-smoothing:antialiased;padding:18px 14px 64px}
+  .wrap{max-width:660px;margin:0 auto}
+  .hidden{display:none!important}
+
+  /* topbar + progress */
+  .topbar{display:flex;align-items:center;justify-content:space-between;
+    gap:12px;margin-bottom:12px;flex-wrap:wrap}
+  .brand{font-family:"Lora",serif;font-weight:600;font-size:1.08rem;letter-spacing:.2px}
+  .brand small{display:block;font-family:"Be Vietnam Pro";font-weight:500;font-size:.72rem;
+    color:var(--muted);letter-spacing:.4px;text-transform:uppercase;margin-top:2px}
+  .score-pill{font-size:.82rem;font-weight:600;color:var(--accent-dk);
+    background:#fff;border:1px solid var(--line);border-radius:999px;
+    padding:6px 13px;box-shadow:var(--shadow);white-space:nowrap}
+  .progress-track{height:8px;background:#dfe4ea;border-radius:6px;overflow:hidden;
+    margin-bottom:18px;position:relative}
+  .progress-track i{display:block;height:100%;width:0;border-radius:6px;
+    background:linear-gradient(90deg,var(--accent),#2a93a8);transition:width .35s ease}
+
+  /* cards */
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:24px 22px}
+  .hero-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:8px}
+  .hero-title{font-family:"Lora",serif;font-size:1.55rem;font-weight:600;margin:0 0 6px}
+  .hero-sub{color:var(--muted);font-size:.92rem;margin:0 0 4px}
+
+  /* filters */
+  .filter-group{margin-top:20px}
+  .filter-label{font-size:.78rem;font-weight:700;color:var(--muted);
+    text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:1px solid var(--line);background:var(--surface-2);color:var(--muted);
+    padding:8px 14px;border-radius:999px;font:inherit;font-size:.85rem;font-weight:600;
+    cursor:pointer;transition:.15s}
+  .chip:hover{border-color:#bcc4cf}
+  .chip[aria-pressed="true"]{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  .btn{width:100%;border:none;background:var(--accent);color:#fff;
+    font:inherit;font-weight:600;font-size:1rem;padding:14px;border-radius:12px;
+    cursor:pointer;margin-top:24px;transition:.15s;box-shadow:0 6px 16px rgba(31,122,140,.25)}
+  .btn:hover{background:var(--accent-dk)}
+  .btn.secondary{background:var(--surface-2);color:var(--accent-dk);
+    border:1px solid var(--line);box-shadow:none}
+  .btn.secondary:hover{background:#eef1f4}
+  .btn.secondary:disabled{color:#aab0bd;cursor:default;background:var(--surface-2)}
+  .btn-row{display:flex;gap:12px;margin-top:24px}
+  .btn-row .btn{margin-top:0}
+
+  /* question */
+  .q-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .badge{font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:7px;letter-spacing:.02em}
+  .b-sec{background:var(--accent-soft);color:var(--accent-dk)}
+  .b-d15{background:var(--d15bg);color:var(--d15)}
+  .b-d25{background:var(--d25bg);color:var(--d25)}
+  .b-d35{background:var(--d35bg);color:var(--d35)}
+  .q-count{margin-left:auto;font-size:.8rem;color:var(--muted);font-weight:600}
+  .q-text{font-size:1.06rem;font-weight:500;margin:0 0 18px;line-height:1.5}
+  .options{display:flex;flex-direction:column;gap:10px}
+  .option{display:flex;gap:12px;align-items:flex-start;text-align:left;width:100%;
+    border:1px solid var(--line);background:var(--surface-2);border-radius:12px;
+    padding:13px 15px;font:inherit;font-size:.96rem;color:var(--ink);cursor:pointer;transition:.13s}
+  .option:hover:not(:disabled){border-color:var(--accent);background:#eef6f7}
+  .option:disabled{cursor:default}
+  .option .key{flex:none;width:26px;height:26px;border-radius:8px;background:#e6eaf0;
+    color:var(--muted);font-weight:700;font-size:.85rem;display:grid;place-items:center;margin-top:1px}
+  .option.correct{border-color:var(--correct-line);background:var(--correct-bg)}
+  .option.correct .key{background:var(--correct);color:#fff}
+  .option.wrong{border-color:var(--wrong-line);background:var(--wrong-bg)}
+  .option.wrong .key{background:var(--wrong);color:#fff}
+  .option .mark{margin-left:auto;align-self:center;font-weight:700;font-size:1.05rem}
+  .option.correct .mark{color:var(--correct)} .option.wrong .mark{color:var(--wrong)}
+
+  .explain{margin-top:16px;border-radius:12px;padding:14px 16px;font-size:.92rem;
+    display:none;border:1px solid}
+  .explain.show{display:block}
+  .explain.ok{background:var(--correct-bg);border-color:var(--correct-line);color:#1c6440}
+  .explain.no{background:var(--wrong-bg);border-color:var(--wrong-line);color:#8a2820}
+  .explain b{font-family:"Lora",serif;display:block;font-size:.74rem;letter-spacing:.04em;
+    text-transform:uppercase;margin-bottom:4px}
+
+  .nav-row{display:flex;justify-content:space-between;gap:12px;margin-top:22px}
+  .nav-btn{border:1px solid var(--line);background:var(--surface-2);color:var(--ink);
+    font:inherit;font-weight:600;font-size:.9rem;padding:11px 20px;border-radius:10px;cursor:pointer;transition:.13s}
+  .nav-btn:hover:not(:disabled){border-color:var(--accent);color:var(--accent-dk)}
+  .nav-btn:disabled{color:#b3b9c4;cursor:default}
+  .nav-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .nav-btn.primary:hover{background:var(--accent-dk);color:#fff}
+
+  /* result */
+  .result-score{font-family:"Lora",serif;font-size:3rem;font-weight:600;line-height:1;
+    color:var(--accent-dk);margin:6px 0 4px}
+  .result-score small{font-size:1.4rem;color:var(--muted)}
+  .result-msg{color:var(--muted);font-size:.95rem;margin:0 0 22px}
+  .breakdown{display:flex;flex-direction:column;gap:11px;margin-top:10px}
+  .bd-row{display:grid;grid-template-columns:120px 1fr 52px;gap:12px;align-items:center;font-size:.86rem}
+  .bd-name{font-weight:600;color:var(--muted)}
+  .bd-bar{height:9px;background:#e3e7ed;border-radius:6px;overflow:hidden}
+  .bd-bar i{display:block;height:100%;border-radius:6px;transition:width .4s}
+  .bd-num{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+
+  @media(max-width:520px){
+    .card{padding:20px 16px}
+    .result-score{font-size:2.4rem}
+    .bd-row{grid-template-columns:92px 1fr 48px}
+    .q-count{width:100%;margin-left:0;order:3}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">Nhận thức cảm tính<small>Tâm lý đại cương · Chương 3</small></div>
+    <div class="score-pill" id="scorePill">Điểm: 0 / 0</div>
+  </div>
+  <div class="progress-track" id="progressBox"><i id="progressFill"></i></div>
+
+  <!-- START -->
+  <div class="card" id="startScreen">
+    <div class="hero-eyebrow">Ôn tập trắc nghiệm</div>
+    <h1 class="hero-title">Cảm giác &amp; Tri giác — 90 câu</h1>
+    <p class="hero-sub">Câu hỏi phân tầng theo đề thi (0.15đ · 0.25đ · 0.35đ). Bấm đáp án để chấm ngay và xem phản hồi. Bạn có thể lọc theo phần hoặc mức điểm.</p>
+
+    <div class="filter-group">
+      <div class="filter-label">Chọn phần</div>
+      <div class="chips" id="sectionChips">
+        <button class="chip" data-sec="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-sec="s1" aria-pressed="false">Cảm giác</button>
+        <button class="chip" data-sec="s2" aria-pressed="false">Tri giác</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Mức độ</div>
+      <div class="chips" id="diffChips">
+        <button class="chip" data-diff="all" aria-pressed="true">Tất cả</button>
+        <button class="chip" data-diff="0.15" aria-pressed="false">0.15đ · nhận biết</button>
+        <button class="chip" data-diff="0.25" aria-pressed="false">0.25đ · vận dụng</button>
+        <button class="chip" data-diff="0.35" aria-pressed="false">0.35đ · tình huống</button>
+      </div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-label">Thứ tự</div>
+      <div class="chips" id="orderChips">
+        <button class="chip" data-order="seq" aria-pressed="true">Theo thứ tự</button>
+        <button class="chip" data-order="shuffle" aria-pressed="false">Trộn ngẫu nhiên</button>
+      </div>
+    </div>
+
+    <button class="btn" id="startBtn">Bắt đầu làm bài</button>
+    <p class="hero-sub" style="margin:14px 0 0;font-size:.82rem;text-align:center" id="startCount"></p>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card hidden" id="quizScreen">
+    <div class="q-head" id="qHead"></div>
+    <p class="q-text" id="qText"></p>
+    <div class="options" id="qOptions"></div>
+    <div class="explain" id="qExplain"></div>
+    <div class="nav-row" id="navRow"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div class="card hidden" id="resultScreen">
+    <div class="hero-eyebrow">Kết quả</div>
+    <div class="result-score" id="finalScore">0 <small>/ 0</small></div>
+    <p class="result-msg" id="resultMsg"></p>
+    <div class="filter-label">Theo từng phần &amp; mức độ</div>
+    <div class="breakdown" id="breakdown"></div>
+    <div class="btn-row">
+      <button class="btn secondary" id="reviewWrongBtn">Làm lại câu sai</button>
+      <button class="btn" id="restartBtn">Làm lại từ đầu</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+/* ===================== DỮ LIỆU ===================== */
+const SECTIONS={s1:"Cảm giác",s2:"Tri giác"};
+const PT={"0.15":0.15,"0.25":0.25,"0.35":0.35};
+const KEY=["A","B","C","D"];
+
+const QUESTIONS=[
+/* ---- CẢM GIÁC · 0.15đ (18) ---- */
+{s:"s1",d:"0.15",q:"Cảm giác được định nghĩa là quá trình tâm lý phản ánh:",o:["Một cách trọn vẹn các thuộc tính của sự vật","Một cách riêng lẻ từng thuộc tính của sự vật, hiện tượng khi chúng đang trực tiếp tác động vào giác quan","Bản chất bên trong và mối quan hệ có tính quy luật","Những kinh nghiệm con người đã trải qua"],a:1,e:"Cảm giác phản ánh RIÊNG LẺ từng thuộc tính — khác tri giác (trọn vẹn). Tr.34."},
+{s:"s1",d:"0.15",q:"Đặc điểm nào sau đây ĐÚNG với cảm giác?",o:["Là quá trình tâm lý phức tạp nhất","Là quá trình tâm lý đơn giản nhất, có mở đầu – diễn biến – kết thúc rõ ràng","Phản ánh trọn vẹn các thuộc tính theo cấu trúc","Phản ánh hiện thực một cách gián tiếp"],a:1,e:"Cảm giác là quá trình tâm lý đơn giản nhất. Tr.34."},
+{s:"s1",d:"0.15",q:"Cảm giác phản ánh hiện thực khách quan một cách:",o:["Gián tiếp","Khái quát","Trực tiếp","Trừu tượng"],a:2,e:"Cảm giác chỉ xảy ra khi sự vật đang trực tiếp tác động vào giác quan. Tr.34-35."},
+{s:"s1",d:"0.15",q:"Khi sự vật ngừng tác động vào giác quan thì:",o:["Cảm giác vẫn tiếp tục diễn ra","Quá trình cảm giác kết thúc","Cảm giác tự chuyển thành tri giác","Cảm giác chuyển thành biểu tượng trí nhớ"],a:1,e:"Cảm giác phản ánh trực tiếp; vật mất đi thì cảm giác kết thúc. Tr.35."},
+{s:"s1",d:"0.15",q:"So với cảm giác của động vật, cảm giác của con người:",o:["Hoàn toàn giống nhau","Kém nhạy bén hơn","Khác về chất, mang bản chất xã hội – lịch sử, có sự tham gia của tư duy và ý thức","Không có điểm gì khác biệt"],a:2,e:"Cảm giác ở người khác về chất, mang bản chất xã hội – lịch sử. Tr.35."},
+{s:"s1",d:"0.15",q:"Cảm giác được chia thành cảm giác bên ngoài và bên trong dựa vào:",o:["Cường độ của kích thích","Vị trí nguồn kích thích nằm ở bên ngoài hay bên trong cơ thể","Thời gian tồn tại của cảm giác","Mức độ tham gia của ý thức"],a:1,e:"Phân loại dựa vào vị trí nguồn kích thích. Tr.35."},
+{s:"s1",d:"0.15",q:"Cảm giác nào sau đây thuộc nhóm cảm giác BÊN TRONG?",o:["Cảm giác nhìn","Cảm giác nghe","Cảm giác vận động","Cảm giác ngửi"],a:2,e:"Cảm giác vận động, thăng bằng, cơ thể thuộc nhóm bên trong. Tr.35-36."},
+{s:"s1",d:"0.15",q:"Giới hạn mà ở đó kích thích gây ra được cảm giác gọi là:",o:["Độ nhạy cảm","Ngưỡng cảm giác","Sự thích ứng","Sự tương phản"],a:1,e:"Ngưỡng cảm giác là giới hạn kích thích gây ra cảm giác. Tr.38."},
+{s:"s1",d:"0.15",q:"Cường độ kích thích TỐI THIỂU đủ để gây ra cảm giác gọi là:",o:["Ngưỡng tuyệt đối phía trên","Ngưỡng tuyệt đối phía dưới","Ngưỡng sai biệt","Vùng phản ánh tốt nhất"],a:1,e:"Ngưỡng tuyệt đối phía dưới = cường độ tối thiểu gây cảm giác. Tr.38."},
+{s:"s1",d:"0.15",q:"Cường độ kích thích TỐI ĐA mà ở đó vẫn còn cảm giác gọi là:",o:["Ngưỡng tuyệt đối phía trên","Ngưỡng tuyệt đối phía dưới","Ngưỡng sai biệt","Ngưỡng cảm giác chung"],a:0,e:"Ngưỡng tuyệt đối phía trên = cường độ tối đa mà vẫn còn cảm giác. Tr.39."},
+{s:"s1",d:"0.15",q:"Mức chênh lệch tối thiểu về cường độ/tính chất giữa hai kích thích đủ để phân biệt chúng gọi là:",o:["Ngưỡng tuyệt đối","Ngưỡng sai biệt","Vùng cảm giác được","Độ thích ứng"],a:1,e:"Ngưỡng sai biệt = mức chênh tối thiểu để phân biệt hai kích thích. Tr.39."},
+{s:"s1",d:"0.15",q:"Mối quan hệ giữa ngưỡng cảm giác và độ nhạy cảm là:",o:["Tỷ lệ thuận","Tỷ lệ nghịch","Không liên quan","Luôn bằng nhau"],a:1,e:"Ngưỡng càng thấp → độ nhạy cảm càng cao (tỷ lệ nghịch). Tr.38."},
+{s:"s1",d:"0.15",q:"Khả năng thay đổi độ nhạy cảm cho phù hợp với sự thay đổi cường độ kích thích gọi là:",o:["Ngưỡng cảm giác","Sự thích ứng","Sự tương phản","Loạn cảm giác"],a:1,e:"Đó là quy luật thích ứng. Tr.40."},
+{s:"s1",d:"0.15",q:"Theo quy luật thích ứng, khi cường độ kích thích TĂNG thì độ nhạy cảm:",o:["Giảm","Tăng","Không đổi","Mất hẳn"],a:0,e:"Cường độ tăng → nhạy cảm giảm; cường độ giảm → nhạy cảm tăng. Tr.40."},
+{s:"s1",d:"0.15",q:"Loại cảm giác nào có khả năng thích ứng KÉM nhất?",o:["Thị giác","Thính giác","Cảm giác đau","Khứu giác"],a:2,e:"Cảm giác đau thích ứng rất kém; thị giác thích ứng rất cao. Tr.40."},
+{s:"s1",d:"0.15",q:"Quy luật chung của tác động qua lại: kích thích YẾU lên một cơ quan phân tích sẽ làm gì với cơ quan khác?",o:["Giảm độ nhạy cảm","Tăng độ nhạy cảm","Làm mất cảm giác","Không ảnh hưởng"],a:1,e:"Kích thích yếu → tăng nhạy cảm cơ quan khác; mạnh → giảm. Tr.41."},
+{s:"s1",d:"0.15",q:"Sự thay đổi cường độ/chất lượng cảm giác do một kích thích cùng loại xảy ra ĐỒNG THỜI gọi là:",o:["Tương phản nối tiếp","Tương phản đồng thời","Loạn cảm giác","Thích ứng"],a:1,e:"Tương phản đồng thời — kích thích cùng loại xảy ra đồng thời. Tr.40-41."},
+{s:"s1",d:"0.15",q:"Hiện tượng một số cảm giác kết hợp vững chắc đến mức gây cảm giác này sẽ làm xuất hiện cảm giác khác gọi là:",o:["Tương phản","Thích ứng","Loạn cảm giác","Ngưỡng sai biệt"],a:2,e:"Loạn cảm giác (vd: nghe tiếng cào bảng thấy rợn người). Tr.42."},
+
+/* ---- CẢM GIÁC · 0.25đ (15) ---- */
+{s:"s1",d:"0.25",q:"\"Đi từ chỗ sáng vào phòng tối, lúc đầu không thấy gì, sau một lúc mới thấy rõ.\" Đây là ví dụ về quy luật:",o:["Ngưỡng cảm giác","Thích ứng","Tương phản","Tác động qua lại khác loại"],a:1,e:"Cường độ ánh sáng giảm → độ nhạy cảm thị giác tăng dần = thích ứng. Tr.40."},
+{s:"s1",d:"0.25",q:"\"Cùng một tờ giấy xám, đặt trên nền đen trông sáng hơn, đặt trên nền trắng trông tối hơn.\" Đây là:",o:["Tương phản nối tiếp","Tương phản đồng thời","Thích ứng","Loạn cảm giác"],a:1,e:"Hai kích thích cùng loại (độ sáng) tác động đồng thời → tương phản đồng thời. Tr.40-41."},
+{s:"s1",d:"0.25",q:"\"Sau khi ăn một quả chua, ăn quả cam thấy ngọt hơn bình thường.\" Đây là ví dụ về:",o:["Tương phản đồng thời","Tương phản nối tiếp","Thích ứng","Ngưỡng sai biệt"],a:1,e:"Kích thích cùng loại (vị) xảy ra TRƯỚC ĐÓ → tương phản nối tiếp. Tr.42."},
+{s:"s1",d:"0.25",q:"Công nhân luyện kim có thể chịu nhiệt độ rất cao trong nhiều giờ. Hiện tượng này thể hiện:",o:["Ngưỡng tuyệt đối","Sự thích ứng phát triển qua rèn luyện nghề nghiệp","Tương phản","Loạn cảm giác"],a:1,e:"Thích ứng phát triển qua hoạt động và rèn luyện nghề nghiệp. Tr.40."},
+{s:"s1",d:"0.25",q:"Cảm giác \"đói, no, khát\" thuộc nhóm cảm giác nào?",o:["Cảm giác bên ngoài","Cảm giác bên trong (cảm giác cơ thể)","Cảm giác vận động","Cảm giác nhìn"],a:1,e:"Nguồn kích thích từ bên trong cơ thể → cảm giác bên trong. Tr.35."},
+{s:"s1",d:"0.25",q:"Người mù thường có thính giác và xúc giác rất tinh nhạy. Điều này thể hiện rõ nhất quy luật:",o:["Ngưỡng cảm giác","Thích ứng","Tác động qua lại giữa các cảm giác (bù trừ)","Tương phản đồng thời"],a:2,e:"Mất thị giác → các cơ quan khác tăng độ nhạy cảm — tác động qua lại/bù trừ. Tr.41."},
+{s:"s1",d:"0.25",q:"Ngưỡng tuyệt đối phía dưới của một người càng THẤP thì:",o:["Độ nhạy cảm càng thấp","Độ nhạy cảm càng cao","Không liên quan đến độ nhạy cảm","Cảm giác càng kém"],a:1,e:"Ngưỡng dưới càng thấp → nhạy cảm càng cao (tỷ lệ nghịch). Tr.38."},
+{s:"s1",d:"0.25",q:"\"Tiếng tích tắc đồng hồ ban ngày không nghe rõ nhưng ban đêm yên tĩnh lại nghe rất rõ.\" Phù hợp nhất với quy luật:",o:["Tương phản đồng thời","Thích ứng","Loạn cảm giác","Ngưỡng tuyệt đối trên"],a:1,e:"Môi trường yên tĩnh (cường độ nền thấp) → độ nhạy cảm thính giác tăng = thích ứng. Tr.40."},
+{s:"s1",d:"0.25",q:"Phân biệt được hai vật 1000g và 1010g — khả năng này liên quan đến:",o:["Ngưỡng tuyệt đối phía dưới","Ngưỡng tuyệt đối phía trên","Ngưỡng sai biệt","Sự thích ứng"],a:2,e:"Phân biệt mức chênh giữa hai kích thích → ngưỡng sai biệt. Tr.39."},
+{s:"s1",d:"0.25",q:"\"Nhúng một tay vào nước nóng, một tay vào nước lạnh, rồi nhúng cả hai vào nước ấm thì cảm giác hai tay khác nhau.\" Đây là:",o:["Tương phản nối tiếp","Tương phản đồng thời","Thích ứng","Loạn cảm giác"],a:0,e:"Kích thích cùng loại (nhiệt) trước đó làm thay đổi cảm giác sau → tương phản nối tiếp. Tr.42."},
+{s:"s1",d:"0.25",q:"Mùi nước hoa lúc đầu nồng, ở lâu thì không còn ngửi thấy rõ. Đây là:",o:["Tương phản","Thích ứng","Loạn cảm giác","Ngưỡng sai biệt"],a:1,e:"Cường độ kích thích (mùi) tác động lâu → độ nhạy cảm khứu giác giảm = thích ứng. Tr.40."},
+{s:"s1",d:"0.25",q:"Nghe một bản nhạc mà đồng thời \"thấy\" được màu sắc, sắc thái — hiện tượng một cảm giác làm xuất hiện cảm giác khác loại gọi là:",o:["Tương phản","Thích ứng","Loạn cảm giác","Ngưỡng cảm giác"],a:2,e:"Loạn cảm giác — gây cảm giác này làm xuất hiện cảm giác khác. Tr.42."},
+{s:"s1",d:"0.25",q:"Cảm giác nào sau đây thuộc nhóm cảm giác BÊN NGOÀI?",o:["Cảm giác thăng bằng","Cảm giác vận động","Cảm giác ngửi (khứu giác)","Cảm giác đói"],a:2,e:"Khứu giác có nguồn kích thích từ bên ngoài → cảm giác bên ngoài. Tr.35."},
+{s:"s1",d:"0.25",q:"Chuyên gia nếm rượu phân biệt được những khác biệt rất nhỏ — tức độ nhạy cảm sai biệt cao, nghĩa là:",o:["Ngưỡng sai biệt lớn","Ngưỡng sai biệt nhỏ","Ngưỡng tuyệt đối trên cao","Thích ứng kém"],a:1,e:"Ngưỡng sai biệt càng nhỏ → độ nhạy cảm sai biệt càng lớn. Tr.38."},
+{s:"s1",d:"0.25",q:"Vai trò \"cung cấp nguyên vật liệu cho các quá trình nhận thức cao hơn\" thuộc về:",o:["Tư duy","Tưởng tượng","Cảm giác","Trí nhớ"],a:2,e:"Là hình thức nhận thức đầu tiên, cảm giác cung cấp nguyên liệu cho nhận thức cao hơn. Tr.38."},
+
+/* ---- CẢM GIÁC · 0.35đ (12) ---- */
+{s:"s1",d:"0.35",q:"Một thợ rèn ban đầu rất khó chịu với tiếng ồn và nhiệt độ cao của xưởng, nhưng sau vài tháng có thể làm việc thoải mái hàng giờ. Quy luật nào thể hiện rõ nhất, và yếu tố nào quyết định?",o:["Tương phản nối tiếp; do kích thích xảy ra trước đó","Thích ứng; do hoạt động và rèn luyện nghề nghiệp làm tính thích ứng phát triển bền vững","Loạn cảm giác; do nhiều cảm giác kết hợp","Ngưỡng sai biệt; do phân biệt cường độ kích thích"],a:1,e:"Thích ứng nghề nghiệp phát triển qua rèn luyện → bền vững. Tr.40."},
+{s:"s1",d:"0.35",q:"Trong phòng tối tuyệt đối, sau 40 phút độ nhạy cảm với ánh sáng tăng gần 200.000 lần. Điều này chứng minh điều gì về thích ứng?",o:["Mọi cảm giác đều thích ứng như nhau","Thị giác là loại cảm giác có khả năng thích ứng rất cao","Thích ứng chỉ xảy ra khi cường độ kích thích tăng","Đây là hiện tượng tương phản đồng thời"],a:1,e:"Thị giác thích ứng rất cao (khác cảm giác đau thích ứng kém). Tr.40."},
+{s:"s1",d:"0.35",q:"A phân biệt được hai âm chênh 5Hz, B chỉ phân biệt khi chênh tới 15Hz. Kết luận đúng?",o:["B có độ nhạy cảm sai biệt cao hơn A","A có ngưỡng sai biệt nhỏ hơn nên độ nhạy cảm sai biệt cao hơn B","Hai người có độ nhạy cảm như nhau","Không thể kết luận vì còn phụ thuộc ngưỡng tuyệt đối"],a:1,e:"Ngưỡng sai biệt nhỏ → nhạy cảm sai biệt lớn. A nhỏ hơn nên cao hơn. Tr.38."},
+{s:"s1",d:"0.35",q:"Đầu bếp nếm canh nhạt thấy vừa, nhưng người vừa ăn kẹo rất ngọt thì nếm cùng món canh đó lại thấy quá nhạt. Quy luật nào giải thích?",o:["Thích ứng","Tương phản nối tiếp — kích thích vị ngọt trước đó làm thay đổi cảm giác vị sau","Tương phản đồng thời","Ngưỡng tuyệt đối"],a:1,e:"Kích thích cùng loại (vị) xảy ra TRƯỚC ĐÓ → tương phản nối tiếp. Tr.42."},
+{s:"s1",d:"0.35",q:"Bức tranh nền xám cạnh tranh nền đen trông sáng hơn so với khi cạnh tranh nền trắng. Hiện tượng này khác ví dụ \"ăn chua rồi ăn ngọt\" ở điểm nào?",o:["Cả hai đều là tương phản nối tiếp","Ví dụ tranh là tương phản ĐỒNG THỜI (cùng lúc), ví dụ vị giác là tương phản NỐI TIẾP (trước đó)","Ví dụ tranh là thích ứng, ví dụ vị là tương phản","Cả hai đều là loạn cảm giác"],a:1,e:"Đồng thời = cùng lúc; nối tiếp = trước đó — đây là điểm phân biệt then chốt. Tr.40-42."},
+{s:"s1",d:"0.35",q:"Người làm việc cạnh máy chạy đều: ban đầu thấy ồn, sau \"quen\" gần như không để ý; nhưng khi máy đột ngột dừng lại giật mình. Quy luật nào giải thích cả hai?",o:["Tương phản đồng thời","Thích ứng (quen tiếng ồn) kết hợp với phản ứng trước sự thay đổi cường độ kích thích","Loạn cảm giác","Ngưỡng sai biệt"],a:1,e:"Quen tiếng ồn = thích ứng; giật mình khi máy dừng = phản ứng với thay đổi cường độ. Tr.40-41."},
+{s:"s1",d:"0.35",q:"Vì sao quy luật thích ứng vừa bảo vệ hệ thần kinh, vừa giúp con người phản ánh được kích thích trong phạm vi cường độ rất lớn?",o:["Vì thích ứng làm mất hẳn cảm giác","Vì thích ứng điều chỉnh độ nhạy cảm tăng/giảm phù hợp — vừa tránh quá tải, vừa mở rộng phạm vi phản ánh","Vì thích ứng chỉ xảy ra ở thị giác","Vì thích ứng làm tăng ngưỡng sai biệt"],a:1,e:"Thích ứng = thay đổi độ nhạy cảm phù hợp cường độ → bảo vệ + mở rộng phạm vi. Tr.40."},
+{s:"s1",d:"0.35",q:"Học sinh khiếm thị đọc chữ nổi Braille bằng đầu ngón tay rất nhanh, chính xác. Điều này minh họa rõ nhất vai trò nào của cảm giác?",o:["Là quá trình tâm lý phức tạp nhất","Là con đường nhận thức đặc biệt quan trọng đối với người khuyết tật","Phản ánh trọn vẹn sự vật theo cấu trúc","Phản ánh bản chất bên trong của sự vật"],a:1,e:"Vai trò: cảm giác đặc biệt quan trọng với người khuyết tật. Tr.38."},
+{s:"s1",d:"0.35",q:"Vào hiệu nước hoa, người ở lâu gần như không phân biệt được mùi, nhưng người mới bước vào vẫn ngửi rõ. Điều này chứng tỏ:",o:["Người mới có khứu giác tốt hơn bẩm sinh","Người ở lâu đã thích ứng (giảm độ nhạy cảm), người mới chưa thích ứng nên còn nhạy","Đây là tương phản đồng thời","Đây là loạn cảm giác"],a:1,e:"Thích ứng làm giảm độ nhạy cảm khứu giác ở người ở lâu. Tr.40."},
+{s:"s1",d:"0.35",q:"Phát biểu nào sau đây SAI khi nói về cảm giác của con người?",o:["Cảm giác mang bản chất xã hội – lịch sử","Cảm giác có sự tham gia của tư duy và ý thức","Cảm giác phản ánh trọn vẹn các thuộc tính của sự vật theo cấu trúc","Cảm giác phụ thuộc trạng thái sức khỏe, tâm trạng, kinh nghiệm"],a:2,e:"Phản ánh TRỌN VẸN theo cấu trúc là đặc điểm của TRI GIÁC, không phải cảm giác. Tr.34-43."},
+{s:"s1",d:"0.35",q:"Vì sao nói \"cảm giác đảm bảo trạng thái hoạt động bình thường của vỏ não\"?",o:["Vì cảm giác phản ánh bản chất sự vật","Vì cảm giác cung cấp dòng kích thích cần thiết giúp vỏ não duy trì trương lực, hoạt động thần kinh diễn ra bình thường","Vì cảm giác là quá trình phức tạp nhất","Vì cảm giác thay thế cho tư duy"],a:1,e:"Vai trò: cảm giác đảm bảo trạng thái hoạt động của vỏ não. Tr.38."},
+{s:"s1",d:"0.35",q:"Nếm hai cốc nước đường 5% và 5,2% thì KHÔNG phân biệt được, nhưng cốc 6% thì phân biệt được. Khái niệm nào chỉ \"ranh giới\" bắt đầu phân biệt được?",o:["Ngưỡng tuyệt đối phía dưới","Ngưỡng tuyệt đối phía trên","Ngưỡng sai biệt","Vùng phản ánh tốt nhất"],a:2,e:"Mức chênh tối thiểu để phân biệt hai kích thích = ngưỡng sai biệt. Tr.39."},
+
+/* ---- TRI GIÁC · 0.15đ (18) ---- */
+{s:"s2",d:"0.15",q:"Tri giác được định nghĩa là quá trình tâm lý phản ánh:",o:["Riêng lẻ từng thuộc tính của sự vật","Một cách trọn vẹn các thuộc tính của sự vật khi chúng đang trực tiếp tác động vào giác quan","Bản chất bên trong của sự vật","Cái chưa từng có trong kinh nghiệm"],a:1,e:"Tri giác phản ánh TRỌN VẸN (khác cảm giác riêng lẻ). Tr.41."},
+{s:"s2",d:"0.15",q:"Điểm khác biệt cơ bản giữa tri giác và cảm giác về nội dung phản ánh là:",o:["Tri giác phản ánh bản chất bên trong","Tri giác phản ánh trọn vẹn theo cấu trúc, cảm giác phản ánh riêng lẻ từng thuộc tính","Tri giác phản ánh gián tiếp","Tri giác không cần đến giác quan"],a:1,e:"Trọn vẹn (theo cấu trúc) ↔ riêng lẻ. Tr.41-43."},
+{s:"s2",d:"0.15",q:"Tri giác KHÔNG phải là:",o:["Một quá trình tâm lý","Sự phản ánh trọn vẹn thuộc tính bề ngoài","Phép cộng đơn giản của các cảm giác","Một hành động tích cực của con người"],a:2,e:"Tri giác KHÔNG phải phép cộng đơn giản các cảm giác mà là phản ánh cao hơn. Tr.41."},
+{s:"s2",d:"0.15",q:"Điểm GIỐNG nhau giữa cảm giác và tri giác là:",o:["Đều phản ánh trọn vẹn sự vật","Đều phản ánh thuộc tính bề ngoài và sự vật đang trực tiếp tác động vào giác quan","Đều phản ánh bản chất bên trong","Đều là hành động tích cực của con người"],a:1,e:"Giống: quá trình tâm lý, phản ánh bề ngoài, trực tiếp. Tr.43."},
+{s:"s2",d:"0.15",q:"Sự phản ánh hình dạng, độ lớn, độ xa, phương hướng của sự vật gọi là:",o:["Tri giác không gian","Tri giác thời gian","Tri giác vận động","Tri giác con người"],a:0,e:"Tri giác không gian. Tr.43-44."},
+{s:"s2",d:"0.15",q:"Sự phản ánh độ dài lâu, tốc độ, tính kế tục của sự vật hiện tượng gọi là:",o:["Tri giác không gian","Tri giác thời gian","Tri giác vận động","Tri giác con người"],a:1,e:"Tri giác thời gian. Tr.44."},
+{s:"s2",d:"0.15",q:"Loại tri giác nào được xem là ĐẶC BIỆT vì đối tượng phản ánh là con người?",o:["Tri giác không gian","Tri giác thời gian","Tri giác vận động","Tri giác con người"],a:3,e:"Tri giác con người đặc biệt, do giá trị xã hội quy định. Tr.43."},
+{s:"s2",d:"0.15",q:"Hình thức tri giác CAO NHẤT, mang tính tích cực, chủ động, có mục đích rõ ràng là:",o:["Cảm giác","Quan sát","Tri giác không gian","Biểu tượng"],a:1,e:"Quan sát là hình thức tri giác cao nhất. Tr.45-46."},
+{s:"s2",d:"0.15",q:"Khả năng tri giác nhanh, chính xác những điểm quan trọng, chủ yếu, đặc sắc của sự vật gọi là:",o:["Quan sát","Năng lực quan sát","Tổng giác","Độ nhạy cảm"],a:1,e:"Năng lực quan sát. Tr.45-46."},
+{s:"s2",d:"0.15",q:"Quy luật nào nói hình ảnh trực quan luôn thuộc về một sự vật cụ thể của thế giới bên ngoài?",o:["Tính lựa chọn","Tính đối tượng","Tính ổn định","Tổng giác"],a:1,e:"Tính đối tượng. Tr.46."},
+{s:"s2",d:"0.15",q:"Quy luật nào thể hiện việc tách đối tượng ra khỏi bối cảnh để phản ánh rõ ràng?",o:["Tính lựa chọn","Tính đối tượng","Tính có ý nghĩa","Tính ổn định"],a:0,e:"Tính lựa chọn — tách đối tượng khỏi bối cảnh. Tr.46-47."},
+{s:"s2",d:"0.15",q:"Khả năng gọi tên được sự vật và xếp nó vào một nhóm xác định khi tri giác thể hiện quy luật:",o:["Tính lựa chọn","Tính có ý nghĩa","Tính ổn định","Ảo giác"],a:1,e:"Tính có ý nghĩa — gắn với tư duy, gọi tên, xếp loại. Tr.48."},
+{s:"s2",d:"0.15",q:"Khả năng phản ánh tương đối ổn định về sự vật khi điều kiện tri giác đã thay đổi gọi là:",o:["Tính đối tượng","Tính lựa chọn","Tính ổn định","Tổng giác"],a:2,e:"Tính ổn định — điều kiện đổi vẫn phản ánh đúng. Tr.48."},
+{s:"s2",d:"0.15",q:"Sự phản ánh SAI LẦM về sự vật hiện tượng CÓ THẬT đang tác động vào giác quan gọi là:",o:["Tổng giác","Tính lựa chọn","Ảo giác (ảo ảnh tri giác)","Tính ổn định"],a:2,e:"Ảo giác — phản ánh sai về vật có thật. Tr.48-49."},
+{s:"s2",d:"0.15",q:"Sự phụ thuộc của hình ảnh tri giác vào nội dung đời sống tâm lý của chủ thể gọi là:",o:["Tính đối tượng","Tổng giác","Tính lựa chọn","Ảo giác"],a:1,e:"Tổng giác — phụ thuộc chủ thể (kinh nghiệm, nhu cầu, tình cảm…). Tr.48."},
+{s:"s2",d:"0.15",q:"Khi tri giác không gian, cơ quan phân tích nào giữ vai trò ĐẶC BIỆT quan trọng?",o:["Thính giác","Thị giác","Khứu giác","Vị giác"],a:1,e:"Tri giác không gian — thị giác giữ vai trò đặc biệt quan trọng. Tr.44."},
+{s:"s2",d:"0.15",q:"Tri giác là thành phần CHÍNH của nhận thức cảm tính, đặc biệt rõ ở:",o:["Trẻ sơ sinh","Người trưởng thành","Động vật","Người khuyết tật"],a:1,e:"Tri giác là thành phần chính của nhận thức cảm tính, nhất là ở người trưởng thành. Tr.46."},
+{s:"s2",d:"0.15",q:"Ảo giác là hiện tượng:",o:["Chỉ xảy ra ở người bệnh","Chỉ có ở tri giác không gian","Có tính quy luật, xảy ra ở mọi người bình thường và ở mọi loại tri giác","Không bao giờ xảy ra ở người bình thường"],a:2,e:"Ảo giác có tính quy luật, ở mọi người, mọi loại tri giác. Tr.49."},
+
+/* ---- TRI GIÁC · 0.25đ (15) ---- */
+{s:"s2",d:"0.25",q:"\"Giữa đám đông ồn ào, ta vẫn nghe rõ tiếng gọi tên mình và bỏ qua các âm thanh khác.\" Đây là quy luật:",o:["Tính đối tượng","Tính lựa chọn","Tính ổn định","Tổng giác"],a:1,e:"Tách đối tượng (tiếng gọi) khỏi bối cảnh (tạp âm) = tính lựa chọn. Tr.46-47."},
+{s:"s2",d:"0.25",q:"\"Một viên phấn dù nhìn gần hay xa, dưới ánh sáng mạnh hay yếu, ta vẫn tri giác nó màu trắng, hình trụ.\" Đây là quy luật:",o:["Tính lựa chọn","Tính ổn định","Tính có ý nghĩa","Ảo giác"],a:1,e:"Điều kiện thay đổi nhưng vẫn phản ánh ổn định = tính ổn định. Tr.48."},
+{s:"s2",d:"0.25",q:"Câu \"Yêu nên tốt, ghét nên xấu\" thể hiện rõ nhất quy luật tri giác nào?",o:["Tính đối tượng","Tính lựa chọn","Tổng giác","Tính ổn định"],a:2,e:"Tình cảm của chủ thể chi phối tri giác = tổng giác. Tr.48."},
+{s:"s2",d:"0.25",q:"\"Căn cứ vào mùi, ta xác định được vị trí cửa hàng bán thức ăn.\" Đây là loại tri giác nào?",o:["Tri giác thời gian","Tri giác không gian","Tri giác vận động","Tri giác con người"],a:1,e:"Xác định vị trí, phương hướng = tri giác không gian. Tr.43."},
+{s:"s2",d:"0.25",q:"\"Khi hứng thú với công việc thấy thời gian trôi nhanh; khi chán nản thấy trôi chậm.\" Đây là biểu hiện của:",o:["Tri giác không gian","Tri giác thời gian (chịu ảnh hưởng của trạng thái tâm lý)","Tri giác vận động","Tổng giác về không gian"],a:1,e:"Trạng thái tâm lý ảnh hưởng tri giác thời gian. Tr.44."},
+{s:"s2",d:"0.25",q:"Bức tranh \"khi thì thấy hai khuôn mặt, khi thì thấy một chiếc bình\". Đây minh họa cho:",o:["Tính ổn định","Tính lựa chọn (vai trò đối tượng – bối cảnh hoán đổi)","Tổng giác","Tính có ý nghĩa"],a:1,e:"Đối tượng và bối cảnh giao hoán cho nhau = tính lựa chọn. Tr.47."},
+{s:"s2",d:"0.25",q:"Hai đoạn thẳng dài bằng nhau nhưng do thêm mũi tên ở hai đầu mà ta thấy dài ngắn khác nhau. Đây là:",o:["Tính ổn định","Tính lựa chọn","Ảo giác (ảo ảnh tri giác)","Tổng giác"],a:2,e:"Phản ánh sai về vật có thật = ảo giác. Tr.48-49."},
+{s:"s2",d:"0.25",q:"Giáo viên gạch chân, tô màu các từ khóa để học sinh dễ chú ý. Việc làm nổi bật đối tượng so với nền này vận dụng quy luật:",o:["Tính ổn định","Tính lựa chọn","Tổng giác","Tri giác thời gian"],a:1,e:"Làm đối tượng khác biệt với bối cảnh → tri giác dễ dàng hơn = tính lựa chọn. Tr.47."},
+{s:"s2",d:"0.25",q:"Bác sĩ X-quang nhìn phim chụp và lập tức nhận ra dấu hiệu bệnh mà người thường không thấy. Khả năng này thể hiện rõ nhất:",o:["Ảo giác","Năng lực quan sát kết hợp tổng giác (kinh nghiệm chuyên môn)","Tính ổn định","Tri giác vận động"],a:1,e:"Tri giác nhanh, chính xác điểm chủ yếu nhờ kinh nghiệm = năng lực quan sát/tổng giác. Tr.45-48."},
+{s:"s2",d:"0.25",q:"\"Vật chuyển động quá nhanh (viên đạn) hoặc quá chậm (kim giờ đồng hồ) thì ta khó tri giác được sự chuyển động.\" Điều này nói về:",o:["Tri giác không gian","Tri giác thời gian","Tri giác vận động","Ảo giác"],a:2,e:"Tri giác vận động phụ thuộc tốc độ chuyển động. Tr.44."},
+{s:"s2",d:"0.25",q:"Khi gặp người lần đầu, ta cố tạo ấn tượng tốt vì biết ấn tượng ban đầu sẽ ảnh hưởng cách người đó nhìn nhận ta về sau. Điều này vận dụng quy luật:",o:["Tính lựa chọn","Tính ổn định","Tổng giác","Ảo giác"],a:2,e:"Ấn tượng/kinh nghiệm của chủ thể chi phối tri giác về sau = tổng giác. Tr.48."},
+{s:"s2",d:"0.25",q:"\"Người mặc áo kẻ sọc dọc trông cao, gầy hơn so với khi mặc áo kẻ ngang.\" Đây là ví dụ điển hình của:",o:["Tính ổn định","Ảo giác (ảo ảnh tri giác)","Tính lựa chọn","Tổng giác"],a:1,e:"Phản ánh sai về kích thước thực = ảo giác. Tr.48-49."},
+{s:"s2",d:"0.25",q:"Sự nhận thức lẫn nhau giữa người với người trong giao tiếp trực tiếp thuộc loại tri giác nào, do yếu tố nào quy định?",o:["Tri giác không gian; do thị giác","Tri giác con người; do giá trị xã hội quy định","Tri giác thời gian; do nhịp sinh học","Tri giác vận động; do tốc độ"],a:1,e:"Tri giác con người do giá trị xã hội quy định. Tr.43."},
+{s:"s2",d:"0.25",q:"Nhìn một hình vẽ và \"thấy\" ngay đó là cái ghế, gọi được tên và biết công dụng của nó — quy luật nào đang hoạt động?",o:["Tính lựa chọn","Tính có ý nghĩa","Tính ổn định","Tri giác vận động"],a:1,e:"Gọi tên, hiểu công dụng = tính có ý nghĩa (gắn với tư duy). Tr.48."},
+{s:"s2",d:"0.25",q:"Phát biểu nào mô tả ĐÚNG nguyên nhân gây ảo ảnh tri giác?",o:["Chỉ do não bị bệnh","Do quy luật khách quan của sự vật, do đặc điểm đối tượng – bối cảnh, do cấu tạo của não và giác quan","Chỉ do thiếu kinh nghiệm sống","Do chủ thể cố tình tri giác sai"],a:1,e:"Ba nhóm nguyên nhân của ảo giác. Tr.49."},
+
+/* ---- TRI GIÁC · 0.35đ (12) ---- */
+{s:"s2",d:"0.35",q:"Trong lớp ồn ào, một học sinh vẫn nghe được lời thầy giảng và bỏ qua tiếng nói chuyện; nhưng khi bạn gọi tên mình thì lập tức quay sang. Hai hiện tượng này cùng minh họa quy luật nào, và điểm chung là gì?",o:["Tính ổn định; vì hình ảnh không đổi","Tính lựa chọn; vì cả hai đều tách đối tượng cần tri giác ra khỏi bối cảnh, vai trò đối tượng – bối cảnh có thể hoán đổi","Tổng giác; vì phụ thuộc kinh nghiệm","Tính có ý nghĩa; vì gọi được tên"],a:1,e:"Tính lựa chọn — tách đối tượng khỏi nền, đối tượng/bối cảnh hoán đổi. Tr.46-47."},
+{s:"s2",d:"0.35",q:"Hai người cùng xem một bức tranh trừu tượng: họa sĩ thấy bố cục, kỹ thuật, ý đồ; người chưa học mỹ thuật chỉ thấy \"những vệt màu lộn xộn\". Khác biệt này giải thích tốt nhất bằng:",o:["Tính ổn định của tri giác","Ảo giác","Tổng giác — tri giác phụ thuộc vốn hiểu biết, kinh nghiệm, năng lực của chủ thể","Tính đối tượng"],a:2,e:"Cùng kích thích, kết quả khác do chủ thể khác → tổng giác. Tr.48."},
+{s:"s2",d:"0.35",q:"Tài xế lái xe ban đêm đôi khi \"thấy\" có vật cản phía trước nhưng thực ra không có, do ánh đèn và bóng tối. Hiện tượng này là gì, khác \"ảo giác do rối loạn tâm thần\" ở điểm nào?",o:["Là tổng giác; giống hệt ảo giác bệnh lý","Là ảo ảnh tri giác — phản ánh sai về vật/điều kiện CÓ THẬT đang tác động; khác ảo giác bệnh lý (không có kích thích thật)","Là tính ổn định; do thói quen lái xe","Là tính lựa chọn; do chọn nhầm đối tượng"],a:1,e:"Ảo ảnh tri giác = sai lệch về vật/điều kiện CÓ THẬT đang tác động. Tr.48-49."},
+{s:"s2",d:"0.35",q:"Tại sao nói tri giác là một \"hành động tích cực\" chứ không phải phản ánh thụ động?",o:["Vì tri giác chỉ là phép cộng các cảm giác","Vì con người chủ động tách đối tượng khỏi bối cảnh, gắn ý nghĩa, huy động kinh nghiệm để phản ánh sự vật theo cấu trúc","Vì tri giác phản ánh bản chất bên trong","Vì tri giác không cần đến giác quan"],a:1,e:"Tri giác là hành động tích cực: lựa chọn, gắn ý nghĩa, tổng giác. Tr.43-48."},
+{s:"s2",d:"0.35",q:"Đi du lịch, ban đầu thấy một ngày trôi rất nhanh vì mọi thứ mới lạ, hứng thú; nhưng khi nhớ lại cả chuyến đi lại thấy \"dài\". Cách tri giác thời gian này chịu ảnh hưởng của:",o:["Chỉ phụ thuộc đồng hồ sinh học","Nội dung hoạt động, trạng thái tâm lý (hứng thú/chán) và lứa tuổi","Chỉ phụ thuộc thị giác","Do ảo giác không gian"],a:1,e:"Tri giác thời gian phụ thuộc nội dung hoạt động, trạng thái tâm lý, lứa tuổi. Tr.44."},
+{s:"s2",d:"0.35",q:"Để học sinh tri giác tài liệu đầy đủ, sâu sắc, giáo viên đã: (1) dùng tranh ảnh trực quan, (2) gạch chân từ khóa, (3) liên hệ kinh nghiệm sống của học sinh. Mỗi biện pháp vận dụng quy luật nào theo thứ tự?",o:["Ổn định – lựa chọn – đối tượng","Có ý nghĩa – lựa chọn – tổng giác","Đối tượng – ổn định – ảo giác","Tổng giác – đối tượng – lựa chọn"],a:1,e:"Trực quan→ý nghĩa; gạch chân→lựa chọn; liên hệ kinh nghiệm→tổng giác. Tr.47-48."},
+{s:"s2",d:"0.35",q:"Vì sao \"tính ổn định của tri giác\" có lợi cho hoạt động sống của con người?",o:["Vì nó làm cho mọi vật trông giống nhau","Vì nhờ nó, dù điều kiện (khoảng cách, ánh sáng, góc nhìn) thay đổi, ta vẫn nhận ra đúng sự vật để định hướng và hành động phù hợp","Vì nó giúp ta tri giác sai","Vì nó thay thế cho tư duy"],a:1,e:"Tính ổn định giúp nhận đúng sự vật khi điều kiện đổi → định hướng hành vi. Tr.48."},
+{s:"s2",d:"0.35",q:"Một thám tử vào hiện trường, trong vài giây đã nhận ra những chi tiết bất thường mà người khác bỏ qua. Năng lực này hình thành chủ yếu nhờ đâu, thuộc khái niệm nào?",o:["Bẩm sinh; thuộc tính đối tượng","Rèn luyện trong hoạt động thực tiễn; là năng lực quan sát, gắn với tổng giác (vốn kinh nghiệm)","Ảo giác; do tưởng tượng","Tính ổn định; do thói quen"],a:1,e:"Năng lực quan sát hình thành qua rèn luyện; tổng giác dựa trên kinh nghiệm. Tr.45-48."},
+{s:"s2",d:"0.35",q:"\"Tách tiếng đàn solo ra khỏi dàn nhạc để nghe rõ\" và \"vẫn nhận ra bản nhạc quen dù được chơi ở tông cao hơn\". Hai hiện tượng này lần lượt thuộc quy luật nào?",o:["Cả hai đều là tính lựa chọn","Tính lựa chọn và tính ổn định","Tổng giác và ảo giác","Tính có ý nghĩa và tính đối tượng"],a:1,e:"Tách khỏi nền = lựa chọn; điều kiện đổi vẫn nhận đúng = ổn định. Tr.46-48."},
+{s:"s2",d:"0.35",q:"\"Tri giác con người\" khác các loại tri giác khác (không gian, thời gian, vận động) ở điểm cốt lõi nào?",o:["Không có gì khác biệt","Đối tượng phản ánh là con người và mang tính xã hội; do giá trị xã hội quy định, có chức năng điều chỉnh giao tiếp","Chỉ dùng thị giác","Là loại tri giác bẩm sinh"],a:1,e:"Tri giác con người đặc biệt vì đối tượng là con người, do giá trị xã hội quy định. Tr.43-45."},
+{s:"s2",d:"0.35",q:"Trên ảnh, đường ray xe lửa trông như \"hẹp dần và chụm lại ở xa\" dù thực tế luôn song song. Đây là hiện tượng gì, thuộc nhóm nguyên nhân nào?",o:["Tính ổn định; do cấu trúc vật","Ảo ảnh tri giác; do quy luật khách quan của sự vật (phối cảnh) và đặc điểm đối tượng – bối cảnh","Tổng giác; do kinh nghiệm","Tính lựa chọn; do chọn sai đối tượng"],a:1,e:"Ảo giác do quy luật khách quan và đặc điểm đối tượng – bối cảnh. Tr.49."},
+{s:"s2",d:"0.35",q:"Khẳng định nào phản ánh ĐÚNG mối quan hệ giữa các quy luật của tri giác?",o:["Mỗi quy luật hoạt động hoàn toàn độc lập","Các quy luật bổ sung cho nhau, làm tri giác đa dạng, phong phú và mang tính chủ thể cao","Chỉ có một quy luật hoạt động tại một thời điểm","Các quy luật mâu thuẫn, triệt tiêu lẫn nhau"],a:1,e:"Các quy luật tri giác bổ sung nhau, tăng tính chủ thể. Tr.49."}
+];
+QUESTIONS.forEach((q,i)=>q.id=i);
+
+/* ===================== TRẠNG THÁI ===================== */
+const filters={sec:"all",diff:"all",order:"seq"};
+const state={list:[],idx:0,results:{},chosen:{},maxPts:0};
+
+const $=id=>document.getElementById(id);
+const startScreen=$("startScreen"),quizScreen=$("quizScreen"),resultScreen=$("resultScreen");
+const progressBox=$("progressBox");
+
+/* ---- chip groups ---- */
+function bindChips(boxId,key){
+  $(boxId).querySelectorAll(".chip").forEach(c=>c.addEventListener("click",()=>{
+    $(boxId).querySelectorAll(".chip").forEach(x=>x.setAttribute("aria-pressed","false"));
+    c.setAttribute("aria-pressed","true");
+    filters[key]=c.dataset[key==="sec"?"sec":key==="diff"?"diff":"order"];
+    updateCount();
+  }));
+}
+bindChips("sectionChips","sec");
+bindChips("diffChips","diff");
+bindChips("orderChips","order");
+
+function pool(){
+  return QUESTIONS.filter(q=>
+    (filters.sec==="all"||q.s===filters.sec)&&
+    (filters.diff==="all"||q.d===filters.diff));
+}
+function updateCount(){
+  const n=pool().length;
+  $("startCount").textContent=`Bộ lọc hiện tại: ${n} câu`;
+}
+updateCount();
+
+/* ---- start ---- */
+$("startBtn").addEventListener("click",()=>{
+  let list=pool().slice();
+  if(filters.order==="shuffle") list=shuffle(list);
+  startQuiz(list);
+});
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+
+function startQuiz(list){
+  state.list=list;state.idx=0;state.results={};state.chosen={};
+  state.maxPts=list.reduce((s,q)=>s+PT[q.d],0);
+  startScreen.classList.add("hidden");
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.remove("hidden");
+  updateScore();renderQuestion();
+}
+
+/* ---- render question ---- */
+function renderQuestion(){
+  const q=state.list[state.idx];
+  const dn=q.d.replace(".","");
+  $("qHead").innerHTML=
+    `<span class="badge b-sec">${SECTIONS[q.s]}</span>`+
+    `<span class="badge b-d${dn}">${q.d}đ</span>`+
+    `<span class="q-count">Câu ${state.idx+1} / ${state.list.length}</span>`;
+  $("qText").textContent=q.q;
+
+  const answered=state.results[q.id]!==undefined;
+  const chosen=state.chosen[q.id];
+  const opts=$("qOptions");opts.innerHTML="";
+  q.o.forEach((t,i)=>{
+    const b=document.createElement("button");
+    b.className="option";b.disabled=answered;
+    let mark="";
+    if(answered){
+      if(i===q.a){b.classList.add("correct");mark='<span class="mark">✓</span>';}
+      else if(i===chosen){b.classList.add("wrong");mark='<span class="mark">✕</span>';}
+    }
+    b.innerHTML=`<span class="key">${KEY[i]}</span><span>${t}</span>${mark}`;
+    b.addEventListener("click",()=>choose(q,i));
+    opts.appendChild(b);
+  });
+
+  const ex=$("qExplain");
+  if(answered){
+    const ok=chosen===q.a;
+    ex.className="explain show "+(ok?"ok":"no");
+    ex.innerHTML=`<b>${ok?"Chính xác":"Phản hồi"}</b>${q.e}`;
+  }else{ex.className="explain";ex.innerHTML="";}
+
+  renderNav();
+  const done=Object.keys(state.results).length;
+  $("progressFill").style.width=(done/state.list.length*100)+"%";
+}
+
+function choose(q,i){
+  if(state.results[q.id]!==undefined)return;
+  state.chosen[q.id]=i;
+  state.results[q.id]=(i===q.a);
+  updateScore();renderQuestion();
+}
+
+function renderNav(){
+  const nav=$("navRow");nav.innerHTML="";
+  const prev=document.createElement("button");
+  prev.className="nav-btn";prev.textContent="← Câu trước";
+  prev.disabled=state.idx===0;
+  prev.onclick=()=>{state.idx--;renderQuestion();};
+  nav.appendChild(prev);
+
+  const next=document.createElement("button");
+  next.className="nav-btn primary";
+  if(state.idx===state.list.length-1){
+    next.textContent="Xem kết quả →";
+    next.onclick=showResult;
+  }else{
+    next.textContent="Câu tiếp →";
+    next.onclick=()=>{state.idx++;renderQuestion();};
+  }
+  nav.appendChild(next);
+}
+
+function updateScore(){
+  let pts=0;
+  state.list.forEach(q=>{if(state.results[q.id]===true)pts+=PT[q.d];});
+  $("scorePill").textContent=`Điểm: ${fmt(pts)} / ${fmt(state.maxPts)}`;
+}
+function fmt(n){return (Math.round(n*100)/100).toString();}
+
+/* ---- result ---- */
+function showResult(){
+  quizScreen.classList.add("hidden");
+  resultScreen.classList.remove("hidden");
+  const total=state.list.length;
+  const correct=state.list.filter(q=>state.results[q.id]===true).length;
+  let pts=0;state.list.forEach(q=>{if(state.results[q.id]===true)pts+=PT[q.d];});
+  $("finalScore").innerHTML=`${correct} <small>/ ${total}</small>`;
+  const pct=Math.round(correct/total*100);
+  $("resultMsg").textContent=`Đúng ${correct}/${total} câu (${pct}%) · Điểm quy đổi: ${fmt(pts)} / ${fmt(state.maxPts)}`;
+
+  const groups=[
+    ["Cảm giác · 0.15đ",q=>q.s==="s1"&&q.d==="0.15"],
+    ["Cảm giác · 0.25đ",q=>q.s==="s1"&&q.d==="0.25"],
+    ["Cảm giác · 0.35đ",q=>q.s==="s1"&&q.d==="0.35"],
+    ["Tri giác · 0.15đ",q=>q.s==="s2"&&q.d==="0.15"],
+    ["Tri giác · 0.25đ",q=>q.s==="s2"&&q.d==="0.25"],
+    ["Tri giác · 0.35đ",q=>q.s==="s2"&&q.d==="0.35"],
+  ];
+  const bd=$("breakdown");bd.innerHTML="";
+  groups.forEach(([nm,fn])=>{
+    const g=state.list.filter(fn);
+    if(!g.length)return;
+    const c=g.filter(q=>state.results[q.id]===true).length;
+    const p=Math.round(c/g.length*100);
+    const col=p>=70?"var(--correct)":p>=40?"var(--d35)":"var(--wrong)";
+    const row=document.createElement("div");
+    row.className="bd-row";
+    row.innerHTML=`<span class="bd-name">${nm}</span>
+      <span class="bd-bar"><i style="width:${p}%;background:${col}"></i></span>
+      <span class="bd-num">${c}/${g.length}</span>`;
+    bd.appendChild(row);
+  });
+
+  const wrong=state.list.filter(q=>state.results[q.id]===false);
+  const rw=$("reviewWrongBtn");
+  rw.disabled=wrong.length===0;
+  rw.textContent=wrong.length?`Làm lại ${wrong.length} câu sai`:"Không có câu sai";
+}
+
+$("restartBtn").addEventListener("click",()=>{
+  resultScreen.classList.add("hidden");
+  quizScreen.classList.add("hidden");
+  startScreen.classList.remove("hidden");
+  $("progressFill").style.width="0";
+  $("scorePill").textContent="Điểm: 0 / 0";
+  window.scrollTo({top:0,behavior:"smooth"});
+});
+$("reviewWrongBtn").addEventListener("click",()=>{
+  const wrong=state.list.filter(q=>state.results[q.id]===false);
+  if(wrong.length)startQuiz(wrong);
+});
+</script>
+</body>
+</html>

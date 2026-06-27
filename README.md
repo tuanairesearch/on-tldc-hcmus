@@ -11,16 +11,16 @@
 | Bộ | Nguồn | Số câu | Dạng |
 |----|-------|--------|------|
 | **Đề gốc (tài liệu)** | Trích tự động từ file PDF | 278 | chọn 1 / tổ hợp / ghép nối |
-| **Bộ tự soạn (mình + Claude)** | Soạn tay theo Chương 1–5 dựa trên tài liệu | 477 | chọn 1 đáp án + giải thích, có **mức độ** |
+| **Bộ tự soạn (mình + Claude)** | Soạn tay theo Chương 1–5 dựa trên tài liệu | 567 | chọn 1 đáp án + giải thích, có **mức độ** |
 
 Bộ tự soạn chia **3 mức độ** (lọc được trên trang chủ, hiện badge màu trong từng câu):
-**0.15đ · Nhận biết** (177) · **0.25đ · Vận dụng** (182) · **0.35đ · Tình huống** (118).
+**0.15đ · Nhận biết** (213) · **0.25đ · Vận dụng** (212) · **0.35đ · Tình huống** (142).
 Riêng Chương 1 (file gốc không ghi độ khó) được phân loại thủ công trong
 `extract_data_quizzes.mjs` (bảng `CH1_LEVELS`).
 
-Mỗi chương lại chia thành các **phần / chủ đề** chi tiết (ví dụ Chương 3: *Tư duy ·
-Tưởng tượng · Trí nhớ*). Tên phần hiện trên từng câu và ở phần xem lại; có thể **lọc
-theo phần** khi chọn đúng 1 chương trên trang chủ.
+Mỗi chương lại chia thành các **phần / chủ đề** chi tiết (ví dụ Chương 3: *Cảm giác ·
+Tri giác · Tư duy · Tưởng tượng · Trí nhớ*). Tên phần hiện trên từng câu và ở phần xem
+lại; có thể **lọc theo phần** khi chọn đúng 1 chương trên trang chủ.
 
 ## Chạy ứng dụng
 
@@ -54,9 +54,9 @@ Build bản tĩnh: `npm run build` → thư mục `dist/`. Xem thử: `npm run p
 | `src/data/questions.json` | Bộ **đề gốc** đã chuẩn hoá (278 câu) |
 | `src/data/extract_questions.py` | Script trích xuất PDF → `questions.json` |
 | `src/data/Data/Chương 1–5/*.html` | Bộ **tự soạn** gốc (mỗi file một quiz HTML) |
-| `src/data/questions-extra.json` | Bộ **tự soạn** đã gộp & chuẩn hoá (477 câu) |
+| `src/data/questions-extra.json` | Bộ **tự soạn** đã gộp & chuẩn hoá (567 câu) |
 | `src/data/extract_data_quizzes.mjs` | Script gộp các quiz HTML → `questions-extra.json` |
-| `src/data/build_public_sources.mjs` | Đưa PDF + 7 trang quiz HTML ra `public/nguon/` để truy cập trực tiếp |
+| `src/data/build_public_sources.mjs` | Đưa PDF + 8 trang quiz HTML ra `public/nguon/` để truy cập trực tiếp |
 | `public/nguon/*` | Nguồn công khai: PDF đề gốc + trang quiz từng chương (link ở tab Giới thiệu) |
 
 > Hai bộ là hai nguồn riêng. App load song song và cho chọn từng bộ, giữ tách biệt
@@ -66,7 +66,7 @@ Soạn lại bộ tự soạn / cập nhật nguồn công khai sau khi sửa fi
 
 ```bash
 node src/data/extract_data_quizzes.mjs    # gộp lại bộ tự soạn (problems: 0 là khớp hết)
-node src/data/build_public_sources.mjs    # cập nhật public/nguon/ (PDF + 7 trang quiz)
+node src/data/build_public_sources.mjs    # cập nhật public/nguon/ (PDF + 8 trang quiz)
 ```
 
 ### Trích xuất lại dữ liệu (tuỳ chọn)
