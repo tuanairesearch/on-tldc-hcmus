@@ -17,6 +17,12 @@ import dataQuestions from './data/questions-extra.json'
  * ------------------------------------------------------------------------- */
 
 const TYPE_LABEL = { single: 'Chọn 1 đáp án', combo: 'Tổ hợp', match: 'Ghép / Điền khuyết' }
+// loại câu hỏi để lọc (đề gốc trộn nhiều loại; bộ tự soạn chỉ có 'single')
+const TYPES = [
+  { id: 'single', label: 'Chọn 1 đáp án', short: 'Trắc nghiệm' },
+  { id: 'combo', label: 'Tổ hợp', short: 'Tổ hợp' },
+  { id: 'match', label: 'Ghép / Điền khuyết', short: 'Ghép nối' },
+]
 const LS_KEY = 'tldc.settings.v1'
 const LS_SCORE = 'tldc.scores.v1'
 const LS_UNLOCK = 'tldc.unlock.v1'
@@ -248,8 +254,19 @@ function renderHome() {
       ? saved.levels
       : LEVELS.map((l) => l.id),
   )
+
+  // loại câu hỏi: chỉ hiện khi bộ đang chọn có nhiều hơn 1 loại (đề gốc)
+  const typeCount = Object.fromEntries(TYPES.map((t) => [t.id, src.questions.filter((q) => q.type === t.id).length]))
+  const typesPresent = TYPES.filter((t) => typeCount[t.id] > 0)
+  const hasTypes = typesPresent.length > 1
+  const selTypes = new Set(
+    sameSaved && Array.isArray(saved.types) && saved.types.length
+      ? saved.types
+      : typesPresent.map((t) => t.id),
+  )
+
   const advOpen = saved.adv === true
-  const advSummary = [hasLevels && 'mức độ', hasSections && 'phần', 'xáo trộn'].filter(Boolean).join(' · ')
+  const advSummary = [hasTypes && 'loại câu', hasLevels && 'mức độ', hasSections && 'phần', 'xáo trộn'].filter(Boolean).join(' · ')
 
   app.innerHTML = `
   <div class="wrap">
@@ -296,6 +313,17 @@ function renderHome() {
       </button>
 
       <div class="adv ${advOpen ? 'open' : ''}" id="adv">
+        ${hasTypes ? `
+        <h2>Loại câu hỏi</h2>
+        <div class="chip-row ty-row" id="types">
+          ${typesPresent.map((t) => `
+            <label class="pill typill">
+              <input type="checkbox" class="chk-ty" value="${t.id}" ${selTypes.has(t.id) ? 'checked' : ''}/>
+              <span>${t.label} <em>(${typeCount[t.id]})</em></span>
+            </label>`).join('')}
+        </div>
+        <p class="ty-hint">Bỏ chọn để loại bớt — vd chỉ giữ <b>Chọn 1 đáp án</b> để làm/thi thuần trắc nghiệm.</p>` : ''}
+
         ${hasLevels ? `
         <h2>Mức độ</h2>
         <div class="chip-row lv-row" id="levels">
@@ -326,7 +354,7 @@ function renderHome() {
       <div class="exam-cta">
         <button class="btn exam" id="exam">🎯 Tạo đề thi thử</button>
         <span class="exam-note">40 câu ngẫu nhiên · chấm thang <b>10đ</b> · ⏱ giới hạn <b>${EXAM_MINUTES} phút</b><br>
-          ${hasLevels ? '10×0.15đ + 20×0.25đ + 10×0.35đ' : '40 câu × 0.25đ'} · nguồn: <b>${esc(src.label)}</b> · <em>ẩn chương &amp; phần</em></span>
+          ${hasLevels ? '10×0.15đ + 20×0.25đ + 10×0.35đ' : '40 câu × 0.25đ'} · nguồn: <b>${esc(src.label)}</b> · <em>ẩn chương &amp; phần</em>${hasTypes ? `<span id="exam-types-note"></span>` : ''}</span>
       </div>
     </section>
 
@@ -358,7 +386,12 @@ function renderHome() {
   app.querySelector('#lock-btn').addEventListener('click', () => { if (promptUnlock()) renderHome() })
 
   // tạo đề thi thử từ bộ đang chọn (giữ phân biệt câu mình tạo / câu của file)
-  app.querySelector('#exam').addEventListener('click', () => startExam(src.id))
+  app.querySelector('#exam').addEventListener('click', () => {
+    const types = hasTypes ? selectedTypes() : null
+    if (hasTypes && !types.length) { info.textContent = 'Hãy chọn ít nhất một loại câu hỏi.'; return }
+    saveSettings({ ...loadSettings(), source: src.id, types: types || [] })
+    startExam(src.id, types)
+  })
 
   // ôn tập các câu đã lưu ("chưa thuộc") của bộ đang chọn
   const reviewSaved = app.querySelector('#review-saved')
@@ -379,10 +412,13 @@ function renderHome() {
   const chkAll = app.querySelector('#chk-all')
   const chChecks = [...app.querySelectorAll('.chk-ch')]
   const lvChecks = [...app.querySelectorAll('.chk-lv')]
+  const tyChecks = [...app.querySelectorAll('.chk-ty')]
   const secBox = app.querySelector('#sec-box')
   const info = app.querySelector('#count-info')
+  const examTypesNote = app.querySelector('#exam-types-note')
   const selectedChapters = () => chChecks.filter((c) => c.checked).map((c) => +c.value)
   const selectedLevels = () => lvChecks.filter((c) => c.checked).map((c) => c.value)
+  const selectedTypes = () => tyChecks.filter((c) => c.checked).map((c) => c.value)
   // lọc phần chỉ bật khi đúng 1 chương được chọn; null = không lọc theo phần
   const selectedSections = () => {
     if (!secBox) return null
@@ -421,13 +457,20 @@ function renderHome() {
   }
 
   const updateInfo = () => {
-    const avail = filterPool(src.questions, selectedChapters(), selectedLevels(), selectedSections()).length
+    const avail = filterPool(src.questions, selectedChapters(), selectedLevels(), selectedSections(), selectedTypes()).length
     info.textContent = `${avail} câu trong phạm vi đã chọn`
     chkAll.checked = chChecks.every((c) => c.checked)
+    if (examTypesNote) {
+      const t = selectedTypes()
+      examTypesNote.innerHTML = t.length && t.length < typesPresent.length
+        ? ` · chỉ <b>${t.map((id) => TYPE_LABEL[id]).join(', ')}</b>`
+        : ''
+    }
   }
   chkAll.addEventListener('change', () => { chChecks.forEach((c) => (c.checked = chkAll.checked)); paintSections(); updateInfo() })
   chChecks.forEach((c) => c.addEventListener('change', () => { paintSections(); updateInfo() }))
   lvChecks.forEach((c) => c.addEventListener('change', updateInfo))
+  tyChecks.forEach((c) => c.addEventListener('change', updateInfo))
   paintSections()
   updateInfo()
 
@@ -438,11 +481,14 @@ function renderHome() {
     if (hasLevels && !levels.length) { info.textContent = 'Hãy chọn ít nhất một mức độ.'; return }
     const sections = selectedSections()
     if (sections && !sections.length) { info.textContent = 'Hãy chọn ít nhất một phần.'; return }
+    const types = hasTypes ? selectedTypes() : []
+    if (hasTypes && !types.length) { info.textContent = 'Hãy chọn ít nhất một loại câu hỏi.'; return }
     const cfg = {
       source: src.id,
       chapters: chosen,
       levels,
       sections,
+      types,
       count: 'all',
       shuffle: app.querySelector('#opt-shuffle').checked,
       shuffleOpt: app.querySelector('#opt-shuffleOpt').checked,
@@ -558,19 +604,21 @@ function renderScoreboard() {
 // =====================================================================
 // lọc theo chương + mức độ. Chọn đủ cả 3 mức (hoặc bộ không có mức) = không lọc
 // theo mức → câu không phân mức (Chương 1) vẫn được giữ.
-function filterPool(questions, chapterIds, levels, sections) {
+function filterPool(questions, chapterIds, levels, sections, types) {
   const chSet = new Set(chapterIds)
   const filterByLevel = Array.isArray(levels) && levels.length && levels.length < LEVELS.length
   const lvSet = new Set(levels || [])
   const secSet = Array.isArray(sections) ? new Set(sections) : null
+  const typeSet = Array.isArray(types) && types.length ? new Set(types) : null
   return questions.filter((q) =>
     chSet.has(q.chapter) &&
     (!filterByLevel || lvSet.has(q.level)) &&
-    (!secSet || secSet.has(q.section)))
+    (!secSet || secSet.has(q.section)) &&
+    (!typeSet || typeSet.has(q.type)))
 }
 
 function startSession(cfg) {
-  let pool = filterPool(getSource(cfg.source).questions, cfg.chapters, cfg.levels, cfg.sections)
+  let pool = filterPool(getSource(cfg.source).questions, cfg.chapters, cfg.levels, cfg.sections, cfg.types)
   if (cfg.shuffle) pool = shuffle(pool)
   else pool = pool.slice().sort((a, b) => a.id - b.id)
   if (cfg.count !== 'all') pool = pool.slice(0, cfg.count)
@@ -620,30 +668,33 @@ function startSaved(sourceId) {
 }
 
 // bốc ngẫu nhiên 40 câu thành một đề hoàn chỉnh (10đ), GIỮ NGUYÊN nguồn đã chọn
-function buildExamItems(sourceId) {
+// types: mảng loại câu được phép (vd ['single'] = chỉ trắc nghiệm chọn 1); rỗng = mọi loại
+function buildExamItems(sourceId, types) {
   const src = getSource(sourceId)
-  const hasLv = src.questions.some((q) => q.level)
+  const typeSet = Array.isArray(types) && types.length ? new Set(types) : null
+  const base = typeSet ? src.questions.filter((q) => typeSet.has(q.type)) : src.questions
+  const hasLv = base.some((q) => q.level)
   let pool = []
   if (hasLv) {
     // bốc theo cơ cấu mức độ để cộng đúng 10đ
     for (const [lv, need] of Object.entries(EXAM_COMPOSITION)) {
-      pool.push(...shuffle(src.questions.filter((q) => q.level === lv)).slice(0, need))
+      pool.push(...shuffle(base.filter((q) => q.level === lv)).slice(0, need))
     }
     if (pool.length < EXAM_SIZE) { // dự phòng nếu một mức thiếu câu
       const used = new Set(pool.map((q) => q.id))
-      pool.push(...shuffle(src.questions.filter((q) => !used.has(q.id))).slice(0, EXAM_SIZE - pool.length))
+      pool.push(...shuffle(base.filter((q) => !used.has(q.id))).slice(0, EXAM_SIZE - pool.length))
     }
   } else {
-    pool = shuffle(src.questions).slice(0, EXAM_SIZE) // đề gốc: 40 câu bất kỳ, điểm đều nhau
+    pool = shuffle(base).slice(0, EXAM_SIZE) // đề gốc: 40 câu bất kỳ, điểm đều nhau
   }
   pool = shuffle(pool)
   return pool.map((q) => ({ q, opts: q.options, points: q.level ? LEVEL_POINTS[q.level] : EXAM_FLAT_POINTS }))
 }
 
-function startExam(sourceId) {
-  const items = buildExamItems(sourceId)
+function startExam(sourceId, types) {
+  const items = buildExamItems(sourceId, types)
   state.session = {
-    cfg: { source: sourceId, mode: 'exam', instant: false },
+    cfg: { source: sourceId, mode: 'exam', instant: false, types },
     items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false, startAt: Date.now(),
   }
   state.screen = 'quiz'
@@ -913,7 +964,7 @@ function renderResult(r) {
       </section>
       <div id="review-list"></div>
     </div>`
-    app.querySelector('#retry').addEventListener('click', () => startExam(s.cfg.source))
+    app.querySelector('#retry').addEventListener('click', () => startExam(s.cfg.source, s.cfg.types))
     wireCommon()
     return
   }
