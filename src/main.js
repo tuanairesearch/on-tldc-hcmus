@@ -20,6 +20,7 @@ const TYPE_LABEL = { single: 'Chọn 1 đáp án', combo: 'Tổ hợp', match: '
 const LS_KEY = 'tldc.settings.v1'
 const LS_SCORE = 'tldc.scores.v1'
 const LS_UNLOCK = 'tldc.unlock.v1'
+const LS_SAVED = 'tldc.saved.v1' // câu "chưa thuộc" người dùng tự lưu (bền qua các phiên)
 
 // ⚠ MÃ BÍ MẬT để mở "đề gốc" (chỉ ẩn ở giao diện, KHÔNG phải bảo mật thật).
 //    Đổi chuỗi dưới đây thành mã của riêng bạn.
@@ -73,6 +74,9 @@ const EXAM_SIZE = 40
 // 10×0.15 + 20×0.25 + 10×0.35 = 10đ (bộ có phân mức)
 const EXAM_COMPOSITION = { '0.15': 10, '0.25': 20, '0.35': 10 }
 const EXAM_FLAT_POINTS = 10 / EXAM_SIZE // 0.25đ/câu cho bộ không phân mức (đề gốc)
+// đề thi thử giới hạn thời gian; hết giờ sẽ tự nộp bài
+const EXAM_MINUTES = 45
+const EXAM_SECONDS = EXAM_MINUTES * 60
 
 // danh sách các phần (chủ đề) của một chương, giữ đúng thứ tự xuất hiện
 function sectionsOf(questions, chapterId) {
@@ -150,6 +154,70 @@ function score(q, ans) {
     return ok / q.answer.length
   }
   return q.answer.includes(ans) ? 1 : 0
+}
+
+// =====================================================================
+// CÂU ĐÃ LƯU ("chưa thuộc") — bền qua các phiên, tách theo từng bộ
+// =====================================================================
+// khoá lưu gộp nguồn + id vì id trùng nhau giữa hai bộ (đều bắt đầu từ 1)
+const savedKey = (source, q) => `${source}:${q.id}`
+const loadSaved = () => {
+  try { return new Set(JSON.parse(localStorage.getItem(LS_SAVED)) || []) } catch { return new Set() }
+}
+const persistSaved = (set) => {
+  try { localStorage.setItem(LS_SAVED, JSON.stringify([...set])) } catch { /* ignore */ }
+}
+const isSaved = (source, q) => loadSaved().has(savedKey(source, q))
+// bật/tắt lưu 1 câu, trả về trạng thái mới (true = đã lưu)
+const toggleSaved = (source, q) => {
+  const set = loadSaved()
+  const k = savedKey(source, q)
+  set.has(k) ? set.delete(k) : set.add(k)
+  persistSaved(set)
+  return set.has(k)
+}
+// các câu đã lưu của một bộ, giữ đúng thứ tự trong bộ
+const savedQuestionsFor = (sourceId) => {
+  const set = loadSaved()
+  return getSource(sourceId).questions.filter((q) => set.has(savedKey(sourceId, q)))
+}
+
+// =====================================================================
+// ĐỒNG HỒ — đếm giờ (luyện tập) / đếm ngược 45' (thi, hết giờ tự nộp)
+// =====================================================================
+let timerId = null
+const fmtTime = (sec) => {
+  sec = Math.max(0, Math.floor(sec))
+  const m = Math.floor(sec / 60), r = sec % 60
+  return `${String(m).padStart(2, '0')}:${String(r).padStart(2, '0')}`
+}
+// số giây đã trôi qua của phiên hiện tại
+const elapsedSec = () => {
+  const s = state.session
+  return s && s.startAt ? Math.floor((Date.now() - s.startAt) / 1000) : 0
+}
+// chuỗi hiển thị trên đồng hồ: đếm ngược khi thi, đếm lên khi luyện tập
+const clockText = () => {
+  const s = state.session
+  if (!s) return ''
+  return s.cfg.mode === 'exam' ? fmtTime(EXAM_SECONDS - elapsedSec()) : fmtTime(elapsedSec())
+}
+const stopTimer = () => { if (timerId) { clearInterval(timerId); timerId = null } }
+const startTimer = () => {
+  stopTimer()
+  timerId = setInterval(() => {
+    const s = state.session
+    if (!s || state.screen !== 'quiz') { stopTimer(); return }
+    const el = document.querySelector('#timer')
+    if (!el) return // sẽ vẽ lại ở lần render kế tiếp
+    el.textContent = clockText()
+    if (s.cfg.mode === 'exam') {
+      const remain = EXAM_SECONDS - elapsedSec()
+      el.classList.toggle('warn', remain <= 300 && remain > 60)
+      el.classList.toggle('danger', remain <= 60)
+      if (remain <= 0) { stopTimer(); finish(true) } // hết giờ → tự nộp
+    }
+  }, 1000)
 }
 
 // =====================================================================
@@ -257,11 +325,12 @@ function renderHome() {
 
       <div class="exam-cta">
         <button class="btn exam" id="exam">🎯 Tạo đề thi thử</button>
-        <span class="exam-note">40 câu ngẫu nhiên · chấm thang <b>10đ</b><br>
-          ${hasLevels ? '10×0.15đ + 20×0.25đ + 10×0.35đ' : '40 câu × 0.25đ'} · nguồn: <b>${esc(src.label)}</b></span>
+        <span class="exam-note">40 câu ngẫu nhiên · chấm thang <b>10đ</b> · ⏱ giới hạn <b>${EXAM_MINUTES} phút</b><br>
+          ${hasLevels ? '10×0.15đ + 20×0.25đ + 10×0.35đ' : '40 câu × 0.25đ'} · nguồn: <b>${esc(src.label)}</b> · <em>ẩn chương &amp; phần</em></span>
       </div>
     </section>
 
+    ${renderSavedCard(src.id)}
     ${renderScoreboard()}
     <footer class="foot">
       ${showPicker
@@ -290,6 +359,10 @@ function renderHome() {
 
   // tạo đề thi thử từ bộ đang chọn (giữ phân biệt câu mình tạo / câu của file)
   app.querySelector('#exam').addEventListener('click', () => startExam(src.id))
+
+  // ôn tập các câu đã lưu ("chưa thuộc") của bộ đang chọn
+  const reviewSaved = app.querySelector('#review-saved')
+  if (reviewSaved) reviewSaved.addEventListener('click', () => startSaved(src.id))
 
   // gập / mở "Tuỳ chọn nâng cao"
   const advToggle = app.querySelector('#adv-toggle')
@@ -442,6 +515,21 @@ function renderAbout() {
   app.querySelector('#lock-btn').addEventListener('click', () => { if (promptUnlock()) renderAbout() })
 }
 
+// thẻ "Câu đã lưu" ở trang chủ — ôn tập riêng các câu chưa thuộc của bộ đang chọn
+function renderSavedCard(sourceId) {
+  const n = savedQuestionsFor(sourceId).length
+  return `
+  <section class="card saved-card">
+    <h2>🔖 Câu đã lưu</h2>
+    ${n
+      ? `<div class="saved-row">
+          <span class="saved-count"><b>${n}</b> câu chưa thuộc trong bộ này</span>
+          <button class="btn primary" id="review-saved">Ôn tập câu đã lưu →</button>
+        </div>`
+      : `<p class="saved-empty">Chưa lưu câu nào. Khi làm bài, bấm <b>🔖</b> ở câu bạn thấy <b>chưa thuộc</b> để lưu lại và ôn riêng tại đây.</p>`}
+  </section>`
+}
+
 function renderScoreboard() {
   const scores = loadScores().slice(-5).reverse()
   if (!scores.length) return ''
@@ -457,7 +545,7 @@ function renderScoreboard() {
         return `
         <div class="hist-row">
           <span class="hist-pct ${cls}">${val}</span>
-          <span>${s.correct}/${s.total} câu${exam ? ' · 🎯 thi thử' : ''}</span>
+          <span>${s.correct}/${s.total} câu${exam ? ' · 🎯 thi thử' : ''}${s.timeSec != null ? ` · ⏱ ${fmtTime(s.timeSec)}` : ''}</span>
           <span class="muted">${new Date(s.at).toLocaleString('vi-VN')}</span>
         </div>`
       }).join('')}
@@ -494,9 +582,41 @@ function startSession(cfg) {
     return { q, opts }
   })
 
-  state.session = { cfg, items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false }
+  state.session = { cfg, items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false, startAt: Date.now() }
   state.screen = 'quiz'
+  startTimer()
   renderQuiz()
+}
+
+// phiên tùy chỉnh từ một danh sách câu có sẵn (làm lại câu sai · ôn câu đã lưu)
+function startCustomSession(items, { source, label, instant = true }) {
+  if (!items.length) return
+  state.session = {
+    cfg: { source, instant, custom: true, label },
+    items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false, startAt: Date.now(),
+  }
+  state.screen = 'quiz'
+  startTimer()
+  renderQuiz()
+}
+
+// làm lại các câu vừa làm sai của phiên hiện tại (luyện tập, chấm ngay)
+function startRedoWrong() {
+  const s = state.session
+  const wrong = s.items.filter((it, i) => !isCorrect(it.q, s.answers[i]))
+  startCustomSession(
+    wrong.map((it) => ({ q: it.q, opts: it.q.options })),
+    { source: s.cfg.source, label: 'Làm lại câu sai' },
+  )
+}
+
+// ôn tập các câu đã lưu ("chưa thuộc") của một bộ (luyện tập, chấm ngay)
+function startSaved(sourceId) {
+  const qs = savedQuestionsFor(sourceId)
+  startCustomSession(
+    shuffle(qs).map((q) => ({ q, opts: q.options })),
+    { source: sourceId, label: 'Câu đã lưu' },
+  )
 }
 
 // bốc ngẫu nhiên 40 câu thành một đề hoàn chỉnh (10đ), GIỮ NGUYÊN nguồn đã chọn
@@ -524,9 +644,10 @@ function startExam(sourceId) {
   const items = buildExamItems(sourceId)
   state.session = {
     cfg: { source: sourceId, mode: 'exam', instant: false },
-    items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false,
+    items, idx: 0, answers: {}, checked: {}, flags: {}, finished: false, startAt: Date.now(),
   }
   state.screen = 'quiz'
+  startTimer()
   renderQuiz()
 }
 
@@ -541,25 +662,31 @@ function renderQuiz() {
   const n = s.items.length
   const answered = Object.keys(s.answers).filter((k) => s.answers[k] != null).length
   const done = s.cfg.instant ? Object.keys(s.checked).length : answered
+  const saved = isSaved(s.cfg.source, q)
+  const remain = EXAM_SECONDS - elapsedSec()
+  const timerCls = exam ? (remain <= 60 ? 'danger' : remain <= 300 ? 'warn' : '') : ''
 
   app.innerHTML = `
   <div class="wrap quiz">
     <div class="topbar">
       <button class="btn ghost small" id="quit">← Thoát</button>
       <div class="progress"><div class="bar" style="width:${(done / n) * 100}%"></div></div>
+      <div class="timer ${exam ? 'exam' : ''} ${timerCls}" id="timer"
+        title="${exam ? `Thời gian còn lại · giới hạn ${EXAM_MINUTES} phút` : 'Thời gian đã làm'}">${clockText()}</div>
       <div class="counter">Câu <b>${s.idx + 1}</b>/${n}</div>
     </div>
 
     <article class="card question">
       <div class="qmeta">
         ${exam ? `<span class="tag tag-exam">🎯 Thi thử</span>` : ''}
-        <span class="tag tag-ch">Chương ${q.chapter}</span>
-        ${q.level ? `<span class="tag tag-lv ${LEVEL_CLS[q.level]}">${q.level}đ · ${LEVEL_LABEL[q.level]}</span>` : ''}
-        ${exam && !q.level ? `<span class="tag tag-pts">${it.points}đ</span>` : ''}
+        ${!exam ? `<span class="tag tag-ch">Chương ${q.chapter}</span>` : ''}
+        ${!exam && q.level ? `<span class="tag tag-lv ${LEVEL_CLS[q.level]}">${q.level}đ · ${LEVEL_LABEL[q.level]}</span>` : ''}
+        ${s.cfg.custom ? `<span class="tag tag-type">${esc(s.cfg.label)}</span>` : ''}
         <span class="tag tag-type">${TYPE_LABEL[q.type]}</span>
-        <button class="flag ${s.flags[s.idx] ? 'on' : ''}" id="flag" title="Đánh dấu xem lại">★</button>
+        <button class="save ${saved ? 'on' : ''}" id="save" title="${saved ? 'Bỏ lưu câu này' : 'Lưu câu chưa thuộc để ôn lại'}">🔖</button>
+        <button class="flag ${s.flags[s.idx] ? 'on' : ''}" id="flag" title="Đánh dấu xem lại trong phiên">★</button>
       </div>
-      ${q.section ? `<div class="qsec"><span class="qsec-ic">▣</span> ${esc(q.section)}</div>` : ''}
+      ${!exam && q.section ? `<div class="qsec"><span class="qsec-ic">▣</span> ${esc(q.section)}</div>` : ''}
       <div class="stem">${formatStem(q)}</div>
       ${q.type === 'combo' ? renderStatements(q) : ''}
       ${q.type === 'match' ? renderMatch(q, opts) : renderChoices(q, opts)}
@@ -659,9 +786,10 @@ function wireQuiz() {
   const { q } = s.items[s.idx]
 
   app.querySelector('#quit').addEventListener('click', () => {
-    if (confirm('Thoát bài làm hiện tại? Tiến độ sẽ không được lưu.')) { state.screen = 'home'; renderHome() }
+    if (confirm('Thoát bài làm hiện tại? Tiến độ sẽ không được lưu.')) { stopTimer(); state.screen = 'home'; renderHome() }
   })
   app.querySelector('#flag').addEventListener('click', () => { s.flags[s.idx] = !s.flags[s.idx]; renderQuiz() })
+  app.querySelector('#save').addEventListener('click', () => { toggleSaved(s.cfg.source, q); renderQuiz() })
 
   app.querySelectorAll('.dot').forEach((d) =>
     d.addEventListener('click', () => { s.idx = +d.dataset.goto; renderQuiz() }))
@@ -671,7 +799,7 @@ function wireQuiz() {
   const next = app.querySelector('#next')
   if (next) next.addEventListener('click', () => { s.idx++; renderQuiz() })
   const submit = app.querySelector('#submit')
-  if (submit) submit.addEventListener('click', finish)
+  if (submit) submit.addEventListener('click', () => finish())
   const check = app.querySelector('#check')
   if (check) check.addEventListener('click', () => {
     if (s.answers[s.idx] == null) { flash('Hãy chọn đáp án trước.'); return }
@@ -719,9 +847,12 @@ function flash(msg) {
 // =====================================================================
 // RESULT
 // =====================================================================
-function finish() {
+function finish(timedOut = false) {
   const s = state.session
+  stopTimer()
   s.finished = true
+  s.timeSec = elapsedSec()
+  s.timedOut = timedOut
   const correct = s.items.reduce((a, it, i) => a + (isCorrect(it.q, s.answers[i]) ? 1 : 0), 0)
   const total = s.items.length
   const scores = loadScores()
@@ -730,28 +861,41 @@ function finish() {
     let pts = 0
     s.items.forEach((it, i) => { pts += score(it.q, s.answers[i]) * (it.points || 0) })
     const score10 = Math.round(pts * 100) / 100 // điểm trên thang 10
-    scores.push({ at: Date.now(), correct, total, pct: Math.round(score10 * 10), exam: true, score10 })
+    scores.push({ at: Date.now(), correct, total, pct: Math.round(score10 * 10), exam: true, score10, timeSec: s.timeSec })
     localStorage.setItem(LS_SCORE, JSON.stringify(scores.slice(-50)))
     state.screen = 'result'
-    renderResult({ exam: true, score10, correct, total })
+    renderResult({ exam: true, score10, correct, total, timeSec: s.timeSec, timedOut })
     return
   }
 
   let pts = 0
   s.items.forEach((it, i) => (pts += score(it.q, s.answers[i])))
   const pct = Math.round((pts / total) * 100)
-  scores.push({ at: Date.now(), correct, total, pct })
-  localStorage.setItem(LS_SCORE, JSON.stringify(scores.slice(-50)))
+  // phiên luyện tập tùy chỉnh (làm lại câu sai · câu đã lưu) không ghi vào lịch sử
+  if (!s.cfg.custom) {
+    scores.push({ at: Date.now(), correct, total, pct, timeSec: s.timeSec })
+    localStorage.setItem(LS_SCORE, JSON.stringify(scores.slice(-50)))
+  }
   state.screen = 'result'
-  renderResult({ pts, correct, total, pct })
+  renderResult({ pts, correct, total, pct, timeSec: s.timeSec })
 }
 
 function renderResult(r) {
   const s = state.session
+  const wrong = s.items.filter((it, i) => !isCorrect(it.q, s.answers[i])).length
+  const timeStr = r.timeSec != null ? fmtTime(r.timeSec) : null
+  const redoBtn = wrong ? `<button class="btn primary" id="redo">🔁 Làm lại ${wrong} câu sai</button>` : ''
+  const wireCommon = () => {
+    app.querySelector('#home').addEventListener('click', () => { state.screen = 'home'; renderHome() })
+    app.querySelector('#review').addEventListener('click', renderReview)
+    const redo = app.querySelector('#redo')
+    if (redo) redo.addEventListener('click', startRedoWrong)
+  }
 
   if (r.exam) {
     const grade = r.score10 >= 8 ? 'good' : r.score10 >= 5 ? 'mid' : 'bad'
-    const msg = r.score10 >= 8 ? 'Xuất sắc!' : r.score10 >= 5 ? 'Đạt — cố thêm nhé!' : 'Chưa đạt, ôn lại nhé!'
+    const msg = r.timedOut ? '⏰ Hết giờ!'
+      : r.score10 >= 8 ? 'Xuất sắc!' : r.score10 >= 5 ? 'Đạt — cố thêm nhé!' : 'Chưa đạt, ôn lại nhé!'
     const num = r.score10.toFixed(2).replace(/\.?0+$/, '') // 7.50 → 7.5 · 10.00 → 10
     app.innerHTML = `
     <div class="wrap">
@@ -759,8 +903,9 @@ function renderResult(r) {
         <div class="ring ${grade}"><span>${num}<small>/10</small></span></div>
         <h1>${msg}</h1>
         <p class="sub">🎯 Đề thi thử · <b>${esc(getSource(s.cfg.source).label)}</b><br>
-          Đúng <b>${r.correct}</b>/${r.total} câu · Điểm <b>${num}</b>/10</p>
+          Đúng <b>${r.correct}</b>/${r.total} câu · Điểm <b>${num}</b>/10${timeStr ? ` · ⏱ <b>${timeStr}</b>` : ''}${r.timedOut ? ' · <b class="rd">tự nộp do hết giờ</b>' : ''}</p>
         <div class="actions center">
+          ${redoBtn}
           <button class="btn exam" id="retry">🎯 Tạo đề mới</button>
           <button class="btn ghost" id="review">Xem lại đáp án</button>
           <button class="btn ghost" id="home">Về trang chủ</button>
@@ -768,23 +913,24 @@ function renderResult(r) {
       </section>
       <div id="review-list"></div>
     </div>`
-    app.querySelector('#home').addEventListener('click', () => { state.screen = 'home'; renderHome() })
     app.querySelector('#retry').addEventListener('click', () => startExam(s.cfg.source))
-    app.querySelector('#review').addEventListener('click', renderReview)
+    wireCommon()
     return
   }
 
   const grade = r.pct >= 80 ? 'good' : r.pct >= 50 ? 'mid' : 'bad'
   const msg = r.pct >= 80 ? 'Xuất sắc!' : r.pct >= 50 ? 'Khá tốt, cố lên!' : 'Cần ôn lại nhé!'
+  const custom = s.cfg.custom
 
   app.innerHTML = `
   <div class="wrap">
     <section class="card result">
       <div class="ring ${grade}"><span>${r.pct}<small>%</small></span></div>
       <h1>${msg}</h1>
-      <p class="sub">Đúng <b>${r.correct}</b>/${r.total} câu · Điểm theo phần: ${r.pts.toFixed(1)}/${r.total}</p>
+      <p class="sub">${custom ? `${esc(s.cfg.label)} · ` : ''}Đúng <b>${r.correct}</b>/${r.total} câu · Điểm theo phần: ${r.pts.toFixed(1)}/${r.total}${timeStr ? ` · ⏱ <b>${timeStr}</b>` : ''}</p>
       <div class="actions center">
-        <button class="btn primary" id="retry">Làm lại bộ này</button>
+        ${redoBtn}
+        <button class="btn primary" id="retry">${custom ? 'Làm lại nhóm này' : 'Làm lại bộ này'}</button>
         <button class="btn ghost" id="review">Xem lại đáp án</button>
         <button class="btn ghost" id="home">Về trang chủ</button>
       </div>
@@ -792,19 +938,21 @@ function renderResult(r) {
     <div id="review-list"></div>
   </div>`
 
-  app.querySelector('#home').addEventListener('click', () => { state.screen = 'home'; renderHome() })
-  app.querySelector('#retry').addEventListener('click', () => startSession(s.cfg))
-  app.querySelector('#review').addEventListener('click', renderReview)
+  app.querySelector('#retry').addEventListener('click', () =>
+    custom ? startCustomSession(s.items.map((it) => ({ q: it.q, opts: it.q.options })), s.cfg) : startSession(s.cfg))
+  wireCommon()
 }
 
 function renderReview() {
   const s = state.session
   const list = app.querySelector('#review-list')
   list.innerHTML = `<section class="card"><h2>Xem lại (${s.items.length} câu)</h2>
+    <p class="rev-hint">🔖 Bấm dấu trang để lưu câu <b>chưa thuộc</b> — ôn lại riêng ở trang chủ.</p>
     ${s.items.map((it, i) => {
       const q = it.q
       const ans = s.answers[i]
       const ok = isCorrect(q, ans)
+      const sv = isSaved(s.cfg.source, q)
       let yours, right
       if (q.type === 'match') {
         const cur = ans || {}
@@ -815,12 +963,22 @@ function renderReview() {
         right = q.answer.map((k) => k.toUpperCase()).join(', ')
       }
       return `<div class="rev ${ok ? 'ok' : 'no'}">
-        <div class="rev-h"><span class="rev-i">${i + 1}</span><span class="rev-st">${esc(q.stem)}</span></div>
-        ${q.section ? `<div class="rev-sec">${q.level ? `<span class="rev-lv ${LEVEL_CLS[q.level]}">${q.level}đ</span>` : ''}▣ Chương ${q.chapter} · ${esc(q.section)}</div>` : ''}
+        <div class="rev-h">
+          <span class="rev-i">${i + 1}</span>
+          <span class="rev-st">${esc(q.stem)}</span>
+          <button class="save rev-save ${sv ? 'on' : ''}" data-i="${i}" title="${sv ? 'Bỏ lưu câu này' : 'Lưu câu chưa thuộc'}">🔖</button>
+        </div>
+        <div class="rev-sec">${q.level ? `<span class="rev-lv ${LEVEL_CLS[q.level]}">${q.level}đ</span>` : ''}▣ Chương ${q.chapter}${q.section ? ` · ${esc(q.section)}` : ''}</div>
         <div class="rev-a">Bạn: <b>${yours}</b> · Đúng: <b class="g">${right}</b></div>
+        ${q.explain ? `<div class="rev-ex">${esc(q.explain)}</div>` : ''}
       </div>`
     }).join('')}
   </section>`
+  list.querySelectorAll('.rev-save').forEach((btn) => btn.addEventListener('click', () => {
+    const on = toggleSaved(s.cfg.source, s.items[+btn.dataset.i].q)
+    btn.classList.toggle('on', on)
+    btn.title = on ? 'Bỏ lưu câu này' : 'Lưu câu chưa thuộc'
+  }))
   list.scrollIntoView({ behavior: 'smooth' })
 }
 
